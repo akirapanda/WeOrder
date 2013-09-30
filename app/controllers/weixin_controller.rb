@@ -12,7 +12,7 @@ class WeixinController < ApplicationController
 	def create
 		logger.debug "text:#{params[:xml]}"
 		if params[:xml][:MsgType]=="text"
-		  orders=orders.all
+		  orders=Order.all
 		  @content=":
 		  "
 		  orders.each do |order|
