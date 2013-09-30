@@ -24,11 +24,13 @@ class GoodsItemsController < ApplicationController
   # POST /goods_items
   # POST /goods_items.json
   def create
-    @goods_item = GoodsItem.new(goods_item_params)
-
+    @goods_item = GoodsItem.new()
+    @goods_item.good_id=params[:good_id]
+    @goods_item.order_id=params[:order_id]
     respond_to do |format|
       if @goods_item.save
         format.html { redirect_to @goods_item, notice: 'Goods item was successfully created.' }
+        format.js
         format.json { render action: 'show', status: :created, location: @goods_item }
       else
         format.html { render action: 'new' }

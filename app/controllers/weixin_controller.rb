@@ -13,7 +13,7 @@ class WeixinController < ApplicationController
 		logger.debug "text:#{params[:xml]}"
 		if params[:xml][:MsgType]=="text"
 		  goods=Good.all
-		  @content="现存水果品种有:
+		  @content=":
 		  "
 		  goods.each do |goods|
 		    @content=@content+goods.name+'

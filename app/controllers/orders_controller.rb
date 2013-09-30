@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @goods=Good.all
   end
 
   # POST /orders
