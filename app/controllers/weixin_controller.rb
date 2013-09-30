@@ -1,6 +1,6 @@
 class WeixinController < ApplicationController
 	skip_before_filter :verify_authenticity_token
-	#before_filter :check_weixin_legality
+	before_filter :check_weixin_legality
 	def show
 		render :text=> params[:echostr]
 	end
@@ -12,7 +12,7 @@ class WeixinController < ApplicationController
 	def create
 		logger.debug "text:#{params[:xml]}"
 		if params[:xml][:MsgType]=="text"
-		  @content="Hello Weixin"
+		  @goods=Good.all
 			render "echo",:format=>:xml
 		end
 	end

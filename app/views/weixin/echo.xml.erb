@@ -3,6 +3,10 @@
     <FromUserName><![CDATA[<%= params[:xml][:ToUserName] %>]]></FromUserName>
     <CreateTime><%= Time.now.to_i %></CreateTime>
     <MsgType><![CDATA[text]]></MsgType>
+	<%@goods.each do |good|
+		@content=@content+good.name+<br/>
+	end%>
+	
     <Content><![CDATA[小潘学你说：<%= @content %>]]></Content>
     <FuncFlag>0</FuncFlag>
 </xml>
