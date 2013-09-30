@@ -1,0 +1,29 @@
+<h1>Listing goods_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Good</th>
+      <th>Order</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @goods_items.each do |goods_item| %>
+      <tr>
+        <td><%= goods_item.good_id %></td>
+        <td><%= goods_item.order_id %></td>
+        <td><%= link_to 'Show', goods_item %></td>
+        <td><%= link_to 'Edit', edit_goods_item_path(goods_item) %></td>
+        <td><%= link_to 'Destroy', goods_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Goods item', new_goods_item_path %>

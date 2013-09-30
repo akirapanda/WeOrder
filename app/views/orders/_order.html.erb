@@ -1,0 +1,9 @@
+<%order.goods_items.each do |goods_item|%>
+	<div class="order_form_item">
+		<%=image_tag goods_item.good.cover%>
+		<%= goods_item.good.name%>
+		<%=goods_item.good.price%>元/<%=goods_item.good.unit%>
+
+	</div>
+	
+<%end%>

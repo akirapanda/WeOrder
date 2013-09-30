@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WeOder - 微单</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <%= yield :head%>
+</head>
+<body>
+	<div class="container root_container">
+		<div class="navbar navbar-fixed-top navbar-inverse">
+			<div class="navbar-inner">
+				<div class="container">
+					<ul class="nav">
+						<li><%= link_to("首页",root_path)%></li>
+						<li><%= link_to("商品管理",goods_path)%>
+						<li><%= link_to("订单表格管理",orders_path)%>	
+					</ul>
+					<ul class="nav pull-right">
+		
+                	</ul>
+					</div>
+				</div>
+			</div>
+	
+		<div class="container">
+			<%if notice%>
+			<div class="alert alert-info">
+				<a class="close" data-dismiss='alert' href="#">x</a>
+				<p id="notice"><%= notice %></p>
+			</div>
+			<%end%>
+			<%= yield %>
+		</div>
+	</div>
+		
+		<footer class="footer">
+				<ul>
+					<li>About</li>
+					<li>关注我们的微博</li>
+				</ul>
+		</footer>
+
+</body>
+</html>
