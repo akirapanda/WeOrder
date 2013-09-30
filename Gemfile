@@ -1,7 +1,6 @@
 source 'http://ruby.taobao.org'
 
-source 'http://ruby.taobao.org'
-
+gem 'actionpack-xml_parser'
 gem "rails-i18n","0.1.8"
 
 #Bootstrap
