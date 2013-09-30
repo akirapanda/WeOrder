@@ -1,6 +1,6 @@
 Weorder::Application.routes.draw do
   resources :orders
-  resouces  :weixin
+  resources  :weixin
   resources :goods_items
 
   resources :goods
