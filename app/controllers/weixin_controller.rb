@@ -4,7 +4,10 @@ class WeixinController < ApplicationController
 	def show
 		render :text=> params[:echostr]
 	end
-
+	
+	def index
+		render :text=> params[:echostr]
+	end
 	
 	def create
 		logger.debug "text:#{params[:xml]}"
