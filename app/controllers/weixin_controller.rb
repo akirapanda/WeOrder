@@ -17,7 +17,7 @@ class WeixinController < ApplicationController
 		  "
 		  orders.each do |order|
 		    url=order_url(order)
-		    @content=@content+"#商品清单:{order.name}, #{url}"+'
+		    @content=@content+"商品清单:#{order.name}, #{url}"+'
 		    '
 		  end
 			render "echo",:format=>:xml
