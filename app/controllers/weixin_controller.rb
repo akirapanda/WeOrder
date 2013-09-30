@@ -12,11 +12,12 @@ class WeixinController < ApplicationController
 	def create
 		logger.debug "text:#{params[:xml]}"
 		if params[:xml][:MsgType]=="text"
-		  goods=Good.all
+		  orders=orders.all
 		  @content=":
 		  "
-		  goods.each do |goods|
-		    @content=@content+goods.name+'
+		  orders.each do |order|
+		    url=order_url(order)
+		    @content=@content+"<a href=#{url}>#{order.name}</a>"+'
 		    '
 		  end
 			render "echo",:format=>:xml
