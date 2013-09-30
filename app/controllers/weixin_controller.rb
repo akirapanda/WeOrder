@@ -15,7 +15,7 @@ class WeixinController < ApplicationController
 		  goods=Good.all
 		  content="现存水果品种有:/n"
 		  goods.each do |goods|
-		    content=content+goods.name+'/n'
+		    @content=content+goods.name+'/n'
 		  end
 		  
 		  
