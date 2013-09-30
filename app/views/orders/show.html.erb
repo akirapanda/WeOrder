@@ -3,6 +3,9 @@
 <div class="hero-unit">
   <h1> <%= @order.name %></h1>
   <p> <%= @order.content %></p>
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
+
 </div>
 
 <p>
@@ -12,5 +15,3 @@
 
 <%=render :partial=> @order%>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>

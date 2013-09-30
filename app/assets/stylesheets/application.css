@@ -16,7 +16,8 @@ body{
 }
 
 
-order_form_item{
+.order_form_div{
 	float:left;
 	display:inline;
+	padding-right:20px;
 }
