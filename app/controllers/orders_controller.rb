@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy,:list]
 
   # GET /orders
   # GET /orders.json
@@ -12,6 +12,17 @@ class OrdersController < ApplicationController
   def show
   end
 
+  def list
+    @shopping=Shopping.new
+    @order.goods_items.each do |good_item|
+      shopping_item=ShoppingItem.new
+      shopping_item.good_id=good_item.good_id
+      shopping_item.shopping_id=@shopping.id
+      good=Good.find(good_item.good_id)
+      shopping_item.good=good
+      @shopping.shopping_items<<shopping_item
+    end
+  end
   # GET /orders/new
   def new
     @order = Order.new

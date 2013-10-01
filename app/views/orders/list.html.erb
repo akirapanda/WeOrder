@@ -1,0 +1,37 @@
+<%= simple_form_for(@shopping) do |f| %>
+<p id="notice"><%= notice %></p>
+<form>
+<fieldset>
+    <legend>
+      <span class="form-name"><%=@order.name%></span>
+      <small class="form-description"><p><%=@order.content%></p></small>
+    </legend>
+	<%@shopping.shopping_items.each do |item| %>
+	<div class="goods_div">
+		<div class="image-center">
+		<%= image_tag item.good.cover%>
+		</div>
+		<div class="name">
+		<%= item.good.name%><br/>
+		<small><%= item.good.content%></small>
+
+		</div>
+		<div class="price">
+		&yen<%= item.good.price%><%= item.good.unit%>
+		</div>
+		<div>
+			-<input type="text" name="goods[<%=item.good.id%>][count]"/>+
+		</div>
+	</div>
+	
+	<%end%>
+
+</fieldset>
+<div>
+<%= f.input :customer_name%>
+<%= f.input :customer_address%>
+</div>
+<div class="actions">
+  <input name="commit" type="submit" value="Update Good" />
+</div>
+<%end%>

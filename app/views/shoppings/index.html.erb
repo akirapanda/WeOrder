@@ -1,0 +1,31 @@
+<h1>Listing shoppings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer name</th>
+      <th>Customer address</th>
+      <th>Amount</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shoppings.each do |shopping| %>
+      <tr>
+        <td><%= shopping.customer_name %></td>
+        <td><%= shopping.customer_address %></td>
+        <td><%= shopping.amount %></td>
+        <td><%= link_to 'Show', shopping %></td>
+        <td><%= link_to 'Edit', edit_shopping_path(shopping) %></td>
+        <td><%= link_to 'Destroy', shopping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shopping', new_shopping_path %>

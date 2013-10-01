@@ -16,7 +16,7 @@ class WeixinController < ApplicationController
 		  @content=":
 		  "
 		  orders.each do |order|
-		    url=order_url(order)
+		    url=list_order_url(order)
 		    @content=@content+"商品清单:#{order.name}, #{url}"+'
 		    '
 		  end

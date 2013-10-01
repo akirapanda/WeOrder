@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  good_id: 1
+  shopping_id: 1
+  count: 1
+  amount: 9.99
+
+two:
+  good_id: 1
+  shopping_id: 1
+  count: 1
+  amount: 9.99

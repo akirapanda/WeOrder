@@ -1,5 +1,13 @@
 Weorder::Application.routes.draw do
-  resources :orders
+  resources :shoppings
+
+  resources :shopping_items
+
+  resources :orders do
+    member do
+      get 'list'
+      end
+  end
   resources  :weixin
   resources :goods_items
 

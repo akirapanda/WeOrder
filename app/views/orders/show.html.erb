@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <form>
 <fieldset>
     <legend>
@@ -7,6 +6,8 @@
       <small class="form-description"><p><%=@order.content%></p></small>
     </legend>
 <%=render :partial=> @order%>
-
 </fieldset>
+<div class="actions">
+  <input name="commit" type="submit" value="Update Good" />
+</div>
 </form>
