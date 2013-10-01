@@ -1,14 +1,18 @@
-<h1>Listing shoppings</h1>
+<div class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" href="#">我的订单</a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+	<%= link_to '新增订单', new_shopping_path %>
+  </ul>
+</div>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Customer name</th>
-      <th>Customer address</th>
-      <th>Amount</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>客户名称</th>
+      <th>客户地址</th>
+      <th>总金额</th>
+      <th>创建时间</th>
+      <th>动作</th>
     </tr>
   </thead>
 
@@ -18,14 +22,13 @@
         <td><%= shopping.customer_name %></td>
         <td><%= shopping.customer_address %></td>
         <td><%= shopping.amount %></td>
-        <td><%= link_to 'Show', shopping %></td>
-        <td><%= link_to 'Edit', edit_shopping_path(shopping) %></td>
-        <td><%= link_to 'Destroy', shopping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<td><%= shopping.created_at%></td>
+        <td><%= link_to 'Show', shopping %>
+       <%= link_to 'Edit', edit_shopping_path(shopping) %>
+        <%= link_to 'Destroy', shopping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Shopping', new_shopping_path %>

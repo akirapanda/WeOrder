@@ -1,19 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Customer name:</strong>
+  <strong>客户名称:</strong>
   <%= @shopping.customer_name %>
 </p>
-
 <p>
-  <strong>Customer address:</strong>
+  <strong>客户地址:</strong>
   <%= @shopping.customer_address %>
 </p>
-
 <p>
-  <strong>Amount:</strong>
+  <strong>订单金额:</strong>
   <%= @shopping.amount %>
 </p>
+<p>
+  <strong>下单时间:</strong>
+  <%= @shopping.created_at %>
+</p>
+<table class="table">
+	<thead>
+		<th>商品名称</th>
+		<th>订购数量</th>
+		<th>单价</th>
+		<th>小计</th>
+	</thead>
+	<tbody>
+		<% @shopping.shopping_items.each do |item|%>
+			<tr>
+				<td><%=item.good.name%></td>
+				<td><%=item.count%> <%=item.good.unit%></td>
+				<td>&yen<%=item.good.price%> / <%=item.good.unit%></td>
+				<td>&yen<%=item.amount%></td>
+			</tr>
+		<%end%>
+	</tbody>
+</table>
+
 
 <%= link_to 'Edit', edit_shopping_path(@shopping) %> |
 <%= link_to 'Back', shoppings_path %>

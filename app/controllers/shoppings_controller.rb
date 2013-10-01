@@ -41,7 +41,7 @@ class ShoppingsController < ApplicationController
       @shopping.shopping_items<<shopping_item
       shopping_item.save
     end
-
+    @shopping.amount=@shopping.calAmount(@shopping)
     respond_to do |format|
       if @shopping.save
         format.html { redirect_to @shopping, notice: 'Shopping was successfully created.' }

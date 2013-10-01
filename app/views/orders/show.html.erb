@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<p>通过下方的链接分享您的表单:</p> <%=link_to list_order_url(@order),list_order_url(@order)%>
 <form>
 <fieldset>
     <legend>
@@ -7,7 +8,4 @@
     </legend>
 <%=render :partial=> @order%>
 </fieldset>
-<div class="actions">
-  <input name="commit" type="submit" value="Update Good" />
-</div>
 </form>
