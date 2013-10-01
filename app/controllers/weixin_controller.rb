@@ -17,9 +17,11 @@ class WeixinController < ApplicationController
 		  "
 		  orders.each do |order|
 		    url=list_order_url(order)
-		    @content=@content+"&lt;a href=\"#{url}\"&gt;#{order.name}</a>"+'
+		    @content=@content+"< a href=\"#{url}\">;#{order.name}</a>"+'
 		    '
 		  end
+		  logger.debug "reply:#{@content}"
+  		
 			render "echo",:format=>:xml
 		end
 	end
