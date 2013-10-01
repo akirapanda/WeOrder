@@ -1,5 +1,13 @@
 <div class="goods_div">
+	<div class="image-center">
 	<%= image_tag goods.cover%>
-	<%= goods.name%>
-	<%= goods.price%>元<%= goods.unit%>
+	</div>
+	<div class="name">
+	<%= goods.name%><br/>
+	<small><%= goods.content%></small>
+	  
+	</div>
+	<div class="price">
+	&yen<%= goods.price%><%= goods.unit%>
+	</div>
 </div>

@@ -1,17 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<div class="hero-unit">
-  <h1> <%= @order.name %></h1>
-  <p> <%= @order.content %></p>
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
-
-</div>
-
-<p>
-  <strong>Publish:</strong>
-  <%= @order.publish %>
-</p>
-
+<form>
+<fieldset>
+    <legend>
+      <span class="form-name"><%=@order.name%></span>
+      <small class="form-description"><p><%=@order.content%></p></small>
+    </legend>
 <%=render :partial=> @order%>
 
+</fieldset>
+</form>

@@ -9,17 +9,22 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require_tree .	
  */
 body{
-   padding-top: 40px;
+   padding-top: 60px;
 }
-
 .goods_div{
 	float:left;
 	display:inline;
-	padding-right:20px;
+	padding:10px 10px 0;
 	border-width:1px;
 	border-style:solid;
 	border-color:#C2C2C2;
+	margin-top:-10px;
+	margin-left:10px;
+	background:#F9F9F9
 }
+.name{margin-top:-20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-bottom:1px dashed #000}
+.price{color:#FE0019;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.image-center{width:180px;height:180px;text-align:center;vertical-align:middle;}
