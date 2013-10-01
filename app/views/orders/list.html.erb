@@ -7,7 +7,7 @@
       <small class="form-description"><p><%=@order.content%></p></small>
     </legend>
 	<%@shopping.shopping_items.each do |item| %>
-	<div class="goods_div">
+	<div class="goods_div hidden-phone">
 		<div class="image-center">
 		<%= image_tag item.good.cover%>
 		</div>
@@ -23,8 +23,8 @@
 			-<input type="text" name="goods[<%=item.good.id%>][count]"/>+
 		</div>
 	</div>
-	
 	<%end%>
+
 
 </fieldset>
 <div>

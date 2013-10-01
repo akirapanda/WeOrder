@@ -83,6 +83,8 @@ GEM
     mini_magick (3.3)
       subexec (~> 0.1.0)
     minitest (4.7.5)
+    mobile_rails (0.0.5)
+    mobile_rails_jqm (0.0.6)
     multi_json (1.8.0)
     nokogiri (1.5.10)
     orm_adapter (0.4.0)
@@ -178,6 +180,8 @@ DEPENDENCIES
   less-rails
   md_emoji
   mini_magick (= 3.3)
+  mobile_rails
+  mobile_rails_jqm
   nokogiri (~> 1.5.6)
   rails (= 4.0.0)
   rails-i18n (= 0.1.8)
