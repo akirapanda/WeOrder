@@ -11,7 +11,9 @@
  *= require_self
  *= require_tree .	
  */
-
+.form{
+	margin:10px 10px 0;	
+}
 .fl {
 	float:left;
 	display:inline
