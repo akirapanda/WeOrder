@@ -1,26 +1,31 @@
-<h1>Listing orders</h1>
+<div class="dropdown">
+  <a class="dropdown-toggle" data-toggle="dropdown" href="#">我的订单</a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+	<%= link_to '新增订单', new_order_path %>	
+  </ul>
+</div>
 
-<table>
+
+
+<div>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th>Publish</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>订单名称</th>
+      <th>简介</th>
+      <th>是否公开</th>
+      <th>操作</th>
     </tr>
   </thead>
 
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.name %>-<%=order.goods_items.size%></td>
+        <td><%= link_to  order.name, order %></td>
         <td><%= order.content %></td>
         <td><%= order.publish %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %>
+       <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +33,3 @@
 
 <br>
 
-<%= link_to 'New Order', new_order_path %>
