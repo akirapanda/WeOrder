@@ -24,12 +24,21 @@ class GoodsItemsController < ApplicationController
   # POST /goods_items
   # POST /goods_items.json
   def create
-    @goods_item = GoodsItem.new()
-    @goods_item.good_id=params[:good_id]
-    @goods_item.order_id=params[:order_id]
+    good_item_in_db=GoodsItem.where(:good_id=>params[:good_id],:order_id=>params[:order_id]).all
+    if good_item_in_db.size==0
+      @goods_item = GoodsItem.new()
+      @goods_item.good_id=params[:good_id]
+      @goods_item.order_id=params[:order_id]
+    else
+      respond_to do |format|
+        format.html { redirect_to edit_order_path(params[:order_id]), alert: '无法添加同样的商品！' }        
+      end
+      return
+    end
+    
     respond_to do |format|
       if @goods_item.save
-        format.html { redirect_to @goods_item, notice: 'Goods item was successfully created.' }
+        format.html { redirect_to edit_order_path(params[:order_id]), notice: 'Goods item was successfully created.' }
         format.js
         format.json { render action: 'show', status: :created, location: @goods_item }
       else
@@ -58,7 +67,8 @@ class GoodsItemsController < ApplicationController
   def destroy
     @goods_item.destroy
     respond_to do |format|
-      format.html { redirect_to goods_items_url }
+      format.html { redirect_to edit_order_path(@goods_item.order_id) }
+      format.js{@delete_item=@goods_item}
       format.json { head :no_content }
     end
   end

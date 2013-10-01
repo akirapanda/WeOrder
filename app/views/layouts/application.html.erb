@@ -33,6 +33,12 @@
 				<p id="notice"><%= notice %></p>
 			</div>
 			<%end%>
+			<%if alert%>
+			<div class="alert alert-block alert-error">
+				<a class="close" data-dismiss='alert' href="#">x</a>
+				<p id="notice"><%= alert %></p>
+			</div>
+			<%end%>
 			<%= yield %>
 		</div>
 	</div>

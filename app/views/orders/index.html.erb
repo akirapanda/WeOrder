@@ -1,20 +1,22 @@
-<div class="dropdown">
-  <a class="dropdown-toggle" data-toggle="dropdown" href="#">我的订单</a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-	<%= link_to '新增订单', new_order_path %>	
-  </ul>
+<div class="hero-unit">
+<h1>我的商品</h1>
 </div>
-
-
-
 <div>
-<table class="table">
+<table class="table  table-hover">
   <thead>
     <tr>
       <th>订单名称</th>
       <th>简介</th>
       <th>是否公开</th>
-      <th>操作</th>
+      <th>	<div class="btn-group">
+	  		<button class="btn btn-success"><i class="icon-cog"></i></button>
+	  		<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+	    	<span class="caret"></span>
+	  		</button>
+	  		<ul class="dropdown-menu">
+				<li><%= link_to '新增订单', new_order_path %></li>
+			</ul>
+		</div></th>
     </tr>
   </thead>
 
@@ -24,8 +26,18 @@
         <td><%= link_to  order.name, order %></td>
         <td><%= order.content %></td>
         <td><%= order.publish %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %>
-       <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+			<div class="btn-group">
+			  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			    操作
+			    <span class="caret"></span>
+			  </a>
+			<ul class="dropdown-menu">
+				<li><%= link_to '编辑', edit_order_path(order) %></li>
+        		<li><%= link_to '删除', order, method: :delete, data: { confirm: '确定要删除订单表格吗?' } %>
+			</ul>
+			</div>
+  		</td>
       </tr>
     <% end %>
   </tbody>

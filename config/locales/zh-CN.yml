@@ -2,6 +2,7 @@
     activerecord:
         models:
             good: "商品"
+            order: "订单表格"
         attributes:
             good:
                 name: "商品名称"
@@ -9,6 +10,10 @@
                 cover: "商品照片"
                 price: "单价"
                 unit: "单位"
+            order:
+                name: "订单表格名称"
+                publish: "是否公开"
+                content: "简介"
                 
                 
     
