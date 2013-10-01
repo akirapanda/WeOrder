@@ -11,6 +11,32 @@
  *= require_self
  *= require_tree .	
  */
+
+.fl {
+	float:left;
+	display:inline
+}
+.footer{
+	margin-top:20px;	
+}
+.footer ul{
+	text-align:center;
+	font-size:13px;
+	list-style:none;
+	height:100px;
+}
+.footer ul li{
+	display:inline;
+	letter-spacing:2px;
+	padding:0px 12px;
+	font-size:12px;
+
+}
+
+#content{
+	border-radius:10px;
+	background:#F9F9F9;
+}
 body{
    padding-top: 60px;
 }
@@ -25,6 +51,7 @@ body{
 	margin-left:10px;
 	background:#F9F9F9
 }
+
 .name{margin-top:-20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-bottom:1px dashed #000}
 .price{color:#FE0019;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .image-center{width:180px;height:180px;text-align:center;vertical-align:middle;}

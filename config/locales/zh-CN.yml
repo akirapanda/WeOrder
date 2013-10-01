@@ -1,0 +1,14 @@
+"zh-CN":
+    activerecord:
+        models:
+            good: "商品"
+        attributes:
+            good:
+                name: "商品名称"
+                content: "描述"
+                cover: "商品照片"
+                price: "单价"
+                unit: "单位"
+                
+                
+    

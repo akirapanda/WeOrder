@@ -20,6 +20,7 @@ module Weorder
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.middleware.insert_after ActionDispatch::ParamsParser, ActionDispatch::XmlParamsParser
-  	
+  	config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :"zh-CN"
   end
 end

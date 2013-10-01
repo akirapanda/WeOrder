@@ -7,9 +7,12 @@ class CoverUploader < CarrierWave::Uploader::Base
 
   storage :file
   # storage :fog
+  
+  version :normal do
+    process :resize_to_fit => [256, 256]
+  end
 
-
-  process :resize_to_fit => [256, 256]
+  process :resize_to_fit => [128, 128]
   
 
   # Override the directory where uploaded files will be stored.

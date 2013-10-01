@@ -1,31 +1,32 @@
-
-
+<div class="goods">
+	<div class="hero-unit">
+		<h1>商品- <%= @good.name%></h1>
+	</div>
 <p id="notice"><%= notice %></p>
+  <%= image_tag @good.cover %>
+
 
 <p>
-  <strong>Cover:</strong>
-  <%= @good.cover %>
-</p>
-
-<p>
-  <strong>Name:</strong>
+  <strong>商品名称:</strong>
   <%= @good.name %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>商品简介:</strong>
   <%= @good.content %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>单价:</strong>
   <%= @good.price %>
 </p>
 
 <p>
-  <strong>Unit:</strong>
+  <strong>单位:</strong>
   <%= @good.unit %>
 </p>
 
-<%= link_to 'Edit', edit_good_path(@good) %> |
-<%= link_to 'Back', goods_path %>
+<%= link_to 'Edit', edit_good_path(@good),:class=>"btn" %>
+<%= link_to 'Back', goods_path,:class=>"btn" %>
+
+</div>
