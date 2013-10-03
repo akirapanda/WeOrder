@@ -44,7 +44,7 @@ class ShoppingsController < ApplicationController
       end
       if  @shopping.shopping_items.size ==0
           respond_to do |format|
-           format.html { redirect_to list_order_path(order_id), notice: '您的订单中没有任何商品哟' }
+           format.html { redirect_to list_order_path(order_id), alert: '您的订单中没有任何商品哟' }
           end
         return 
       end

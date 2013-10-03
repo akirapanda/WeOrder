@@ -11,6 +11,11 @@
  *= require_self
  *= require_tree .	
  */
+.contact-info{
+	margin-top:20px;
+	padding-left:20px;
+}
+
 .number-container .price-rest{
 	display:inline;
 	float:left;
@@ -61,16 +66,16 @@
 body{
    padding-top: 60px;
 }
-.goods_div{
+.goods-div{
 	float:left;
 	display:inline;
 	padding:10px 10px 0;
 	border-width:1px;
 	border-style:solid;
 	border-color:#C2C2C2;
-	margin-top:-10px;
+	margin-top:10px;
 	margin-left:10px;
-	background:#F9F9F9
+	background:#F9F9F9;
 }
 
 .name{margin-top:-20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-bottom:1px dashed #000}
@@ -80,5 +85,5 @@ body{
 	margin-top:10px;
 	margin-bottom:-5px;
 	overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.image-center{width:260px;height:280px;text-align:center;vertical-align:middle;}
+.image-center{width:256px;height:280px;text-align:center;vertical-align:middle;}
 .rest{font-size:12px;color:#999;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
