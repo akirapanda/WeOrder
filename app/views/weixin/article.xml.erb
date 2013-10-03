@@ -5,12 +5,13 @@
 	<MsgType><![CDATA[news]]></MsgType>
 	<ArticleCount><%=@order.goods_items.count%></ArticleCount>
 	<Articles>
-		<%for @order.goods_items.each do |item|%>
+		<%@order.goods_items.each do |item|%>
 		<item>
 			<Title><![CDATA[<%=raw item.good.name%>]]></Title> 
 			<Description><![CDATA[<%=raw item.good.content%>]]></Description>
 				<PicUrl><![CDATA[<%=item.good.cover_url%>]]></PicUrl>
-				<Url><![CDATA[]]></Url>
+				<Url><![CDATA[<%=raw good_url good %>]]></Url>
 			</item>
+		<%end%>
     </Articles>
 </xml>
