@@ -12,17 +12,23 @@ class WeixinController < ApplicationController
 	def create
 		logger.debug "text:#{params[:xml]}"
 		if params[:xml][:MsgType]=="text"
-		  orders=Order.all
-		  @content=":
-		  "
-		  orders.each do |order|
-		    url=list_order_url(order)
-		    @content=@content+"<a href=\"#{url}\"> #{order.name}</a>"+'
-		    '
+		  if params[:xml][:Content]=="pic"
+		    orders=Order.all
+		    @order=orders[0]
+		    render "article",:format=>:xml
+			  
+		  else
+		    orders=Order.all
+		    @content=":
+		    "
+		    orders.each do |order|
+		      url=list_order_url(order)
+		      @content=@content+"<a href=\"#{url}\"> #{order.name}</a>"+'
+		      '
+		    end
+		    logger.debug "reply:#{@content}"
+			  render "echo",:format=>:xml
 		  end
-		  logger.debug "reply:#{@content}"
-  		
-			render "echo",:format=>:xml
 		end
 	end
 	
