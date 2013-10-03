@@ -20,7 +20,9 @@
 		&yen<%= item.good.price%><%= item.good.unit%>
 		</div>
 		<div>
-			-<input type="text" name="goods[<%=item.good.id%>][count]"/>+
+			 <a href="javascript:void(0)" class="decrease">-</a>
+			<input type="text"class="input-small" name="goods[<%=item.good.id%>][count]" value="0" ></input>
+			<a href="javascript:void(0)" class="increase ">+</a>
 		</div>
 	</div>
 	<%end%>
