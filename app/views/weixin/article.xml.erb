@@ -7,11 +7,10 @@
 	<Articles>
 		<%for @order.goods_items.each do |item|%>
 		<item>
-			<Title><![CDATA[<%=item.good.name%>]]></Title> 
-			<Description><![CDATA[<%=item.good.content%>]]></Description>
+			<Title><![CDATA[<%=raw item.good.name%>]]></Title> 
+			<Description><![CDATA[<%=raw item.good.content%>]]></Description>
 				<PicUrl><![CDATA[<%=item.good.cover_url%>]]></PicUrl>
 				<Url><![CDATA[<%=item(item)%>]]></Url>
 			</item>
-			<item>
     </Articles>
 </xml>
