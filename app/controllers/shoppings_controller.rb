@@ -25,21 +25,29 @@ class ShoppingsController < ApplicationController
   # POST /shoppings.json
   def create
     @shopping = Shopping.new(shopping_params)
-    params.require(:shopping).permit(:goods)
+    params.require(:shopping).permit(:goods,:order_id)
     goods=params[:goods]
-    
+    order_id=params[:order_id]
     ##how to process a complex form like this
     goods.each do |goods|
       goods_id=goods[0]
-      goods_count=goods[1][:count]
-      shopping_item=ShoppingItem.new
-      shopping_item.good_id=goods_id
-      shopping_item.count=goods_count.to_i
-      good=Good.find(goods_id)
-      shopping_item.amount=good.price*shopping_item.count
-      shopping_item.shopping_id=@shopping.id
-      @shopping.shopping_items<<shopping_item
-      shopping_item.save
+      goods_count=goods[1][:count].to_i
+      if goods_count >0
+        shopping_item=ShoppingItem.new
+        shopping_item.good_id=goods_id
+        shopping_item.count=goods_count
+        good=Good.find(goods_id)
+        shopping_item.amount=good.price*shopping_item.count
+        shopping_item.shopping_id=@shopping.id
+        @shopping.shopping_items<<shopping_item
+        shopping_item.save
+      end
+      if  @shopping.shopping_items.size ==0
+          respond_to do |format|
+           format.html { redirect_to list_order_path(order_id), notice: '您的订单中没有任何商品哟' }
+          end
+        return 
+      end
     end
     @shopping.amount=@shopping.calAmount(@shopping)
     respond_to do |format|
