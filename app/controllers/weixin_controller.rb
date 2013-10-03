@@ -15,7 +15,7 @@ class WeixinController < ApplicationController
 		  if params[:xml][:Content]=="pic"
 		    orders=Order.all
 		    @order=orders[0]
-		    logger.debug good_url(@order.goods_items[0].good)
+		    logger.debug "to user:#{params[:xml][:ToUserName]}"
 		    render "test",:format=>:xml
 		  else
 		    orders=Order.all
