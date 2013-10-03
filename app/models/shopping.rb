@@ -1,5 +1,6 @@
 class Shopping < ActiveRecord::Base
   has_many :shopping_items
+  validates :customer_name,:customer_address,:presence => true
   
   def calAmount(shopping)
     amount=0
