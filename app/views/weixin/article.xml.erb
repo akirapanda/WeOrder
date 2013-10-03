@@ -3,7 +3,7 @@
 	<FromUserName><![CDATA[<%= params[:xml][:ToUserName]%> ]]></FromUserName>
 	<CreateTime><%= Time.now.to_i %></CreateTime>
 	<MsgType><![CDATA[news]]></MsgType>
-	<ArticleCount><%=@order.goods_items.count%></ArticleCount>
+	<ArticleCount><%=@order.goods_items.size%></ArticleCount>
 	<Articles>
 		<%@order.goods_items.each do |item|%>
 		<item>
