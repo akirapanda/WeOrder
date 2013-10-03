@@ -16,7 +16,7 @@ class WeixinController < ApplicationController
 		    orders=Order.all
 		    @order=orders[0]
 		    logger.debug good_url(@order.goods_items[0].good)
-		    render "article",:format=>:xml
+		    render "test",:format=>:xml
 		  else
 		    orders=Order.all
 		    @content=":
