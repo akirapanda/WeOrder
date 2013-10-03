@@ -7,10 +7,10 @@
 	<Articles>
 		<%@order.goods_items.each do |item|%>
 		<item>
-			<Title><![CDATA[<%=raw item.good.name%>]]></Title> 
-			<Description><![CDATA[<%=raw item.good.content%>]]></Description>
-			<PicUrl><![CDATA[<%=item.good.cover_url%>]]></PicUrl>
-			<Url><![CDATA[<%= good_url(item.good) %>]]></Url>
+			<Title><![CDATA[<%=item.good.name%>]]></Title> 
+			<Description><![CDATA[<%=item.good.content%>]]></Description>
+			<PicUrl><![CDATA[<%=raw item.good.cover_url%>]]></PicUrl>
+			<Url><![CDATA[<%=raw good_url(item.good) %>]]></Url>
 		</item>
 		<%end%>
     </Articles>
