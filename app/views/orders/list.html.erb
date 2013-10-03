@@ -9,7 +9,7 @@
 	<%@shopping.shopping_items.each do |item| %>
 	<div class="goods_div">
 		<div class="image-center">
-		<%= image_tag item.good.cover%>
+		<%= image_tag item.good.cover_url(:normal)%>
 		</div>
 		<div class="name">
 		<%= item.good.name%><br/>

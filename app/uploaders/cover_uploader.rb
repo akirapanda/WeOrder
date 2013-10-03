@@ -11,9 +11,14 @@ class CoverUploader < CarrierWave::Uploader::Base
   version :normal do
     process :resize_to_fit => [256, 256]
   end
-
-  process :resize_to_fit => [128, 128]
   
+  version :small do
+    process :resize_to_fit => [128, 128]
+  end
+  
+  version :large do
+    process :resize_to_fit => [512, 512]
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
