@@ -14,16 +14,22 @@
 		<div class="name">
 		<%= item.good.name%><br/>
 		<small><%= item.good.content%></small>
-
 		</div>
-		<div class="price">
-		&yen<%= item.good.price%><%= item.good.unit%>
-		</div>
-		<div class="number_container">
-			 <a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
-			<input type="text"class="input-small" name="goods[<%=item.good.id%>][count]" value="0" ></input>
-			<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
-		</div>
+		<div class="number-container">
+			<div class="price-rest">
+				<div class="price" >
+					<p>&yen<%= item.good.price%><%= item.good.unit%></p>
+				</div>
+				<div class="rest">
+					<p>hello</p>
+				</div>
+			</div>
+			<div class="number-counter">
+			 	<a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
+				<input type="text"class="input-mini" readonly="true" 		name="goods[<%=item.good.id%>][count]" value="0" ></input>
+				<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
+			</div>
+		</div><!--end of container-->
 	</div>
 	<%end%>
 
