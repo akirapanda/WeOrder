@@ -16,7 +16,7 @@ class WeixinController < ApplicationController
 		    orders=Order.all
 		    @order=orders[0]
 		    logger.debug "to user:#{params[:xml][:ToUserName]}"
-		    render "echo",:format=>:xml
+		    render "test",:format=>:xml
 		  else
 		    orders=Order.all
 		    @content=":
