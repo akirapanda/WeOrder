@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy,:list]
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!,except:[:list]
   # GET /orders
   # GET /orders.json
   def index

@@ -36,7 +36,7 @@ gem 'mini_magick','3.3', require: false
 
 #devise
 gem 'devise'
-
+gem 'devise-i18n-views'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
