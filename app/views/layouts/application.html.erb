@@ -30,8 +30,17 @@
 							
 					</ul>
 					<ul class="nav pull-right">
-		
-                	</ul>
+						<% if current_user %>
+							<% if current_user %>
+							<li><%=link_to("管理" ,cpanel_root_path,:method=>:get)%></li>
+							<%end%>
+							<li><%=link_to("我的账户" ,user_path(current_user),:method=>:get)%></li>
+							
+							<li><%=link_to("登出" ,destroy_user_session_path,:method=>:delete)%></li>
+							<%else%>
+							<li><%= link_to("登陆",new_user_session_path,:method=>:get)%></li>
+							<%end%>
+                		</ul>
 					</div>
 				</div>
 			</div>

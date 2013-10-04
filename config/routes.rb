@@ -1,7 +1,7 @@
 Weorder::Application.routes.draw do
+  devise_for :users
   resources :shoppings
-
-  resources :shopping_items
+    resources :shopping_items
 
   resources :orders do
     member do
@@ -10,9 +10,18 @@ Weorder::Application.routes.draw do
   end
   resources  :weixin
   resources :goods_items
+  resources :users
 
   resources :goods
   root 'home#index'
+  
+  
+  
+  
+  namespace :cpanel do
+    root :to => 'home#index'
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
