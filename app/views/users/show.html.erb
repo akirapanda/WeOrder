@@ -1,1 +1,14 @@
-<%= current_user.email%>
+<div class="hero-unit">
+<h1>账户信息</h1>
+</div>
+<div class="row">
+	<div class="span3">
+   		<ul class="nav nav-list">
+     		<li><a href="#overview"><i class="icon-chevron-right"></i> 概览</a></li>
+   		</ul>
+ 	</div>
+	<div class="span9">
+		<p>邮件地址:<%= current_user.email%></p>
+	</div>
+</div>
+
