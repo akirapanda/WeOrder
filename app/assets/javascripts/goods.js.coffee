@@ -3,4 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
 	$('.dropdown-toggle').dropdown()
-	$("#post_body").qeditor({})
+	$("#rich").click ->
+		$("#post_body").qeditor({})
