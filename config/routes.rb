@@ -1,4 +1,6 @@
 Weorder::Application.routes.draw do
+  resources :contacts
+
   devise_for :users
   resources :shoppings
     resources :shopping_items

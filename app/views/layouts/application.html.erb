@@ -30,7 +30,7 @@
 							<% if current_user.admin? %>
 							<li><%=link_to("管理" ,cpanel_root_path,:method=>:get)%></li>
 							<%end%>
-							<li><%= link_to "订单表格管理",goods_path%>
+							<li><%= link_to "商品管理",goods_path%>
 
 							<li><%= link_to("订单表格管理",orders_path)%>	
 							<li><%= link_to("客户订单管理",shoppings_path)%>

@@ -11,6 +11,17 @@
  *= require_self
  *= require_tree .	
  */
+.shadow {
+    -moz-box-shadow: 3px 3px 4px #aaaaaa;
+    -webkit-box-shadow: 3px 3px 4px #aaaaaa;
+    box-shadow: 3px 3px 4px #aaaaaa;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#aaaaaa')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#aaaaaa');
+}
+。pre_ribbon{position:absolute;top:0;right:0;height:100px;width:100px;overflow:hidden;color:#fff;font-weight:bold;letter-spacing:.5em}
+
 .contact-info{
 	margin-top:20px;
 	padding-left:20px;
@@ -78,12 +89,12 @@ body{
 	background:#F9F9F9;
 }
 
-.name{margin-top:-20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-bottom:1px dashed #000}
+.name-dashed{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-bottom:1px dashed #000;}
 .price p{
 	color:#FE0019;
 	font-size:14px;
 	margin-top:10px;
 	margin-bottom:-5px;
 	overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.image-center{width:256px;height:280px;text-align:center;vertical-align:middle;}
+.image-center{width:256px;height:280px;text-align:center;vertical-align:middle;margin-bottom:0px}
 .rest{font-size:12px;color:#999;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
