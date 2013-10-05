@@ -3,7 +3,8 @@ Weorder::Application.routes.draw do
 
   devise_for :users
   resources :shoppings
-    resources :shopping_items
+  resources :shopping_items
+  resources :photos
 
   resources :orders do
     member do

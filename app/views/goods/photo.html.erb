@@ -9,4 +9,41 @@
   <li  class="active"><%=link_to '相关配图',photo_good_path(@good)%></li>
 </ul>
 
-<%=@good.photo.size%>
+
+<%= simple_form_for(@photo,:html=>{:class=>"form-horizontal"}) do |f| %>
+<%= render "shared/error_messages",:target=>@photo%>
+	<%=f.text_field :good_id,:value=>@good.id,:class=>"hide"%>
+	<%=f.input :image%>
+	<%=f.submit%>
+<%end%>
+
+
+
+<div>
+	<p>共有 <%=@good.photo.size%> 张配图</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>图片</th>
+				<th>上传时间</th>
+				<th><div class="btn-group">
+				  		<button class="btn btn-success"><i class="icon-cog"></i></button>
+				  		<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+				    	<span class="caret"></span>
+				  		</button>
+				  		<ul class="dropdown-menu">
+							<li><%= link_to '新增图片', new_photo_path %></li>
+						</ul>
+					</div></th>
+			</tr>
+		</thead>
+		<tbody>
+			<%@good.photo.each do |photo|%>
+					<td> <%= image_tag photo.image_url(:small)%></td>
+					<td><%=photo.created_at%></td>
+					<td><%= link_to '删除', photo, method: :delete, data: { confirm: '确定删除配图吗?' } %></td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+</div>

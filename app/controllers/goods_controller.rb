@@ -62,6 +62,7 @@ class GoodsController < ApplicationController
   end
 
   def photo
+    @photo=Photo.new
   end
   
   
