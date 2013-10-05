@@ -5,10 +5,6 @@
 	margin-top:10px;
 	margin-left:60px;
 }
-.goods_head{
-border-bottom:1px solid #999;
-margin-bottom:10px;
-}
 .goods_head h1{
 	text-align:center;
 }
@@ -18,6 +14,7 @@ margin-bottom:10px;
 
 .goods_body #main{
 border-right:1px solid #999;text-align:center;
+padding-bottom:30px;
 }
 
 .goods_body #sidebar .price{
@@ -26,4 +23,34 @@ border-right:1px solid #999;text-align:center;
 	margin-top:10px;
 	margin-bottom:-5px;
 	overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+#body-html{
+	border-top:1px solid #999;text-align:left;
+	margin-left:80px;
+	margin-top:20px;
+	margin-right:20px;
+}
+
+
+.textarea{
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+  -moz-transition: border linear .2s, box-shadow linear .2s;
+  -o-transition: border linear .2s, box-shadow linear .2s;
+  transition: border linear .2s, box-shadow linear .2s;
+  padding: 4px 6px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #555555;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  vertical-align: middle;
+  outline: none;
+  height: 400px;
 }

@@ -1,13 +1,23 @@
+<div id="goods_container" class="container shadow">
 <div class="goods_head">
 		<h1><%= @good.name%></h1>
 		<h2><%= @good.content%></h2>
+		<ul class="nav nav-tabs">
+		  <li><a href="#" data-toggle="tab">首页</a></li>
+		  <li><a href="#" data-toggle="tab">购买记录</a></li>
+		  <li><a href="#messages" data-toggle="tab">留言</a></li>
+		</ul>
 </div>
 <div class="goods_body">
 	<div class="row">
 		<div class="span9">
 			<div id="main">
 			<%= image_tag @good.cover_url(:large) %>
+			<div id="body-html">
+				<%=raw @good.body_html%>
 			</div>
+			</div>
+
 		</div>
 		<div id="sidebar" class="span3">
 			<div class="price">
@@ -16,3 +26,4 @@
 		</div>
 </div>
 
+</div>

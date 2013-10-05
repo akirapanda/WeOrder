@@ -11,6 +11,7 @@
                 cover: "商品照片"
                 price: "单价"
                 unit: "单位"
+                body_html: "详细描述"
             order:
                 name: "订单表格名称"
                 publish: "是否公开"

@@ -2,7 +2,7 @@ source 'http://ruby.taobao.org'
 
 gem 'actionpack-xml_parser'
 gem "rails-i18n","0.1.8"
-
+gem 'font-awesome-sass-rails'
 #Bootstrap
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS

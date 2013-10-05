@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require jquery.qeditor
 //= require_tree .
-//= require masonry.pkgd.min
-//= require imagesloaded.pkgd.min
