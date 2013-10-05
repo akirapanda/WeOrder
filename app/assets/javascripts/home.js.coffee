@@ -13,3 +13,6 @@ $ ->
 		  columnWidth: 256,
 		  itemSelector: '.box',
 		  gutter:10})
+	$('.carousel').carousel({interval: 5000})
+	$('.box img').click ->
+		window.location.href=$(this).attr("data")

@@ -1,7 +1,7 @@
 <div id="masonry" class="js-masonry">
 	<%@goods.each do |goods|%>
 	<div class="box shadow">		
-		<%= image_tag goods.cover_url(:normal)%>
+		<%= image_tag goods.cover_url(:normal),:data=>good_url(goods)%>
 		<div class="name">
 			<p><%= goods.name%> - <%=goods.content%></p>
 		</div>

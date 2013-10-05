@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  
+  has_many :goods
   def admin?
     if email=="p.chenliang@gmail.com"
       return true

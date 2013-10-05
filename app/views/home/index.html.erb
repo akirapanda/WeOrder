@@ -1,7 +1,29 @@
-<div class="hero-unit">
-  <h1>WeOrder -微单</h1>
-  <p>让我们微信下单</p>
 
+
+<div id="myCarousel" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">
+		<div class="hero-unit">
+	  		<h1>WeOrder -微单</h1>
+	  		<p>让我们微信下单</p>
+		</div>
+	</div>
+    <div class="item">
+    	<div class="hero-unit">
+	  		<h1>测试用的第二页</h1>
+	  		<p>让我们微信下单</p>
+		</div>
+    </div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
+
 
 <%= render_cell :goods, :lastest %>

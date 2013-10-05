@@ -30,7 +30,7 @@
   <tbody>
     <% @goods.each do |good| %>
       <tr>
-        <td><%= image_tag good.cover_url(:small) %></td>
+        <td><%= image_tag good.cover_url(:small),:class=>"img-polaroid" %></td>
         <td><%= link_to good.name, good %></td>
         <td><%= good.content %></td>
         <td><%= good.price %></td>

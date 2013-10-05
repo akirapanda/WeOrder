@@ -25,7 +25,7 @@ class GoodsController < ApplicationController
   # POST /goods.json
   def create
     @good = Good.new(good_params)
-
+    @good.user_id=current_user.id
     respond_to do |format|
       if @good.save
         format.html { redirect_to @good, notice: 'Good was successfully created.' }
