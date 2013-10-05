@@ -5,3 +5,25 @@
 	margin-top:10px;
 	margin-left:60px;
 }
+.goods_head{
+border-bottom:1px solid #999;
+margin-bottom:10px;
+}
+.goods_head h1{
+	text-align:center;
+}
+.goods_head h2{
+	font-size:18px;color:#999;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;
+}
+
+.goods_body #main{
+border-right:1px solid #999;text-align:center;
+}
+
+.goods_body #sidebar .price{
+	color:#000;
+	font-size:18px;
+	margin-top:10px;
+	margin-bottom:-5px;
+	overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
