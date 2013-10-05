@@ -1,5 +1,5 @@
 class GoodsController < ApplicationController
-  before_action :set_good, only: [:show, :edit, :update, :destroy]
+  before_action :set_good, only: [:show, :edit, :update, :destroy,:photo]
   before_filter :authenticate_user!,except: [:show]
   # GET /goods
   # GET /goods.json
@@ -61,6 +61,10 @@ class GoodsController < ApplicationController
     end
   end
 
+  def photo
+  end
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_good

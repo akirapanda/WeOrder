@@ -1,0 +1,12 @@
+<div class="hero-unit">
+	<h1>编辑 - <%= @good.name%></h1>
+</div>
+
+<ul class="nav nav-pills">
+  <li>
+ 	<%=link_to '基础信息',edit_good_path(@good)%>
+  </li>
+  <li  class="active"><%=link_to '相关配图',photo_good_path(@good)%></li>
+</ul>
+
+<%=@good.photo.size%>

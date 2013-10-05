@@ -14,7 +14,12 @@ Weorder::Application.routes.draw do
   resources :goods_items
   resources :users
 
-  resources :goods
+  resources :goods do
+    member do
+      get 'photo'
+    end
+  end
+  
   root 'home#index'
   
   
