@@ -78,7 +78,8 @@
 }
 body{
    padding-top: 60px;
-   font-family:
+	background:url("/assets/ravenna.png") repeat;
+
 }
 .goods-div{
 	float:left;
