@@ -1,0 +1,39 @@
+<div id="goods_container" class="container shadow">
+<div class="goods_head">
+		<h1><%= @good.name%></h1>
+		<h2><%= @good.content%></h2>
+		<ul id="myTab" class="nav nav-pills">
+		  <li><%=link_to "首页",good_url(@good)%></li>
+		  <li class="active"><%=link_to "谁买了",buyer_good_url(@good)%></li>	
+		
+		  <li><%=link_to "评价&留言",comments_good_url(@good)%></li>		
+		
+		</ul>
+</div>
+<div class="goods_body">
+	<div class="row">
+		<div class="span9">
+			<div id="main">
+				<h3>谁也买了</h3>
+				<div id="body-html">
+					<p>购买记录</p>
+				</div>
+				<div>
+					留言发布框
+					<input type="textarea"/>
+					<input type="submit"/>
+				</div>
+			</div>
+
+		</div>
+		<div id="sidebar" class="span3">
+			<div class="price">
+	  			&yen <%= @good.price %> / <%= @good.unit %>
+			</div>
+			<div class="buy">
+				<%=button_to "购买",@good,:class=>'btn'%>
+			</div>
+		</div>
+</div>
+
+</div>
