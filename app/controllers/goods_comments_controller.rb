@@ -5,7 +5,12 @@ class GoodsCommentsController < ApplicationController
   # POST /goods.json
   def create
     @comment = GoodsComment.new(comments_params)
-    @comment.user_id=current_user.id
+    #allow anounce to make a message
+    if current_user
+      @comment.user_id=current_user.id 
+    else
+      @comment.user_id=1
+    end
     respond_to do |format|
       if @comment.save
         format.html { redirect_to comments_good_url(@comment.good_id), notice: '添加评论成功!' }
