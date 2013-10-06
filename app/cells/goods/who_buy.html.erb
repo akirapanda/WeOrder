@@ -1,0 +1,24 @@
+<%if @shopping_items.size>0%>
+
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>客户名称</th>
+			<th>购买时间</th>
+			<th>购买件数</th>
+		</tr>
+	</thead>
+<% @shopping_items.each do |item|%>
+		<tr>
+			<td></td>
+			<td><%=item.created_at%></td>
+			<td><%=item.count%></td>
+		</tr>
+<%end%>
+
+</table>
+<%end%>
+
+<p>暂无购买记录</p>
+

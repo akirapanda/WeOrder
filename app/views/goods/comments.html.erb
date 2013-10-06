@@ -14,11 +14,7 @@
 	<div class="row">
 		<div class="span9">
 			<div id="main">
-				<%=carousel_tag @good%>
-				<div id="body-html">
-				<%=raw @good.body_html%>
-
-			</div>
+				<%= render_cell :goods, :comments,:goods=>@good %>
 			</div>
 
 		</div>

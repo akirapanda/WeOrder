@@ -28,12 +28,12 @@
 					<ul class="nav pull-right">
 						<% if current_user %>
 							<% if current_user.admin? %>
-							<li><%=link_to("管理" ,cpanel_root_path,:method=>:get)%></li>
+								<li><%=link_to("管理" ,cpanel_root_path,:method=>:get)%></li>
+								<li><%= link_to "商品管理",goods_path%>
+								<li><%= link_to("订单表格管理",orders_path)%>	
+								<li><%= link_to("客户订单管理",shoppings_path)%>
 							<%end%>
-							<li><%= link_to "商品管理",goods_path%>
-
-							<li><%= link_to("订单表格管理",orders_path)%>	
-							<li><%= link_to("客户订单管理",shoppings_path)%>
+	
 							<li><%=link_to("我的账户" ,user_path(current_user),:method=>:get)%></li>
 
 							<li><%=link_to("登出" ,destroy_user_session_path,:method=>:delete)%></li>

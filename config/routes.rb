@@ -5,7 +5,7 @@ Weorder::Application.routes.draw do
   resources :shoppings
   resources :shopping_items
   resources :photos
-
+  resources :goods_comments
   resources :orders do
     member do
       get 'list'
