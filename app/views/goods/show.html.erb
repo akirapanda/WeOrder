@@ -2,10 +2,12 @@
 <div class="goods_head">
 		<h1><%= @good.name%></h1>
 		<h2><%= @good.content%></h2>
-		<ul class="nav nav-tabs">
-		  <li><a href="#" data-toggle="tab">首页</a></li>
-		  <li><a href="#" data-toggle="tab">购买记录</a></li>
-		  <li><a href="#messages" data-toggle="tab">留言</a></li>
+		<ul id="myTab" class="nav nav-pills">
+		  <li class="active"><%=link_to "首页",good_url(@good)%></li>
+		  <li><%=link_to "谁买了",buyer_good_url(@good)%></li>	
+		
+		  <li ><%=link_to "评价&留言",comments_good_url(@good)%></li>		
+		
 		</ul>
 </div>
 <div class="goods_body">
@@ -23,6 +25,9 @@
 		<div id="sidebar" class="span3">
 			<div class="price">
 	  			&yen <%= @good.price %> / <%= @good.unit %>
+			</div>
+			<div class="buy">
+				<%=button_to "购买",@good,:class=>'btn'%>
 			</div>
 		</div>
 </div>

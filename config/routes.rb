@@ -13,19 +13,22 @@ Weorder::Application.routes.draw do
   end
   resources  :weixin
   resources :goods_items
-  resources :users
+  resources :users do
+    member do
+      get 'shopping'
+    end
+  end
 
   resources :goods do
     member do
       get 'photo'
+      get 'comments'
+      get 'buyer'
     end
   end
   
   root 'home#index'
-  
-  
-  
-  
+    
   namespace :cpanel do
     root :to => 'home#index'
   end

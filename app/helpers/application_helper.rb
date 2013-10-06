@@ -13,7 +13,7 @@ module ApplicationHelper
   
   def carousel_tag(goods)
     if goods.photo.size==0
-      return image_tag goods.cover_url(:normal)
+      return image_tag goods.cover_url(:large)
     else
     
     carousel_html="<div id=\"myCarousel\" class=\"carousel slide\">"
@@ -30,7 +30,7 @@ module ApplicationHelper
     items_html="<div class=\"carousel-inner\">"
     
     items_html<<"<div class=\"active item\">"
-    items_html<<image_tag(goods.cover_url(:normal))
+    items_html<<image_tag(goods.cover_url(:large))
     items_html<<"</div>"
     
     goods.photo.each do |photo|
