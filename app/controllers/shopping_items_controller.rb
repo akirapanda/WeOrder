@@ -28,11 +28,10 @@ class ShoppingItemsController < ApplicationController
     @shopping_item=@cart.add_product(params[:product_id])
     respond_to do |format|
       if @shopping_item.save
-        format.html { redirect_to @shopping_item, notice: 'Shopping item was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @shopping_item }
+        format.html { redirect_to @shopping_item.good, notice: '添加入购物车成功！' }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @shopping_item.errors, status: :unprocessable_entity }
+        format.html { redirect_to @shopping_item.good, alert: '添加失败，系统异常，请联系管理员！' }
+
       end
     end
   end

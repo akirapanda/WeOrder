@@ -9,6 +9,7 @@ class Cart < ActiveRecord::Base
     else
       current_shopping_item= shopping_items.build(:good_id => product_id,:cart_id=>id)    
     end
+    current_shopping_item.amount=current_shopping_item.subAmount
     current_shopping_item
   end  
 end

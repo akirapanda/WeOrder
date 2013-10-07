@@ -3,6 +3,10 @@ class ShoppingItem < ActiveRecord::Base
   belongs_to :good
   belongs_to :cart
   
+  def subAmount
+    good.price*count
+  end
+  
   def build_by_product(good_id,count)
     if count > 0 
        good= Good.find(good_id)

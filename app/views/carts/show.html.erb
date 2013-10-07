@@ -4,10 +4,24 @@
   <strong>User:</strong>
   <%= @cart.user_id %>
 </p>
-<ul>
-<%@cart.shopping_items.each do |item|%>
-<li><%=item.id%>-<%=item.count%></li>
+<table class="table">
+	<thead>
+		<tr>
+			<th>商品名称</th>
+			<th>数量</th>
+			<th>小计</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%@cart.shopping_items.each do |item|%>
+		<tr>
+			<td><%=item.good.name%></td>
+			<td><%=item.count%></td>
+			<td><%=item.amount%></td>
+		</tr>
 <%end%>
-</ul>
+</tbody>
+
+<table>
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
