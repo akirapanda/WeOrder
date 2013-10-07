@@ -42,8 +42,9 @@
 </legend>
 <%= f.input :customer_name%>
 <%= f.input :customer_address%>
-<%= f.input :home_phone%>
 <%= f.input :mobile_phone%>
+<%= f.input :remark ,as: :text %>
+
 	<%= f.submit "下单",:class=>"btn btn-success"%>
 	<input name="order_id" type="text" value="<%=@order.id%>" class="hidden"></input>
 </div>

@@ -5,8 +5,9 @@
 <div class="goods_head">
 		<ul id="myTab" class="nav nav-pills">
 		  <li ><%=link_to "个人信息",current_user%></li>
-		  <li class="active" ><%=link_to "订单信息",shopping_user_path(current_user)%></li>
-		  <li ><%=link_to "购物记录",history_buy_user_path(current_user)%></li>
+		  <li ><%=link_to "订单信息",shopping_user_path(current_user)%></li>
+		
+		  <li class="active"><%=link_to "购物记录",history_buy_user_path(current_user)%></li>
 		
 		</ul>
 </div>
@@ -18,25 +19,25 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>订单号</th>
-							
 							<th>下单时间</th>
+							<th>名称</th>
+							<th>单价</th>
 							<th>数量</th>
-							
-							<th>总价</th>
 							<th>操作</th>
 							
 						</tr>
 					</thead>
 					<tbody>
 					<%@shoppings.each do |shopping|%>
+						<%shopping.shopping_items.each do |item|%>
 						<tr>
-							<td><%=shopping.id%></td>
 							<td class="center"><%=I18n.localize( shopping.created_at,:format=>:long)%></td>
-							<td><%=shopping.shopping_items.count%></td>
-							<td><%=number_to_currency(shopping.amount,:unit=>"&yen")%></td>
-							<td><%=link_to "查看订单信息", shopping%></td>
+							<td><%=item.good.name%></td>
+							<td><%=number_to_currency(item.good.price,:unit=>"&yen")%></td>
+							<td><%=item.count%></td>
+							<td><%=link_to "查看产品明细", item.good%></td>
 						</tr>					
+						<%end%>
 					<%end%>
 					</tbody>
 					

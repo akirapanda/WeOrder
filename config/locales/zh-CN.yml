@@ -33,6 +33,8 @@
             shopping:
                 customer_name: "客户名称"
                 customer_address: "客户地址"
+                mobile_phone: "联系电话"
+                remark: "备注(收货时间要求等)"
                 
                 
               

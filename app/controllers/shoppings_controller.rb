@@ -54,7 +54,7 @@ class ShoppingsController < ApplicationController
     end
          
     @shopping.amount=@shopping.calAmount(@shopping)
- 
+    @shopping.user_id=current_user.id
     
     respond_to do |format|
       if @shopping.save

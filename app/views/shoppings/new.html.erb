@@ -34,10 +34,12 @@
 <legend>
 您的联系方式
 </legend>
+
 <%= f.input :customer_name%>
 <%= f.input :customer_address%>
-<%= f.input :home_phone%>
 <%= f.input :mobile_phone%>
+<%= f.input :remark ,as: :text,input_html: { maxlength: 50 } %>
+
 	<%= f.submit "下单",:class=>"btn btn-success"%>
 </div>
 <%end%>

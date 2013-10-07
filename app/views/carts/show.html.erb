@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="hero-unit">
+<h1>我的购物车</h1>
 
-<p>
-  <strong>User:</strong>
-  <%= @cart.user_id %>
-</p>
+</div>
+<div>
+
 <table class="table">
 	<thead>
 		<tr>
@@ -14,16 +14,18 @@
 	</thead>
 	<tbody>
 		<%@cart.shopping_items.each do |item|%>
-		<tr>
+		<tr> 			
 			<td><%=item.good.name%></td>
-			<td><%=item.count%></td>
-			<td><%=item.amount%></td>
+			<td><%=item.count%> <%= item.good.unit %></td>
+			<td><%=number_to_currency(item.amount,:unit=>"&yen")%></td>
 		</tr>
 <%end%>
 </tbody>
 
-<table>
-<%= link_to '结算', new_shopping_path %> |
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %> |
-<%= link_to 'Destroy', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+<table>	
+</div>
+	<div class="offset8">
+<%= link_to '清空购物车', @cart, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn" %>
+<%= link_to '进入结算页面', new_shopping_path ,:class=>"btn btn-primary"%>   
+
+	</div>

@@ -1,8 +1,15 @@
 <div class="hero-unit">
 <h1>订单详细信息</h1>
 </div>
-<div class="container">
+<div class="form">
+<h3>订单号:
+	<%= @shopping.id %>
+</h3>
+
 <p>
+  <strong>下单时间:</strong>
+	<%=I18n.localize( @shopping.created_at,:format=>:long)%>
+</p>
   <strong>客户名称:</strong>
   <%= @shopping.customer_name %>
 </p>
@@ -12,12 +19,9 @@
 </p>
 <p>
   <strong>订单金额:</strong>
-  <%= @shopping.amount %>
+  <%=number_to_currency(@shopping.amount,:unit=>"&yen") %>
 </p>
-<p>
-  <strong>下单时间:</strong>
-  <%= @shopping.created_at %>
-</p>
+
 <table class="table">
 	<thead>
 		<th>商品名称</th>
@@ -31,14 +35,16 @@
 				
 				<td><%=item.good.name%></td>
 				<td><%=item.count%> <%=item.good.unit%></td>
-				<td>&yen<%=item.good.price%> / <%=item.good.unit%></td>
-				<td>&yen<%=item.amount%></td>
+				<td><%=number_to_currency(item.good.price,:unit=>"&yen")%> / <%=item.good.unit%></td>
+				<td><%=number_to_currency(item.amount,:unit=>"&yen")%></td>
 			</tr>
 		<%end%>
 	</tbody>
 </table>
+<% if current_user.admin?%>
+<%= link_to '编辑', edit_shopping_path(@shopping),:class=>"btn btn-info" %>
+<%end%>
 
-<%= link_to '编辑', edit_shopping_path(@shopping),:class=>"btn" %>
 <%= link_to '返回', shoppings_path,:class=>"btn"  %>
 </div>
 

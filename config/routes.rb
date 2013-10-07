@@ -18,6 +18,7 @@ Weorder::Application.routes.draw do
   resources :users do
     member do
       get 'shopping'
+      get  'history_buy'
     end
   end
 
