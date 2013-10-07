@@ -3,7 +3,7 @@
 		<h1><%= @good.name%></h1>
 		<h2><%= @good.content%></h2>
 		<ul id="myTab" class="nav nav-pills">
-		  <li><%=link_to "首页",good_url(@good)%></li>
+		  <li><%=link_to "商品信息",good_url(@good)%></li>
 		  <li><%=link_to "谁买了",buyer_good_url(@good)%></li>	
 		
 		  <li  class="active"><%=link_to "评价&留言",comments_good_url(@good)%></li>		

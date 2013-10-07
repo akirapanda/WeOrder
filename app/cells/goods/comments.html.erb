@@ -8,7 +8,7 @@
 	</thead>
 	<% @comments.each do |comment|%>
 		<tr>
-			<td><%=comment.created_at%></td>
+			<td><%=I18n.localize(comment.created_at,:format=>:long)%></td>
 			<td><%=comment.body_html%></td>
 		</tr>
 	<%end%>
