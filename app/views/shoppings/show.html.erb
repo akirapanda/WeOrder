@@ -41,8 +41,10 @@
 		<%end%>
 	</tbody>
 </table>
+<% if current_user%>
 <% if current_user.admin?%>
 <%= link_to '编辑', edit_shopping_path(@shopping),:class=>"btn btn-info" %>
+<%end%>
 <%end%>
 
 <%= link_to '返回', shoppings_path,:class=>"btn"  %>
