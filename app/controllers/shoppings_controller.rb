@@ -54,8 +54,10 @@ class ShoppingsController < ApplicationController
     end
          
     @shopping.amount=@shopping.calAmount(@shopping)
+    if current_user
     @shopping.user_id=current_user.id
-    
+    end
+  
     respond_to do |format|
       if @shopping.save
         Cart.destroy(session[:cart_id])
