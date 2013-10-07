@@ -7,7 +7,8 @@ class Cart < ActiveRecord::Base
     if current_shopping_item
       current_shopping_item.count+=1
     else
-      current_shopping_item= shopping_items.build(:good_id => product_id,:cart_id=>id)    
+      current_shopping_item= shopping_items.build(:good_id => product_id,:cart_id=>id)  
+      current_shopping_item.count=1
     end
     current_shopping_item.amount=current_shopping_item.subAmount
     current_shopping_item

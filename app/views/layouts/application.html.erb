@@ -22,7 +22,10 @@
 				<div class="container">
 					<ul class="nav">
 						<li><%= link_to("首页",root_path,:method=>:get)%></li>
-						<li><%= link_to("购物车",@cart,:method=>:get)%></li>
+						<li>
+						<%= link_to("购物车",@cart,:method=>:get)%></li>
+						<li><span class="badge badge-success"><%=@cart.shopping_items.size%></span></li>
+						
 					</ul>
 					<ul class="nav pull-right">
 						<% if current_user %>

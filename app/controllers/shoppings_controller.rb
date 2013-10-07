@@ -14,7 +14,12 @@ class ShoppingsController < ApplicationController
 
   # GET /shoppings/new
   def new
+    @cart=current_cart
+    
     @shopping = Shopping.new
+    @cart.shopping_items.each do |item|
+      @shopping .shopping_items<<item
+    end
   end
 
   # GET /shoppings/1/edit
@@ -53,12 +58,22 @@ class ShoppingsController < ApplicationController
     
     respond_to do |format|
       if @shopping.save
+        Cart.destroy(session[:cart_id])
+        session[:cart_id]=nil
         @shopping.shopping_items.each do |item|
            item.save
          end
         format.html { redirect_to @shopping, notice: 'Shopping was successfully created.' }
       else
-        format.html { redirect_to list_order_path(order_id), alert: '订单内容有误，请检查后重新提交。' }
+        format.html { 
+          if order_id
+            redirect_to list_order_path(order_id), alert: '订单内容有误，请检查后重新提交。' 
+          else
+            @cart=current_cart
+            
+            render action: 'new'
+          end
+        }
       end
     end
     
@@ -92,6 +107,8 @@ class ShoppingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_shopping
       @shopping = Shopping.find(params[:id])
+      @cart=current_cart
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

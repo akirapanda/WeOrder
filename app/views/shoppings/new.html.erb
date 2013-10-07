@@ -1,5 +1,43 @@
-<h1>New shopping</h1>
+<%= simple_form_for(@shopping) do |f| %>
+<%= render "shared/error_messages",:target=>@shopping%>
+<fieldset>
+	<%@shopping.shopping_items.each do |item| %>
+	<div class="goods-div">
+		<div class="image-center">
+		<%= image_tag item.good.cover_url(:normal)%>
+		</div>
+		<div class="name-dashed">
+		<%= item.good.name%><br/>
+		<small><%= item.good.content%></small>
+		</div>
+		<div class="number-container">
+			<div class="price-rest">
+				<div class="price" >
+					<p>&yen<%= item.good.price%><%= item.good.unit%></p>
+				</div>
+				<div class="rest">
+					<p>库存信息</p>
+				</div>
+			</div>
+			<div class="number-counter">
+			 	<a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
+				<input type="text"class="input-mini" readonly="true" name="goods[<%=item.good.id%>][count]" value="<%=item.count%>" ></input>
+				<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
+			</div>
+		</div><!--end of container-->
+	</div>
+	<%end%>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', shoppings_path %>
+</fieldset>
+<div class="contact-info">
+<legend>
+您的联系方式
+</legend>
+<%= f.input :customer_name%>
+<%= f.input :customer_address%>
+<%= f.input :home_phone%>
+<%= f.input :mobile_phone%>
+	<%= f.submit "下单",:class=>"btn btn-success"%>
+</div>
+<%end%>

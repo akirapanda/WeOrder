@@ -13,6 +13,10 @@
  *= require jquery.qeditor
  *= require_tree .	
  */
+
+.nav li span{
+	margin-top:12px;
+}
 .shadow {
     -moz-box-shadow: 3px 3px 4px #aaaaaa;
     -webkit-box-shadow: 3px 3px 4px #aaaaaa;

@@ -23,5 +23,7 @@
 </tbody>
 
 <table>
+<%= link_to '结算', new_shopping_path %> |
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<%= link_to 'Back', carts_path %> |
+<%= link_to 'Destroy', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
