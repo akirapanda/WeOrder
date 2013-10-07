@@ -9,16 +9,17 @@
 			<th>购买件数</th>
 		</tr>
 	</thead>
-<% @shopping_items.each do |item|%>
+	<% @shopping_items.each do |item|%>
 		<tr>
-			<td><%=item%></td>
-			<td><%=item.created_at%></td>
+			<td><%=item.shopping.customer_name if item.shopping%></td>
+			<td><%=I18n.localize(item.created_at,:format=>:long)%></td>
 			<td><%=item.count%></td>
 		</tr>
-<%end%>
-
+		<%end%>
 </table>
+
+<%else%>
+<p>暂无购买记录</p>
 <%end%>
 
-<p>暂无购买记录</p>
 
