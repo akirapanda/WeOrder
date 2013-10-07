@@ -1,4 +1,18 @@
 "zh-CN":
+    date:
+        formats:
+          # Use the strftime parameters for formats.
+          # When no format has been given, it uses default.
+          # You can provide other formats here if you like!
+            default: "%Y-%m-%d"
+            short: "%b%d日"
+            long: "%Y年%b%d日"
+    time:
+        formats:
+            default: "%Y年%b%d日 %A %H:%M:%S"
+            time: "%H:%M"
+            short: "%b%d日 %H:%M"
+            long: "%Y年%b%d日 %H:%M"
     activerecord:
         models:
             good: "商品"
@@ -21,5 +35,5 @@
                 customer_address: "客户地址"
                 
                 
-                
+              
     

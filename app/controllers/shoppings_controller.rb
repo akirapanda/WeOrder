@@ -50,13 +50,12 @@ class ShoppingsController < ApplicationController
       end
     end
     @shopping.amount=@shopping.calAmount(@shopping)
+    
     respond_to do |format|
       if @shopping.save
         format.html { redirect_to @shopping, notice: 'Shopping was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @shopping }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @shopping.errors, status: :unprocessable_entity }
+        format.html { redirect_to list_order_path(order_id), alert: '订单内容有误，请检查后重新提交。' }
       end
     end
   end
@@ -93,6 +92,6 @@ class ShoppingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shopping_params
-      params.require(:shopping).permit(:customer_name, :customer_address, :amount)
+      params.require(:shopping).permit(:customer_name, :customer_address, :amount,:home_phone,:mobile_phone)
     end
 end

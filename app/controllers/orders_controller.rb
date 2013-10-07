@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
   end
 
   def list
-    @shopping=Shopping.new
+    @shopping=Shopping.new if @shopping==nil
     @order.goods_items.each do |good_item|
       shopping_item=ShoppingItem.new
       shopping_item.good_id=good_item.good_id

@@ -1,4 +1,6 @@
 <%= simple_form_for(@shopping) do |f| %>
+<%= render "shared/error_messages",:target=>@shopping%>
+
 <form>
 <fieldset>
     <legend>
@@ -40,6 +42,8 @@
 </legend>
 <%= f.input :customer_name%>
 <%= f.input :customer_address%>
+<%= f.input :home_phone%>
+<%= f.input :mobile_phone%>
 	<%= f.submit "下单",:class=>"btn btn-success"%>
 	<input name="order_id" type="text" value="<%=@order.id%>" class="hidden"></input>
 </div>

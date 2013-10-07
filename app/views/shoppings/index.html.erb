@@ -31,8 +31,8 @@
 	
         <td><%= link_to shopping.customer_name, shopping %></td>
         <td><%= shopping.customer_address %></td>
-        <td><%= shopping.amount %></td>
-		<td><%= shopping.created_at%></td>
+        <td><%= number_to_currency(shopping.amount,:unit=>"￥") %></td>
+		<td><%= I18n.localize(shopping.created_at,:format=>:long)%></td>
         <td>
 			<div class="btn-group">
 			  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
