@@ -10,4 +10,11 @@ class Shopping < ActiveRecord::Base
     amount
   end
   
+  def add_shopping_item(item)
+    if item!=nil
+      item.shopping_id=id
+      shopping_items<<item
+    end
+  end
+   
 end

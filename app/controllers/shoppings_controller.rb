@@ -24,40 +24,44 @@ class ShoppingsController < ApplicationController
   # POST /shoppings
   # POST /shoppings.json
   def create
+    
     @shopping = Shopping.new(shopping_params)
     params.require(:shopping).permit(:goods,:order_id)
     goods=params[:goods]
     order_id=params[:order_id]
     ##how to process a complex form like this
+    
+    
     goods.each do |goods|
-      goods_id=goods[0]
-      goods_count=goods[1][:count].to_i
-      if goods_count >0
-        shopping_item=ShoppingItem.new
-        shopping_item.good_id=goods_id
-        shopping_item.count=goods_count
-        good=Good.find(goods_id)
-        shopping_item.amount=good.price*shopping_item.count
-        shopping_item.shopping_id=@shopping.id
-        @shopping.shopping_items<<shopping_item
-        shopping_item.save
-      end
-      if  @shopping.shopping_items.size ==0
-          respond_to do |format|
-           format.html { redirect_to list_order_path(order_id), alert: '您的订单中没有任何商品哟' }
-          end
-        return 
-      end
+         goods_id=goods[0]
+         goods_count=goods[1][:count].to_i
+         shopping_item=ShoppingItem.new
+         shopping_item=shopping_item.build_by_product(goods_id,goods_count)
+         @shopping.add_shopping_item(shopping_item)
     end
+       
+       
+    if  @shopping.shopping_items.size ==0
+        respond_to do |format|
+            format.html { redirect_to list_order_path(order_id), alert: '您的订单中没有任何商品哟' }
+          end 
+        return
+    end
+         
     @shopping.amount=@shopping.calAmount(@shopping)
+ 
     
     respond_to do |format|
       if @shopping.save
+        @shopping.shopping_items.each do |item|
+           item.save
+         end
         format.html { redirect_to @shopping, notice: 'Shopping was successfully created.' }
       else
         format.html { redirect_to list_order_path(order_id), alert: '订单内容有误，请检查后重新提交。' }
       end
     end
+    
   end
 
   # PATCH/PUT /shoppings/1
