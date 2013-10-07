@@ -22,8 +22,7 @@
 				<div class="container">
 					<ul class="nav">
 						<li><%= link_to("首页",root_path,:method=>:get)%></li>
-
-							
+						<li><%= link_to("购物车",@cart,:method=>:get)%></li>
 					</ul>
 					<ul class="nav pull-right">
 						<% if current_user %>

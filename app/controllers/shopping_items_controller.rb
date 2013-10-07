@@ -24,9 +24,8 @@ class ShoppingItemsController < ApplicationController
   # POST /shopping_items
   # POST /shopping_items.json
   def create
-    @shopping_item = ShoppingItem.new(shopping_item_params)
-
-    
+    @cart=current_cart
+    @shopping_item=@cart.add_product(params[:product_id])
     respond_to do |format|
       if @shopping_item.save
         format.html { redirect_to @shopping_item, notice: 'Shopping item was successfully created.' }
@@ -70,6 +69,6 @@ class ShoppingItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shopping_item_params
-      params.require(:shopping_item).permit(:good_id, :shopping_id, :count, :amount)
+      params.require(:shopping_item).permit(:good_id, :shopping_id, :count, :amount,:product_id)
     end
 end

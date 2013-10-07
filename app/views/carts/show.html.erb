@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @cart.user_id %>
+</p>
+<ul>
+<%@cart.shopping_items.each do |item|%>
+<li><%=item.id%>-<%=item.count%></li>
+<%end%>
+</ul>
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>

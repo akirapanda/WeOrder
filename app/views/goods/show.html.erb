@@ -27,7 +27,7 @@
 	  			 <%= number_to_currency(@good.price,:unit=>"&yen") %> / <%= @good.unit %>
 			</div>
 			<div class="buy">
-				<%=button_to "购买",@good,:class=>'btn btn-primary'%>
+				<%=button_to "购买",shopping_items_url(:product_id=>@good),:class=>'btn btn-primary'%>
 			</div>
 		</div>
 </div>

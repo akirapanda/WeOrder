@@ -1,6 +1,7 @@
 class ShoppingItem < ActiveRecord::Base
   belongs_to :shopping
   belongs_to :good
+  belongs_to :cart
   
   def build_by_product(good_id,count)
     if count > 0 
