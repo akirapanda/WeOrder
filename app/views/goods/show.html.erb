@@ -27,7 +27,16 @@
 	  			 <%= number_to_currency(@good.price,:unit=>"&yen") %> / <%= @good.unit %>
 			</div>
 			<div class="buy">
-				<%=button_to "购买",shopping_items_url(:product_id=>@good),:class=>'btn btn-primary'%>
+				<%= simple_form_for(@shopping_item,:method=>:post) do |f| %>
+				
+				<div class="number-counter">
+				 	<a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
+					<input type="text"class="input-mini" readonly="true" name="count" value="1" ><%=@good.unit%></input>
+					<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
+				</div>
+				<input value="<%=@good.id%>" name="product_id" class="hide"/>
+				<%=f.submit "购买",:class=>'btn btn-primary'%>
+				<%end%>
 			</div>
 		</div>
 </div>

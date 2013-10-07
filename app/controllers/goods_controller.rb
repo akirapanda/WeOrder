@@ -10,6 +10,7 @@ class GoodsController < ApplicationController
   # GET /goods/1
   # GET /goods/1.json
   def show
+    @shopping_item=ShoppingItem.new
   end
 
   # GET /goods/new

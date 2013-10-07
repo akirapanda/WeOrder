@@ -25,7 +25,9 @@ class ShoppingItemsController < ApplicationController
   # POST /shopping_items.json
   def create
     @cart=current_cart
-    @shopping_item=@cart.add_product(params[:product_id])
+    count=params[:count].to_i
+    
+    @shopping_item=@cart.add_product(params[:product_id],count)
     respond_to do |format|
       if @shopping_item.save
         format.html { redirect_to @shopping_item.good, notice: '添加入购物车成功！' }
@@ -68,6 +70,6 @@ class ShoppingItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shopping_item_params
-      params.require(:shopping_item).permit(:good_id, :shopping_id, :count, :amount,:product_id)
+      params.require(:shopping_item).permit(:good_id, :shopping_id, :count, :amount,:product_id ,:count)
     end
 end
