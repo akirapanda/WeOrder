@@ -1,6 +1,6 @@
 class ShoppingsController < ApplicationController
   before_action :set_shopping, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!,except:[:create,:new,:show]
   # GET /shoppings
   # GET /shoppings.json
   def index
@@ -115,6 +115,6 @@ class ShoppingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shopping_params
-      params.require(:shopping).permit(:customer_name, :customer_address, :amount,:home_phone,:mobile_phone)
+      params.require(:shopping).permit(:customer_name, :customer_address, :amount,:home_phone,:mobile_phone,:remark)
     end
 end

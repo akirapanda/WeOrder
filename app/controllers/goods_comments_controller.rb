@@ -1,4 +1,5 @@
 class GoodsCommentsController < ApplicationController
+  before_filter :authenticate_user!,except: [:create]
   
   
   # POST /goods

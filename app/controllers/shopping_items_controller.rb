@@ -1,5 +1,6 @@
 class ShoppingItemsController < ApplicationController
   before_action :set_shopping_item, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!,only:[:show,:edit,:update]
 
   # GET /shopping_items
   # GET /shopping_items.json

@@ -1,7 +1,12 @@
 <div class="hero-unit">
 <h1>订单详细信息</h1>
 </div>
+
+
 <div class="form">
+	<%if @shopping.user_id==nil%>
+	 <h3>>>>该订单为非注册用户订单，请您务必记录下订单号信息<<<</h3>
+	<%end%>
 <h3>订单号:
 	<%= @shopping.id %>
 </h3>
@@ -21,7 +26,10 @@
   <strong>订单金额:</strong>
   <%=number_to_currency(@shopping.amount,:unit=>"&yen") %>
 </p>
-
+<p>
+  <strong>备注信息:</strong>
+  <%=@shopping.remark %>
+</p>
 <table class="table">
 	<thead>
 		<th>商品名称</th>
