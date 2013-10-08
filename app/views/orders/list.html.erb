@@ -1,3 +1,68 @@
+<%if mobile?%>
+<%= render "shared/error_messages",:target=>@shopping%>
+<%= simple_form_for(@shopping ,:html=>{'data-ajax'=>"false"}) do |f| %>
+<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline">
+			<h1><%=@order.name%></h1>
+			<h2><%=@order.content%></h2>
+		</div>
+		<div data-role="content" data-theme="a">
+
+			<h2>订单信息</h2>
+		 <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" 	style="width:100%">
+		      <thead>
+		        <tr>
+		          <th data-priority="1">图片</th>
+		          <th data-priority="persist">商品</th>
+		          <th data-priority="2">价格</th>
+		          <th data-priority="4">Reviews</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+				<%@shopping.shopping_items.each do |item| %>
+		
+		        <tr>
+		          <th>	<%=image_tag(item.good.cover_url(:mobile))%>
+				</th>
+		          <td><%= item.good.name%></td>
+		          <td>	<p>&yen<%= item.good.price%> / <%= item.good.unit%></p></td>
+		          <td>
+				<div class="number-counter"  style="margin-left:20px;float:left;" >
+				 	<a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
+					<input type="text" style="width:50px" readonly="true" name="goods[<%=item.good.id%>][count]" value="0" ></input>
+					<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
+				</div>
+				</td>
+		        </tr>
+		     <%end%>
+		      </tbody>
+		    </table>
+		
+		
+		
+				<div class="contact-info">
+				<legend>
+				您的联系方式
+				</legend>
+				<%= f.input :customer_name%>
+				<%= f.input :customer_address%>
+				<%= f.input :mobile_phone%>
+				<%= f.input :remark ,as: :text %>
+				<button type="submit" data-theme="b" name="submit" value="submit-value">下单</button>
+				
+					<input name="order_id" type="text" value="<%=@order.id%>" class="hidden"></input>
+				</div>
+			<%end%>
+		</div>
+		
+		
+
+	</div>
+
+
+<%else%>
+
+
 <%= simple_form_for(@shopping) do |f| %>
 <%= render "shared/error_messages",:target=>@shopping%>
 
@@ -48,4 +113,7 @@
 	<%= f.submit "下单",:class=>"btn btn-success"%>
 	<input name="order_id" type="text" value="<%=@order.id%>" class="hidden"></input>
 </div>
+<%end%>
+
+
 <%end%>

@@ -11,6 +11,8 @@
  *= require_self
  *= require_font-awesome
  *= require jquery.qeditor
+ *= require jquery.mobile.structure-1.2.0.min.css
+ *= require theme/Bootstrap.css
  *= require_tree .	
  */
 /* User sign in and sign forms. */

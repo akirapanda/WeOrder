@@ -16,6 +16,10 @@ class CoverUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [128, 128]
   end
   
+  version :mobile do
+    process :resize_to_fit => [64, 64]
+  end
+  
   version :large do
     process :resize_to_fit => [512, 512]
   end
