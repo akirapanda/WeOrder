@@ -10,7 +10,7 @@
 			<Title><![CDATA[<%=item.good.name%>]]></Title> 
 			<Description><![CDATA[<%=raw item.good.content%>]]></Description>
 			<PicUrl><![CDATA[<%=root_url+item.good.cover_url%>]]></PicUrl>
-			<Url><![CDATA[<%=list_order_url(@url) %>]]></Url>
+			<Url><![CDATA[<%=raw @url %>]]></Url>
 		</item>
 		<%end%>
     </Articles>
