@@ -8,9 +8,9 @@
 		<%@order.goods_items.each do |item|%>
 		<item>
 			<Title><![CDATA[<%=item.good.name%>]]></Title> 
-			<Description><![CDATA[<%=item.good.content%>]]></Description>
+			<Description><![CDATA[<%=raw item.good.content%>]]></Description>
 			<PicUrl><![CDATA[<%=root_url+item.good.cover_url%>]]></PicUrl>
-			<Url><![CDATA[<%=list_order_url(@order) %>]]></Url>
+			<Url><![CDATA[<%=list_order_url(@url) %>]]></Url>
 		</item>
 		<%end%>
     </Articles>
