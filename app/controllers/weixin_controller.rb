@@ -15,7 +15,6 @@ class WeixinController < ApplicationController
 		  if params[:xml][:Content]=="pic"
 		    orders=Order.all
 		    @order=orders[0]
-		    @url="http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5NjAxMzA3OA==&appmsgid=10000002&itemidx=1&sign=b46607ec341767fc844b6162c150ce93#wechat_redirect"
 		    render "article",:format=>:xml
 		  else
 		    orders=Order.all
