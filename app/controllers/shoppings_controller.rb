@@ -37,6 +37,8 @@ class ShoppingsController < ApplicationController
     ##how to process a complex form like this
     
     
+    
+    
     goods.each do |goods|
          goods_id=goods[0]
          goods_count=goods[1][:count].to_i
