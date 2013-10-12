@@ -13,13 +13,15 @@ class WeixinController < ApplicationController
 		logger.debug "text:#{params[:xml]}"
 		if params[:xml][:MsgType]=="event"
 		  event_key=params[:xml][:EventKey]
+		logger.debug "event key is #{event_key}"
 		  keywords=Keyword.where(:cate=>"event",:keywords=>event_key)
-		  if keywords==nil
+		logger.debug "keywords is #{keywords.size}"
+		  if keywords.size==0
   	    @order=orders[0]
   	    render "article",:format=>:xml
   	    return
   	  end
-		  @content=keywords.reply_content
+		  @content=keywords[0].reply_content
 		  render "auto_text",:format=>:xml
 		end
 		
