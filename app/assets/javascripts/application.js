@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
 //= require jquery.qeditor
 //= require jquery.mobile-1.2.0.min.js
 //= require_tree .

@@ -11,6 +11,16 @@ class WeixinController < ApplicationController
 	
 	def create
 		logger.debug "text:#{params[:xml]}"
+		if params[:xml][:MsgType]=="event"
+		  orders=Order.all
+	    @order=orders[0]
+	    render "article",:format=>:xml
+	    return 
+		end
+		
+		
+		
+		
 		if params[:xml][:MsgType]=="text"
 		  if params[:xml][:Content]=="pic"
 		    orders=Order.all
