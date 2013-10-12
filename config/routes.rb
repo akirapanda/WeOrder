@@ -1,4 +1,6 @@
 Weorder::Application.routes.draw do
+  resources :keywords
+
   resources :carts
 
   resources :contacts

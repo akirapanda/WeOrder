@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  keyword: MyString
+  reply_content: MyString
+
+two:
+  type: 
+  keyword: MyString
+  reply_content: MyString
