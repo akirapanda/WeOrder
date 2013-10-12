@@ -19,7 +19,7 @@ class WeixinController < ApplicationController
   	    render "article",:format=>:xml
   	    return
   	  end
-		  @content=keywords.content
+		  @content=keywords.reply_content
 		  render "auto_text",:format=>:xml
 		end
 		
