@@ -26,11 +26,11 @@ class WeixinController < ApplicationController
   	    return 
   	  end
   	  
-  	  if keywords[0].reply_type=="pic"
+  	  if keywords[0].reply_type=="picture"
   	    order_id=keywords[0].reply_content.to_i
   	    @order=Order.find(order_id)
 		    render "article",:format=>:xml
-  	    
+ 		return 	    
   	  end
 
 		end
