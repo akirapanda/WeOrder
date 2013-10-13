@@ -5,6 +5,8 @@
 <table class="table  table-hover">
   <thead>
     <tr>
+	  <th>订单表格ID</th>
+    
       <th>订单名称</th>
       <th>简介</th>
       <th>是否公开</th>
@@ -23,6 +25,8 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
+	    <td><%= order.id %></td>
+    
         <td><%= link_to  order.name, order %></td>
         <td><%= order.content %></td>
         <td><%= order.publish %></td>
