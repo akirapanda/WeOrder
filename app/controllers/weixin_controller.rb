@@ -19,14 +19,14 @@ class WeixinController < ApplicationController
   	    render "article",:format=>:xml
   	    return
   	  end
-  	  
-  	  if keywords.reply_type=="text"
+  	  logger.debug "keywords is #{keywords.size}" 
+  	  if keywords[0].reply_type=="text"
   	    @content=keywords[0].reply_content
   		  render "auto_text",:format=>:xml
   	    return 
   	  end
   	  
-  	  if keywords.reply_type=="pic"
+  	  if keywords[0].reply_type=="pic"
   	    order_id=keywords[0].reply_content.to_i
   	    @order=Order.find(order_id)
 		    render "article",:format=>:xml
