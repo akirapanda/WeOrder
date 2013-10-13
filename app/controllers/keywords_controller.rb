@@ -69,6 +69,6 @@ class KeywordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def keyword_params
-      params.require(:keyword).permit(:keywords, :reply_content,:cate)
+      params.require(:keyword).permit(:keywords, :reply_content,:cate,:reply_type)
     end
 end
