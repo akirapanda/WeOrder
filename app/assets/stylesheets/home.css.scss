@@ -10,7 +10,14 @@
 }
 .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 
-.carousel-inner {
-	height:400px;
-	display:block;
+.carousel-inner img{
+	max-width:1400px;
+width:expression(this.Width>1400?"1400px":"auto");
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+}
+.carousel-inner div{
+
+padding:0px 0px 0px 0px;
+margin:0px 0px 0px 0px;
 }
