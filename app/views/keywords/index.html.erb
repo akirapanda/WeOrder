@@ -1,14 +1,27 @@
-<h1>Listing keywords</h1>
+<div class="hero-unit">
+<h1>自动回复关键字管理</h1>
 
-<table>
+</div>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Type</th>
-      <th>Keyword</th>
-      <th>Reply content</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>接受信息种类</th>
+      <th>关键值</th>
+	  <th>回复信息种类</th>
+      <th>回复消息内容或订表格号码</th>
+      <th>
+      	<div class="btn-group">
+	  		<button class="btn btn-success"><i class="icon-cog"></i></button>
+	  		<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+	    	<span class="caret"></span>
+	  		</button>
+	  		<ul class="dropdown-menu">
+				<li><%= link_to "新增关键字",new_keyword_path%></li>
+			</ul>
+		</div>
+      </th>
+
     </tr>
   </thead>
 
@@ -16,11 +29,22 @@
     <% @keywords.each do |keyword| %>
       <tr>
         <td><%= keyword.cate %></td>
-        <td><%= keyword.keywords %></td>
+        <td><%= link_to keyword.keywords,keyword %></td>
+        <td><%= keyword.reply_type %></td>
+
         <td><%= keyword.reply_content %></td>
-        <td><%= link_to 'Show', keyword %></td>
-        <td><%= link_to 'Edit', edit_keyword_path(keyword) %></td>
-        <td><%= link_to 'Destroy', keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+			<div class="btn-group">
+			  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			    操作
+			    <span class="caret"></span>
+			  </a>
+			<ul class="dropdown-menu">
+				<li><%= link_to '编辑', edit_keyword_path(keyword) ,:method=>:get%></li>
+        		<li><%= link_to '删除', keyword, method: :delete, data: { confirm: '确定删除吗?' } %></li>
+			</ul>
+			</div>
+		</td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +52,3 @@
 
 <br>
 
-<%= link_to 'New Keyword', new_keyword_path %>

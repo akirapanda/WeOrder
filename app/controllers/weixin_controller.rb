@@ -13,16 +13,26 @@ class WeixinController < ApplicationController
 		logger.debug "text:#{params[:xml]}"
 		if params[:xml][:MsgType]=="event"
 		  event_key=params[:xml][:EventKey]
-		logger.debug "event key is #{event_key}"
 		  keywords=Keyword.where(:cate=>"event",:keywords=>event_key)
-		logger.debug "keywords is #{keywords.size}"
 		  if keywords.size==0
   	    @order=orders[0]
   	    render "article",:format=>:xml
   	    return
   	  end
-		  @content=keywords[0].reply_content
-		  render "auto_text",:format=>:xml
+  	  
+  	  if keywords.reply_type=="text"
+  	    @content=keywords[0].reply_content
+  		  render "auto_text",:format=>:xml
+  	    return 
+  	  end
+  	  
+  	  if keywords.reply_type=="pic"
+  	    order_id=keywords[0].reply_content.to_i
+  	    @order=Order.find(order_id)
+		    render "article",:format=>:xml
+  	    
+  	  end
+
 		end
 		
 		
