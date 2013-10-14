@@ -30,31 +30,26 @@ class WeixinController < ApplicationController
   	    order_id=keywords[0].reply_content.to_i
   	    @order=Order.find(order_id)
 		    render "article",:format=>:xml
- 		return 	    
+ 	      return 	    
   	  end
 
-		end
+		end #if event
 		
 		
 		
 		
 		if params[:xml][:MsgType]=="text"
-		  if params[:xml][:Content]=="pic"
-		    orders=Order.all
-		    @order=orders[0]
-		    render "article",:format=>:xml
-		  else
-		    orders=Order.all
-		    @content=":
-		    "
-		    orders.each do |order|
-		      url=list_order_url(order)
-		      @content=@content+"<a href=\"#{url}\"> #{order.name}</a>"+'
-		      '
-		    end
-		    logger.debug "reply:#{@content}"
+		    event_key=params[:xml][:EventKey]
+  		  keywords=Keyword.where(:cate=>"text",:keywords=>event_key)
+  		  if keywords.size==0
+    		  keywords=Keyword.where(:cate=>"text",:keywords=>"default")
+    		  @content=keywords[0].reply_content
+    	    render "echo",:format=>:xml
+    	    return
+    	  end
+		    @content=keywords[0]。reply_content
 			  render "echo",:format=>:xml
-		  end
+			  return
 		end
 	end
 	
