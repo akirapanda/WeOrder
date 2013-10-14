@@ -47,7 +47,7 @@ class WeixinController < ApplicationController
     	    render "echo",:format=>:xml
     	    return
     	  end
-		    @content=keywords[0]。reply_content
+		    @content=keywords[0].reply_content
 			  render "echo",:format=>:xml
 			  return
 		end
