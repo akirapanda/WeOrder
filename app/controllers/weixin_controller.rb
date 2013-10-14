@@ -39,7 +39,7 @@ class WeixinController < ApplicationController
 		
 		
 		if params[:xml][:MsgType]=="text"
-		    event_key=params[:xml][:EventKey]
+		    event_key=params[:xml][:Content]
   		  keywords=Keyword.where(:cate=>"text",:keywords=>event_key)
   		  if keywords.size==0
     		  keywords=Keyword.where(:cate=>"text",:keywords=>"default")
@@ -47,9 +47,20 @@ class WeixinController < ApplicationController
     	    render "echo",:format=>:xml
     	    return
     	  end
-		    @content=keywords[0].reply_content
-			  render "echo",:format=>:xml
-			  return
+    	  
+    	  
+    	  if keywords[0].reply_type=="text"
+    	    @content=keywords[0].reply_content
+    		  render "auto_text",:format=>:xml
+    	    return 
+    	  end
+
+    	  if keywords[0].reply_type=="picture"
+    	    order_id=keywords[0].reply_content.to_i
+    	    @order=Order.find(order_id)
+  		    render "article",:format=>:xml
+   	      return 	    
+    	  end
 		end
 	end
 	
