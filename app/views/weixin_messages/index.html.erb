@@ -1,0 +1,31 @@
+<h1>Listing weixin_messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>From user</th>
+      <th>Msgtype</th>
+      <th>Msg</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weixin_messages.each do |weixin_message| %>
+      <tr>
+        <td><%= weixin_message.from_user %></td>
+        <td><%= weixin_message.msgType %></td>
+        <td><%= weixin_message.msg %></td>
+        <td><%= link_to 'Show', weixin_message %></td>
+        <td><%= link_to 'Edit', edit_weixin_message_path(weixin_message) %></td>
+        <td><%= link_to 'Destroy', weixin_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Weixin message', new_weixin_message_path %>

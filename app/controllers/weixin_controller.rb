@@ -10,9 +10,16 @@ class WeixinController < ApplicationController
 	end
 	
 	def create
-		logger.debug "text:#{params[:xml]}"
+	  
+	  
+	  message=WeixinMessage.new
+	  message.from_user=params[:xml][:FromUserName]
+	  message.msgType=params[:xml][:MsgType]
+	  
 		if params[:xml][:MsgType]=="event"
 		  event_key=params[:xml][:EventKey]
+		  message.msg=event_key
+		  message.save
 		  keywords=Keyword.where(:cate=>"event",:keywords=>event_key)
 		  if keywords.size==0
   	    @order=orders[0]
@@ -40,6 +47,8 @@ class WeixinController < ApplicationController
 		
 		if params[:xml][:MsgType]=="text"
 		    event_key=params[:xml][:Content]
+		    message=event_key
+		    message.save
   		  keywords=Keyword.where(:cate=>"text",:keywords=>event_key)
   		  if keywords.size==0
     		  keywords=Keyword.where(:cate=>"text",:keywords=>"default")

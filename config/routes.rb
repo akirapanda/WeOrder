@@ -1,4 +1,6 @@
 Weorder::Application.routes.draw do
+  resources :weixin_messages
+
   resources :keywords
 
   resources :carts
