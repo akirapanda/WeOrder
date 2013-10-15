@@ -47,7 +47,7 @@ class WeixinController < ApplicationController
 		
 		if params[:xml][:MsgType]=="text"
 		    event_key=params[:xml][:Content]
-		    message=event_key
+		    message.msg=event_key
 		    message.save
   		  keywords=Keyword.where(:cate=>"text",:keywords=>event_key)
   		  if keywords.size==0
