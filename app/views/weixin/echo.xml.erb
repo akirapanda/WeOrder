@@ -3,6 +3,6 @@
     <FromUserName><![CDATA[<%= params[:xml][:ToUserName] %>]]></FromUserName>
     <CreateTime><%= Time.now.to_i %></CreateTime>
     <MsgType><![CDATA[text]]></MsgType>
-    <Content><![CDATA[现有水果品种：<%= raw @content %>]]></Content>
+    <Content><![CDATA[<%= raw @content %>]]></Content>
     <FuncFlag>0</FuncFlag>
 </xml>

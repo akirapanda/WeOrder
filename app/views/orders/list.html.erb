@@ -25,11 +25,11 @@
 		          <th>	<%=image_tag(item.good.cover_url(:mobile))%>
 				</th>
 		          <td><%= item.good.name%></td>
-		          <td>	<p>&yen<%= item.good.price%> / <%= item.good.unit%></p></td>
+		          <td>	<p><%= number_to_currency item.good.price,:unit=>"￥"%>/<%= item.good.unit%></p></td>
 		          <td>
-				<div class="number-counter"  style="margin-left:20px;float:left;" >
+				<div class="number-counter"  style="margin-left:10px;float:left;" >
 				 	<a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
-					<input type="text" style="width:50px" readonly="true" name="goods[<%=item.good.id%>][count]" value="0" ></input>
+					<input type="text" style="width:25px" class="input-mini" readonly="true" name="goods[<%=item.good.id%>][count]" value="0" ></input>
 					<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
 				</div>
 				</td>
@@ -84,7 +84,7 @@
 		<div class="number-container">
 			<div class="price-rest">
 				<div class="price" >
-					<p>&yen<%= item.good.price%><%= item.good.unit%></p>
+		          <td>	<p><%= number_to_currency item.good.price,:unit=>"￥"%>/<%= item.good.unit%></p></td>
 				</div>
 				<div class="rest">
 					<p>库存信息</p>
@@ -92,7 +92,7 @@
 			</div>
 			<div class="number-counter">
 			 	<a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
-				<input type="text"class="input-mini" readonly="true" 		name="goods[<%=item.good.id%>][count]" value="0" ></input>
+				<input type="text" style="width:20px" class="input-mini" readonly="true" 		name="goods[<%=item.good.id%>][count]" value="0" ></input>
 				<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
 			</div>
 		</div><!--end of container-->
