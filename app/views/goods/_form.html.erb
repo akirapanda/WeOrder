@@ -50,7 +50,12 @@
     	<%= f.text_field :unit %>
 	</div>
   </div>
-
+  <div class="control-group">
+	<%= f.label :public,:class=>"control-label" %>
+    <div class="controls">
+    	<%= f.check_box :public %>
+	</div>
+  </div>
 
   <div class="control-group">
 	<%= f.label :weixin_url,:class=>"control-label" %>

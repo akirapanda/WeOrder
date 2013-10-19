@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131015012837) do
+ActiveRecord::Schema.define(version: 20131019144552) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20131015012837) do
     t.string   "body"
     t.string   "body_html"
     t.string   "weixin_url"
+    t.boolean  "public",     default: true
   end
 
   create_table "goods_comments", force: true do |t|
