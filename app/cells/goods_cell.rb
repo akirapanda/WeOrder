@@ -4,7 +4,7 @@ class GoodsCell < Cell::Rails
     render
   end
   def lastest
-    @goods=Good.all
+    @goods=Good.publiced
     render
   end
   
