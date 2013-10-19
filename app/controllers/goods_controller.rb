@@ -82,6 +82,6 @@ class GoodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def good_params
-      params.require(:good).permit(:cover, :name, :content, :price, :unit,:body_html,:body, :weixin_url)
+      params.require(:good).permit(:cover, :name, :content, :price, :unit,:body_html,:body, :weixin_url,:public)
     end
 end
