@@ -9,13 +9,10 @@ class Ability
         shopping.user_id==nil
       end
       
-    else
-      if user.admin?
+    elsif user.admin?
         can :manage,:all
-      end
-
-      if user
-          cannot :manage, Shopping do |shopping|
+    else 
+         cannot :manage, Shopping do |shopping|
               shopping.user_id!=user.id
           end
           cannot :read, Shopping do |shopping|
