@@ -5,11 +5,15 @@
 	<MsgType><![CDATA[news]]></MsgType>
 	<ArticleCount><%=@order.goods_items.size%></ArticleCount>
 	<Articles>
-		<%@order.goods_items.each do |item|%>
+		<%@order.goods_items.each_with_index do |item,index|%>
 		<item>
 			<Title><![CDATA[<%=item.good.name%>]]></Title> 
 			<Description><![CDATA[<%=raw item.good.content%>]]></Description>
-			<PicUrl><![CDATA[<%=root_url+item.good.cover_url%>]]></PicUrl>
+			<%if index==0%>
+			<PicUrl><![CDATA[<%=root_url+item.good.cover_url(:normal)%>]]></PicUrl>
+			<%else%>
+			<PicUrl><![CDATA[<%=root_url+item.good.cover_url(:small)%>]]></PicUrl>
+			<%end%>
 			<Url><![CDATA[<%=raw item.good.weixin_url %>]]></Url>
 		</item>
 		<%end%>
