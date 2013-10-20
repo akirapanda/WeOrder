@@ -1,6 +1,10 @@
 class ShoppingsController < ApplicationController
   before_action :set_shopping, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!,except:[:create,:new,:show]
+  
+  authorize_resource
+  
+  
   # GET /shoppings
   # GET /shoppings.json
   def index

@@ -12,7 +12,7 @@ gem "bootstrap-will_paginate", "~> 0.0.9"
 #pageinate
 gem 'will_paginate' ,'>=3.0.pre'
 
-
+gem "cancan"
 #form
 gem 'simple_form',"3.0.0.rc"
 
