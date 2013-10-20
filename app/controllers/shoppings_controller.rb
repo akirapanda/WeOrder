@@ -62,7 +62,7 @@ class ShoppingsController < ApplicationController
   
     respond_to do |format|
       if @shopping.save
-        Cart.destroy(session[:cart_id])
+        Cart.destroy(session[:cart_id]) unless session[:cart_id]==nil
         session[:cart_id]=nil
         @shopping.shopping_items.each do |item|
            item.save
