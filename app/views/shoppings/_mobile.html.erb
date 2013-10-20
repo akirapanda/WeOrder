@@ -1,0 +1,64 @@
+<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline">
+			<h1>您的订单编号:[<%=@shopping.id%>]</h1>
+		</div>
+		<div data-role="content" data-theme="a">
+
+			<h2>订单信息</h2>
+		 <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" 	style="width:100%">
+		      <thead>
+		        <tr>
+		          <th>商品</th>
+		          <th>价格</th>
+		          <th>数量</th>
+		          <th>小计</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+				<% @shopping.shopping_items.each do |item|%>
+		        <tr>
+		          <td><%= item.good.name%></td>
+		          <td><%= number_to_currency item.good.price,:unit=>"￥"%>/<%= item.good.unit%></td>
+		          <td>
+						<%= item.count.to_i%>
+				  </td>
+				   <td>
+						<%= number_to_currency item.amount,:unit=>"￥"%>
+					</td>
+		        </tr>
+		     <%end%>
+		      </tbody>
+		    </table>
+		
+		
+		
+
+		</div>
+		
+		<div class="contact-info center">
+			<legend>
+			您的联系方式
+			</legend>
+			<p>
+			  <strong>下单时间:</strong>
+				<%=I18n.localize( @shopping.created_at,:format=>:long)%>
+			</p>
+			  <strong>客户名称:</strong>
+			  <%= @shopping.customer_name %>
+			</p>
+			<p>
+			  <strong>客户地址:</strong>
+			  <%= @shopping.customer_address %>
+			</p>
+			<p>
+			  <strong>订单金额:</strong>
+			  <%=number_to_currency(@shopping.amount,:unit=>"&yen") %>
+			</p>
+			<p>
+			  <strong>备注信息:</strong>
+			  <%=@shopping.remark %>
+			</p>
+		</div>
+
+
+</div>
