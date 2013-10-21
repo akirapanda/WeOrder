@@ -13,7 +13,22 @@
  *= require jquery.qeditor
  *= require jquery.mobile.structure-1.2.0.min.css
  *= require theme/Bootstrap.css
- *= require_tree .	
+ *= require home
+ *= require bootstrap_and_overrides
+ *= require carts
+ *= require contacts
+ *= require goods
+ *= require goods_comments
+ *= require goods_items
+ *= require keywords
+ *= require mobile
+ *= require orders
+ *= require photo
+ *= require shopping_items
+ *= require shoppings
+ *= require users
+ *= require weixin
+ *= require weixin_messages
  */
 /* User sign in and sign forms. */
 

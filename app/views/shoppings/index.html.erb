@@ -32,6 +32,7 @@
         <td><%= link_to shopping.customer_name, shopping %></td>
         <td><%= shopping.customer_address %></td>
         <td><%= number_to_currency(shopping.amount,:unit=>"￥") %></td>
+		<td><%= shopping.mobile_phone%>
 		<td><%= I18n.localize(shopping.created_at,:format=>:long)%></td>
         <td>
 			<div class="btn-group">

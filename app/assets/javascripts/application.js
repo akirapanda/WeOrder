@@ -15,4 +15,17 @@
 //= require twitter/bootstrap
 //= require jquery.qeditor
 //= require jquery.mobile-1.2.0.min.js
-//= require_tree .
+//= require home
+//= require bootstrap
+//= require carts
+//= require contacts
+//= require goods
+//= require goods_comments
+//= require goods_items
+//= require keywords
+//= require orders
+//= require photo
+//= require shopping_items
+//= require shoppings
+
+
