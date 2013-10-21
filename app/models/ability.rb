@@ -5,6 +5,12 @@ class Ability
 
     
     if user.blank?
+      can :create,Shopping
+      can :update,Shopping do |shopping|
+        shopping.user_id==nil
+      end
+      
+      can :list, Order
       can :read, Shopping do |shopping|
         shopping.user_id==nil
       end
