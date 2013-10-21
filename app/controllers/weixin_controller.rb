@@ -21,7 +21,7 @@ class WeixinController < ApplicationController
 		    event_key="subscribe"
 		  else
 		    event_key=params[:xml][:EventKey]
-  		ebd
+  		end
 		  
 		  message.msg=event_key
 		  message.save
