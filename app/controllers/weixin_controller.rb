@@ -17,7 +17,12 @@ class WeixinController < ApplicationController
 	  message.msgType=params[:xml][:MsgType]
 	  
 		if params[:xml][:MsgType]=="event"
-		  event_key=params[:xml][:EventKey]
+		  if params[:xml][:Event]=="subscribe"
+		    event_key="subscribe"
+		  else
+		    event_key=params[:xml][:EventKey]
+  		ebd
+		  
 		  message.msg=event_key
 		  message.save
 		  keywords=Keyword.where(:cate=>"event",:keywords=>event_key)
