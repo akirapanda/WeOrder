@@ -25,9 +25,9 @@
 										<p><%= number_to_currency item.good.price,:unit=>"￥"%>/<%= item.good.unit%></p>
 									</div>
 									<div class="offset2">
-										<div class="number-counter"  style="margin-left:10px;float:left;" >
+										<div class="number-counter"  style="float:left;" >
 										 	<a href="javascript:void(0)" class="decrease" data-role="button" data-inline="true" data-mini="true"><i class="icon-minus"></i></a>
-											<input type="number" style="width:50px;height:30px;" readonly="true" name="goods[<%=item.good.id%>][count]" value="0" ></input>
+											<input type="number" style="width:30px;height:30px;" readonly="true" name="goods[<%=item.good.id%>][count]" value="0" ></input>
 											<a href="javascript:void(0)" class="increase " data-role="button" data-inline="true" data-mini="true"><i class="icon-plus"></i></a>
 										</div>
 									</div>
