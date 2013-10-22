@@ -6,39 +6,35 @@
 		</div>
 		<div data-role="content" data-theme="a">
 			<div data-role="collapsible-set">
-
-	
 					<div data-role="collapsible" data-theme="b" data-content-theme="b">
 					   <h3>订单信息</h3>
-
-
 						<%@shopping.shopping_items.each do |item| %>
-							<div class="product_items">
-							<div class="row">
-								<div class="span2">
-									<%=image_tag(item.good.cover_url(:mobile))%>
-								</div>
-								<div class="offset2">
-									<p><%= item.good.name%></p>
-								</div>
+							<div class="product_item">
+								<div class="row">
+									<div class="span2 product_image">
+										<%=image_tag(item.good.cover_url(:mobile))%>
+									</div>
+									<div class="offset2">
+										<p><%= item.good.name%></p>
+										<p class="product_content"><%= item.good.content%></p>
+									</div>
 
-							</div>
-							<div class="row">
-								<div class="span2 price" >
-									<p><%= number_to_currency item.good.price,:unit=>"￥"%>/<%= item.good.unit%></p>
 								</div>
-								<div class="offset2">
-									<div class="number-counter"  style="margin-left:10px;float:left;" >
-									 	<a href="javascript:void(0)" class="decrease" ><i class="icon-minus"></i></a>
-										<input type="number" style="width:30px" readonly="true" name="goods[<%=item.good.id%>][count]" value="0" ></input>
-										<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
+								<div class="row">
+									<div class="span2 price" >
+										<p><%= number_to_currency item.good.price,:unit=>"￥"%>/<%= item.good.unit%></p>
+									</div>
+									<div class="offset2">
+										<div class="number-counter"  style="margin-left:10px;float:left;" >
+										 	<a href="javascript:void(0)" class="decrease" ><i class="icon-minus"></i></a>
+											<input type="number" style="width:30px" readonly="true" name="goods[<%=item.good.id%>][count]" value="0" ></input>
+											<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
+										</div>
 									</div>
 								</div>
 							</div>
-							<br/>
-				     <%end%>
-		
-				</div>
+								
+				     	<%end%>
 				</div>
 				<div class="contact-info">
 					<input name="order_id" type="text" value="<%=@order.id%>" style="display:none"></input>
