@@ -12,7 +12,8 @@
  *= require_font-awesome
  *= require jquery.qeditor
  *= require jquery.mobile.structure-1.2.0.min.css
- *= require theme/Bootstrap.css
+ *= require bootstrap.min
+ *= require bootstrap-responsive.min
  *= require home
  *= require bootstrap_and_overrides
  *= require carts
