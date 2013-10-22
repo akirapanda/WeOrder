@@ -4,7 +4,6 @@ class ShoppingsController < ApplicationController
   
   authorize_resource
   
-  
   # GET /shoppings
   # GET /shoppings.json
   def index

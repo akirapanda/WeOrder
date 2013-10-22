@@ -1,0 +1,57 @@
+<%= content_for :title do %>
+	客户订单
+<% end %>
+<div class="widget-box">
+	<div class="widget-title">
+		<span class="icon">
+			<i class="icon-th"></i>
+		</span>
+		<h5>Static table</h5>
+	</div>
+	<div class="widget-content nopadding">
+		
+		<table class="table">
+		  <thead>
+		    <tr>
+			  <th>订单编号</th>
+    
+		      <th>客户名称</th>
+		      <th>客户地址</th>
+		      <th>总金额</th>
+		      <th>手机</th>
+		
+		      <th>创建时间</th>
+		      <th>
+				  	<%= link_to '新增', new_shopping_path,:class=>"btn-small btn-primary" %>	
+			</th>
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		    <% @shoppings.each do |shopping| %>
+		      <tr>
+					<td><%=shopping.id%></td>
+	
+		        <td><%= link_to shopping.customer_name, shopping %></td>
+		        <td><%= shopping.customer_address %></td>
+		        <td><%= number_to_currency(shopping.amount,:unit=>"￥") %></td>
+				<td><%= shopping.mobile_phone%>
+				<td><%= I18n.localize(shopping.created_at,:format=>:long)%></td>
+		        <td>
+					<div class="btn-group">
+					  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+					    操作
+					    <span class="caret"></span>
+					  </a>
+					<ul class="dropdown-menu">
+						<li><%= link_to '编辑', edit_shopping_path(shopping) %></li>
+					<li>	<%= link_to '删除', shopping, method: :delete, data: { confirm: '你确定需要删除订单吗？' } %></li>
+					</ul>
+					</div>
+					</td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+</div>

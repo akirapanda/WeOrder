@@ -36,8 +36,9 @@ Weorder::Application.routes.draw do
   
   root 'home#index'
     
-  namespace :cpanel do
+  namespace :admin do
     root :to => 'home#index'
+    resources :shopping 
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

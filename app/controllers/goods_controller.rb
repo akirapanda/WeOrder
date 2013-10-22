@@ -1,6 +1,8 @@
 class GoodsController < ApplicationController
   before_action :set_good, only: [:show, :edit, :update, :destroy,:photo,:buyer,:comments]
   before_filter :authenticate_user!,except: [:show,:comments,:buyer]
+  
+  
   # GET /goods
   # GET /goods.json
   def index
