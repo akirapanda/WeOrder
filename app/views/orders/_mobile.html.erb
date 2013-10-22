@@ -9,22 +9,21 @@
 					<div data-role="collapsible" data-theme="b" data-content-theme="b">
 					   <h3>订单信息</h3>
 						<%@shopping.shopping_items.each do |item| %>
-							<div class="product_item">
+							<div class="product_item container">
 								<div class="row">
-									<div class="span2">
+									<div class="span3">
 										<%=image_tag(item.good.cover_url(:mobile))%>
 									</div>
-									<div class="offset2">
+									<div class="span3">
 										<p><%= item.good.name%></p>
 										<p class="product_content"><%= item.good.content%></p>
 									</div>
-
 								</div>
 								<div class="row">
-									<div class="span2 price" >
+									<div class="span3 price" >
 										<p><%= number_to_currency item.good.price,:unit=>"￥"%>/<%= item.good.unit%></p>
 									</div>
-									<div class="offset1 number">
+									<div class="span3 number">
 										<div class="number-counter"  style="float:left;" >
 										 	<a href="javascript:void(0)" class="decrease" data-role="button" data-inline="true" data-mini="true"><i class="icon-minus"></i></a>
 											<input type="number" style="width:40px;height:30px;background-color:white;border:0;" readonly="true" name="goods[<%=item.good.id%>][count]" value="0" ></input>
