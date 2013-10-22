@@ -15,33 +15,42 @@
 
  *= require theme/Bootstrap.css
  */
-
+.container{
+	padding:10px 20px 10px 20px;
+}
 .product_item{
-	border-bottom:1px dashed #000;
 	margin-top:10px;
 	font-size:16px;
 }
 
-.name-dashed{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-bottom:1px dashed #000;}
 
+.price{
+float:left;
+margin-right:10px;
+width:100px;
+}
 
 .price p{
 	margin-top:10px;
 	color:#FE0019;
 	font-size:14px;
 	overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-	
 	}
 .image-center{width:256px;height:280px;text-align:center;vertical-align:middle;margin-bottom:0px}
 
 .product_image{
+	float:left;
+	margin-right:10px;
 }
 
+.product_description{
+	width:20%;
+}
 .number{
 	margin-left:-20px;
 }
 .product_content{
-font-size:13px;color:#999;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+font-size:13px;color:#999;overflow:hidden;
 }
 
 .product_item a{

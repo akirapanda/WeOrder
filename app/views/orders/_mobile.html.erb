@@ -8,18 +8,19 @@
 			<div data-role="collapsible-set">
 					<div data-role="collapsible" data-theme="b" data-content-theme="b">
 					   <h3>订单信息</h3>
+						<div class="container">
 						<%@shopping.shopping_items.each do |item| %>
-							<div class="product_item container">
-								<div class="row span3">
+							<div class="product_item">
+								<div class="row">
 									<div class="product_image">
 										<%=image_tag(item.good.cover_url(:mobile))%>
 									</div>
-									<div class="">
+									<div class="product_description">
 										<p><%= item.good.name%></p>
 										<p class="product_content"><%= item.good.content%></p>
 									</div>
 								</div>
-								<div class="row span3">
+								<div class="row">
 									<div class=" price" >
 										<p><%= number_to_currency item.good.price,:unit=>"￥"%>/<%= item.good.unit%></p>
 									</div>
@@ -34,6 +35,7 @@
 							</div>
 								
 				     	<%end%>
+					</div>
 				</div>
 				<div class="contact-info">
 					<input name="order_id" type="text" value="<%=@order.id%>" style="display:none"></input>
