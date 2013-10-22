@@ -10,9 +10,10 @@
  *
  *= require_self
  *= require_font-awesome
- *= require jquery.mobile.structure-1.2.0.min.css
+ *= require jquery.mobile.structure-1.2.0.min
+ *= require bootstrap.min
+
  *= require theme/Bootstrap.css
- *= require  bootstrap_and_overrides.css
  */
 .goods-div{
 font-size:8px;

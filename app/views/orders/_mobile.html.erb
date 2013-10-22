@@ -1,0 +1,63 @@
+<%= render "shared/error_messages",:target=>@shopping%>
+<%= simple_form_for(@shopping ,:html=>{'data-ajax'=>"false"}) do |f| %>
+<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline" data-theme="b">
+			<h1><%=@order.name%></h1>
+		</div>
+		<div data-role="content" data-theme="a">
+			<div data-role="collapsible-set">
+
+	
+					<div data-role="collapsible" data-theme="b" data-content-theme="b">
+					   <h3>订单信息</h3>
+
+
+						<%@shopping.shopping_items.each do |item| %>
+							<div class="product_items">
+							<div class="row">
+								<div class="span2">
+									<%=image_tag(item.good.cover_url(:mobile))%>
+								</div>
+								<div class="offset2">
+									<p><%= item.good.name%></p>
+									<p><%= number_to_currency item.good.price,:unit=>"￥"%>/<%= item.good.unit%></p>
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="span2">
+									<p>
+									库存信息
+									</p>
+								</div>
+								<div class="offset2">
+								<div class="number-counter"  style="margin-left:10px;float:left;" >
+								 	<a href="javascript:void(0)" class="decrease" ><i class="icon-minus"></i></a>
+									<input type="number" style="width:30px" readonly="true" name="goods[<%=item.good.id%>][count]" value="0" ></input>
+									<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
+								</div>
+								</div>
+							</div>
+	
+				     <%end%>
+		
+				</div>
+				</div>
+				<div class="contact-info">
+					<input name="order_id" type="text" value="<%=@order.id%>" style="display:none"></input>
+					
+				<legend>
+				您的联系方式
+				</legend>
+				<%= f.input :customer_name ,as: :text %>
+				<%= f.input :customer_address ,as: :text %>
+				<%= f.input :mobile_phone ,as: :text %>
+				<%= f.input :remark ,as: :text %>
+				<button type="submit" data-theme="b" name="submit" value="submit-value">下单</button>
+				</div>
+			<%end%>
+		</div>
+		
+		
+
+	</div>
