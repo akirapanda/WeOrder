@@ -6,6 +6,7 @@ Weorder::Application.routes.draw do
   resources :carts
 
   resources :contacts
+  
 
   devise_for :users
   resources :shoppings

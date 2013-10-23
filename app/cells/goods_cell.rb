@@ -1,5 +1,6 @@
 class GoodsCell < Cell::Rails
-
+  cache :lastest, :expires_in => 10.minutes
+  
   def user_shopping
     render
   end
