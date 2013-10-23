@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jquery.qeditor
-//= require jquery.mobile-1.2.0.min.js
 //= require home
 //= require bootstrap
 //= require carts
@@ -27,5 +26,3 @@
 //= require photo
 //= require shopping_items
 //= require shoppings
-
-
