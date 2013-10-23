@@ -70,7 +70,28 @@ class ShoppingsController < ApplicationController
         @shopping.shopping_items.each do |item|
            item.save
          end
-        format.html { redirect_to @shopping, notice: 'Shopping was successfully created.' }
+        format.html { 
+          body_html="#{@shopping.created_at} 系统收到一份新的订单，金额#{@shopping.amount},联系电话#{@shopping.mobile_phone}"
+          Mail.defaults do
+            retriever_method :pop3, :address    => "pop.gmail.com",
+                                    :port       => 995,
+                                    :user_name  => 'p.chenliang@gmail.com',
+                                    :password   => 'Xiaoke1021',
+                                    :enable_ssl => true
+          end
+          
+          mail = Mail.new do
+            from     'p.chenliang@gmail.com'
+            to       '525483886@qq.com'
+            subject  'new shopping order from WeOrder'
+            body     body_html
+          end
+
+          mail.delivery_method :sendmail
+          mail.deliver
+          redirect_to @shopping, notice: 'Shopping was successfully created.' 
+          
+          }
       else
         format.html { 
           if order_id
