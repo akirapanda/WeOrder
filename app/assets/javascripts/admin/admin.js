@@ -10,12 +10,3 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery.min
-//= require jquery_ujs
-//= require bootstrap.min
-//= require jquery.uniform
-//= require jquery.chosen
-//= require jquery.dataTables.min
-
-//= require jquery.qeditor
-//= require jquery.mobile-1.2.0.min.js
