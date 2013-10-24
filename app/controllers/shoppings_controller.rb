@@ -71,7 +71,7 @@ class ShoppingsController < ApplicationController
            item.save
          end
         format.html { 
-          
+          body_html="#{@shopping.created_at} 有客户 #{@shopping.customer_name},电话#{@shopping.mobile_phone}订购#{@shopping.amount}元的水果"
           mail = Mail.new do
             from     'p.chenliang@gmail.com'
             to       '525483886@qq.com'
