@@ -10,20 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+//= require jquery-1.8.2.min.js
 //= require jquery.mobile-1.2.0.min.js
 //= require twitter/bootstrap
-//= require jquery.qeditor
 //= require home
 //= require bootstrap.min
-//= require carts
-//= require contacts
 //= require goods
-//= require goods_comments
-//= require goods_items
-//= require keywords
 //= require orders
-//= require photo
-//= require shopping_items
-//= require shoppings
