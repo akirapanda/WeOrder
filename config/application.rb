@@ -27,5 +27,6 @@ module Weorder
     config.middleware.insert_after ActionDispatch::ParamsParser, ActionDispatch::XmlParamsParser
   	config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :"zh-CN"
+   # config.assets.precompile += %w(application.css)
   end
 end
