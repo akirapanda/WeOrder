@@ -1,8 +1,25 @@
-<%= render "shared/error_messages",:target=>@shopping%>
 <%= simple_form_for(@shopping ,:html=>{'data-ajax'=>"false"}) do |f| %>
+
 <div data-role="page" data-theme="a">
+	<%= render "shared/error_messages",:target=>@shopping%>
+	
+
 		<div data-role="header" data-position="inline" data-theme="b">
 			<h1><%=@order.name%></h1>
+		</div>
+		<div id="content" class="container">
+			<%if notice%>
+			<div class="alert alert-info fade in">
+				<a class="close" data-dismiss='alert' href="#">x</a>
+				<p id="notice"><%= notice %></p>
+			</div>
+			<%end%>
+			<%if alert%>
+			<div class="alert alert-block alert-error">
+				<a class="close" data-dismiss='alert' href="#">x</a>
+				<p id="notice"><%= alert %></p>
+			</div>
+			<%end%>
 		</div>
 		<div data-role="content" data-theme="a">
 			<div data-role="collapsible-set">

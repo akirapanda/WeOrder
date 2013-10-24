@@ -53,7 +53,7 @@ class ShoppingsController < ApplicationController
        
     if  @shopping.shopping_items.size ==0
         respond_to do |format|
-            format.html { redirect_to list_order_path(order_id), alert: '您的订单中没有任何商品哟' }
+            format.html { redirect_to list_order_path(order_id), alert: '您的订单中没有任何商品哟,请调整购买商品的数量。' }
           end 
         return
     end
@@ -71,14 +71,6 @@ class ShoppingsController < ApplicationController
            item.save
          end
         format.html { 
-          body_html="#{@shopping.created_at} 系统收到一份新的订单，金额#{@shopping.amount},联系电话#{@shopping.mobile_phone}"
-          Mail.defaults do
-            retriever_method :pop3, :address    => "pop.gmail.com",
-                                    :port       => 995,
-                                    :user_name  => 'p.chenliang@gmail.com',
-                                    :password   => 'Xiaoke1021',
-                                    :enable_ssl => true
-          end
           
           mail = Mail.new do
             from     'p.chenliang@gmail.com'
@@ -87,7 +79,6 @@ class ShoppingsController < ApplicationController
             body     body_html
           end
 
-          mail.delivery_method :sendmail
           mail.deliver
           redirect_to @shopping, notice: 'Shopping was successfully created.' 
           
