@@ -1,0 +1,65 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_font-awesome
+ *= require jquery.mobile.structure-1.2.0.min
+ *= require bootstrap.min
+ *= require theme/Bootstrap.css
+ */
+.container{
+	padding:10px 20px 10px 20px;
+}
+.product_item{
+	margin-top:10px;
+	font-size:16px;
+}
+
+
+.price{
+float:left;
+margin-right:10px;
+width:100px;
+}
+
+.price p{
+	margin-top:10px;
+	color:#FE0019;
+	font-size:14px;
+	overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+	}
+.image-center{width:256px;height:280px;text-align:center;vertical-align:middle;margin-bottom:0px}
+
+.product_image{
+	float:left;
+	margin-right:10px;
+}
+
+.product_description{
+	width:20%;
+}
+.number{
+	margin-left:-20px;
+}
+.product_content{
+font-size:13px;color:#999;overflow:hidden;
+}
+
+.product_item a{
+	text-align:center;
+	vertical-align:middle;
+	margin:0 0 0 0;
+}
+
+.product_item input{
+	text-align:center;
+	vertical-align:middle;
+	margin:0 0 0 0;
+}
