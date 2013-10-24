@@ -11,7 +11,6 @@
  *= require_self
  *= require_font-awesome
  *= require jquery.qeditor
- *= require jquery.mobile.structure-1.2.0.min.css
  *= require bootstrap.min
  *= require bootstrap-responsive.min
  *= require home
@@ -22,7 +21,6 @@
  *= require goods_comments
  *= require goods_items
  *= require keywords
- *= require mobile
  *= require orders
  *= require photo
  *= require shopping_items

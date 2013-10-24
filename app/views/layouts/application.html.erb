@@ -22,7 +22,7 @@
   	<%= csrf_meta_tags %>
   <% end %>
 </head>
-<body>
+<body data-controller-name="<%= controller_name %>">
   
 	<div class="container root_container">
 		<% unless mobile? %>
