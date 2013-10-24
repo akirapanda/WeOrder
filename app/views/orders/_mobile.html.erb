@@ -1,4 +1,3 @@
-<%= simple_form_for(@shopping ,:html=>{'data-ajax'=>"false"}) do |f| %>
 
 <div data-role="page" data-theme="a">
 	<%= render "shared/error_messages",:target=>@shopping%>
@@ -7,6 +6,8 @@
 		<div data-role="header" data-position="inline" data-theme="b">
 			<h1><%=@order.name%></h1>
 		</div>
+		
+		
 		<div id="content" class="container">
 			<%if notice%>
 			<div class="alert alert-info fade in">
@@ -22,6 +23,8 @@
 			<%end%>
 		</div>
 		<div data-role="content" data-theme="a">
+			<%= simple_form_for(@shopping ,:html=>{'data-ajax'=>"false"}) do |f| %>
+			
 			<div data-role="collapsible-set">
 					<div data-role="collapsible" data-theme="b" data-content-theme="b">
 					   <h3>订单信息</h3>
@@ -53,7 +56,8 @@
 								
 				     	<%end%>
 					</div>
-				</div>
+				
+				</div>		
 				<div class="contact-info">
 					<input name="order_id" type="text" value="<%=@order.id%>" style="display:none"></input>
 					
