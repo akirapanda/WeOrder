@@ -1,5 +1,7 @@
 source 'http://ruby.taobao.org'
 
+gem 'mysql2'
+gem 'yaml_db'
 gem 'actionpack-xml_parser'
 gem "rails-i18n","0.1.8"
 gem 'font-awesome-sass-rails'
