@@ -27,5 +27,3 @@
 //= require photo
 //= require shopping_items
 //= require shoppings
-//= require masonry.pkgd.min
-//= require imagesloaded.pkgd.min
