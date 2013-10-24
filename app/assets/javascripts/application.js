@@ -16,7 +16,7 @@
 //= require twitter/bootstrap
 //= require jquery.qeditor
 //= require home
-//= require bootstrap
+//= require bootstrap.min
 //= require carts
 //= require contacts
 //= require goods

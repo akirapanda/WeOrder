@@ -16,7 +16,6 @@
 //= require jquery.uniform
 //= require jquery.chosen
 //= require jquery.dataTables.min
-//= require unicorn
-//= require unicorn.tables
+
 //= require jquery.qeditor
 //= require jquery.mobile-1.2.0.min.js
