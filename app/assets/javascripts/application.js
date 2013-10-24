@@ -10,9 +10,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery-1.8.2.min.js
-//= require jquery.mobile-1.2.0.min.js
+//= require jquery
 //= require jquery_ujs
+//= require jquery.mobile-1.2.0.min.js
 //= require twitter/bootstrap
 //= require jquery.qeditor
 //= require home
