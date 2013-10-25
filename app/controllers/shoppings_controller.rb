@@ -71,17 +71,7 @@ class ShoppingsController < ApplicationController
            item.save
          end
         format.html { 
-          body_html="#{@shopping.created_at} 有客户 #{@shopping.customer_name},电话#{@shopping.mobile_phone}订购#{@shopping.amount}元的水果"
-          mail = Mail.new do
-            from     'p.chenliang@gmail.com'
-            to       '525483886@qq.com'
-            subject  'new shopping order from WeOrder'
-            body     body_html
-          end
-
-          mail.deliver
           redirect_to @shopping, notice: 'Shopping was successfully created.' 
-          
           }
       else
         format.html { 
