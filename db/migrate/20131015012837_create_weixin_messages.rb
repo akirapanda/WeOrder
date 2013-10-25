@@ -4,7 +4,6 @@ class CreateWeixinMessages < ActiveRecord::Migration
       t.string :from_user
       t.string :msgType
       t.string :msg
-
       t.timestamps
     end
   end

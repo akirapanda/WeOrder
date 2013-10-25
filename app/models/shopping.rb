@@ -1,4 +1,6 @@
 class Shopping < ActiveRecord::Base
+  acts_as_paranoid
+  
   has_many :shopping_items
   validates :customer_name,:customer_address,:mobile_phone,:presence => true
   validates :mobile_phone,:numericality =>true

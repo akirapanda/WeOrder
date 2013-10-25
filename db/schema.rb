@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019144552) do
+ActiveRecord::Schema.define(version: 20131025054542) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20131019144552) do
     t.string   "body_html"
     t.string   "weixin_url"
     t.boolean  "public",     default: true
+    t.datetime "deleted_at"
   end
 
   create_table "goods_comments", force: true do |t|
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(version: 20131019144552) do
     t.boolean  "publish"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   create_table "photos", force: true do |t|
@@ -111,6 +113,7 @@ ActiveRecord::Schema.define(version: 20131019144552) do
     t.string   "home_phone"
     t.string   "mobile_phone"
     t.string   "remark"
+    t.datetime "deleted_at"
   end
 
   create_table "users", force: true do |t|
