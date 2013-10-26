@@ -28,7 +28,7 @@
   <tbody>
     <% @keywords.each do |keyword| %>
       <tr>
-        <td><%= keyword.cate %></td>
+        <td class="center"><%=  keyword.cate %></td>
         <td><%= link_to keyword.keywords,keyword %></td>
         <td><%= keyword.reply_type %></td>
 
@@ -49,6 +49,5 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
+<%= will_paginate @keywords %>
 

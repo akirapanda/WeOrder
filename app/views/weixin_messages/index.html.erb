@@ -1,14 +1,17 @@
-<h1>Listing weixin_messages</h1>
 
-<table>
+<div class="hero-unit">
+<h1>微信API消息日志</h1>
+
+</div>
+
+<table class="table">
   <thead>
     <tr>
-      <th>From user</th>
-      <th>Msgtype</th>
-      <th>Msg</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>发起用户ID</th>
+      <th>消息类型</th>
+      <th>消息内容</th>
+      <th>发送时间</th>
+      <th>删除记录</th>
     </tr>
   </thead>
 
@@ -18,8 +21,8 @@
         <td><%= weixin_message.from_user %></td>
         <td><%= weixin_message.msgType %></td>
         <td><%= weixin_message.msg %></td>
-        <td><%= link_to 'Show', weixin_message %></td>
-        <td><%= link_to 'Edit', edit_weixin_message_path(weixin_message) %></td>
+        <td><%=l weixin_message.created_at, :format=>:long %></td>
+
         <td><%= link_to 'Destroy', weixin_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -27,5 +30,5 @@
 </table>
 
 <br>
+<%= will_paginate @weixin_messages %>
 
-<%= link_to 'New Weixin message', new_weixin_message_path %>

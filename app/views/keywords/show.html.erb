@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
+<div class="hero-unit">
+<h1>编辑关键字</h1>
 
+</div>
 <p>
   <strong>Type:</strong>
   <%= @keyword.cate %>
@@ -15,5 +17,5 @@
   <%= @keyword.reply_content %>
 </p>
 
-<%= link_to 'Edit', edit_keyword_path(@keyword) %> |
-<%= link_to 'Back', keywords_path %>
+<%= link_to '编辑', edit_keyword_path(@keyword) %> |
+<%= link_to '返回', keywords_path %>
