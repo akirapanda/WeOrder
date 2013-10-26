@@ -65,18 +65,17 @@ class ShoppingsController < ApplicationController
   
     respond_to do |format|
       if @shopping.save
-        Cart.destroy(session[:cart_id]) unless session[:cart_id]==nil
+       # Cart.destroy(session[:cart_id]) unless session[:cart_id]==nil
         session[:cart_id]=nil
         @shopping.shopping_items.each do |item|
            item.save
          end
         format.html { 
           mail=SendMail.new
-          mail.type="shopping"
-          mail.content="#{@shopping.created_at}有客户#{@shopping.customer_name}购买了#{@shopping.amount}元的产品，电话#{@shoppig.mobile_phone}"
+          mail.content="#{@shopping.created_at}有客户#{@shopping.customer_name}购买了#{@shopping.amount}元的产品，电话#{@shopping.mobile_phone}"
           mail.receivers="18071400@qq.com"
           mail.done=false
-          mali.save
+          mail.save
           redirect_to @shopping, notice: 'Shopping was successfully created.' 
           }
       else
