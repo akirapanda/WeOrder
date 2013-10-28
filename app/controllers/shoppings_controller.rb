@@ -71,11 +71,8 @@ class ShoppingsController < ApplicationController
            item.save
          end
         format.html { 
-          mail=SendMail.new
-          mail.content="#{@shopping.created_at}有客户#{@shopping.customer_name}购买了#{@shopping.amount}元的产品，电话#{@shopping.mobile_phone}"
-          mail.receivers="18071400@qq.com"
-          mail.done=false
-          mail.save
+          ##
+          SendMail.build_mail_by_shopping(@shopping)
           redirect_to @shopping, notice: 'Shopping was successfully created.' 
           }
       else

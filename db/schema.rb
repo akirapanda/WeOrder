@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028032744) do
+ActiveRecord::Schema.define(version: 20131028040822) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20131028032744) do
   create_table "send_mails", force: true do |t|
     t.string   "type"
     t.string   "receivers"
-    t.string   "content"
+    t.text     "content",    limit: 255
     t.boolean  "done"
     t.datetime "created_at"
     t.datetime "updated_at"
