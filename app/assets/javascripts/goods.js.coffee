@@ -5,5 +5,5 @@ jQuery ->
 	if $('body').data('controller-name') in ['goods']
 		$("[rel='tooltip']").tooltip()
 		$('.dropdown-toggle').dropdown()
-		$("#rich").click ->
-			$("#post_body").qeditor({})
+		$("#post_body").qeditor({})
+		
