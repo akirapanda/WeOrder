@@ -37,7 +37,7 @@
             shopping:
                 customer_name: "收货人姓名"
                 customer_build: "收货地址"
-                receive_tiem: "送货时间"
+                receive_time: "送货时间"
                 customer_address: "详细地址"
                 mobile_phone: "联系电话"
                 remark: "备注信息"
