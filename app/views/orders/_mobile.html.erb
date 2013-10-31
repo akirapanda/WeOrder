@@ -1,6 +1,6 @@
 
-<div data-role="page" data-theme="a">
-	<%= render "shared/error_messages",:target=>@shopping%>
+<div data-role="page" id="page">
+		<%= render "shared/error_messages",:target=>@shopping%>
 	
 
 		<div data-role="header" data-position="inline" data-theme="b">
@@ -8,29 +8,34 @@
 		</div>
 		
 		
-		<div id="content" class="container">
-			<%if notice%>
-			<div class="alert alert-info fade in">
-				<a class="close" data-dismiss='alert' href="#">x</a>
-				<p id="notice"><%= notice %></p>
-			</div>
-			<%end%>
-			<%if alert%>
-			<div class="alert alert-block alert-error">
-				<a class="close" data-dismiss='alert' href="#">x</a>
-				<p id="notice"><%= alert %></p>
-			</div>
-			<%end%>
-		</div>
+
+		
 		<div data-role="content" data-theme="a">
+			<div id="content" class="container">
+				<%if notice%>
+				<div class="alert alert-info fade in">
+					<a class="close" data-dismiss='alert' href="#">x</a>
+					<p id="notice"><%= notice %></p>
+				</div>
+				<%end%>
+				<%if alert%>
+				<div class="alert alert-block alert-error">
+					<a class="close" data-dismiss='alert' href="#">x</a>
+					<p id="notice"><%= alert %></p>
+				</div>
+				<%end%>
+			</div>
 			<%= simple_form_for(@shopping ,:html=>{'data-ajax'=>"false"}) do |f| %>
 			
 			<div data-role="collapsible-set">
 					<div data-role="collapsible" data-theme="b" data-content-theme="b" data-collapsed="false">
-					   <h3>订单信息</h3>
-						<div class="container">
+					   <h3>商品信息</h3>
+						<div class="products">
+							<%default= @shopping.shopping_items.size==1?1:0%>
+							
 						<%@shopping.shopping_items.each do |item| %>
 							<div class="product_item">
+								
 								<div class="row">
 									<div class="product_image">
 										<%=image_tag(item.product.cover_url(:mobile))%>
@@ -39,45 +44,53 @@
 										<p><%= item.product.name%></p>
 										<p class="product_content"><%= item.product.content%></p>
 									</div>
-								</div>
+								</div><!--end of row-->
+								
 								<div class="row">
-									<div class=" price" >
-										<p><%= number_to_currency item.product.price,:unit=>"￥"%>/<%= item.product.unit%></p>
-									</div>
-									<div class=" number">
-										<div class="number-counter"  style="float:left;" >
-											<span>买</span>
-										 	<a href="javascript:void(0)" class="decrease" data-role="button" data-inline="true" data-mini="true"><i class="icon-minus"></i></a>
-											<input type="number" style="width:40px;height:30px;background-color:white;border:0;" readonly="true" name="goods[<%=item.product.id%>][count]" value="0" ></input>
-											<a href="javascript:void(0)" class="increase" data-role="button" data-inline="true" data-mini="true"><i class="icon-plus"></i></a><span><%=item.product.unit%></span>
+									<div class="product_footer">
+										<div class=" price" >
+											<p><%= number_to_currency item.product.price,:unit=>"￥"%>/<%= item.product.unit%></p>
 										</div>
-									</div>
-								</div>
-							</div>
+										
+										<div class="number">
+											<div class="number-counter"  style="float:left;" >
+											 	<a href="javascript:void(0)" class="decrease" data-role="button" data-inline="true" data-mini="true"><i class="icon-minus"></i></a>
+												<input type="number" style="width:40px;height:30px;background-color:white;border:0;" readonly="true" name="goods[<%=item.product.id%>][count]" value="<%=default%>"></input>
+												<a href="javascript:void(0)" class="increase" data-role="button" data-inline="true" data-mini="true"><i class="icon-plus"></i></a><span><%=item.product.unit%></span>
+											</div>
+										</div>
+										
+									</div><!--end of row-->
+									
+								</div> <!--end of product_item-->
 								
 				     	<%end%>
-					</div>
+						</div> <!--end of products-->
 				
-				</div>		
-				<div class="contact-info">
-					<input name="order_id" type="text" value="<%=@order.id%>" style="display:none"></input>
-					
+					</div> <!-- end of collapsible-->
+				
+			</div><!-- end of set-->
+				
+			<div class="contact-info">
+				<input name="order_id" type="text" value="<%=@order.id%>" style="display:none"/>
+				
 				<legend>
 				您的联系方式
 				</legend>
 
 				<%= f.input :customer_name,:input_html=>{:style=>"height:40px;"} %>
 				<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
-				
-				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"}%>
-				<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES %>
 			
-				<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"}  %>
-				<%= f.input :remark,:input_html=>{:style=>"height:40px;"}   %>
+				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"几号楼宿舍门牌"%>
+				<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES %>
+		
+				<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"},:placeholder=>"您的手机号码"   %>
+				<%= f.input :remark,:input_html=>{:style=>"height:40px;"}  %>
 				<button type="submit" data-role="button" data-theme="b" name="submit">下单</button>
-				</div>
+			</div>
+				
 			<%end%>
-		</div>
+		</div> <!--end of content-->
 		
 		
 
