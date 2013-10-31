@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
-	if $('body').data('controller-name') in ['goods']
+	if $('body').data('controller-name') in ['products']
 		$("[rel='tooltip']").tooltip()
 		$('.dropdown-toggle').dropdown()
 		$("#post_body").qeditor({})

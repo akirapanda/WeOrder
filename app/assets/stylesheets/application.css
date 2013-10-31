@@ -17,7 +17,7 @@
  *= require bootstrap_and_overrides
  *= require carts
  *= require contacts
- *= require goods
+ *= require products
  *= require goods_comments
  *= require goods_items
  *= require keywords

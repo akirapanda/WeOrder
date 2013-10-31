@@ -17,9 +17,9 @@
 //= require bootstrap.min
 //= require carts
 //= require contacts
-//= require goods
+//= require products
 //= require goods_comments
-//= require goods_items
+//= require product_order_items
 //= require keywords
 //= require orders
 //= require photo

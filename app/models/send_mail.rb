@@ -11,13 +11,13 @@ class SendMail < ActiveRecord::Base
     content=content+"<table class='table'><thead><th>商品名称</th><th>订购数量</th><th>单价</th><th>小计</th></thead>"
     
     shopping.shopping_items do |item|
-      content=content+"<tr><td>#{item.product.name}</td><td>#{product.count} / #{product.good.unit}</td><td>#{product.good.price}元 / #{item.good.unit}</td><td>#{item.amount}元</td></tr>"
+      content=content+"<tr><td>#{item.product.name}</td><td>#{item.count} / #{item.product.unit}</td><td>#{item.product.price}元 / #{item.product.unit}</td><td>#{item.amount}元</td></tr>"
     end
     
     mail = SendMail.new
     mail.content = content
-    #mail.receivers = "525483886@qq.com"
-    mail.receivers = "18071400@qq.com"
+    mail.receivers = "525483886@qq.com"
+    #mail.receivers = "18071400@qq.com"
     mail.done = false
     mail.save
   end
