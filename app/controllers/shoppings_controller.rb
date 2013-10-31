@@ -7,7 +7,7 @@ class ShoppingsController < ApplicationController
   # GET /shoppings
   # GET /shoppings.json
   def index
-    @shoppings = Shopping.all
+    @shoppings = Shopping.order('created_at desc').paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /shoppings/1
