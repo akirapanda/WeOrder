@@ -68,6 +68,7 @@ gem 'jbuilder', '~> 1.2'
 #soft delete
 gem 'paranoia', '~> 2.0'
 
+gem 'lazy_high_charts'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

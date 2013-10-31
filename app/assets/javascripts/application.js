@@ -25,3 +25,5 @@
 //= require photo
 //= require shopping_items
 //= require shoppings
+//= require highcharts/highcharts                                                           
+//= require highcharts/highcharts-more

@@ -9,6 +9,7 @@ class Product < ActiveRecord::Base
   belongs_to :user
   has_many :photo,:dependent => :destroy
   has_many :product_shopping_items,:dependent => :destroy
+  has_many :shopping_items
   
   scope :publiced, where(:public=>true)
 end
