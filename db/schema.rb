@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031020506) do
+ActiveRecord::Schema.define(version: 20131031054035) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -123,6 +123,10 @@ ActiveRecord::Schema.define(version: 20131031020506) do
     t.string   "mobile_phone"
     t.string   "remark"
     t.datetime "deleted_at"
+    t.string   "customer_build"
+    t.string   "status"
+    t.integer  "follower_id"
+    t.string   "receive_time"
   end
 
   create_table "users", force: true do |t|

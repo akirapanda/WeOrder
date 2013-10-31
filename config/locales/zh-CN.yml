@@ -35,10 +35,12 @@
                 publish: "是否公开"
                 content: "简介"
             shopping:
-                customer_name: "客户名称"
-                customer_address: "客户地址"
+                customer_name: "收货人姓名"
+                customer_build: "收货地址"
+                receive_tiem: "送货时间"
+                customer_address: "详细地址"
                 mobile_phone: "联系电话"
-                remark: "备注(收货时间要求等)"
+                remark: "备注信息"
                 
                 
               

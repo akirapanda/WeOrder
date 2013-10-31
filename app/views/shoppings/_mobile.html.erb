@@ -1,5 +1,5 @@
 <div data-role="page" data-theme="a">
-		<div data-role="header" data-position="inline">
+		<div data-role="header" data-position="inline" data-theme="d">
 			<h1>您的订单编号:[<%=@shopping.id%>]</h1>
 		</div>
 		<div data-role="content" data-theme="a">
@@ -43,7 +43,7 @@
 			  <strong>下单时间:</strong>
 				<%=I18n.localize( @shopping.created_at,:format=>:long)%>
 			</p>
-			  <strong>客户名称:</strong>
+			  <strong>姓名:</strong>
 			  <%= @shopping.customer_name %>
 			</p>
 			</p>
@@ -51,8 +51,13 @@
 			  <%= @shopping.mobile_phone %>
 			</p
 			<p>
-			  <strong>客户地址:</strong>
+			  <strong>地址:</strong>
+			  <%= @shopping.customer_build %> <br/>
 			  <%= @shopping.customer_address %>
+			</p>
+			<p>
+			  <strong>送货时间:</strong>
+			  <%= @shopping.receive_time %>
 			</p>
 			<p>
 			  <strong>订单金额:</strong>
@@ -62,7 +67,10 @@
 			  <strong>备注信息:</strong>
 			  <%=@shopping.remark %>
 			</p>
+
 		</div>
-
-
+		<pre>如有任何其他问题，可以发送信息至我们的服务号，我们的小伙伴会尽快为您解答。</pre>
+		<div data-role="footer" >
+		 <p>Copyright &copy; 2013 上理果园</p>
+		</div>
 </div>

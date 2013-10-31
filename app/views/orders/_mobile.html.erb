@@ -65,10 +65,15 @@
 				<legend>
 				您的联系方式
 				</legend>
-				<%= f.input :customer_name ,as: :text %>
-				<%= f.input :customer_address ,as: :text %>
-				<%= f.input :mobile_phone ,as: :text %>
-				<%= f.input :remark ,as: :text %>
+
+				<%= f.input :customer_name,:input_html=>{:style=>"height:40px;"} %>
+				<%= f.input :customer_build,:collection=>Shopping::BUILDS,:input_html=>{"data-native-menu"=>false} %>
+				
+				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"}%>
+				<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES,:input_html=>{"data-native-menu"=>false} %>
+			
+				<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"}  %>
+				<%= f.input :remark,:input_html=>{:style=>"height:40px;"}   %>
 				<button type="submit" data-role="button" data-theme="b" name="submit">下单</button>
 				</div>
 			<%end%>
