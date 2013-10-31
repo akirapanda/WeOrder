@@ -70,7 +70,7 @@
 				<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
 				
 				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"}%>
-				<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES,:input_html=>{"data-native-menu"=>false} %>
+				<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES %>
 			
 				<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"}  %>
 				<%= f.input :remark,:input_html=>{:style=>"height:40px;"}   %>
