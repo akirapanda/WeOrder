@@ -1,6 +1,6 @@
 class Admin::ReportsController < ApplicationController
   def products
-    @products=Product.joins(:shopping_items).select("products.name,sum(shopping_items.amount) as amount,sum(shopping_items.count) as count").where("shopping_items.shopping_id <> 0").group("products.id")
+    @products=Product.joins(:shopping_items).select("products.name,sum(shopping_items.amount) as amount,sum(shopping_items.count) as count").group("products.id").order("sum(shopping_items.amount) desc")
     
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title({ :text=>"商品销售统计"})
