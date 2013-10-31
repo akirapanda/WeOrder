@@ -67,7 +67,7 @@
 				</legend>
 
 				<%= f.input :customer_name,:input_html=>{:style=>"height:40px;"} %>
-				<%= f.input :customer_build,:collection=>Shopping::BUILDS,:input_html=>{"data-native-menu"=>false} %>
+				<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
 				
 				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"}%>
 				<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES,:input_html=>{"data-native-menu"=>false} %>
