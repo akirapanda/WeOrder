@@ -1,7 +1,7 @@
 <div id="goods_container" class="container shadow">
 <div class="goods_head">
-		<h1><%= @good.name%></h1>
-		<h2><%= @good.content%></h2>
+		<h1><%= @product.name%></h1>
+		<h2><%= @product.content%></h2>
 		<ul id="myTab" class="nav nav-pills">
 		  <li class="active"><%=link_to "商品信息",good_url(@good)%></li>
 		  <li><%=link_to "谁买了",buyer_good_url(@good)%></li>	
@@ -14,9 +14,9 @@
 	<div class="row">
 		<div class="span9">
 			<div id="main">
-				<%=carousel_tag @good%>
+				<%=carousel_tag @product%>
 				<div id="body-html">
-				<%=raw @good.body_html%>
+				<%=raw @product.body_html%>
 
 			</div>
 			</div>
@@ -24,17 +24,17 @@
 		</div>
 		<div id="sidebar" class="span3">
 			<div class="price">
-	  			 <%= number_to_currency(@good.price,:unit=>"&yen") %> / <%= @good.unit %>
+	  			 <%= number_to_currency(@product.price,:unit=>"&yen") %> / <%= @product.unit %>
 			</div>
 			<div class="buy">
-				<%= simple_form_for(@shopping_item,:method=>:post) do |f| %>
+				<%= simple_form_for(@product,:method=>:post) do |f| %>
 				
 				<div class="number-counter">
 				 	<a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
 					<input type="text"class="input-mini" readonly="true" name="count" value="1" ></input>
 					<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
 				</div>
-				<input value="<%=@good.id%>" name="product_id" class="hide"/>
+				<input value="<%=@product.id%>" name="product_id" class="hide"/>
 				<%=f.submit "购买",:class=>'btn btn-primary'%>
 				<%end%>
 			</div>

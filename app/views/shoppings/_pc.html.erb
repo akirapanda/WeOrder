@@ -47,9 +47,9 @@
 		<% @shopping.shopping_items.each do |item|%>
 			<tr>
 				
-				<td><%=item.good.name%></td>
-				<td><%=item.count%> <%=item.good.unit%></td>
-				<td><%=number_to_currency(item.good.price,:unit=>"&yen")%> / <%=item.good.unit%></td>
+				<td><%=item.product.name%></td>
+				<td><%=item.count%> <%=item.product.unit%></td>
+				<td><%=number_to_currency(item.product.price,:unit=>"&yen")%> / <%=item.product.unit%></td>
 				<td><%=number_to_currency(item.amount,:unit=>"&yen")%></td>
 			</tr>
 		<%end%>

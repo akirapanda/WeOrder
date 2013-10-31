@@ -3,18 +3,18 @@
 	<FromUserName><![CDATA[<%= params[:xml][:ToUserName]%>]]></FromUserName>
 	<CreateTime><%= Time.now.to_i %></CreateTime>
 	<MsgType><![CDATA[news]]></MsgType>
-	<ArticleCount><%=@order.goods_items.size%></ArticleCount>
+	<ArticleCount><%=@order.product_order_items.size%></ArticleCount>
 	<Articles>
-		<%@order.goods_items.each_with_index do |item,index|%>
+		<%@order.product_order_items.each_with_index do |item,index|%>
 		<item>
-			<Title><![CDATA[<%=item.good.name%>]]></Title> 
-			<Description><![CDATA[<%=raw item.good.content%>]]></Description>
+			<Title><![CDATA[<%=item.product.name%>]]></Title> 
+			<Description><![CDATA[<%=raw item.product.content%>]]></Description>
 			<%if index==0%>
-			<PicUrl><![CDATA[<%=root_url+item.good.cover_url(:normal)%>]]></PicUrl>
+			<PicUrl><![CDATA[<%=root_url+item.product.cover_url(:normal)%>]]></PicUrl>
 			<%else%>
-			<PicUrl><![CDATA[<%=root_url+item.good.cover_url(:small)%>]]></PicUrl>
+			<PicUrl><![CDATA[<%=root_url+item.product.cover_url(:small)%>]]></PicUrl>
 			<%end%>
-			<Url><![CDATA[<%=raw item.good.weixin_url %>]]></Url>
+			<Url><![CDATA[<%=raw item.product.weixin_url %>]]></Url>
 		</item>
 		<%end%>
     </Articles>

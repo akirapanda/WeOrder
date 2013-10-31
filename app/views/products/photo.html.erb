@@ -1,18 +1,18 @@
 <div class="hero-unit">
-	<h1>编辑 - <%= @good.name%></h1>
+	<h1>编辑 - <%= @product.name%></h1>
 </div>
 
 <ul class="nav nav-pills">
   <li>
- 	<%=link_to '基础信息',edit_good_path(@good)%>
+ 	<%=link_to '基础信息',edit_product_path(@product)%>
   </li>
-  <li  class="active"><%=link_to '相关配图',photo_good_path(@good)%></li>
+  <li  class="active"><%=link_to '相关配图',photo_product_path(@product)%></li>
 </ul>
 
 
 <%= simple_form_for(@photo,:html=>{:class=>"form-horizontal"}) do |f| %>
 <%= render "shared/error_messages",:target=>@photo%>
-	<%=f.text_field :good_id,:value=>@good.id,:class=>"hide"%>
+	<%=f.text_field :product_id,:value=>@product.id,:class=>"hide"%>
 	<%=f.input :image%>
 	<%=f.submit%>
 <%end%>
@@ -20,7 +20,7 @@
 
 
 <div>
-	<p>共有 <%=@good.photo.size%> 张配图</p>
+	<p>共有 <%=@product.photo.size%> 张配图</p>
 	<table class="table">
 		<thead>
 			<tr>
@@ -38,7 +38,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<%@good.photo.each do |photo|%>
+			<%@product.photo.each do |photo|%>
 					<td> <%= image_tag photo.image_url(:small)%></td>
 					<td><%=photo.created_at%></td>
 					<td><%= link_to '删除', photo, method: :delete, data: { confirm: '确定删除配图吗?' } %></td>

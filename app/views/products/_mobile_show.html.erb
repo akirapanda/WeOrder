@@ -1,12 +1,12 @@
 <div data-role="page">
 
 	<div data-role="header"  data-theme="d">
-		<h1><%=@good.name%></h1>
+		<h1><%=@product.name%></h1>
 	</div><!-- /header -->
 
 	<div data-role="content">	
-		<%=image_tag(@good.cover_url(:normal))%>
-		<p><%=raw @good.body_html%></p>	
+		<%=image_tag(@product.cover_url(:normal))%>
+		<p><%=raw @product.body_html%></p>	
 	</div><!-- /content -->
 	<div data-role="footer" >
 	 <p>Copyright &copy; 2013 上理果园</p>

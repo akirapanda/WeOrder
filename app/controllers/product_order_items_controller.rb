@@ -1,11 +1,11 @@
-class GoodsItemsController < ApplicationController
+class ProductOrderItemsController < ApplicationController
   before_action :set_goods_item, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 
   # GET /goods_items
   # GET /goods_items.json
   def index
-    @goods_items = GoodsItem.all
+    @goods_items = ProductOrderItem.all
   end
 
   # GET /goods_items/1
@@ -15,7 +15,7 @@ class GoodsItemsController < ApplicationController
 
   # GET /goods_items/new
   def new
-    @goods_item = GoodsItem.new
+    @goods_item = ProductOrderItem.new
   end
 
   # GET /goods_items/1/edit
@@ -25,10 +25,10 @@ class GoodsItemsController < ApplicationController
   # POST /goods_items
   # POST /goods_items.json
   def create
-    good_item_in_db=GoodsItem.where(:good_id=>params[:good_id],:order_id=>params[:order_id]).all
+    good_item_in_db=ProductOrderItem.where(:product_id=>params[:product_id],:order_id=>params[:order_id]).all
     if good_item_in_db.size==0
-      @goods_item = GoodsItem.new()
-      @goods_item.good_id=params[:good_id]
+      @goods_item = ProductOrderItem.new()
+      @goods_item.product_id=params[:product_id]
       @goods_item.order_id=params[:order_id]
     else
       respond_to do |format|
@@ -77,11 +77,11 @@ class GoodsItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_goods_item
-      @goods_item = GoodsItem.find(params[:id])
+      @goods_item = ProductOrderItem.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goods_item_params
-      params.require(:goods_item).permit(:good_id, :order_id)
+      params.require(:product_order_item).permit(:product_id, :order_id)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028040822) do
+ActiveRecord::Schema.define(version: 20131031020506) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -29,40 +29,6 @@ ActiveRecord::Schema.define(version: 20131028040822) do
     t.string   "home_phone"
     t.string   "mobile_phone"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "goods", force: true do |t|
-    t.string   "cover"
-    t.string   "name"
-    t.string   "content"
-    t.decimal  "price"
-    t.string   "unit"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "buy_count"
-    t.integer  "like_count"
-    t.text     "body",       limit: 255
-    t.text     "body_html",  limit: 255
-    t.string   "weixin_url"
-    t.boolean  "public",                 default: true
-    t.datetime "deleted_at"
-  end
-
-  create_table "goods_comments", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "good_id"
-    t.string   "body_html"
-    t.boolean  "public"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "goods_items", force: true do |t|
-    t.integer  "good_id"
-    t.integer  "order_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -87,10 +53,44 @@ ActiveRecord::Schema.define(version: 20131028040822) do
 
   create_table "photos", force: true do |t|
     t.integer  "user_id"
-    t.integer  "good_id"
+    t.integer  "product_id"
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "product_comments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.string   "body_html"
+    t.boolean  "public"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "product_order_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "cover"
+    t.string   "name"
+    t.string   "content"
+    t.decimal  "price"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "buy_count"
+    t.integer  "like_count"
+    t.text     "body",       limit: 255
+    t.text     "body_html",  limit: 255
+    t.string   "weixin_url"
+    t.boolean  "public",                 default: true
+    t.datetime "deleted_at"
   end
 
   create_table "send_mails", force: true do |t|
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20131028040822) do
   end
 
   create_table "shopping_items", force: true do |t|
-    t.integer  "good_id"
+    t.integer  "product_id"
     t.integer  "shopping_id"
     t.integer  "count"
     t.decimal  "amount"

@@ -31,9 +31,9 @@ class ShoppingItemsController < ApplicationController
     @shopping_item=@cart.add_product(params[:product_id],count)
     respond_to do |format|
       if @shopping_item.save
-        format.html { redirect_to @shopping_item.good, notice: '添加入购物车成功！' }
+        format.html { redirect_to @shopping_item.product, notice: '添加入购物车成功！' }
       else
-        format.html { redirect_to @shopping_item.good, alert: '添加失败，系统异常，请联系管理员！' }
+        format.html { redirect_to @shopping_item.product, alert: '添加失败，系统异常，请联系管理员！' }
 
       end
     end

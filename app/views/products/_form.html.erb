@@ -2,14 +2,14 @@
   <li class="active">
     <a href="#">基础信息</a>
   </li>
-	<li><%=link_to '相关配图',photo_good_path(@good)%></li>
+	<li><%=link_to '相关配图',photo_product_path(@product)%></li>
   
 
 </ul>
 
 <div class="form">
-<%= simple_form_for(@good,:html=>{:class=>"form-horizontal"}) do |f| %>
-<%= render "shared/error_messages",:target=>@good%>
+<%= simple_form_for(@product,:html=>{:class=>"form-horizontal"}) do |f| %>
+<%= render "shared/error_messages",:target=>@product%>
 <fieldset>
 
 	
@@ -19,10 +19,10 @@
     		<%= f.file_field :cover %>
 		</div>
   	</div>
-	<% if @good.cover?%>
+	<% if @product.cover?%>
 	<div class="control-group">
 		<div class="controls">
-		<%= image_tag @good.cover_url(:normal) %>
+		<%= image_tag @product.cover_url(:normal) %>
 		</div>
 	</div>
 	<%end%>
@@ -80,7 +80,7 @@
 	<div class="control-group">
   		<div class="controls">
     		<%= f.submit "提交" ,:class=>"btn btn-primary"%>
-			<%= link_to '返回', goods_path,:class=>"btn" %>
+			<%= link_to '返回', products_path,:class=>"btn" %>
   		</div>
 	</div>
 <% end %>

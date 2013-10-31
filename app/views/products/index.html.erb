@@ -22,7 +22,7 @@
 	    	<span class="caret"></span>
 	  		</button>
 	  		<ul class="dropdown-menu">
-				<li><%= link_to "新增商品",new_good_path%></li>
+				<li><%= link_to "新增商品",new_product_path%></li>
 			</ul>
 		</div>
 	  </th>
@@ -30,14 +30,14 @@
   </thead>
 
   <tbody>
-    <% @goods.each do |good| %>
+    <% @products.each do |product| %>
       <tr>
-        <td><%= image_tag good.cover_url(:small),:class=>"img-polaroid" %></td>
-        <td><%= link_to good.name, good %></td>
-        <td><%= good.content %></td>
-        <td><%= good.price %></td>
-        <td><%= good.unit %></td>
-        <td><%= good.public %></td>
+        <td><%= image_tag product.cover_url(:small),:class=>"img-polaroid" %></td>
+        <td><%= link_to product.name, product %></td>
+        <td><%= product.content %></td>
+        <td><%= number_to_currency product.price,:unit=>"¥"%></td>
+        <td><%= product.unit %></td>
+        <td><%= t product.public %></td>
 
         <td>
 			<div class="btn-group">
@@ -46,8 +46,8 @@
 			    <span class="caret"></span>
 			  </a>
 			<ul class="dropdown-menu">
-				<li><%= link_to '编辑', edit_good_path(good) ,:method=>:get%></li>
-        		<li><%= link_to '删除', good, method: :delete, data: { confirm: '确定删除吗?' } %></li>
+				<li><%= link_to '编辑', edit_product_path(product) ,:method=>:get%></li>
+        		<li><%= link_to '删除', product, method: :delete, data: { confirm: '确定删除吗?' } %></li>
 			</ul>
 			</div>
 		</td>

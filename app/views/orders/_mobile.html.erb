@@ -33,23 +33,23 @@
 							<div class="product_item">
 								<div class="row">
 									<div class="product_image">
-										<%=image_tag(item.good.cover_url(:mobile))%>
+										<%=image_tag(item.product.cover_url(:mobile))%>
 									</div>
 									<div class="product_description">
-										<p><%= item.good.name%></p>
-										<p class="product_content"><%= item.good.content%></p>
+										<p><%= item.product.name%></p>
+										<p class="product_content"><%= item.product.content%></p>
 									</div>
 								</div>
 								<div class="row">
 									<div class=" price" >
-										<p><%= number_to_currency item.good.price,:unit=>"￥"%>/<%= item.good.unit%></p>
+										<p><%= number_to_currency item.product.price,:unit=>"￥"%>/<%= item.product.unit%></p>
 									</div>
 									<div class=" number">
 										<div class="number-counter"  style="float:left;" >
 											<span>买</span>
 										 	<a href="javascript:void(0)" class="decrease" data-role="button" data-inline="true" data-mini="true"><i class="icon-minus"></i></a>
-											<input type="number" style="width:40px;height:30px;background-color:white;border:0;" readonly="true" name="goods[<%=item.good.id%>][count]" value="0" ></input>
-											<a href="javascript:void(0)" class="increase" data-role="button" data-inline="true" data-mini="true"><i class="icon-plus"></i></a><span><%=item.good.unit%></span>
+											<input type="number" style="width:40px;height:30px;background-color:white;border:0;" readonly="true" name="goods[<%=item.product.id%>][count]" value="0" ></input>
+											<a href="javascript:void(0)" class="increase" data-role="button" data-inline="true" data-mini="true"><i class="icon-plus"></i></a><span><%=item.product.unit%></span>
 										</div>
 									</div>
 								</div>

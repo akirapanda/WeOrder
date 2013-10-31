@@ -1,5 +1,5 @@
 require 'carrierwave/orm/activerecord'
-class Good < ActiveRecord::Base
+class Product < ActiveRecord::Base
   acts_as_paranoid
   
   
@@ -8,7 +8,7 @@ class Good < ActiveRecord::Base
   mount_uploader :cover,CoverUploader
   belongs_to :user
   has_many :photo,:dependent => :destroy
-  has_many :goods_items,:dependent => :destroy
+  has_many :product_shopping_items,:dependent => :destroy
   
   scope :publiced, where(:public=>true)
 end

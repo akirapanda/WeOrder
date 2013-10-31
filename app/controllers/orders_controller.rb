@@ -14,12 +14,12 @@ class OrdersController < ApplicationController
 
   def list
     @shopping=Shopping.new if @shopping==nil
-    @order.goods_items.each do |good_item|
+    @order.product_order_items.each do |item|
       shopping_item=ShoppingItem.new
-      shopping_item.good_id=good_item.good_id
+      shopping_item.product_id=item.product_id
       shopping_item.shopping_id=@shopping.id
-      good=Good.find(good_item.good_id)
-      shopping_item.good=good
+      product=Product.find(item.product_id)
+      shopping_item.product=product
       @shopping.shopping_items<<shopping_item
     end
   end
@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
-    @goods=Good.all
+    @goods=Product.all
   end
 
   # POST /orders

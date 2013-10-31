@@ -19,7 +19,7 @@ Weorder::Application.routes.draw do
       end
   end
   resources  :weixin
-  resources :goods_items
+  resources :product_order_items
   resources :users do
     member do
       get 'shopping'
@@ -27,7 +27,7 @@ Weorder::Application.routes.draw do
     end
   end
 
-  resources :goods do
+  resources :products do
     member do
       get 'photo'
       get 'comments'
