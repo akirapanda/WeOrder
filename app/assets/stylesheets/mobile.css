@@ -15,9 +15,9 @@
  *= require theme/Bootstrap.css
  */
 
-.shopping_customer_address{
+/*.shopping_customer_address{
 	display:none;
-}
+}*/
 div [data-role='footer'] p{
 	text-align:center;
 }

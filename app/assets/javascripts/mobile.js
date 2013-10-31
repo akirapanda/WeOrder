@@ -15,12 +15,13 @@
 //= require home
 //= require products
 //= require orders
-$( document ).ready(function() {
-	$('#shopping_customer_build').change(function(){
-		if ($(this).children('option:selected').val()=='其他'){
-			$('.shopping_customer_address').show();
-		}else{
-			$('.shopping_customer_address').hide();
-		}
-	});
-});
+
+// $( document ).ready(function() {
+// 	$('#shopping_customer_build').change(function(){
+// 		if ($(this).children('option:selected').val()=='其他'){
+// 			$('.shopping_customer_address').show();
+// 		}else{
+// 			$('.shopping_customer_address').hide();
+// 		}
+// 	});
+// });
