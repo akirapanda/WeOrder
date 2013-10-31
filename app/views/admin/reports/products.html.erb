@@ -1,6 +1,6 @@
  <%= high_chart("my_id4", @chart)  %>
 
-<table class="table">
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th>商品名称</th>
@@ -9,15 +9,26 @@
 			
 		</tr>
 	</thead>
+	<%amount=0%>
+	<%count=0%>
+	
 	<tbody>
 		<%@products.each do |product|%>
 		
 		<tr>
 			<td><%=product.name%></td>
 			<td><%=number_to_currency product.amount , :unit=>"¥"%> </td>
-			<td><%=product.count%> / <%=product.unit%></td>
+			<%amount=amount+ product.amount%>
+			<%count=count+ product.count%>
+			<td><%=product.count%> <%=product.unit%></td>
 		</tr>
 		<%end%>
+		<tr class="success">
+			<td>总计</td>
+			<td><%=number_to_currency amount, :unit=>"¥"%> </td>
+			<td><%= count %>件 </td>
+			
+		</tr>
 	<tbody>
 </table>
 
