@@ -3,10 +3,10 @@
 		<h1><%= @product.name%></h1>
 		<h2><%= @product.content%></h2>
 		<ul id="myTab" class="nav nav-pills">
-		  <li class="active"><%=link_to "商品信息",good_url(@good)%></li>
-		  <li><%=link_to "谁买了",buyer_good_url(@good)%></li>	
+		  <li class="active"><%=link_to "商品信息",product_url(@good)%></li>
+		  <li><%=link_to "谁买了",buyer_product_url(@good)%></li>	
 		
-		  <li ><%=link_to "评价&留言",comments_good_url(@good)%></li>		
+		  <li ><%=link_to "评价&留言",comments_product_url(@good)%></li>		
 		
 		</ul>
 </div>
