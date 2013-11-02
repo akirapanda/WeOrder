@@ -13,7 +13,6 @@ class SendMail < ActiveRecord::Base
     shopping.shopping_items.each do |item|
       content=content+"<tr><td>#{item.product.name}</td><td>#{item.count} / #{item.product.unit}</td><td>#{item.product.price}元 / #{item.product.unit}</td><td>#{item.amount}元</td></tr>"
     end
-    
     mail = SendMail.new
     mail.content = content
     mail.receivers = "525483886@qq.com"

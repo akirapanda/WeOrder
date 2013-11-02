@@ -18,7 +18,7 @@ puts "#{Time.now} there is #{mails.size} need to be sent"
 mails.each do |mail|
   Mail.deliver do
     from    'admin@nosweetnopay.com'
-    to      '525483886@qq.com'
+    to      ["525483886@qq.com","18071400@qq.com","xoyljlj@126.com ","670390177@qq.com","630131222@qq.com"]
     subject 'new shopping order'
     body  mail.content 
   end
