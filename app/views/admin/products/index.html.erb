@@ -5,7 +5,9 @@
     <div class='box-header blue-background'>
         <div class='title'>所有商品列表</div>
         <div class='actions'>
-
+					<%= link_to  admin_products_path(:format => :csv) ,:class=>"btn btn-mini btn-link" do%>
+							<i class="icon-save">导出CSV</i>
+					<%end%>
             <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
             </a>
         </div>

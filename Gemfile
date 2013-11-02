@@ -1,5 +1,5 @@
 source 'http://ruby.taobao.org'
-
+gem 'to_csv-rails'
 gem 'mysql2'
 gem 'yaml_db'
 gem 'actionpack-xml_parser'
@@ -11,8 +11,11 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 gem "bootstrap-will_paginate", "~> 0.0.9"
 gem  'mail'
+
 #pageinate
 gem 'will_paginate' ,'>=3.0.pre'
+gem "ransack"
+
 
 gem "cancan"
 #form
