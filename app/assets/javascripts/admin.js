@@ -10,8 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-//= require admin/jquery/jquery.min.js
+//= require jquery
+//= require jquery_ujs
 //= require admin/plugins/mobile_events/jquery.mobile-events.min
 //= require admin/jquery/jquery-migrate.min
 //= require admin/jquery_ui/jquery-ui.min
