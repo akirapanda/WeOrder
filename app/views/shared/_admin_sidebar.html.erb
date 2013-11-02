@@ -24,34 +24,22 @@
     </a>
     <ul class='nav nav-stacked'>
         <li class=''>
-            <a href='<%=shoppings_path%>'>
+            <a href='<%=admin_shoppings_path%>'>
                 <i class='icon-caret-right'></i>
                 <span>浏览全部订单</span>
             </a>
         </li>
         <li class=''>
-            <a href='form_components.html'>
+            <a href='<%=new_admin_shopping_path%>'>
                 <i class='icon-caret-right'></i>
-                <span>Form components</span>
-            </a>
-        </li>
-        <li class=''>
-            <a href='validations.html'>
-                <i class='icon-caret-right'></i>
-                <span>Validations</span>
-            </a>
-        </li>
-        <li class=''>
-            <a href='wizard.html'>
-                <i class='icon-caret-right'></i>
-                <span>Wizard</span>
+                <span>手工添加订单(开发中)</span>
             </a>
         </li>
     </ul>
 </li>
 <li>
     <a class='dropdown-collapse ' href='#'>
-        <i class='icon-tint'></i>
+        <i class='icon-barcode'></i>
         <span>商品管理</span>
         <i class='icon-angle-down angle-down'></i>
     </a>
@@ -83,7 +71,21 @@
         <span>微信管理</span>
     </a>
 </li>
-
+<li>
+    <a class='dropdown-collapse ' href='#'>
+        <i class='icon-bar-chart'></i>
+        <span>报表</span>
+        <i class='icon-angle-down angle-down'></i>
+    </a>
+    <ul class='nav nav-stacked'>
+        <li class=''>
+            <a href='<%=products_admin_reports_path%>'>
+                <i class='icon-caret-right'></i>
+                <span>商品销售汇总</span>
+            </a>
+        </li>
+    </ul>
+</li>
 </ul>
 </div>
 </nav>

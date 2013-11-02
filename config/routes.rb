@@ -39,7 +39,7 @@ Weorder::Application.routes.draw do
     
   namespace :admin do
     root :to => 'home#index'
-    resources :shopping 
+    resources :shoppings
     resources :reports do
        collection do
          get 'products'

@@ -1,0 +1,65 @@
+<%= content_for :title do %>
+	浏览所有订单信息
+<% end %>
+<div class='span12 box bordered-box blue-border' style='margin-bottom:0;'>
+    <div class='box-header blue-background'>
+        <div class='title'>客户订单列表</div>
+        <div class='actions'>
+
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+            <div class='scrollable-area'>
+							<table class="table">
+							  <thead>
+							    <tr>
+								  <th>订单编号</th>
+
+							      <th>客户名称</th>
+							      <th>地址</th>
+							      <th>手机号</th>
+							      <th>总金额</th>
+							
+							      <th>创建时间</th>
+							      <th>操作</th>
+							    </tr>
+							  </thead>
+
+							  <tbody>
+							    <% @shoppings.each do |shopping| %>
+							      <tr>
+											<td><%= link_to shopping.id, admin_shopping_path(shopping) %></td>
+							        <td><%= link_to shopping.customer_name, admin_shopping_path(shopping) %></td>
+							        <td><%= shopping.detail_address%></td>
+							        <td><%= number_to_currency(shopping.amount,:unit=>"￥") %></td>
+											<td><%= shopping.mobile_phone%>
+											<td><%= I18n.localize(shopping.created_at,:format=>:long)%></td>
+									    <td>
+											<%= link_to admin_shopping_path(shopping), method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>
+												<i class='icon-remove'></i>
+											<%end%>
+												<div class="btn-group">
+												  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+												    操作
+												    <span class="caret"></span>
+												  </a>
+												<ul class="dropdown-menu">
+													<li><%= link_to '编辑', edit_shopping_path(shopping) %></li>
+												<li>	</li>
+												</ul>
+												</div>
+											</td>
+							      </tr>
+							    <% end %>
+							  </tbody>
+							</table>
+						</div>
+					</div>					
+				</div>
+				<%=will_paginate @shoppings%>
+		</div>		
+</div>
+

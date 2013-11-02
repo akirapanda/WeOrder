@@ -1,4 +1,9 @@
- <%= high_chart("my_id4", @chart)  %>
+<%= content_for :title do %>
+	商品销量报表
+<% end %>
+
+
+<%= high_chart("my_id4", @chart)  %>
 
 <table class="table table-striped">
 	<thead>

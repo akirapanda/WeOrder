@@ -14,6 +14,10 @@ class Shopping < ActiveRecord::Base
     amount
   end
   
+  def  detail_address
+    "#{ self.customer_build}- #{self.customer_address}"
+  end
+  
   def add_shopping_item(item)
     if item!=nil
       item.shopping_id=id

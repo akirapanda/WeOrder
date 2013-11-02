@@ -1,4 +1,4 @@
-class Admin::ReportsController < ApplicationController
+class Admin::ReportsController < Admin::AdminBaseController
   def products
     @products=Product.joins(:shopping_items).select("products.name,products.unit,sum(shopping_items.amount) as amount,sum(shopping_items.count) as count").group("products.id").order("sum(shopping_items.amount) desc")
     

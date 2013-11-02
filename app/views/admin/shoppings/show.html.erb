@@ -1,0 +1,116 @@
+
+<%= content_for :title do %>
+	订单详细信息 #<%=@shopping.id%>
+<% end %>
+
+
+<div class='span11 box'>
+	<div class='box-content'>
+		<div class='pull-left'>
+      <a class='btn btn-success' href='#'>标记已完成</a>
+     </div>
+     <div class='clearfix'></div>
+     <hr class='hr-normal' />
+		
+
+  		<table class='table table-hover'>
+                   <thead>
+									 	<tr>
+											<th>商品名称</th>
+											<th>订购数量</th>
+											<th>单价</th>
+											<th>小计</th>
+                   	</tr>
+                   </thead>
+                   <tbody>
+											<% @shopping.shopping_items.each do |item|%>
+												<tr>
+
+													<td><%=item.product.name%></td>
+													<td><%=item.count%> <%=item.product.unit%></td>
+													<td>
+														<div  class='text-center'><%=number_to_currency(item.product.price,:unit=>"&yen")%> / <%=item.product.unit%></div>
+															</td>
+													<td>
+														<div  class='text-right'>
+														<%=number_to_currency(item.amount,:unit=>"&yen")%>
+														</div>
+													</td>
+												</tr>
+											<%end%>
+                   </tbody>
+               </table>
+
+               <div class='text-right'>
+                   <h3 class='subtotal contrast'>  <%=number_to_currency(@shopping.amount,:unit=>"&yen") %></h3>
+               </div>
+               <hr class='hr-normal' />
+               <div class='row-fluid'>
+                   <div class='span4'>
+                       <div class='lead'>
+                      	<i class='icon-user contrast'></i>
+                           客户信息
+                       </div>
+                   </div>
+                   <div class='span7 offset1'>
+                       <address>
+                           <strong>姓名:</strong>
+												 <%= @shopping.customer_name -%>
+													<br/>
+												 <abbr title='手机'>手机:</abbr>
+                         <%= @shopping.mobile_phone -%>
+												
+                       </address>
+
+                   </div>
+               </div>
+
+               <div class='row-fluid'>
+                   <div class='span4'>
+                       <div class='lead'>
+                           <i class='icon-envelope contrast'></i>
+                           地址信息
+                       </div>
+                   </div>
+                   <div class='span7 offset1'>
+                       <address>
+                           <strong><%= @shopping.detail_address -%>
+	                         </strong>
+													<br/>
+													 <abbr title='下单时间'>下单时间:</abbr>
+														<%=I18n.localize( @shopping.created_at,:format=>:long)%> </br>
+														
+													 <abbr title='送货时间'>送货时间:</abbr>
+												  <%= @shopping.receive_time %>
+	
+                       </address>
+                   </div>
+               </div>
+               <div class='row-fluid'>
+                   <div class='span4'>
+                       <div class='lead'>
+                           <i class='icon-book contrast'></i>
+                           订单其他信息
+                       </div>
+                   </div>
+                   <div class='span7 offset1'>
+                       <address>
+													 <strong>订单号:</strong>#<%= @shopping.id %></br>
+                           <strong>备注信息
+	                         </strong>
+                           <br />
+                          <%=@shopping.remark -%>
+                       </address>
+                   </div>
+               </div>
+
+               <div class='form-actions'>
+                   <ul class='pager'>
+                       <li>
+													<%=link_to "返回列表", admin_shoppings_path%>
+                       </li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+   </div>
