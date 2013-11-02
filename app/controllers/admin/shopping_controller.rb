@@ -1,4 +1,4 @@
-class Admin::ShoppingController < ApplicationController
+class Admin::ShoppingController < BaseController
 
     
     def index

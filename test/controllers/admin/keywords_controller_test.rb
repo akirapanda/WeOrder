@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class KeywordsControllerTest < ActionController::TestCase
+class Admin::KeywordsControllerTest < ActionController::TestCase
   setup do
     @keyword = keywords(:one)
   end

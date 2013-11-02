@@ -1,7 +1,7 @@
 <%= content_for :title do %>
 	浏览所有订单信息
 <% end %>
-<div class='span12 box bordered-box blue-border' style='margin-bottom:0;'>
+<div class='span11 box bordered-box blue-border' style='margin-bottom:0;'>
     <div class='box-header blue-background'>
         <div class='title'>客户订单列表</div>
         <div class='actions'>
@@ -41,16 +41,11 @@
 											<%= link_to admin_shopping_path(shopping), method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>
 												<i class='icon-remove'></i>
 											<%end%>
-												<div class="btn-group">
-												  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-												    操作
-												    <span class="caret"></span>
-												  </a>
-												<ul class="dropdown-menu">
-													<li><%= link_to '编辑', edit_shopping_path(shopping) %></li>
-												<li>	</li>
-												</ul>
-												</div>
+											
+											<%= link_to  edit_shopping_path(shopping) ,:class=>"btn btn-info btn-mini" do%>
+												<i class='icon-edit'></i>
+											<%end%>
+
 											</td>
 							      </tr>
 							    <% end %>

@@ -1,8 +1,5 @@
 Weorder::Application.routes.draw do
   resources :weixin_messages
-
-  resources :keywords
-
   resources :carts
 
   resources :contacts
@@ -40,6 +37,9 @@ Weorder::Application.routes.draw do
   namespace :admin do
     root :to => 'home#index'
     resources :shoppings
+    resources :products
+    resources :keywords
+    
     resources :reports do
        collection do
          get 'products'

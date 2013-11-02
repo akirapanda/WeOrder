@@ -1,4 +1,4 @@
-class KeywordsController < ApplicationController
+class Admin::KeywordsController < Admin::BaseController
   before_action :set_keyword, only: [:show, :edit, :update, :destroy]
 
   # GET /keywords

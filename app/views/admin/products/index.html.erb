@@ -1,0 +1,71 @@
+<%= content_for :title do %>
+	浏览所有商品信息
+<% end %>
+<div class='span11 box bordered-box blue-border' style='margin-bottom:0;'>
+    <div class='box-header blue-background'>
+        <div class='title'>所有商品列表</div>
+        <div class='actions'>
+
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+            <div class='scrollable-area'>
+							<table class="table table-hover">
+							  <thead>
+							    <tr>
+							      <th>图片</th>
+							      <th>名称</th>
+							      <th>介绍</th>
+							      <th>价格</th>
+							      <th>单位</th>
+							      <th>公开商品</th>
+
+								  <th>
+									<div class="btn-group">
+								  		<button class="btn btn-success"><i class="icon-cog"></i></button>
+								  		<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+								    	<span class="caret"></span>
+								  		</button>
+								  		<ul class="dropdown-menu">
+											<li><%= link_to "新增商品",new_product_path%></li>
+										</ul>
+									</div>
+								  </th>
+							    </tr>
+							  </thead>
+
+							  <tbody>
+							    <% @products.each do |product| %>
+							      <tr>
+							        <td><%= image_tag product.cover_url(:small),:class=>"img-polaroid" %></td>
+							        <td><%= link_to product.name, product %></td>
+							        <td><%= product.content %></td>
+							        <td><%= number_to_currency product.price,:unit=>"¥"%></td>
+							        <td><%= product.unit %></td>
+							        <td><%= t product.public %></td>
+
+							        <td>
+										<div class="btn-group">
+										  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+										    操作
+										    <span class="caret"></span>
+										  </a>
+										<ul class="dropdown-menu">
+											<li><%= link_to '编辑', edit_product_path(product) ,:method=>:get%></li>
+							        		<li><%= link_to '删除', product, method: :delete, data: { confirm: '确定删除吗?' } %></li>
+										</ul>
+										</div>
+									</td>
+							      </tr>
+							    <% end %>
+							  </tbody>
+							</table>
+					</div>
+				</div>					
+			</div>
+			<%=will_paginate @shoppings%>
+	</div>		
+</div>

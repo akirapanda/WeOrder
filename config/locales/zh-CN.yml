@@ -21,7 +21,7 @@
             order: "订单表格"
             shopping: "客户订单"
         attributes:
-            good:
+            product:
                 name: "商品名称"
                 content: "描述"
                 cover: "商品照片"
@@ -41,7 +41,11 @@
                 customer_address: "详细地址"
                 mobile_phone: "联系电话"
                 remark: "备注信息"
-                
+            keyword:
+                cate: "关键字类型"
+                keywords: "关键字内容"
+                reply_type: "回复类型"
+                reply_content: "回复内容"
                 
               
     

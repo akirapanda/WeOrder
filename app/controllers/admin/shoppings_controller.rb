@@ -1,4 +1,4 @@
-class Admin::ShoppingsController < Admin::AdminBaseController
+class Admin::ShoppingsController < Admin::BaseController
   def index
     @shoppings = Shopping.order('created_at desc').paginate(:page => params[:page], :per_page => 20)
   end
