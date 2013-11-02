@@ -20,8 +20,13 @@ mails.each do |mail|
     from    'admin@nosweetnopay.com'
     to      ["525483886@qq.com","18071400@qq.com","xoyljlj@126.com ","670390177@qq.com","630131222@qq.com"]
     subject 'new shopping order'
-    body  mail.content 
+ 
+    html_part do
+      content_type 'text/html; charset=UTF-8'
+      body  mail.content 
+    end
   end
+  
 mail.done=true
 mail.save
 end
