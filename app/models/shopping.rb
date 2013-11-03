@@ -4,7 +4,7 @@ class Shopping < ActiveRecord::Base
   RECEIVE_TIMES=["11:30 - 12:30","16:30 - 18:00","20:00 - 21:30"]
   
   has_many :shopping_items,:dependent => :destroy
-  validates :customer_name,:customer_build,:mobile_phone,:presence => true
+  validates :receive_time,:customer_build,:mobile_phone,:presence => true
   validates :mobile_phone,:numericality =>true
   def calAmount(shopping)
     amount=0

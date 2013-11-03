@@ -76,15 +76,12 @@
 				<legend>
 				您的联系方式
 				</legend>
-
-				<%= f.input :customer_name,:input_html=>{:style=>"height:40px;"} %>
-				<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
-			
-				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"几号楼宿舍门牌"%>
-				<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES %>
-		
 				<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"},:placeholder=>"您的手机号码"   %>
-				<%= f.input :remark,:input_html=>{:style=>"height:40px;"}  %>
+				<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
+				<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES %>
+				<%= f.input :remark,:input_html=>{:style=>"height:40px;"} ,:placeholder=>"如果有什么额外的要求请在这里告诉我们" %>
+				<hr/>
+				<%= f.input :customer_name,:input_html=>{:style=>"height:40px;"} ,:label=>"怎么称呼您（可选）",:placeholder=>"请告诉我们的小伙伴们怎么称呼您" %>
 				<button type="submit" data-role="button" data-theme="b" name="submit">下单</button>
 			</div>
 				
