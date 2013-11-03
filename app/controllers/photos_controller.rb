@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to photo_good_path(@photo.good_id), notice: 'Good was successfully created.' }
+        format.html { redirect_to photo_product_path(@photo.product_id), notice: t('products.photo_add_success') }
         format.json { render action: 'show', status: :created, location: @good }
       else
         format.html { render action: 'new' }
@@ -20,10 +20,10 @@ class PhotosController < ApplicationController
   end
   
   def destroy
-    goods_id=@photo.good_id
+    product_id=@photo.product_id
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to photo_good_path(goods_id) }
+      format.html { redirect_to photo_product_path(product_id) }
     end
   end
   
@@ -35,6 +35,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:image, :good_id)
+      params.require(:photo).permit(:image, :product_id)
     end
 end
