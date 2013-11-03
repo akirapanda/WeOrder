@@ -35,7 +35,7 @@
 							        <td><%= link_to keyword.keywords,admin_keyword_path(keyword) %></td>
 							        <td><%= keyword.reply_type %></td>
 
-							        <td><%= keyword.reply_content %></td>
+							        <td><%= keyword.reply_content.size<20? keyword.reply_content : "#{keyword.reply_content[0...20]}..." %></td>
 							        <td>
 													<%= link_to admin_keyword_path(keyword), method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>
 														<i class='icon-remove'></i>
