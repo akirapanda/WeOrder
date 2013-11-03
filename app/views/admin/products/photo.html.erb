@@ -1,0 +1,28 @@
+<%= content_for :title do %>
+	编辑商品配图
+<% end %>
+
+<div class='row-fluid'>
+    <div class='span12 box bordered-box blue-border'>
+        <div class='box-header blue-background'>
+            <div class='title'>
+                <i class='icon-edit'></i>
+                商品配图信息
+            </div>
+            <div class='actions'>
+                <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content box-double-padding'>
+
+
+<%= simple_form_for(@photo,:html=>{:class=>"form-horizontal"}) do |f| %>
+	<%= render "shared/error_messages",:target=>@photo%>
+	<%=f.text_field :product_id,:value=>@product.id,:class=>"hide"%>
+	<%=f.input :image%>
+	<%=f.submit "上传配图",:class=>"btn btn-primary"%>
+<%end%>
+
+
+<%= render  "photos" ,:photos=>@product.photo%>

@@ -1,0 +1,21 @@
+<div>
+	<p>共有 <%=photos.size%> 张配图</p>
+	<table class="table" id="photos">
+		<thead>
+			<tr>
+				<th>图片</th>
+				<th>上传时间</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%photos.each do |photo|%>
+				<tr id="<%=photo.id%>">
+					<td> <%= image_tag photo.image_url(:small)%></td>
+					<td><%=photo.created_at%></td>
+					<td><%= link_to '删除', photo, method: :delete, data: { confirm: '确定删除配图吗?' } %></td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+</div>

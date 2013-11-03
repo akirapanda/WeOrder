@@ -1,8 +1,7 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:destroy]
   before_filter :authenticate_user!
-  
-  
+
   def index
   end
   
@@ -10,11 +9,10 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to photo_product_path(@photo.product_id), notice: t('products.photo_add_success') }
-        format.json { render action: 'show', status: :created, location: @good }
+        format.html { redirect_to photo_admin_product_path(@photo.product_id), notice: t('products.photo_add_success') }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @good.errors, status: :unprocessable_entity }
+        format.html {  redirect_to photo_admin_product_path(@photo.product_id), alert: "上传配图失败，请检查文件格式" }
+        format.js
       end
     end
   end
@@ -23,7 +21,7 @@ class PhotosController < ApplicationController
     product_id=@photo.product_id
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to photo_product_path(product_id) }
+      format.html { redirect_to photo_admin_product_path(product_id) }
     end
   end
   

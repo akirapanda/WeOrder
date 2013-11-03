@@ -1,0 +1,8 @@
+<% if @success %>
+	photo_line = '<%= j(render("photot",:photo => @photo)) %>';
+	$("#photos tbody").prepend(comment_line);
+	$("#photo<%=@photo.id%>").hide();
+	$("#photo<%=@photo.id%>").fadeIn("slow");
+<% else %>
+	alert ('添加配图失败,请刷新页面后重试')
+<% end %>

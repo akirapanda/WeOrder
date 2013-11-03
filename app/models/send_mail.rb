@@ -4,7 +4,7 @@ class SendMail < ActiveRecord::Base
     content="#{shopping.created_at}有客户#{shopping.customer_name}购买了#{shopping.amount}元的产品"
     content=content+"<br/>电话:#{shopping.mobile_phone}"
     
-    content=content+"<br/>地址:#{shopping.customer_address}"
+    content=content+"<br/>地址:#{shopping.detail_address}"
     content=content+"<br/>送货时间:#{shopping.receive_time}"
     content=content+"<br/>备注信息为:#{shopping.remark}"
     content=content+"<h2>订单具体信息</h2>"

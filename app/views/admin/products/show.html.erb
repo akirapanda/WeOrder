@@ -1,0 +1,52 @@
+<%= content_for :title do %>
+	商品详细信息-<%=@product.name%>
+<% end %>
+
+<div class='span11 box'>
+	<div class='box-content'>
+		<div class='pull-left'>
+			<%=link_to "编辑商品",edit_admin_product_path(@product),:class=>'btn btn-success'%>
+			
+			<%=link_to "编辑配图",photo_admin_product_path(@product),:class=>'btn btn-success'%>
+     </div>
+     <div class='clearfix'></div>
+
+
+			<div class='row-fluid'>
+          <div class='span4'>
+              <div class='lead'>
+             	<i class='icon-barcode contrast'></i>
+                  商品基本信息信息
+					     <%= image_tag @product.cover_url(:normal) %>
+              </div>
+          </div>
+          <div class='span7 offset1'>
+              <address>
+                  <strong>名称:</strong>
+								 <%= @product.name -%>
+									<br/>
+								 <abbr title='简介'>简介:</abbr>
+                <%= @product.content -%><br/>
+								<abbr title=''>单价:</abbr> 
+                <%= number_to_currency @product.price,:unit=>"" -%>元 /<%= @product.unit%><br/>
+								<abbr title=''>公开商品:</abbr> 
+                <%= @product.public.to_s %><br/>
+								<abbr title=''>最后更新时间:</abbr> 
+                <%= l @product.updated_at ,:format=>:long%><br/>
+
+              </address>
+
+          </div>
+      </div>
+
+    
+
+      <div class='form-actions'>
+          <ul class='pager'>
+              <li>
+									<%=link_to "返回列表", admin_products_path%>
+              </li>
+          </ul>
+      </div>
+  </div>
+</div>

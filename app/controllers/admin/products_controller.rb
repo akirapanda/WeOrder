@@ -14,6 +14,47 @@ class Admin::ProductsController < Admin::BaseController
   end
   
   
+  def edit
+    
+  end
+  
+  
+  def show
+    
+  end
+  
+  def photo
+    @photo=Photo.new
+  end
+  
+  def create
+    @product = Product.new(product_params)
+    @product.user_id=current_user.id
+    respond_to do |format|
+      if @product.save
+        format.html { redirect_to admin_products_url, notice: t('products.create_success') }
+        format.json { render action: 'show', status: :created, location: @product }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  
+  def update
+    respond_to do |format|
+      if @product.update(product_params)
+        format.html { redirect_to @product, notice: t('products.update_success') }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product

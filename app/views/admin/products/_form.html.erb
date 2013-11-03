@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class='box-content box-double-padding'>
-					<%= simple_form_for(@product,:html=>{:class=>"form-horizontal"}) do |f| %>
+					<%= simple_form_for([:admin,@product],:html=>{:class=>"form-horizontal"}) do |f| %>
 					<%= render "shared/error_messages",:target=>@product%>
 					<fieldset>
 
@@ -73,8 +73,8 @@
 						<%= f.label :body_html,:class=>"control-label" %>
 
 					    <div class="controls">
-
-						    <%= f.text_area :body_html,:id=>"post_body",:class=>"textarea" %>	
+						
+						    <%= f.text_area :body_html,:id=>"post_body",:class=>"input-block-level wysihtml5",:rows=>10 %>	
 						</div>	
 					  </div>
 
@@ -90,15 +90,4 @@
         </div>
     </div>
 </div>
-
-
-
-<ul class="nav nav-pills">
-  <li class="active">
-    <a href="#">基础信息</a>
-  </li>
-	<li><%=link_to '相关配图',photo_product_path(@product)%></li>
-  
-
-</ul>
 

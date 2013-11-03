@@ -1,0 +1,5 @@
+<tr id="<%=photo.id%>">
+	<td> <%= image_tag photo.image_url(:small)%></td>
+	<td><%=photo.created_at%></td>
+	<td><%= link_to '删除', photo, method: :delete, data: { confirm: '确定删除配图吗?' } %></td>
+</tr>
