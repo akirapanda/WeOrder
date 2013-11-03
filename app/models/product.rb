@@ -10,6 +10,5 @@ class Product < ActiveRecord::Base
   has_many :photo,:dependent => :destroy
   has_many :product_order_items,:dependent => :destroy
   has_many :shopping_items
-  
-  scope :publiced, where(:public=>true)
+   
 end

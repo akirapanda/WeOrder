@@ -12,55 +12,55 @@
             </div>
         </div>
         <div class='box-content box-double-padding'>
-					<%= simple_form_for(@keyword,:html=>{:class=>"form-horizontal"}) do |f| %>
-                <fieldset>
-                    <div class='span4'>
-                        <div class='lead'>
-                            <i class='icon-github text-contrast'></i>
-                            关键字设置
-                        </div>
-                        <small class='muted'>
-                        	设置系统对于微信API推送来的文本消息(text)或者事件(event)的不同回应。
-                        </small>
-                    </div>
-                    <div class='span7 offset1'>
-								    	<div class='control-group'>
-												<%= f.label :cate ,:class=>"control-label"%>
-	                      <div class='controls'>
-								    			<%= f.input :cate,:label=>false,:collection=>Keyword::CATEGORIES %>
-	                       </div>
-                      </div>
+					<%= simple_form_for([:admin,@keyword],:html=>{:class=>"form-horizontal"}) do |f| %>
+               <fieldset>
+							     <div class='span4'>
+							         <div class='lead'>
+							             <i class='icon-github text-contrast'></i>
+							             关键字设置
+							         </div>
+							         <small class='muted'>
+							         	设置系统对于微信API推送来的文本消息(text)或者事件(event)的不同回应。
+							         </small>
+							     </div>
+							     <div class='span7 offset1'>
+							    	<div class='control-group'>
+											<%= f.label :cate ,:class=>"control-label"%>
+							         <div class='controls'>
+							    			<%= f.input :cate,:label=>false,:collection=>Keyword::CATEGORIES %>
+							          </div>
+							       </div>
 
-											<div class="control-group">
-										    	<%= f.label :keywords ,:class=>"control-label"%>
-												<div class="controls">
-										    		<%= f.text_field :keywords %>
-												</div>
-										  </div>
+										<div class="control-group">
+									    	<%= f.label :keywords ,:class=>"control-label"%>
+											<div class="controls">
+									    		<%= f.text_field :keywords %>
+											</div>
+									  </div>
 
-											<div class="control-group">
-										    	<%= f.label :reply_type,:class=>"control-label" %>
-												<div class="controls">
-										    	<%= f.input :reply_type,:label=>false ,:collection=>Keyword::REPLY_TYPES%>
-												</div>
-										  	</div>
-											<div class="control-group">
-										    	<%= f.label :reply_content,:class=>"control-label" %>
-												<div class="controls">
-										    	<%= f.text_area :reply_content %>
-												</div>
-										  	</div>
-                       
-                    </div>
-                </fieldset>
+										<div class="control-group">
+									    	<%= f.label :reply_type,:class=>"control-label" %>
+											<div class="controls">
+									    	<%= f.input :reply_type,:label=>false ,:collection=>Keyword::REPLY_TYPES%>
+											</div>
+									  	</div>
+										<div class="control-group">
+									    	<%= f.label :reply_content,:class=>"control-label" %>
+											<div class="controls">
+									    	<%= f.text_area :reply_content %>
+											</div>
+									  	</div>
 
-                <div class='form-actions' style='margin-bottom: 0;'>
-                    <div class='text-right'>
-											<%= link_to '返回', orders_path ,:class => "btn btn-large"%>
-	
-										  <%= f.submit "提交", :class=> "btn btn-primary  btn-large" %>
-                    </div>
-                </div>
+							     </div>
+							 </fieldset>
+
+							 <div class='form-actions' style='margin-bottom: 0;'>
+							     <div class='text-right'>
+										<%= link_to '返回', orders_path ,:class => "btn btn-large"%>
+
+									  <%= f.submit "提交", :class=> "btn btn-primary  btn-large" %>
+							     </div>
+							 </div>
 
       			<% end %>
         </div>

@@ -1,12 +1,10 @@
-class ProductsCell < Cell::Rails
-  cache :lastest, :expires_in => 10.minutes
-  
+class ProductsCell < Cell::Rails  
   def user_shopping
     render
   end
   
   def lastest
-    @products=Product.publiced
+    @products=Product.where(:publiced=>true)
     render
   end
   

@@ -5,6 +5,10 @@ class Admin::KeywordsController < Admin::BaseController
   # GET /keywords.json
   def index
     @keywords = Keyword.paginate(:page => params[:page], :per_page => 20)
+    respond_to do |format| 
+      format.html {}
+      format.csv {send_data(Keyword.all.to_csv)} 
+    end
   end
 
   # GET /keywords/1
@@ -25,10 +29,9 @@ class Admin::KeywordsController < Admin::BaseController
   # POST /keywords.json
   def create
     @keyword = Keyword.new(keyword_params)
-
     respond_to do |format|
       if @keyword.save
-        format.html { redirect_to @keyword, notice: 'Keyword was successfully created.' }
+        format.html { redirect_to admin_keywords_url, notice: 'Keyword was successfully created.' }
         format.json { render action: 'show', status: :created, location: @keyword }
       else
         format.html { render action: 'new' }
@@ -42,7 +45,7 @@ class Admin::KeywordsController < Admin::BaseController
   def update
     respond_to do |format|
       if @keyword.update(keyword_params)
-        format.html { redirect_to @keyword, notice: 'Keyword was successfully updated.' }
+        format.html { redirect_to admin_keywords_url, notice: 'Keyword was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +59,7 @@ class Admin::KeywordsController < Admin::BaseController
   def destroy
     @keyword.destroy
     respond_to do |format|
-      format.html { redirect_to keywords_url }
+      format.html { redirect_to admin_keywords_url }
       format.json { head :no_content }
     end
   end

@@ -1,0 +1,104 @@
+<%= render "shared/error_messages",:target=>@product%>
+<div class='row-fluid'>
+    <div class='span12 box bordered-box blue-border'>
+        <div class='box-header blue-background'>
+            <div class='title'>
+                <i class='icon-edit'></i>
+                商品信息
+            </div>
+            <div class='actions'>
+                <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content box-double-padding'>
+					<%= simple_form_for(@product,:html=>{:class=>"form-horizontal"}) do |f| %>
+					<%= render "shared/error_messages",:target=>@product%>
+					<fieldset>
+
+
+						<div class="control-group">
+							<%= f.label :cover ,:class=>"control-label"%>
+					    	<div class="controls">
+					    		<%= f.file_field :cover %>
+							</div>
+					  	</div>
+						<% if @product.cover?%>
+						<div class="control-group">
+							<div class="controls">
+							<%= image_tag @product.cover_url(:normal) %>
+							</div>
+						</div>
+						<%end%>
+					  <div class="control-group">
+					    <%= f.label :name ,:class=>"control-label"%>
+					    <div class="controls">
+					    <%= f.text_field :name %>
+						</div>
+					  </div>
+					  <div class="control-group">
+					    <%= f.label :content,:class=>"control-label"%>
+					    <div class="controls">
+					    <%= f.text_field :content %>
+						</div>
+					  </div>
+					  <div class="control-group">
+					    <%= f.label :price,:class=>"control-label" %>
+					    <div class="controls">
+					    	<%= f.text_field :price %>
+						</div>
+					  </div>
+					  <div class="control-group">
+						<%= f.label :unit,:class=>"control-label" %>
+					    <div class="controls">
+					    	<%= f.text_field :unit %>
+						</div>
+					  </div>
+					  <div class="control-group">
+						<%= f.label :public,:class=>"control-label" %>
+					    <div class="controls">
+					    	<%= f.check_box :public %>
+						</div>
+					  </div>
+
+					  <div class="control-group">
+						<%= f.label :weixin_url,:class=>"control-label" %>
+					    <div class="controls">
+					    	<%= f.text_field :weixin_url %>
+						</div>
+					  </div>
+
+
+					  <div class="control-group">
+						<%= f.label :body_html,:class=>"control-label" %>
+
+					    <div class="controls">
+
+						    <%= f.text_area :body_html,:id=>"post_body",:class=>"textarea" %>	
+						</div>	
+					  </div>
+
+
+					</fieldset>
+						<div class="control-group">
+					  		<div class="controls">
+					    		<%= f.submit "提交" ,:class=>"btn btn-primary"%>
+								<%= link_to '返回', products_path,:class=>"btn" %>
+					  		</div>
+						</div>
+					<% end %>
+        </div>
+    </div>
+</div>
+
+
+
+<ul class="nav nav-pills">
+  <li class="active">
+    <a href="#">基础信息</a>
+  </li>
+	<li><%=link_to '相关配图',photo_product_path(@product)%></li>
+  
+
+</ul>
+
