@@ -11,7 +11,7 @@ class SendMail < ActiveRecord::Base
     content=content+"<table class='table'><thead><tr><th>商品名称</th><th>订购数量</th><th>单价</th><th>小计</th></tr></thead>"
     
     shopping.shopping_items.each do |item|
-      content=content+"<tr><td>#{item.product.name}</td><td>#{item.count} / #{item.product.unit}</td><td>#{item.product.price}元 / #{item.product.unit}</td><td>#{item.amount}元</td></tr>"
+      content=content+"<tr><td>#{item.product_name}</td><td>#{item.count} / #{item.product_unit}</td><td>#{item.price}元 / #{item.product_unit}</td><td>#{item.amount}元</td></tr>"
     end
     mail = SendMail.new
     mail.content = content

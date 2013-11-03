@@ -26,10 +26,10 @@
 											<% @shopping.shopping_items.each do |item|%>
 												<tr>
 
-													<td><%=item.product.name%></td>
-													<td><%=item.count%> <%=item.product.unit%></td>
+													<td><%=item.product_name%></td>
+													<td><%=item.count%> <%=item.product_unit%></td>
 													<td>
-														<div  class='text-center'><%=number_to_currency(item.product.price,:unit=>"&yen")%> / <%=item.product.unit%></div>
+														<div  class='text-center'><%=number_to_currency(item.price,:unit=>"&yen")%> / <%=item.product.unit%></div>
 															</td>
 													<td>
 														<div  class='text-right'>

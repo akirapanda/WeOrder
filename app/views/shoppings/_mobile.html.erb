@@ -17,8 +17,8 @@
 		      <tbody>
 				<% @shopping.shopping_items.each do |item|%>
 		        <tr>
-		          <td><%= item.product.name%></td>
-		          <td><%= number_to_currency item.product.price,:unit=>"￥"%>/<%= item.product.unit%></td>
+		          <td><%= item.product_name%></td>
+		          <td><%= number_to_currency item.price,:unit=>"￥"%>/<%= item.product_unit%></td>
 		          <td>
 						<%= item.count.to_i%>
 				  </td>

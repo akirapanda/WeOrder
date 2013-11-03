@@ -5,3 +5,6 @@ class AddPriceIntoShoppingItems < ActiveRecord::Migration
     add_column :shoppings,:actual_amount,:decimal,:precision => 10, :scale => 2  ,:default=>0
   end
 end
+
+
+update shopping_items s set price = (select price from products p where s.product_id=p.id)
