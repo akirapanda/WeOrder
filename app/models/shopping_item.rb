@@ -14,6 +14,8 @@ class ShoppingItem < ActiveRecord::Base
        shopping_item.product_id=product_id
        
        shopping_item.price=product.price
+       shopping_item.product_name=product.name
+       shopping_item.product_unit=product.unit
        shopping_item.count=count
        shopping_item.amount=product.price*shopping_item.count
        
