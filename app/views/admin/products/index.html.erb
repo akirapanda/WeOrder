@@ -39,7 +39,7 @@
 							        <td><%= product.content %></td>
 							        <td><%= number_to_currency product.price,:unit=>"¥"%></td>
 							        <td><%= product.unit %></td>
-							        <td><%= t product.public %></td>
+							        <td><%= t product.public.to_s %></td>
 
 							        <td>
 										<div class="btn-group">
