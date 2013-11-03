@@ -4,7 +4,7 @@ class ProductsCell < Cell::Rails
   end
   
   def lastest
-    @products=Product.where(:publiced=>true)
+    @products=Product.where(:public=>true)
     render
   end
   
