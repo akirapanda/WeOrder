@@ -78,6 +78,8 @@
 				</legend>
 				<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"},:placeholder=>"您的手机号码"   %>
 				<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
+				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"   %>
+				
 				<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES %>
 				<%= f.input :remark,:input_html=>{:style=>"height:40px;"} ,:placeholder=>"如果有什么额外的要求请在这里告诉我们" %>
 				<hr/>
