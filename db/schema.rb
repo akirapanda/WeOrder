@@ -102,11 +102,36 @@ ActiveRecord::Schema.define(version: 20131103104534) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "shopping_items" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "shopping_items", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "shopping_id"
+    t.integer  "count"
+    t.decimal  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "cart_id"
+    t.decimal  "price",        precision: 10, scale: 2, default: 0.0
+    t.string   "product_unit"
+    t.string   "product_name"
+  end
 
-# Could not dump table "shoppings" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "shoppings", force: true do |t|
+    t.string   "customer_name"
+    t.string   "customer_address"
+    t.decimal  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "home_phone"
+    t.string   "mobile_phone"
+    t.string   "remark"
+    t.datetime "deleted_at"
+    t.string   "customer_build"
+    t.string   "status"
+    t.integer  "follower_id"
+    t.string   "receive_time"
+    t.decimal  "actual_amount",    precision: 10, scale: 2, default: 0.0
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
