@@ -3,6 +3,10 @@ class ProductsCell < Cell::Rails
     render
   end
   
+  def all
+    @products=Product.where(:public=>true)
+    render
+  end
   def lastest
     @products=Product.where(:public=>true)
     render

@@ -1,0 +1,115 @@
+
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="nl"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="nl"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="nl"><![endif]-->
+<!--[if IE]><html class="no-js ie" lang="nl"><![endif]-->
+<!--[if !IE]><!--><html class="no-js" lang="nl"><!--<![endif]-->
+
+	
+<!-- Mirrored from wbpreview.com/previews/WB00D58R3/ by HTTrack Website Copier/3.x [XR&CO'2010], Thu, 16 May 2013 12:48:24 GMT -->
+<head>
+
+		<meta charset="utf-8">
+		<title>上理果园</title>
+		<meta name="description" content="Page description here">
+		<meta name="author" content="BigBase - D. Tiems">
+		<meta name="viewport" content="width=device-width">
+
+  	<%= stylesheet_link_tag   "shop"%>
+  	<%= javascript_include_tag "shop"%>
+  	<%= csrf_meta_tags %>
+	</head>
+
+	<body>
+
+		<!-- Facebook div for like button -->
+		<div id="fb-root"></div>
+
+		<!-- Div for shade line -->
+		<div class="header-shadow"></div>
+
+		<!-- Use class "container-fluid" on the following div for making complete website fluid -->
+		<div class="container">
+	   <%= render "shared/shop_top_nav"%>
+
+		
+
+			<!--div class="row-fluid print-hide">
+				<div class="span3">
+					<img src="img/logo.png" alt="Logo">
+				</div>
+				<div class="span4">
+					<div class="row-fluid print-hide">
+						<div class="span12">
+							<div class="navbar header-search-nav">
+								<ul class="nav">
+									<li><a href="#">Gift certificates</a></li>
+									<li class="active"><a href="#">Monthly preview</a></li>
+									<li><a href="#">More</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row-fluid print-hide">
+						<div class="span12">
+							<form class="form-search header-search">
+								<div class="input-append">
+									<input class="input-large search-query" type="text" placeholder="Search all products...">
+									<button class="btn" type="submit">search</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<br>
+				</div>
+				<div class="span5">
+					<img src="img/banner_top.jpg" alt="No shipping">
+				</div>
+			</div-->
+
+	   <%= render "shared/shop_header_nav"%>
+
+			<div class="row-fluid">
+				<div class="span12 alert">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					开业期间任意消费均 <strong> 免送货费</strong>
+				</div>
+			</div>
+
+			<div class="row-fluid">
+				<div class="span12">
+					<div class="slider-wrapper theme-bar">
+						<div class="ribbon"></div>
+						<div id="slider1" class="nivoslider">
+							<a href="#"><img src="/images/banner.jpg" alt="" title="上理果园为您提供安心、便利、平价的新鲜水果。"></a>
+							<a href="#"><img src="/images/banner1.jpg" alt="" title=""></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	   <% render "shared/shop_top_recommend"%>
+
+
+			<hr>
+
+		
+			<%=yield%>
+
+			<div class="row-fluid">
+				<div class="span12 well well-small">
+						&copy; <script>document.write(new Date().getFullYear());</script> - All taxes are excluded - shipping costs depends on location - <a href="#">more info <i class="icon-chevron-right"></i></a>
+				</div>
+			</div>
+
+		 <%= render "shared/shop_footer"%>
+	  
+		
+		</div>
+
+	</body>
+
+
+<!-- Mirrored from wbpreview.com/previews/WB00D58R3/ by HTTrack Website Copier/3.x [XR&CO'2010], Thu, 16 May 2013 12:49:37 GMT -->
+</html>

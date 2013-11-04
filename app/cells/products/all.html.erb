@@ -1,0 +1,29 @@
+	<div class="row-fluid">
+		<%@products.each_with_index do |product,index|%>
+		<%if index%4==0%>
+		<div class="span12">
+			<ul class="thumbnails product-list-inline-large">
+		<%end%>
+				
+				
+				<li class="span3">
+					<div class="thumbnail light">
+							<%=link_to product do%>
+							
+							<span class="label label-info price">&yen; <%=product.price%></span>
+							<!--span class="label label-important price price-over">&euro; 1,<sup>99</sup></span-->
+							<img data-hover="<%=product.cover_url(:normal)%>" src="<%=product.cover_url(:normal)%>" alt="">
+							<%end%>
+						<div class="caption">
+							<%=link_to product.name ,product%>
+						</div>
+					</div>
+				</li>
+				
+		<%if index%4==3%>
+			</ul>
+		</div>
+		<%end%>
+		
+		<%end%>
+	</div>

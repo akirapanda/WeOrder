@@ -1,11 +1,13 @@
 Weorder::Application.routes.draw do
+  devise_for :users
+    
   resources :weixin_messages
   resources :carts
 
   resources :contacts
   
 
-  devise_for :users
+
   resources :shoppings
   resources :shopping_items
   resources :photos
@@ -33,7 +35,7 @@ Weorder::Application.routes.draw do
   end
   
   root 'home#index'
-    
+  get  'test' => "home#test"
   namespace :admin do
     root :to => 'home#index'
     resources :shoppings
