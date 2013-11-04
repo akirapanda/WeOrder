@@ -34,8 +34,8 @@ Weorder::Application.routes.draw do
     end
   end
   
-  root 'home#index'
-  get  'test' => "home#test"
+  root 'home#test'
+  get  'old' => "home#index"
   namespace :admin do
     root :to => 'home#index'
     resources :shoppings

@@ -7,6 +7,22 @@
 		<div class="span8">
 			<div class="navbar pull-right header-nav">
 				<ul class="nav">
+					</li>
+						<% if current_user %>
+							<% if current_user.admin? %>
+								<li><%=link_to("管理" ,admin_root_path,:method=>:get)%></li>
+
+								<li><%= link_to("订单表格管理",orders_path)%>	
+								<li><%= link_to("客户订单管理",shoppings_path)%>
+							<%end%>
+
+							<li><%=link_to("我的账户" ,user_path(current_user),:method=>:get)%></li>
+
+							<li><%=link_to("登出" ,destroy_user_session_path,:method=>:delete)%></li>
+							<%else%>
+							<li><%= link_to("登陆",new_user_session_path,:method=>:get)%></li>
+							<%end%>
+					<li><a href="#">orders</a></li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">account</a>
 						<ul class="dropdown-menu">
@@ -23,9 +39,8 @@
 								</div>
 							</li>
 						</ul>
-					</li>
-					<li><a href="#">orders</a></li>
-					<li><a href="#">customer service</a></li>
+
+			
 				</ul>
 			</div>
 		</div>
