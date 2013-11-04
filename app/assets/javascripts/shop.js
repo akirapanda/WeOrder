@@ -8,4 +8,5 @@
 //= require shop/jquery.nivo.slider.pack
 //= require shop/respond.min
 //= require shop/script
-//= require shop/
+//= require shop/jquery.colorbox-1.3.19.min
+

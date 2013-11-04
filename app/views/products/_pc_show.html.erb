@@ -1,46 +1,95 @@
-<div id="goods_container" class="container shadow">
-<div class="goods_head">
-		<h1><%= @product.name%></h1>
-		<h2><%= @product.content%></h2>
-		<ul id="myTab" class="nav nav-pills">
-		  <li class="active"><%=link_to "商品信息",product_url(@good)%></li>
-		  <li><%=link_to "谁买了",buyer_product_url(@good)%></li>	
-		
-		  <li ><%=link_to "评价&留言",comments_product_url(@good)%></li>		
-		
-		</ul>
-</div>
-<div class="goods_body">
-	<div class="row">
-		<div class="span9">
-			<div id="main">
-				<%=carousel_tag @product%>
-				<div id="body-html">
-				<%=raw @product.body_html%>
+<div class="row-fluid">
+				<div class="span12">
 
-			</div>
-			</div>
+					<div class="row-fluid">
+						<div class="span9">
+							<h2><%=@product.name%></h2>
+						</div>
+						<div class="span3">
+							<div class="social-icons pull-right">
 
-		</div>
-		<div id="sidebar" class="span3">
-			<div class="price">
-	  			 <%= number_to_currency(@product.price,:unit=>"&yen") %> / <%= @product.unit %>
-			</div>
-			<div class="buy">
-				<%= simple_form_for(ShoppingItem.new) do |f| %>
-				<div class="number-counter">
-					 <%=f.input :product_id,:input_html=>{:value=>@product.id} ,:as=>:hidden%>
-				  
-				 	<a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="row-fluid product-detail">
+
+						<div class="span4">
+							<a class="product-detail-lightbox colorbox hidden-phone" rel="colorbox1" href="<%=@product.cover_url(:large)%>" title="封面">
+								<img class="product-image" alt="Product A" src="<%=@product.cover_url(:large)%>">
+							</a>
+						</div>
+
+						<div class="span1">
+							<ul class="thumbnails main-product">
+								<%@product.photo.each do |photo|%>
+								<li class="span12">
+									<a rel="colorbox1" href="<%=photo.image_url(:normal)%>" class="colorbox thumbnail">
+										<img alt="配图" src="<%=photo.image_url(:normal)%>" />
+									</a>
+								</li>
+								<%end%>
+							</ul>
+						</div>
+
+						<div class="span7 well">
+
+							<div class="row-fluid">
+
+								<div class="span7">
+									<strong>品名:</strong> <span><%=@product.name%></span><br>
+									<strong>简介:</strong> <span><%=@product.content%></span><br>
+									<strong>价格:</strong> <span><%=number_to_currency @product.price,:unit=>"&yen;"%>/ <%= @product.unit%></span><br>
+									
+								</div>
+
+								<div class="span5">
+									<span class="label label-info price"> <%=number_to_currency @product.price,:unit=>"&yen;"%>/ <%= @product.unit%></span>
+								</div>
+
+							</div>
+
+							<div class="row-fluid">
+								<div class="span12">
+									<br>
+									<h3>商品介绍</h3>
+										<%= raw @product.body_html%>
+									<hr>
+								</div>
+							</div>
+
+							<div class="row-fluid">
+
+								<div class="span3">
+									<%= link_to test_path ,:class=>"btn" do%>
+									<i class="icon-chevron-left"></i> 返回
+									<%end%>
+								</div>
+
+	
+								<div class="span6">
+
 				
-					<input type="text"class="input-mini" readonly="true" name="count" value="1" ></input>
-					<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
-				</div>
-				<input value="<%=@product.id%>" name="product_id" class="hide"/>
-				<%=f.submit "购买",:class=>'btn btn-primary'%>
-				<%end%>
-			</div>
-		</div>
-</div>
+										<%= form_for(ShoppingItem.new ,:html=>{:class=>'form-inline'}) do |f| %>
+	                  	<%=f.hidden_field :product_id,:value=>@product.id%>
+											<label  class="control-label">数量</label>
+	                 		<input value="<%=@product.id%>" name="product_id" class="hide"/>
+	
+	             				 <select class="input-mini" name="count">
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+											</select>
+		                 		<%=f.submit "加入购物车",:class=>'btn btn-primary'%>
+	                 <%end%>
+	</div>
+							</div>
+						</div>
 
+					</div>
+
+				
+			</div>
 </div>

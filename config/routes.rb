@@ -26,7 +26,7 @@ Weorder::Application.routes.draw do
     end
   end
 
-  resources :products do
+  resources :products , :only => ['show','index'] do
     member do
       get 'photo'
       get 'comments'

@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!,only: [:edit,:index]
-
+  layout 'shop',:only=>['show']
   # GET /carts
   # GET /carts.json
   def index
