@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<legend>商品信息</legend>
+  <div class="row-fluid">
+    <div class="span6">
+      	<table class="table">
+			<thead>
+				<th>商品库</th>
+				<th>
+			</thead>
+			<tbody>
+
+				<% @goods.each do |goods|%>
+				<tr>
+				<td><%=goods.name%></td>
+					<td><%=button_to '增加',product_order_items_path(:product_id=>goods,:order_id=>@order)%></td>
+				</tr>
+				<%end%>
+			</tbody>
+		</table>
+    </div>
+    <div class="span6">
+      	<table class="table">
+			<thead>
+				<th>已包含商品</th>
+				<th>
+			</thead>
+			<tbody>
+				<% @order.product_order_items.each do |item|%>
+				<tr>
+				<td><%=item.product.name%></td>
+					<td><%=button_to '移除',product_order_item_path(item),:method=>:delete%></td>
+				</tr>
+				<%end%>
+			</tbody>
+		</table>
+    </div>
+  </div>
+</div>

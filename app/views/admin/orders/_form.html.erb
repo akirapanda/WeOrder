@@ -1,0 +1,52 @@
+<div class='row-fluid'>
+    <div class='span12 box bordered-box blue-border'>
+        <div class='box-header blue-background'>
+            <div class='title'>
+                <i class='icon-edit'></i>
+                订单表格信息
+            </div>
+            <div class='actions'>
+                <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content box-double-padding'>
+
+<div class="form">
+<%= simple_form_for(@order,:html=>{:class=>"form-horizontal"}) do |f| %>
+<%= render "shared/error_messages",:target=>@order%>
+<legend>基本信息</legend>
+<fieldset>
+	<div class="control-group">
+    	<%= f.label :name ,:class=>"control-label"%>
+		<div class="controls">
+    		<%= f.text_field :name %>
+		</div>
+  	</div>
+
+	<div class="control-group">
+    	<%= f.label :content ,:class=>"control-label"%>
+		<div class="controls">
+    		<%= f.text_field :content %>
+		</div>
+  	</div>
+
+	<div class="control-group">
+    	<%= f.label :publish,:class=>"control-label" %>
+		<div class="controls">
+    	<%= f.check_box :publish %>
+		</div>
+  	</div>
+</fielset>
+  <div class="actions">
+		<div class="controls">
+    <%= f.submit "提交", :class=> "btn btn-primary" %>
+	<%= link_to '返回', orders_path ,:class => "btn"%>
+	</div>
+  </div>
+<% end %>
+</div> <!--end of class form-->
+
+
+
+

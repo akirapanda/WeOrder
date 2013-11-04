@@ -1,0 +1,53 @@
+<%= content_for :title do %>
+	订单表格列表
+<% end %>
+<div class='span11 box bordered-box blue-border' style='margin-bottom:0;'>
+    <div class='box-header blue-background'>
+        <div class='title'>所有关键字列表</div>
+        <div class='actions'>
+
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+            <div class='scrollable-area'>
+							<table class="table  table-hover">
+							  <thead>
+							    <tr>
+								  <th>订单表格ID</th>
+    
+							      <th>订单名称</th>
+							      <th>简介</th>
+							      <th>是否公开</th>
+							      <th>操作</th>
+							    </tr>
+							  </thead>
+
+							  <tbody>
+							    <% @orders.each do |order| %>
+							      <tr>
+								    <td><%= order.id %></td>
+    
+							        <td><%= link_to  order.name, order %></td>
+							        <td><%= order.content %></td>
+							        <td><%= order.publish %></td>
+							        <td>
+												<%= link_to [:admin,order], method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>
+													<i class='icon-remove'></i>
+												<%end%>
+
+												<%= link_to  edit_admin_order_path(order) ,:class=>"btn btn-info btn-mini" do%>
+													<i class='icon-edit'></i>
+												<%end%>
+							  			</td>
+							      </tr>
+							    <% end %>
+							  </tbody>
+							</table>
+				</div>
+		</div>
+	</div>
+</div>
+

@@ -39,6 +39,8 @@ Weorder::Application.routes.draw do
   namespace :admin do
     root :to => 'home#index'
     resources :shoppings
+    resources :orders
+    
     resources :products do
       member do
         get 'photo'

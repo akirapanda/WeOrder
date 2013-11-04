@@ -32,14 +32,14 @@ class ProductOrderItemsController < ApplicationController
       @goods_item.order_id=params[:order_id]
     else
       respond_to do |format|
-        format.html { redirect_to edit_order_path(params[:order_id]), alert: '无法添加同样的商品！' }        
+        format.html { redirect_to edit_admin_order_path(params[:order_id]), alert: '无法添加同样的商品！' }        
       end
       return
     end
     
     respond_to do |format|
       if @goods_item.save
-        format.html { redirect_to edit_order_path(params[:order_id]), notice: 'Goods item was successfully created.' }
+        format.html { redirect_to edit_admin_order_path(params[:order_id]), notice: 'Goods item was successfully created.' }
         format.js
         format.json { render action: 'show', status: :created, location: @goods_item }
       else
