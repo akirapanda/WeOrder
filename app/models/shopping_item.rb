@@ -6,6 +6,20 @@ class ShoppingItem < ActiveRecord::Base
     product.price*count
   end
   
+  
+  def self.init_by_product_id(product_id)
+    product=Product.find(product_id)
+    if product==nil
+      return nil
+    end
+    shopping_item=ShoppingItem.new
+    shopping_item.product_name=product.name
+    shopping_item.product_unit=product.unit
+    shopping_item.product_id=product.id
+    shopping_item.price=product.price
+    shopping_item
+  end
+  
   def build_by_product(product_id,count)
     if count > 0 
        product= Product.find(product_id)

@@ -4,16 +4,16 @@
 	<%@shopping.shopping_items.each do |item| %>
 	<div class="goods-div">
 		<div class="image-center">
-		<%= image_tag item.good.cover_url(:normal)%>
+		<%= image_tag item.product.cover_url(:normal)%>
 		</div>
 		<div class="name-dashed">
-		<%= item.good.name%><br/>
-		<small><%= item.good.content%></small>
+		<%= item.product_name%><br/>
+		<small><%= item.product.content%></small>
 		</div>
 		<div class="number-container">
 			<div class="price-rest">
 				<div class="price" >
-					<p>&yen<%= item.good.price%><%= item.good.unit%></p>
+					<p>&yen<%= item.price%><%= item.product_unit%></p>
 				</div>
 				<div class="rest">
 					<p>库存信息</p>
@@ -21,7 +21,7 @@
 			</div>
 			<div class="number-counter">
 			 	<a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
-				<input type="text"class="input-mini" readonly="true" name="goods[<%=item.good.id%>][count]" value="<%=item.count%>" ></input>
+				<input type="text"class="input-mini" readonly="true" name="goods[<%=item.product.id%>][count]" value="<%=item.count%>" ></input>
 				<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
 			</div>
 		</div><!--end of container-->
@@ -36,7 +36,11 @@
 </legend>
 
 <%= f.input :customer_name%>
-<%= f.input :customer_address%>
+
+<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
+<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"   %>
+
+<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES %>
 <%= f.input :mobile_phone%>
 <%= f.input :remark ,as: :text,input_html: { maxlength: 50 } %>
 

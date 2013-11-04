@@ -15,8 +15,8 @@
 	<tbody>
 		<%@cart.shopping_items.each do |item|%>
 		<tr> 			
-			<td><%=item.good.name%></td>
-			<td><%=item.count%> <%= item.good.unit %></td>
+			<td><%=item.product_name%></td>
+			<td><%=item.count%> <%= item.product_unit %></td>
 			<td><%=number_to_currency(item.amount,:unit=>"&yen")%></td>
 		</tr>
 <%end%>

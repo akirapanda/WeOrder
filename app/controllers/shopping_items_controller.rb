@@ -27,7 +27,6 @@ class ShoppingItemsController < ApplicationController
   def create
     @cart=current_cart
     count=params[:count].to_i
-    
     @shopping_item=@cart.add_product(params[:product_id],count)
     respond_to do |format|
       if @shopping_item.save
