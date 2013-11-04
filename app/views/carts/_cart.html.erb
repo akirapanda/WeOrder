@@ -1,6 +1,7 @@
 	<li class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-shopping-cart"></i></a>
 		<ul class="dropdown-menu">
+			<%if @cart!=nil%>
 			<%@cart.shopping_items.each do |item|%>
 						<li>
 							<%=link_to item.product do%>
@@ -12,6 +13,7 @@
 			<li>
 				<%=link_to @cart do%>
 					去购物车查看所有购买的商品<i class="icon-chevron-right"></i>
+				<%end%>
 				<%end%>
 		</ul>
 	</li>
