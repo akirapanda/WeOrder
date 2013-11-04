@@ -32,9 +32,12 @@
 		<div class="header-shadow"></div>
 
 		<!-- Use class "container-fluid" on the following div for making complete website fluid -->
-		<div class="container">
-	   <%= render "shared/shop_top_nav"%>
 
+		<div class="container">
+	 
+	  <%= render "shared/shop_top_nav"%>
+
+		<div id="content">
 		
 
 			<!--div class="row-fluid print-hide">
@@ -94,17 +97,16 @@
 	   <% render "shared/shop_top_recommend"%>
 
 
-			<hr>
-
+			<hr/>
 		
 			<%=yield%>
 
+			</div>
 
-
-		 <%= render "shared/shop_footer"%>
 	  
-		
+		 <%= render "shared/shop_footer"%>
 		</div>
+		
 
 	</body>
 </html>
