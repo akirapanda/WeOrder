@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+   layout 'shop'
    def show
    end
    

@@ -1,6 +1,5 @@
-<div class="hero-unit">
-<h1>账户信息</h1>
-</div>
+<h2>我的历史购买记录</h2>
+
 <div id="goods_container" class="container shadow">
 <div class="goods_head">
 		<ul id="myTab" class="nav nav-pills">
@@ -13,7 +12,7 @@
 </div>
 <div class="goods_body">
 	<div class="row">
-		<div class="span9">
+		<div class="span12">
 			<div id="main" class="history-table">
 				
 				<table class="table">
@@ -32,10 +31,10 @@
 						<%shopping.shopping_items.each do |item|%>
 						<tr>
 							<td class="center"><%=I18n.localize( shopping.created_at,:format=>:long)%></td>
-							<td><%=item.good.name%></td>
-							<td><%=number_to_currency(item.good.price,:unit=>"&yen")%></td>
+							<td><%=item.product_name%></td>
+							<td><%=number_to_currency(item.price,:unit=>"&yen")%></td>
 							<td><%=item.count%></td>
-							<td><%=link_to "查看产品明细", item.good%></td>
+							<td><%=link_to "查看产品明细", item.product%></td>
 						</tr>					
 						<%end%>
 					<%end%>
