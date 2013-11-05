@@ -6,6 +6,6 @@ class HomeController < ApplicationController
   
   
   def test
-    
+    @cart=current_cart    
   end
 end

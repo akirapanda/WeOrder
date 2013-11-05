@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103104534) do
+ActiveRecord::Schema.define(version: 20131105115006) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -86,11 +86,13 @@ ActiveRecord::Schema.define(version: 20131103104534) do
     t.integer  "user_id"
     t.integer  "buy_count"
     t.integer  "like_count"
-    t.text     "body",       limit: 255
-    t.text     "body_html",  limit: 255
+    t.text     "body",         limit: 255
+    t.text     "body_html",    limit: 255
     t.string   "weixin_url"
-    t.boolean  "public",                 default: true
+    t.boolean  "public",                   default: true
     t.datetime "deleted_at"
+    t.boolean  "is_recommend"
+    t.boolean  "is_onsale"
   end
 
   create_table "send_mails", force: true do |t|

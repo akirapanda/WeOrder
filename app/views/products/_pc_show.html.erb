@@ -44,7 +44,13 @@
 								</div>
 
 								<div class="span5">
-									<span class="label label-info price"> <%=number_to_currency @product.price,:unit=>"&yen;"%>/ <%= @product.unit%></span>
+									<%if @product.is_recommend%>
+										<span class="label label-info price">&yen; <%=@product.price%></span>
+
+										<span class="label label-important price price-over">&yen; <%=@product.price%></span>
+									<%else%>
+										<span class="label label-info price">&yen; <%=@product.price%></span>
+									<%end%>
 								</div>
 
 							</div>

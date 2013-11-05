@@ -4,9 +4,20 @@ class ProductsCell < Cell::Rails
   end
   
   def all
-    @products=Product.where(:public=>true)
+    @products=Product.where(:is_onsale=>true).where(:public=>true)
     render
   end
+  
+  def top10
+    @products=Product.joins(:shopping_items).select("products.*").group("products.id").order("sum(shopping_items.count) desc").limit(5)
+    render
+  end
+  
+  def recommend
+    @products=Product.where(:is_onsale=>true).where(:public=>true).where(:is_recommend=>true).limit(3)
+    render
+  end
+  
   def lastest
     @products=Product.where(:public=>true)
     render

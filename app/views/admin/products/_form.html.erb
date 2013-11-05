@@ -60,6 +60,18 @@
 					    	<%= f.check_box :public %>
 						</div>
 					  </div>
+					  <div class="control-group">
+							<%= f.label :is_onsale,:class=>"control-label" %>
+					    	<div class="controls">
+					    		<%= f.check_box :is_onsale %>
+								</div>
+					  </div>
+					  <div class="control-group">
+							<%= f.label :is_recommend,:class=>"control-label",:rel=>"tooltip",:title=>"删除合同" %>
+					    	<div class="controls">
+					    		<%= f.input :is_recommend,:label=>false %>
+								</div>
+					  </div>
 
 					  <div class="control-group">
 						<%= f.label :weixin_url,:class=>"control-label" %>

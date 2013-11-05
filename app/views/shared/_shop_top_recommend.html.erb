@@ -15,54 +15,26 @@
 			</div>
 		</div -->
 		<div class="row-fluid">
-			<div class="span12">
-				<ul class="thumbnails product-list-inline-small">
-					<li class="span4">
-						<div class="thumbnail">
-							<a href="#"><img src="img/product_01.jpg" alt=""></a>
-							<div class="caption">
-								<a href="#">Product A</a>
-								<p>Lorem ipsum dolor sit amet <span class="label label-info price pull-right">&euro; 123,-</span></p>
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a href="#"><img src="img/product_02.jpg" alt=""></a>
-							<div class="caption">
-								<a href="#">Product B</a>
-								<p>Lorem ipsum dolor sit amet <span class="label label-info price pull-right">&euro; 123,-</span></p>
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a href="#"><img src="img/product_03.jpg" alt=""></a>
-							<div class="caption">
-								<a href="#">Product C</a>
-								<p>Lorem ipsum dolor sit amet <span class="label label-important price pull-right">&euro; 123,-</span></p>
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
+			<span class="label label-info">热力推荐
+			</span>
+			<%= render_cell :products, :recommend %>
 		</div>
 
 		<div class="row-fluid">
 			<div class="span6">
 				<div class="article">
-					<img src="img/nominate.png" align="right">
-					<h4>Newly Nominated!</h4>
-					<h5>Vote for us now!</h5>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat. <a href="#">More <i class="icon-chevron-right icon-color"></i></a></p>
+					<img src="images/weixin.jpg" align="right">
+					<h4>用微信一样可以下单</h4>
+					<h5>上理果园微信订购</h5>
+					<p>想吃水果但身边没有电脑？没有问题，打开手机添加"上理果园"微信服务一样可以轻松下单。当然也欢迎和我们的小伙伴们聊聊天。</p>
 				</div>
 			</div>
 			<div class="span6">
 				<div class="article">
-					<img src="img/starway.png" align="right">
-					<h4>Use the star way!</h4>
-					<h5>Order now!</h5>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. <a href="#">More <i class="icon-chevron-right icon-color"></i></a></p>
+					<img src="images/qrcode.jpg" align="right">
+					<h4>添加我们的微信服务号</h4>
+					<h5>服务号：上理果园</h5>
+					<p>您可以通过在添加公众号搜索"上理果园",或者拿起手机扫一下上面的二维码，添加我们的微信服务号。了解我们的最新咨询。</p>
 				</div>
 			</div>
 		</div>
@@ -71,22 +43,10 @@
 	<div class="span4">
 
 		<br>
-		<div class="row-fluid">
-			<div class="span12 well well-small">
-				<ul class="nav nav-list">
-					<li class="nav-header">Top 3 most popular</li>
-					<li><a href="#">Product A</a></li>
-					<li><a href="#">Product B</a></li>
-					<li><a href="#">Product C</a></li>
-					<li class="divider"></li>
-					<li class="nav-header">Top 3 best selling</li>
-					<li><a href="#">Product D</a></li>
-					<li><a href="#">Product E</a></li>
-					<li><a href="#">Product F</a></li>
-				</ul>
-			</div>
-		</div>
-
+		<%= render_cell :products, :top10 %>
+		
+		
+<!--
 		<div class="row-fluid">
 			<div class="span12">
 				<div class="slider-wrapper theme-light">
@@ -101,6 +61,6 @@
 				<br>
 			</div>
 		</div>
-
+-->
 	</div>
 </div>

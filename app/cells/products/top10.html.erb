@@ -1,0 +1,24 @@
+
+
+<div class="row-fluid">
+	<div class="span12 well well-small">
+		<ul class="nav nav-list">
+			<li class="nav-header">热销水果</li>
+			<%@products.each do |product|%>
+					<li><%=link_to product.name, product%></li>
+			<%end%>
+			
+
+	
+		</ul>
+	</div>
+</div>
+
+<!--
+		<li class="divider"></li>
+		<li class="nav-header">Top 3 best selling</li>
+		<li><a href="#">Product D</a></li>
+		<li><a href="#">Product E</a></li>
+		<li><a href="#">Product F</a></li>
+
+-->
