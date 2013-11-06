@@ -1,10 +1,15 @@
 <div data-role="page" data-theme="a">
-		<div data-role="header" data-position="inline" data-theme="d">
-			<h1>您的订单编号:[<%=@shopping.id%>]</h1>
+		<div data-role="header" data-position="inline" data-theme="b">
+			<font color="yellow">	<h2>订购成功,请坐等送货</h2></font>
+			
 		</div>
 		<div data-role="content" data-theme="a">
-
-			<h2>订单信息</h2>
+			
+			<h3>您的订单编号:<font color="red"><%=@shopping.id%> </font> <br/>
+				<small>如需修改订单，请微信留言</small>
+				</h3>
+			<hr/>
+			<h3>订单信息</h3>
 		 <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" 	style="width:100%">
 		      <thead>
 		        <tr>
@@ -29,47 +34,46 @@
 		     <%end%>
 		      </tbody>
 		    </table>
-		
-		
+		 <hr/>
+				<div class="contact-info center">
+					<h3>
+					您的联系方式
+					</h3>
+					<p>
+					  <strong>下单时间:</strong>
+						<%=I18n.localize( @shopping.created_at,:format=>:long)%>
+					</p>
+					  <strong>姓名:</strong>
+					  <%= @shopping.customer_name %>
+					</p>
+					</p>
+					  <strong>联系电话:</strong>
+					  <%= @shopping.mobile_phone %>
+					</p
+					<p>
+					  <strong>地址:</strong>
+					  <%= @shopping.detail_address %> 
+					</p>
+					<p>
+					  <strong>送货时间:</strong>
+					  <%= @shopping.receive_time %>
+					</p>
+					<p>
+					  <strong>订单金额:</strong>
+					  <%=number_to_currency(@shopping.amount,:unit=>"&yen") %>
+					</p>
+					<p>
+					  <strong>备注信息:</strong>
+					  <%=@shopping.remark %>
+					</p>
+
+				</div>
+				<pre>如有任何其他问题，可以发送信息至我们的服务号，我们的小伙伴会尽快为您解答。</pre>
 		
 
 		</div>
 		
-		<div class="contact-info center">
-			<legend>
-			您的联系方式
-			</legend>
-			<p>
-			  <strong>下单时间:</strong>
-				<%=I18n.localize( @shopping.created_at,:format=>:long)%>
-			</p>
-			  <strong>姓名:</strong>
-			  <%= @shopping.customer_name %>
-			</p>
-			</p>
-			  <strong>联系电话:</strong>
-			  <%= @shopping.mobile_phone %>
-			</p
-			<p>
-			  <strong>地址:</strong>
-			  <%= @shopping.customer_build %> <br/>
-			  <%= @shopping.customer_address %>
-			</p>
-			<p>
-			  <strong>送货时间:</strong>
-			  <%= @shopping.receive_time %>
-			</p>
-			<p>
-			  <strong>订单金额:</strong>
-			  <%=number_to_currency(@shopping.amount,:unit=>"&yen") %>
-			</p>
-			<p>
-			  <strong>备注信息:</strong>
-			  <%=@shopping.remark %>
-			</p>
 
-		</div>
-		<pre>如有任何其他问题，可以发送信息至我们的服务号，我们的小伙伴会尽快为您解答。</pre>
 		<div data-role="footer" >
 		 <p>Copyright &copy; 2013 上理果园</p>
 		</div>
