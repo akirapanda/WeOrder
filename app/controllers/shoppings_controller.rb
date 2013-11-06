@@ -1,6 +1,6 @@
 class ShoppingsController < ApplicationController
   before_action :set_shopping, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!,except:[:create,:new,:show]
+  before_filter :authenticate_user!,except:[:create,:new,:show,:new_order]
   layout 'shop'
   authorize_resource
   
@@ -15,6 +15,30 @@ class ShoppingsController < ApplicationController
   def show
   end
 
+
+  def new_order
+     @cart=current_cart
+     if @cart.shopping_items.size < 1
+       redirect_to @cart, alert: '购物车还是空的' 
+       return
+     end
+
+
+     goods=params[:goods]
+     ##how to process a complex form like this
+     goods.each do |goods|
+          goods_id=goods[0]
+          goods_count=goods[1][:count].to_i
+          shopping_item=ShoppingItem.find(goods_id)
+          shopping_item.count=goods_count
+          shopping_item.save
+     end
+     @shopping = Shopping.new
+     @cart.shopping_items.each do |item|
+       @shopping .shopping_items<<item
+     end
+     @shopping.amount= @shopping.calAmount(@shopping)
+   end
   # GET /shoppings/new
   def new
     @cart=current_cart

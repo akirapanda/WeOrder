@@ -14,7 +14,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<%=form_for Shopping.new, url:new_shopping_path,:method=>:get do |f|%>
+				<%=form_for Shopping.new, url:new_order_shoppings_path do |f|%>
 				<%amount=0%>
 				<%@cart.shopping_items.each do |item|%>
 						<tr id="shopping_item<%=item.id%>"> 			
@@ -46,12 +46,12 @@
 				
 			
 			
-				<tr>
+				<!--tr>
 					<td align="right" colspan="3">总计</td>
 					<td align="right" colspan="2">
 						<strong><%=number_to_currency(amount,:unit=>"&yen")%></strong>
 					</td>
-				</tr>
+				</tr-->
 			</tbody>
 			</table>
 			<div class="row-fluid">

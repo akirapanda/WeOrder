@@ -8,7 +8,11 @@ Weorder::Application.routes.draw do
   
 
 
-  resources :shoppings
+  resources :shoppings do
+    collection do
+      post 'new_order'
+    end
+  end
   resources :shopping_items
   resources :photos
   resources :goods_comments
