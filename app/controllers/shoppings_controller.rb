@@ -22,6 +22,16 @@ class ShoppingsController < ApplicationController
       redirect_to @cart, alert: '购物车还是空的' 
     end
     
+    
+    goods=params[:goods]
+    ##how to process a complex form like this
+    goods.each do |goods|
+         goods_id=goods[0]
+         goods_count=goods[1][:count].to_i
+         shopping_item=ShoppingItem.find(goods_id)
+         shopping_item.count=goods_count
+         shopping_item.save
+    end
     @shopping = Shopping.new
     @cart.shopping_items.each do |item|
       @shopping .shopping_items<<item

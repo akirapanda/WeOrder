@@ -14,6 +14,7 @@
 				</tr>
 			</thead>
 			<tbody>
+				<%=form_for Shopping.new, url:new_shopping_path,:method=>:get do |f|%>
 				<%amount=0%>
 				<%@cart.shopping_items.each do |item|%>
 						<tr id="shopping_item<%=item.id%>"> 			
@@ -23,9 +24,9 @@
 							<td>
 									
 									<div class="input-prepend input-append">
-											<button class="btn hidden-phone decrease">-</button>
-											<input type="text" class="input-micro count_input" readonly='true' name="goods[<%=item.product.id%>][count]" value="<%=item.count%>" ></input>
-											<button class="btn hidden-phone increase">+</button>
+											<button  type="button" class="btn hidden-phone decrease">-</button>
+											<input type="text" class="input-micro count_input" readonly='true' name="goods[<%=item.id%>][count]" value="<%=item.count%>" ></input>
+											<button type="button" class="btn hidden-phone increase">+</button>
 											<%= link_to  item, method: :delete ,:class=>"btn pull-right",:remote=>true do%>
 											
 												<i class="icon-trash"></i>
@@ -55,17 +56,17 @@
 			</table>
 			<div class="row-fluid">
 				<div class="span4">
-				</div>
-				<div class="span4">
-				</div>
-				<div class="span4">
 					<%= link_to  @cart, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn" do %>
 						<i class="icon-trash"></i> 清空购物车
 					<%end%>
-					<%= link_to '进入结算页面', new_shopping_path ,:method=>:get,:class=>"btn btn-primary"%>
+				</div>
+				<div class="span4">
+				</div>
+				<div class="span4">
+					<%= button_to '进入结算页面', new_shopping_path ,:method=>:get,:class=>"btn btn-primary pull-right"%>
 				</div>
 			</div>
-			
+			<%end%>
 			<%else%>
 				<%=link_to '购物车还是空的,请单击继续购物',root_path%>	
 			<%end%>
