@@ -29,7 +29,7 @@
 					<tbody>
 					<%@shoppings.each do |shopping|%>
 						<tr>
-							<td><%=shopping.id%></td>
+							<td><%=link_to shopping.id, shopping%></td>
 							<td class="center"><%=I18n.localize( shopping.created_at,:format=>:long)%></td>
 							<td><%=shopping.shopping_items.count%></td>
 							<td><%=number_to_currency(shopping.amount,:unit=>"&yen")%></td>
