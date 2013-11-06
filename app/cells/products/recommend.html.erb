@@ -4,7 +4,10 @@
 		<%@products.each do |product|%>
 		<li class="span4">
 			<div class="thumbnail">
-				<a href="#"><img src="<%=product.cover_url(:normal)%>" height="100px" alt="product.name"></a>
+				<%=link_to product do%>
+				<img src="<%=product.cover_url(:normal)%>" height="100px" alt="product.name">
+				<%end%>
+
 				<div class="caption">
 					<%=link_to product.name,product%>
 					<p><%=product.content%> <span class="label label-important price pull-right"> <%=number_to_currency product.price,:unit=>'&yen'%>/ <%= product.unit%></span></p>

@@ -6,8 +6,8 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th class="hidden-phone">&nbsp;</th>
-					<th></th>
+					<th>图片</th>
+					<th>商品</th>
 					<th>数量</th>
 					<th>单价</th>
 					<th>小计</th>
@@ -16,12 +16,26 @@
 			<tbody>
 				<%amount=0%>
 				<%@cart.shopping_items.each do |item|%>
-						<tr> 			
+						<tr id="shopping_item<%=item.id%>"> 			
 							<td class="hidden-phone"><%=image_tag item.product.cover_url(:small),:width=>'100px'%></td>
 							<td>
 								<strong><%=item.product_name%></strong><%=item.product.content%></td>
-							<td><%=item.count%> <%= item.product_unit %></td>
-							<td><%=number_to_currency(item.price,:unit=>"&yen")%></td>
+							<td>
+									
+									<div class="input-prepend input-append">
+											<button class="btn hidden-phone decrease">-</button>
+											<input type="text" class="input-micro count_input" readonly='true' name="goods[<%=item.product.id%>][count]" value="<%=item.count%>" ></input>
+											<button class="btn hidden-phone increase">+</button>
+											<%= link_to  item, method: :delete ,:class=>"btn pull-right",:remote=>true do%>
+											
+												<i class="icon-trash"></i>
+											<%end%>
+					        		
+									</div>
+					      </td>
+							
+							<td><%=number_to_currency(item.price,:unit=>"&yen")%> / 	<%= item.product_unit %></td>
+							</td>
 							
 							<td><%=number_to_currency(item.amount,:unit=>"&yen")%></td>
 							<%amount=amount+item.amount%>
@@ -53,9 +67,7 @@
 			</div>
 			
 			<%else%>
-			
-			<p>购物车还是空的</p>
-			
+				<%=link_to '购物车还是空的,请单击继续购物',root_path%>	
 			<%end%>
 		</div>
 </div>

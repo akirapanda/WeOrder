@@ -55,10 +55,11 @@ class ShoppingItemsController < ApplicationController
   # DELETE /shopping_items/1
   # DELETE /shopping_items/1.json
   def destroy
-    @shopping_item.destroy
+    @success=@shopping_item.destroy
     respond_to do |format|
       format.html { redirect_to shopping_items_url }
       format.json { head :no_content }
+      format.js
     end
   end
 

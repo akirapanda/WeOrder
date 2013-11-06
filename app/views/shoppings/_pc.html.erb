@@ -1,71 +1,79 @@
-<div class="hero-unit">
-<h1>订单详细信息</h1>
+<%= render "shared/error_messages",:target=>@shopping%>
+
+
+<div class="row-fluid">
+		<div class="span5 well">
+			<table class="table">
+				<thead>
+				<tr>
+					<th>您的联系方式</th></tr>
+						<tr>
+							<td>
+								收件人:<br>
+								<b><%= @shopping.customer_name%></b><br>
+								手机号码:<br>
+								<b><%=@shopping.mobile_phone%></b><br>
+								<br>
+								<b>收件地址:</b><br>
+								<%=@shopping.detail_address%>
+								<br>
+								<b>接收时间:</b>
+								<br>
+								<%=@shopping.receive_time%>			<br>
+								<b>备注信息:</b>
+								
+								<i><%=@shopping.remark%></i>
+							</td>
+						</tr>
+					</thead>
+				</table>
+			
+
+
+		
+			</div>
+			<div class="span7">
+				<table class="table table-bordered">
+					<thead>
+					<tr>
+						<th>商品总计</th>
+						<th width="50">数量</th>
+						<th width="70">小计</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%@shopping.shopping_items.each do |item| %>
+					<tr>
+						<td>	<%= item.product_name%></td>
+						<td align="center"> <input name="goods[<%=item.product.id%>][count]"  class="input-micro" readonly='true' value='<%= item.count%>' hidden/>  <%= item.count%> <%= item.product_unit%></td>
+						<td align="right"><%= number_to_currency(item.amount,:unit=>"&yen")%></td>
+					</tr>
+					<%end%>
+
+
+					<tr>
+						<td>运费</td>
+						<td align="right" colspan="2">&yen 0.00</td>
+					</tr>
+
+					<tr>
+						<td align="right" colspan="3"><strong><%=number_to_currency(@shopping.amount,:unit=>"&yen")%></strong></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<%=link_to root_path,:class=>"btn" do%>
+					<i class="icon-chevron-left"></i> 继续购物
+			<%end%>
+		</div>
+		<div class="span6">
+			<%=link_to shopping_user_path(current_user),:class=>"btn btn-primary pull-right" do%>
+				返回历史订单列表	<i class='icon-chevron-right icon-white'></i> 
+			<%end%>
+
+		</div>
 </div>
 
-
-<div class="form">
-	<%if @shopping.user_id==nil%>
-	 <h3>>>>该订单为非注册用户订单，请您务必记录下订单号信息<<<</h3>
-	<%end%>
-<h3>订单号:
-	<%= @shopping.id %>
-</h3>
-
-<p>
-  <strong>下单时间:</strong>
-	<%=I18n.localize( @shopping.created_at,:format=>:long)%>
-</p>
-  <strong>客户名称:</strong>
-  <%= @shopping.customer_name %>
-</p
-
-</p>
-  <strong>联系电话:</strong>
-  <%= @shopping.mobile_phone %>
-</p
-
-<p>
-  <strong>客户地址:</strong>
-  <%= @shopping.customer_build %></br>
-
-  <%= @shopping.customer_address %>
-</p>
-<p>
-  <strong>送货时间:</strong>
-  <%= @shopping.receive_time %>
-</p>
-<p>
-  <strong>订单金额:</strong>
-  <%=number_to_currency(@shopping.amount,:unit=>"&yen") %>
-</p>
-<p>
-  <strong>备注信息:</strong>
-  <%=@shopping.remark %>
-</p>
-<table class="table">
-	<thead>
-		<th>商品名称</th>
-		<th>订购数量</th>
-		<th>单价</th>
-		<th>小计</th>
-	</thead>
-	<tbody>
-		<% @shopping.shopping_items.each do |item|%>
-			<tr>
-				
-				<td><%=item.product.name%></td>
-				<td><%=item.count%> <%=item.product.unit%></td>
-				<td><%=number_to_currency(item.product.price,:unit=>"&yen")%> / <%=item.product.unit%></td>
-				<td><%=number_to_currency(item.amount,:unit=>"&yen")%></td>
-			</tr>
-		<%end%>
-	</tbody>
-</table>
-<% if current_user%>
-<% if current_user.admin?%>
-<%= link_to '编辑', edit_shopping_path(@shopping),:class=>"btn btn-info" %>
-<%end%>
-<%end%>
-
-<%= link_to '返回首页', root_path,:class=>"btn"  %>
-</div>

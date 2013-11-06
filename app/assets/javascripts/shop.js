@@ -10,3 +10,4 @@
 //= require shop/script
 //= require shop/jquery.colorbox-1.3.19.min
 
+//= require carts

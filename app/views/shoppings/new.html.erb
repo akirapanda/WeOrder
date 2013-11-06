@@ -1,49 +1,60 @@
-<%= simple_form_for(@shopping) do |f| %>
 <%= render "shared/error_messages",:target=>@shopping%>
-<fieldset>
-	<%@shopping.shopping_items.each do |item| %>
-	<div class="goods-div">
-		<div class="image-center">
-		<%= image_tag item.product.cover_url(:normal)%>
-		</div>
-		<div class="name-dashed">
-		<%= item.product_name%><br/>
-		<small><%= item.product.content%></small>
-		</div>
-		<div class="number-container">
-			<div class="price-rest">
-				<div class="price" >
-					<p>&yen<%= item.price%><%= item.product_unit%></p>
-				</div>
-				<div class="rest">
-					<p>库存信息</p>
-				</div>
+
+
+<div class="row-fluid">
+		<div class="span5 well">
+			<legend>您的联系方式</legend>
+						<%= simple_form_for(@shopping) do |f| %>
+
+						<%= f.input :customer_name%>
+
+						<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
+						<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"   %>
+
+						<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES %>
+						<%= f.input :mobile_phone%>
+						<%= f.input :remark ,as: :text,input_html: { maxlength: 50 } %>
 			</div>
-			<div class="number-counter">
-			 	<a href="javascript:void(0)" class="decrease"><i class="icon-minus"></i></a>
-				<input type="text"class="input-mini" readonly="true" name="goods[<%=item.product.id%>][count]" value="<%=item.count%>" ></input>
-				<a href="javascript:void(0)" class="increase "><i class="icon-plus"></i></a>
-			</div>
-		</div><!--end of container-->
+			<div class="span7">
+				<table class="table table-bordered">
+					<thead>
+					<tr>
+						<th>商品总计</th>
+						<th width="50">数量</th>
+						<th width="70">小计</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%@shopping.shopping_items.each do |item| %>
+					<tr>
+						<td>	<%= item.product_name%></td>
+						<td align="center"> <input name="goods[<%=item.product.id%>][count]"  class="input-micro" readonly='true' value='<%= item.count%>' hidden/>  <%= item.count%> <%= item.product_unit%></td>
+						<td align="right"><%= number_to_currency(item.amount,:unit=>"&yen")%></td>
+					</tr>
+					<%end%>
+
+
+					<tr>
+						<td>运费</td>
+						<td align="right" colspan="2">&yen 0.00</td>
+					</tr>
+
+					<tr>
+						<td align="right" colspan="3"><strong><%=number_to_currency(@shopping.amount,:unit=>"&yen")%></strong></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	<%end%>
-
-
-</fieldset>
-<div class="contact-info">
-<legend>
-您的联系方式
-</legend>
-
-<%= f.input :customer_name%>
-
-<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
-<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"   %>
-
-<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES %>
-<%= f.input :mobile_phone%>
-<%= f.input :remark ,as: :text,input_html: { maxlength: 50 } %>
-
-	<%= f.submit "下单",:class=>"btn btn-success"%>
+	<div class="row-fluid">
+		<div class="span6">
+			<button class="btn"><i class="icon-chevron-left"></i> personal info</button>
+		</div>
+		<div class="span6">
+			<%= button_tag(:class=>"btn btn-primary pull-right") do %>
+			  下单 <i class='icon-chevron-right icon-white'></i>
+			<% end %>
+		</div>
 </div>
+
 <%end%>

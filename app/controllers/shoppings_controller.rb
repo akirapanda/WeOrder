@@ -1,7 +1,7 @@
 class ShoppingsController < ApplicationController
   before_action :set_shopping, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!,except:[:create,:new,:show]
-  
+  layout 'shop'
   authorize_resource
   
   # GET /shoppings
@@ -18,11 +18,15 @@ class ShoppingsController < ApplicationController
   # GET /shoppings/new
   def new
     @cart=current_cart
+    if @cart.shopping_items.size < 1
+      redirect_to @cart, alert: '购物车还是空的' 
+    end
     
     @shopping = Shopping.new
     @cart.shopping_items.each do |item|
       @shopping .shopping_items<<item
     end
+    @shopping.amount= @shopping.calAmount(@shopping)
   end
 
   # GET /shoppings/1/edit
@@ -38,10 +42,6 @@ class ShoppingsController < ApplicationController
     goods=params[:goods]
     order_id=params[:order_id]
     ##how to process a complex form like this
-    
-    
-    
-    
     goods.each do |goods|
          goods_id=goods[0]
          goods_count=goods[1][:count].to_i
