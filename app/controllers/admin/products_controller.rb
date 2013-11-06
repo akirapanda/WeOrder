@@ -10,7 +10,8 @@ class Admin::ProductsController < Admin::BaseController
   end
   
   def new
-    @product = Product.new
+    @project = Project.new
+    @project.tasks.build
   end
   
   

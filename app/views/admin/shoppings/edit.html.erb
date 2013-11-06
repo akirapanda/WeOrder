@@ -1,0 +1,50 @@
+<%= content_for :title do %>
+	手工添加订单
+<% end %>
+
+<div class='span11 box box-bordered box-nomargin'>
+    <div class='box-header blue-background'>
+        <div class='title'>添加商品记录</div>
+        <div class='actions'>
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content'>
+			<%= simple_form_for(ShoppingItem.new,:remote=>true,:html=>{:class=>"default_class"}) do |f|%>
+				<label for="products-select">添加商品记录</label>
+			
+				<%=f.input :product_id,collection: @products,:input_html=>{:class=>"chosen-select"},label_method: :name, value_method: :id,:label=>false%>
+				<%=f.submit '添加商品',:class=>"btn btn-primary"%>
+			<%end%>
+    </div>
+</div>
+
+
+
+
+<hr/>
+<div class='span11 box box-bordered box-nomargin'>
+    <div class='box-header blue-background'>
+        <div class='title'>添加商品记录</div>
+        <div class='actions'>
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content'>
+			<%= form_for @shopping do |f| %>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>商品名称</th>
+								<th>商品数量</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+			<% end %>
+    </div>
+</div>

@@ -30,4 +30,5 @@
  *= require admin/plugins/slider_nav/slidernav
  *= require admin/plugins/fuelux/wizard
  *= require admin/light-theme
+ *= require chosen
  */

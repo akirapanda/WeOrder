@@ -1,0 +1,62 @@
+<%= content_for :title do %>
+	编辑
+<% end %>
+
+<div class='span11 box box-bordered box-nomargin'>
+    <div class='box-header blue-background'>
+        <div class='title'>添加商品记录</div>
+        <div class='actions'>
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content'>
+			<%= simple_form_for(ShoppingItem.new,url:new_shopping_item_path,:method=>:get,:remote=>true,:html=>{:class=>"default_class"}) do |f|%>
+				<label for="products-select">添加商品记录</label>
+			
+				<%=f.input :product_id,collection: @products,:input_html=>{:class=>"chosen-select"},label_method: :name, value_method: :id,:label=>false%>
+				<%=f.submit '添加商品',:class=>"btn btn-primary"%>
+			<%end%>
+    </div>
+</div>
+
+
+
+<div class='span11 box box-bordered box-nomargin'>
+    <div class='box-header blue-background'>
+        <div class='title'>添加商品记录</div>
+        <div class='actions'>
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content'>
+			<%= form_for [:admin,@shopping] do |f| %>
+
+			    <%= f.text_field :customer_name %>
+
+
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>商品名</th>
+							<th>数量</th>
+							<th>小计</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+			  		<%= render :partial => 'shopping_item', :collection => @shopping.shopping_items %>
+
+						
+			  <p><%= submit_tag "Create Project" %></p>
+				</tbody>
+				
+			</table>
+			<% end %>
+    </div>
+</div>
+
+
+<hr/>

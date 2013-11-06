@@ -1,0 +1,18 @@
+<%=fields_for "shopping[shopping_item_attributes][]", shopping_item do |item_form| %>
+<tr class="item">
+
+  <td>
+    <%= item_form.text_field :product_id %>
+
+    <%= item_form.text_field :product_name %>
+  </td>
+  <td>
+     <%= item_form.text_field :count %>
+  </td>
+	<td>
+		 <%= item_form.text_field :amount %>
+    <%= link_to_function "remove", "$(this).parent().parent('.item').remove()" %>
+		</td>
+	</tr>
+	
+<% end %>

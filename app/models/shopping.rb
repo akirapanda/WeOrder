@@ -1,8 +1,9 @@
 class Shopping < ActiveRecord::Base
   acts_as_paranoid
   BUILDS=["一公寓","二公寓","三公寓","四公寓","五公寓","三宿舍","四宿舍","五宿舍","七宿舍","八宿舍","九宿舍","十二宿舍","其他"]
-  RECEIVE_TIMES=["11:30 - 13:00","16:30 - 18:00","20:00 - 21:30"]
+  RECEIVE_TIMES=["11:30 - 13:00","16:30 - 18:00","20:15 - 21:00","20:45 - 21:30"]
   
+
   
   def self.available_time
     #0~10:59  
@@ -11,13 +12,16 @@ class Shopping < ActiveRecord::Base
 
     #11:00~15:59
     elsif (11..15) === Time.now.hour 
-      return ["16:30 - 18:00","20:00 - 21:30","次日11:30 - 13:00"]
-    #16:00 ~ 19:30
-    elsif (16..18) === Time.now.hour || (Time.now.hour === 19 && Time.now.min <30)
-      return ["20:00 - 21:30","次日11:30 - 13:00","次日16:30 - 18:00"]
-      #19:30~0:00
+      return ["16:30 - 18:00","20:15 - 21:00","20:45 - 21:30","次日11:30 - 13:00"]
+    #16:00 ~ 20:00
+    elsif (16..19) === Time.now.hour
+      return ["20:15 - 21:00","20:45 - 21:30","次日11:30 - 13:00","次日16:30 - 18:00"]
+    #20:00 ~ 20:30
+    elsif 20 === Time.now.hour && (0...30)===Time.now.min
+      return ["20:45 - 21:30","次日11:30 - 13:00","次日16:30 - 18:00","次日20:15 - 21:00"]
+    #20:30~0:00
     elsif  Time.now.hour >= 20 || (Time.now.hour === 19 && Time.now.min >=30)
-      return ["次日11:30 - 13:00","次日16:30 - 18:00","次日20:00 - 21:30"]
+      return ["次日11:30 - 13:00","次日16:30 - 18:00","次日20:15 - 21:00","次日20:45 - 21:30"]
     else
       return RECEIVE_TIMES
     end 
@@ -27,6 +31,14 @@ class Shopping < ActiveRecord::Base
   has_many :shopping_items,:dependent => :destroy
   validates :receive_time,:customer_build,:mobile_phone,:presence => true
   validates :mobile_phone,:numericality =>true
+  
+  
+  def shopping_item_attributes=(item_attributes)
+    item_attributes.each do |attributes|
+      shopping_items.build(attributes)
+    end
+  end
+  
   def calAmount(shopping)
     amount=0
     shopping.shopping_items.each do |item|

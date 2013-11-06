@@ -4,7 +4,7 @@ class WeixinMessagesController < ApplicationController
   # GET /weixin_messages
   # GET /weixin_messages.json
   def index
-    @weixin_messages = WeixinMessage.paginate(:page => params[:page], :per_page => 20)
+    @weixin_messages = WeixinMessage.order('created_at desc').paginate(:page => params[:page], :per_page => 20)
   end
 
   # GET /weixin_messages/1

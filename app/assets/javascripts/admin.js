@@ -63,4 +63,9 @@
 //= require admin/nav.js
 //= require admin/tables.js
 //= require admin/theme.js
+//= require docsupport/prism.js
+//= require chosen.jquery
 
+
+
+//= require admin/shoppings
