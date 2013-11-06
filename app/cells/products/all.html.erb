@@ -12,14 +12,14 @@
 							<%if product.is_recommend%>
 								<span class="label label-info price">&yen; <%=product.price%></span>
 							
-								<span class="label label-important price price-over">&yen; <%=product.price%></span>
+								<span class="label label-important price price-over">&yen;<%=product.price%></span>
 							<%else%>
-								<span class="label label-info price">&yen; <%=product.price%></span>
+								<span class="label label-info price">&yen;<%=product.price%></span>
 							<%end%>
 							<img data-hover="<%=product.cover_url(:normal)%>" src="<%=product.cover_url(:normal)%>" alt="">
 							<%end%>
 						<div class="caption">
-							<%=link_to product.name ,product%>
+							<%=link_to "#{product.name} (#{product.unit})" ,product%> 
 						</div>
 					</div>
 				</li>
