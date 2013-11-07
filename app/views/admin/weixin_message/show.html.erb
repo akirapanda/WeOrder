@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From user:</strong>
+  <%= @weixin_message.from_user %>
+</p>
+
+<p>
+  <strong>Msgtype:</strong>
+  <%= @weixin_message.msgType %>
+</p>
+
+<p>
+  <strong>Msg:</strong>
+  <%= @weixin_message.msg %>
+</p>
+
+<%= link_to 'Edit', edit_weixin_message_path(@weixin_message) %> |
+<%= link_to 'Back', weixin_messages_path %>

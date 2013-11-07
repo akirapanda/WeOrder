@@ -1,0 +1,34 @@
+
+<div class="hero-unit">
+<h1>微信API消息日志</h1>
+
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>发起用户ID</th>
+      <th>消息类型</th>
+      <th>消息内容</th>
+      <th>发送时间</th>
+      <th>删除记录</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weixin_messages.each do |weixin_message| %>
+      <tr>
+        <td><%= weixin_message.from_user %></td>
+        <td><%= weixin_message.msgType %></td>
+        <td><%= weixin_message.msg %></td>
+        <td><%=l weixin_message.created_at, :format=>:long %></td>
+
+        <td><%= link_to 'Destroy', weixin_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= will_paginate @weixin_messages %>
+

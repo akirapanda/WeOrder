@@ -16,16 +16,31 @@
 		<meta name="viewport" content="width=device-width">
 		<meta name="Keywords" content="上理果园,上海理工,新鲜水果,水果" />
 		<meta name="Description" content="上理果园,新鲜直达" />
+
+
+
+
+	  <% if mobile? %>
+	    <%= stylesheet_link_tag "mobile" %>
+	  	<%= javascript_include_tag "mobile" %>
+	  	<%= csrf_meta_tags %>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="apple-mobile-web-app-capable" content="no">
+	    <meta content='True' name='HandheldFriendly' />
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	    <link rel="apple-touch-icon-precomposed" href="<%= asset_path("ios-icon.png") %>" />
+
+	  <%else%>
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
 		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=McLaren">
-
   	<%= stylesheet_link_tag   "shop"%>
   	<%= javascript_include_tag "shop"%>
   	<%= csrf_meta_tags %>
+	  <% end %>
 	</head>
 
 	<body data-controller-name="<%= controller_name%>">
-
+	  <% unless mobile? %>
 		<!-- Facebook div for like button -->
 		<div id="fb-root"></div>
 
@@ -108,5 +123,10 @@
 		<script src="http://s22.cnzz.com/z_stat.php?id=1000146210&web_id=1000146210" language="JavaScript"></script>
 		
 		</div>
+		<% else %>
+		<%=yield%>
+		
+		<% end %>
+
 	</body>
 </html>
