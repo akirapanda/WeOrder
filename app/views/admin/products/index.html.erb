@@ -42,17 +42,14 @@
 							        <td><%= t product.public.to_s %></td>
 
 							        <td>
-										<div class="btn-group">
-										  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-										    操作
-										    <span class="caret"></span>
-										  </a>
-										<ul class="dropdown-menu">
-											<li><%= link_to '编辑', edit_admin_product_path(product) ,:method=>:get%></li>
-							        		<li><%= link_to '删除', product, method: :delete, data: { confirm: '确定删除吗?' } %></li>
-										</ul>
-										</div>
-									</td>
+												<%= link_to [:admin,product], method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>
+													<i class='icon-remove'></i>
+												<%end%>
+
+												<%= link_to  edit_admin_product_path(product) ,:class=>"btn btn-info btn-mini" do%>
+													<i class='icon-edit'></i>
+												<%end%>
+											</td>
 							      </tr>
 							    <% end %>
 							  </tbody>

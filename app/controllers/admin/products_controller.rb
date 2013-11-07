@@ -14,6 +14,15 @@ class Admin::ProductsController < Admin::BaseController
   end
   
   
+  def destroy
+    @product.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_products_url, notice: t('products.delete_success') }
+      format.json { head :no_content }
+    end
+  end
+  
+  
   def edit
     
   end

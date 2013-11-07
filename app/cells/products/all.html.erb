@@ -10,11 +10,11 @@
 					<div class="thumbnail light">
 							<%=link_to product do%>
 							<%if product.is_recommend%>
-								<span class="label label-info price">&yen; <%=product.price%></span>
+								<span class="label label-success price">&yen; <%=product.price%></span>
 							
-								<span class="label label-important price price-over">&yen;<%=product.price%></span>
+								<span class="label label-important price price-over">&yen;<%=product.price%>/<%=product.unit%></span>
 							<%else%>
-								<span class="label label-info price">&yen;<%=product.price%></span>
+								<span class="label label-success price">&yen;<%=product.price%>/<%=product.unit%></span>
 							<%end%>
 							<img data-hover="<%=product.cover_url(:normal)%>" src="<%=product.cover_url(:normal)%>" alt="">
 							<%end%>

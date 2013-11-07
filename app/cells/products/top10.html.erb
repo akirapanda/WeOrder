@@ -3,14 +3,26 @@
 <div class="row-fluid">
 	<div class="span12 well well-small">
 		<ul class="nav nav-list">
-			<li class="nav-header">热销水果</li>
-			<%@products.each do |product|%>
-					<li><%=link_to product.name, product%></li>
-			<%end%>
-			
 
-	
+			<li class="nav-header">团购</li>
+			<li><%=link_to "当前无活动","#" %></li>
+			
+			<li class="divider"></li>
+
+			<li class="nav-header">活动</li>
+			
+			<li class="divider"></li>
+			<li class="nav-header">微信服务号</li>
+			
+			<li>
+			
+			<div class="article" style="margin-top:0px">
+				<img src="images/qrcode.jpg" align="right" style="margin-left:5px;">
+				<p>您可以通过搜索"上理果园",或者拿起手机扫一下右边的二维码，添加我们的微信服务号。</p>
+			</div>
+			</li>
 		</ul>
+
 	</div>
 </div>
 
