@@ -2,9 +2,68 @@
 	管理员首页
 <% end %>	
 	
+<div class='row-fluid'>
+  <div class='span2 box-quick-link blue-background'>
+			<%=link_to admin_products_path do%>
+				<div class='header'>
+	          <div class='icon-barcode'></div>
+	      </div>
+	      <div class='content'>商品</div>
+			<%end%>
+
+  </div>
+
+
+  <div class='span2 box-quick-link red-background'>
+			<%=link_to admin_shoppings_path do%>
+          <div class='header'>
+              <div class='icon-inbox'></div>
+          </div>
+          <div class='content'>订单</div>
+     	<%end%>
+  </div>
+  <div class='span2 box-quick-link green-background'>
+		<%=link_to weixin_messages_path do%>
+          <div class='header'>
+              <div class='icon-comments-alt'></div>
+          </div>
+          <div class='content'>微信日志</div>
+     <%end%> 
+  </div>
+</div>
+
+	
+	
+<div class='row-fluid'>
+    <div class='span6 box'>
+				<%= render_cell :shoppings, :today %>
+    </div>
+</div>
+	
 <div class='row-fluid timeline'>
+	
+
+	
 	<div class='span12'>
 	    <ol class='unstyled'>
+		    <li>
+            <div class='icon purple-background'>
+                <i class='icon-cog'></i>
+            </div>
+            <div class='title'>
+                最新进展
+                <small class='muted'>Last Update @2013-11-7</small>
+            </div>
+            <div class='content'>
+								<h3>后台管理基本完工</h3>
+								<p>新增一张客户消费信息报表</p>
+								<h3>还未完工项目</h3>
+								<p>微信API日志--0%</p>
+								<p>客户订单--75% , 还未完工</p>
+								<p>财务模块--0%</p>								
+
+            </div>
+        </li>
 	        <li>
 	            <div class='icon purple-background'>
 	                <i class='icon-cog'></i>
@@ -15,16 +74,15 @@
 	            </div>
 	            <div class='content'>
 									<h3>后台管理页面全改造中</h3>
-
+									
 									<p>微信关键字维护--迁移成功</p>
 									<p>微信API日志--0%</p>
-									<p>客户订单--50%</p>
+									<p>客户订单--75% , 还未完工</p>
 									<p>商品信息--迁移成功</p>
 									<p>展示表格--迁移成功</p>
 									<p>财务模块--0%</p>
-									<p>报表--1/1</p>
+									<p>报表--2/2</p>
 									
-
 	            </div>
 	        </li>
 			</ol>
