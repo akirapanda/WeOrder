@@ -42,9 +42,13 @@ class Admin::ShoppingsController < Admin::BaseController
     end
   end
   
+  def update
+    
+  end
+  
+  
   def new
     @shopping=Shopping.new
-    2.times { @shopping.shopping_items.build }
     @products=Product.all
   end
 end

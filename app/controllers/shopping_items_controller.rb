@@ -16,7 +16,20 @@ class ShoppingItemsController < ApplicationController
   # GET /shopping_items/new
   def new
     @shopping_item = ShoppingItem.new
+    if params[:shopping_item][:product_id].blank?
+      @success=false
+      return
+    else
+      @success=true
+      
+      product=Product.find(params[:shopping_item][:product_id])
+      @shopping_item.product_id=product.id
+      @shopping_item.product_name=product.name
+      @shopping_item.price=product.price
+    end
   end
+
+
 
   # GET /shopping_items/1/edit
   def edit

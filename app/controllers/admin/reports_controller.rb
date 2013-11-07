@@ -1,4 +1,26 @@
 class Admin::ReportsController < Admin::BaseController
+  
+  def customers
+    @customers=Shopping.select("mobile_phone,sum(amount) as total").group('mobile_phone').order('sum(amount)  desc')
+     @chart = LazyHighCharts::HighChart.new('graph') do |f|
+        f.title({ :text=>"客人消费统计"})
+        names=[]
+        amounts=[]
+        @customers.each do |customer|
+          names<<customer.mobile_phone
+          amounts<<customer.total.to_f
+        end
+
+        f.options[:xAxis][:categories] = names
+        f.labels(:items=>[:html=>"从2013年10月21日", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])      
+        f.yAxis [
+          {:title => {:text => "消费金额(元)", :margin => 70} }
+        ]   
+        f.series(:type=> 'column',:name=> '消费金额',:data=>amounts, :yAxis => 0)
+      end
+  end
+  
+  
   def products
     @products=Product.joins(:shopping_items).select("products.name,products.unit,sum(shopping_items.amount) as amount,sum(shopping_items.count) as count").where("shopping_items.shopping_id is not null").group("products.id").order("sum(shopping_items.amount) desc")
     

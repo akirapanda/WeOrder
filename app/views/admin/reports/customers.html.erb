@@ -1,0 +1,32 @@
+<%= content_for :title do %>
+	消费大户报表
+<% end %>
+
+<%= high_chart("my_id4", @chart)  %>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>手机号码</th>
+			<th>消费金额</th>
+		</tr>
+	</thead>
+	<%amount=0%>
+	
+	<tbody>
+		<%@customers.each do |customer|%>
+		
+		<tr>
+			<td><%=customer.mobile_phone%></td>
+			<td><%=number_to_currency customer.total , :unit=>"¥"%> </td>
+			<%amount=amount+ customer.total%>
+		</tr>
+		<%end%>
+		<tr class="success">
+			<td>总计</td>
+			<td><%=number_to_currency amount, :unit=>"¥"%> </td>
+			
+		</tr>
+	<tbody>
+</table>
+

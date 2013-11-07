@@ -1,0 +1,97 @@
+		<%= simple_form_for [:admin,@shopping] do |f| %>
+
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th>商品名</th>
+						<th>单价</th>
+						
+						<th>数量</th>
+						<th>小计</th>
+						<th>操作</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+		  		<%= render :partial => 'shopping_item', :collection => @shopping.shopping_items %>
+				</tbody>
+		</table>
+		
+		
+		
+		   <fieldset>
+			     <div class='span4'>
+			         <div class='lead'>
+			             <i class='icon-github text-contrast'></i>
+			             客人信息
+			         </div>
+			         <small class='muted'>
+			         	手工为客人添加订单信息
+			         </small>
+			     </div>
+			
+
+				
+
+				
+			
+			     <div class='span7 offset1'>
+				
+				  	<div class='control-group'>
+							<%= f.label :customer_name ,:class=>"control-label"%>
+			         <div class='controls'>
+			    			<%= f.input :customer_name,:label=>false %>
+			          </div>
+			       </div>
+			
+				  	<div class='control-group'>
+							<%= f.label :mobile_phone ,:class=>"control-label"%>
+			         <div class='controls'>
+			    			<%= f.input :mobile_phone,:label=>false %>
+			          </div>
+			       </div>
+
+						<div class='control-group'>
+							<%= f.label :customer_build ,:class=>"control-label"%>
+			         <div class='controls'>
+								<%= f.input :customer_build,:label=>false,:input_html=>{:style=>"height:40px;"},:collection=>Shopping::BUILDS   %>
+			          </div>
+			       </div>
+			
+			
+			    	<div class='control-group'>
+							<%= f.label :customer_address ,:class=>"control-label"%>
+			         <div class='controls'>
+								<%= f.input :customer_address,:label=>false,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"   %>
+			          </div>
+			       </div>
+
+						<div class="control-group">
+					    	<%= f.label :receive_time ,:class=>"control-label"%>
+							<div class="controls">
+								<%= f.input :receive_time,:label=>false,:collection=>Shopping::RECEIVE_TIMES %>
+							</div>
+					  </div>
+				  	<div class='control-group'>
+							<%= f.label :remark ,:class=>"control-label"%>
+			         <div class='controls'>
+			    				<%= f.input :remark,:label=>false ,as: :text,input_html: { maxlength: 50 } %>
+			          </div>
+			       </div>
+
+
+			     </div>
+			 </fieldset>
+
+			 <div class='form-actions' style='margin-bottom: 0;'>
+			     <div class='text-right'>
+						<%= link_to '返回', admin_root_path ,:class => "btn btn-large"%>
+
+					  <%= f.submit "提交", :class=> "btn btn-primary  btn-large" %>
+			     </div>
+			 </div>
+		
+
+    
+		<% end %>

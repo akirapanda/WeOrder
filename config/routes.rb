@@ -55,6 +55,7 @@ Weorder::Application.routes.draw do
     resources :reports do
        collection do
          get 'products'
+         get 'customers'
        end 
     end 
     

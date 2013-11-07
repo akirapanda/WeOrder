@@ -2,17 +2,22 @@
 <tr class="item">
 
   <td>
-    <%= item_form.text_field :product_id %>
+    <%= item_form.hidden_field :product_id %>
 
     <%= item_form.text_field :product_name %>
   </td>
   <td>
-     <%= item_form.text_field :count %>
+    <%= item_form.text_field :price,:class=>"input-mini" %>
+  </td>
+  <td>
+     <%= item_form.text_field :count ,:class=>"input-mini" %>
   </td>
 	<td>
-		 <%= item_form.text_field :amount %>
-    <%= link_to_function "remove", "$(this).parent().parent('.item').remove()" %>
+		 <%= item_form.text_field :amount,:class=>"input-mini" %>
 		</td>
+		<td>
+			<%= link_to_function "x", "$(this).parent().parent('.item').remove()" %>
+			</td>
 	</tr>
 	
 <% end %>
