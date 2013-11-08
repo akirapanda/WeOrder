@@ -1,13 +1,14 @@
 <%= content_for :title do %>
 	商品详细信息-<%=@product.name%>
 <% end %>
-
 <div class='span11 box'>
 	<div class='box-content'>
 		<div class='pull-left'>
+			
 			<%=link_to "编辑商品",edit_admin_product_path(@product),:class=>'btn btn-success'%>
 			
 			<%=link_to "编辑配图",photo_admin_product_path(@product),:class=>'btn btn-success'%>
+			
      </div>
      <div class='clearfix'></div>
 

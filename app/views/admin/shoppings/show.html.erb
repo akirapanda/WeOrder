@@ -1,18 +1,34 @@
 
 <%= content_for :title do %>
-	订单详细信息 #<%=@shopping.id%>
+	订单详细信息 #<%=@shopping.id%> 
+	
+	
+	<%unless @prev.nil?%>
+	
+	<%=link_to [:admin,@prev],:class=>'btn' do%>
+		<i class="icon-arrow-left icon-white"></i> 上一个订单
+	<%end%>
+	<%end%>
+	<%unless @next.nil?%>
+		<%=link_to [:admin,@next],:class=>'btn' do%>
+		 下一个订单<i class="icon-arrow-right icon-white"></i>
+		<%end%>
+	<%end%>
+	
 <% end %>
 
 
 <div class='span11 box'>
 	<div class='box-content'>
 		<div class='pull-left'>
+
       <a class='btn btn-success' href='#'>标记已完成</a>
      </div>
 		<div class='pull-right'>
 			<%= link_to edit_admin_shopping_path(@shopping),:class=>"btn btn-info" do%>
 				<i class="icon-edit"></i>	编辑订单
 			<%end%>
+
      </div>
      <div class='clearfix'></div>
      <hr class='hr-normal' />

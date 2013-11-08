@@ -5,6 +5,9 @@ class Admin::ShoppingsController < Admin::BaseController
   
   def show
     @shopping = Shopping.find(params[:id]) 
+    @prev = @shopping.previous
+    @next = @shopping.next
+    
   end
   
   def destroy
