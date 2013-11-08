@@ -1,16 +1,18 @@
 	<div class="span12">
-		<ul class="thumbnails product-list-inline-small">
+		<ul class="thumbnails product-list-inline-large">
 		
 		<%@products.each do |product|%>
 		<li class="span4">
+			
 			<div class="thumbnail">
+				 <span class="label label-important price pull-right">&yen<%= product.price.to_f%>/<%= product.unit%></span>
 				<%=link_to product do%>
 				<img src="<%=product.cover_url(:normal)%>" height="100px" alt="product.name">
 				<%end%>
 
 				<div class="caption">
 					<%=link_to product.name,product%>
-					<p><%=product.content%> <span class="label label-important price pull-right"> <%=number_to_currency product.price,:unit=>'&yen'%>/ <%= product.unit%></span></p>
+					<p><%=product.content%></p>
 				</div>
 			</div>
 		</li>

@@ -1,4 +1,5 @@
 class ProductsCell < Cell::Rails  
+  require 'ransack'
   def user_shopping
     render
   end

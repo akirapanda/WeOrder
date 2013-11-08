@@ -7,5 +7,7 @@ class HomeController < ApplicationController
   
   def test
     @cart=current_cart    
+    @q=Product.search(params[:q])
+    
   end
 end

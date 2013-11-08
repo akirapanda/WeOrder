@@ -16,11 +16,11 @@
 		</div -->
 		<div class="row-fluid">
 			
-			<span class="label label-info">热力推荐
-			</span>
+			<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;热销推荐
+			</h4>
 			<%= render_cell :products, :recommend %>
-		</div>
 
+<!--
 		<div class="row-fluid">
 			<div class="span6">
 				<div class="article">
@@ -31,6 +31,22 @@
 				</div>
 			</div>
 		</div>
+-->
+
+</div>
+
+<div class="row-fluid">
+
+	<div class="offset4 span8">
+		<%= search_form_for @q ,:class=>"form-search" do |f| %>
+			  <div class="input-prepend input-append">
+					<span class="add-on">水果名称</span>
+				  <%= f.text_field :name_cont,:class=>" input-xxlarge" ,:placeholder=>"输入想要的水果，如果没有请给我们留言"%>
+			    <button type="submit" class="btn">搜索</button>
+			  </div>
+		<% end %>
+	</div>
+</div>
 </div>
 	<div class="span4">
 
