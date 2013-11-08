@@ -1,7 +1,9 @@
-<%=fields_for "shopping[shopping_item_attributes][]", shopping_item do |item_form| %>
+<%=fields_for_shopping_item (shopping_item)  do |item_form| %>
 <tr class="item">
 
   <td>
+	  <%= item_form.hidden_field :id%>
+  
     <%= item_form.hidden_field :product_id %>
 
     <%= item_form.text_field :product_name %>

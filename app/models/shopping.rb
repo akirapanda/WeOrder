@@ -2,9 +2,7 @@ class Shopping < ActiveRecord::Base
   acts_as_paranoid
   BUILDS=["一公寓","二公寓","三公寓","四公寓","五公寓","三宿舍","四宿舍","五宿舍","七宿舍","八宿舍","九宿舍","十二宿舍","其他"]
   RECEIVE_TIMES=["11:30 - 13:00","16:30 - 18:00","20:15 - 21:00","20:45 - 21:30"]
-  
-
-  
+    
   def self.available_time
     #0~10:59  
     if (0..10) === Time.now.hour
@@ -31,11 +29,23 @@ class Shopping < ActiveRecord::Base
   has_many :shopping_items,:dependent => :destroy
   validates :receive_time,:customer_build,:mobile_phone,:presence => true
   validates :mobile_phone,:numericality =>true
+  after_update :save_shopping_items
   
-  
-  def shopping_item_attributes=(item_attributes)
+  def new_shopping_item_attributes=(item_attributes)
     item_attributes.each do |attributes|
-      shopping_items.build(attributes)
+        shopping_items.build(attributes)
+    end
+  end
+  
+  def exist_shopping_item_attributes=(item_attributes)
+    
+    shopping_items.reject(&:new_record?).each do |item|
+      attributes = item_attributes[item.id.to_s]      
+      if attributes        
+        item.attributes = attributes
+      else
+        shopping_items.delete(item)
+      end
     end
   end
   
@@ -58,4 +68,11 @@ class Shopping < ActiveRecord::Base
     end
   end
    
+   
+  def save_shopping_items
+    shopping_items.each do |item|
+        item.amount=item.subAmount
+        item.save
+    end
+  end
 end

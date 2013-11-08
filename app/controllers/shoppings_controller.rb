@@ -107,7 +107,7 @@ class ShoppingsController < ApplicationController
         format.html { 
           ##
           SendMail.build_mail_by_shopping(@shopping)
-          redirect_to @shopping, notice: 'Shopping was successfully created.' 
+          redirect_to @shopping, notice: '订单生成成功！请坐等我们的小伙伴为您送上新鲜的水果.' 
           }
       else
         format.html { 

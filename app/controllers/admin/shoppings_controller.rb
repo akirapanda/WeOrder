@@ -17,6 +17,7 @@ class Admin::ShoppingsController < Admin::BaseController
   
   def edit
     @shopping = Shopping.find(params[:id]) 
+    @products=Product.all
   end
   
   def create
@@ -40,7 +41,19 @@ class Admin::ShoppingsController < Admin::BaseController
   end
   
   def update
+    params.require(:shopping).permit!
+    params[:shopping][:exist_shopping_item_attributes] ||= {}
     
+    @shopping = Shopping.find(params[:id])
+    respond_to do |format|
+      if @shopping.update(params[:shopping])
+        @shopping.amount=@shopping.calAmount(@shopping)
+        @shopping.save
+        format.html { redirect_to [:admin,@shopping], notice: 'Shopping was successfully updated.' }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
   end
   
   
