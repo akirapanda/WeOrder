@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_filter :authenticate_user!,except: [:show,:comments,:buyer]
   layout 'shop'
   def index
-    @products = Product.all
+    @products=Product.where(:is_onsale=>true).where(:public=>true)
   end
 
   def show
