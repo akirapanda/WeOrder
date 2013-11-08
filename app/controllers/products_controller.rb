@@ -1,9 +1,20 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy,:photo,:buyer,:comments]
   layout 'shop'
+  
+  
+  def search
+    index
+    render :index
+  end
+  
+  
   def index
     @cart=current_cart
-    @products=Product.where(:is_onsale=>true).where(:public=>true)
+    @q=Product.search(params[:q])
+    
+    @products = @q.result(distinct: true).where(:is_onsale=>true).where(:public=>true)
+    
   end
 
   def show

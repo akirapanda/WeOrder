@@ -1,40 +1,47 @@
 
 <div class="row-fluid">
-
-	<%products.each_with_index do |product,index|%>
-	<%if index%4==0%>
+	<%if products.size==0%>
 	<div class="span12">
-		<ul class="thumbnails product-list-inline-small">
-	<%end%>
+		<h3>	<%=link_to "抱歉没有找到您要搜索的商品,点击浏览全部商品",products_path%></h3>
+	</div>
+	<%else%>
+			<%products.each_with_index do |product,index|%>
+			<%if index%4==0%>
+			<div class="span12">
+				<ul class="thumbnails product-list-inline-small">
+			<%end%>
 			
 			
-			<li class="span3">
-				<div class="thumbnail light">
-						<%=link_to product do%>
-						<div class="thumbnail">
-							<%=link_to product  do%>
-								<img src="<%=product.cover_url(:normal)%>" alt="<%=product.name%>">
-							<%end%>
+					<li class="span3">
+						<div class="thumbnail light">
+								<%=link_to product do%>
+								<div class="thumbnail">
+									<%=link_to product  do%>
+										<img src="<%=product.cover_url(:normal)%>" alt="<%=product.name%>">
+									<%end%>
+									<div class="caption">
+										<%=link_to "#{product.name}" ,product%> 
+										<p><%=product.content%> <span class="label label-info price pull-right"> <%=number_to_currency product.price,:unit=>'&yen'%>/ <%= product.unit%></span></p>
+									</div>
+								</div>
+								<%end%>
 							<div class="caption">
-								<%=link_to "#{product.name}" ,product%> 
-								<p><%=product.content%> <span class="label label-info price pull-right"> <%=number_to_currency product.price,:unit=>'&yen'%>/ <%= product.unit%></span></p>
 							</div>
 						</div>
-						<%end%>
-					<div class="caption">
-					</div>
-				</div>
-			</li>
+					</li>
 			
-	<%if index%4==3%>
-		</ul>
-	</div>
-	<%end%>
+			<%if index%4==3%>
+				</ul>
+			</div>
+			<%end%>
 	
-	<%end%>
+			<%end%>
 	
-	<%if products.size%4!=0%>
-		</ul>
-	</div>
-	<%end%>
+			<%if products.size%4!=0%>
+				</ul>
+			</div>
+			<%end%>
+			<%end%> 
+			
 </div>
+

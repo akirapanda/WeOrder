@@ -36,6 +36,10 @@ Weorder::Application.routes.draw do
       get 'comments'
       get 'buyer'
     end
+    
+    collection do
+      match 'search' => 'products#search', via: [:get, :post], as: :search
+    end
   end
   
   root 'home#test'

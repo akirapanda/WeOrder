@@ -4,9 +4,21 @@
 					<br>
 					<div class="row-fluid">
 						<div class="span12 well well-small">
+							
+							<%= search_form_for @q ,:class=>"form-search" do |f| %>
+								<div class="input-append">
+								
+							  <%= f.text_field :name_cont,:class=>"search-query input-medium" ,:placeholder=>"输入名称查找水果"%>
+							  <button type="submit" class="btn">查找</button>
+						  
+							</div>
+							
+							<% end %>
 							<ul class="nav nav-list">
 								<li class="nav-header">商品分类</li>
-								<li><a href="#"><i class="icon-ok"></i> 水果</a></li>
+								<%=link_to products_path do%>
+									<i class="icon-ok"></i>所有水果</a>
+								<%end%>
 							</ul>
 						</div>
 					</div>
