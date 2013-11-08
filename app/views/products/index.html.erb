@@ -1,58 +1,55 @@
-<div class="hero-unit">
-<h1>我的商品</h1>
+<div class="row-fluid">
+				<div class="span3">
 
-</div>
+					<br>
+					<div class="row-fluid">
+						<div class="span12 well well-small">
+							<ul class="nav nav-list">
+								<li class="nav-header">商品分类</li>
+								<li><a href="#"><i class="icon-ok"></i> 水果</a></li>
+							</ul>
+						</div>
+					</div>
 
+					<!--div class="row-fluid">
+						<div class="span12">
+							<div class="slider-wrapper theme-light">
+								<div class="ribbon"></div>
+								<div id="slider2" class="nivoslider">
+									<img src="img/banner_01.jpg" alt="" title="This is an example of an optional long caption text" />
+									<img src="img/banner_02.jpg" alt="" title="" />
+									<img src="img/banner_03.jpg" alt="" title="" />
+									<img src="img/banner_04.jpg" alt="" title="Another caption" />
+								</div>
+							</div>
+							<br>
+						</div>
+					</div-->
 
-<div>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>图片</th>
-      <th>名称</th>
-      <th>介绍</th>
-      <th>价格</th>
-      <th>单位</th>
-      <th>公开商品</th>
+				</div>
+				
+				<div class="span9">
 
-	  <th>
-		<div class="btn-group">
-	  		<button class="btn btn-success"><i class="icon-cog"></i></button>
-	  		<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-	    	<span class="caret"></span>
-	  		</button>
-	  		<ul class="dropdown-menu">
-				<li><%= link_to "新增商品",new_product_path%></li>
-			</ul>
-		</div>
-	  </th>
-    </tr>
-  </thead>
+					<div class="row-fluid">
+						<div class="span9">
+							<h2>所有水果</h2>
+						</div>
+						<!--div class="span3">
+							<div class="social-icons pull-right">
+								<a href="#"><img src="img/icon-facebook.png" alt="facebook"></a>
+								<a href="#"><img src="img/icon-twitter.png" alt="twitter"></a>
+								<a href="#"><img src="img/icon-linkedin.png" alt="linkedin"></a>
+								<a href="#"><img src="img/icon-rss.png" alt="rss"></a>
+							</div>
+						</div-->
+					</div>
+					<hr/>
+					<div class="row-fluid">
+						<%=render "products",:products=>@products%>
+					</div>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= image_tag product.cover_url(:small),:class=>"img-polaroid" %></td>
-        <td><%= link_to product.name, product %></td>
-        <td><%= product.content %></td>
-        <td><%= number_to_currency product.price,:unit=>"¥"%></td>
-        <td><%= product.unit %></td>
-        <td><%= t product.public %></td>
+				</div>
 
-        <td>
-			<div class="btn-group">
-			  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-			    操作
-			    <span class="caret"></span>
-			  </a>
-			<ul class="dropdown-menu">
-				<li><%= link_to '编辑', edit_product_path(product) ,:method=>:get%></li>
-        		<li><%= link_to '删除', product, method: :delete, data: { confirm: '确定删除吗?' } %></li>
-			</ul>
 			</div>
-		</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+
+
