@@ -8,6 +8,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
   
+  version :large do
+    process :resize_to_fit => [1024, 1024]
+  end
+  
   version :normal do
     process :resize_to_fit => [512, 512]
   end

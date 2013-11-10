@@ -39,6 +39,7 @@ Weorder::Application.routes.draw do
       get 'photo'
       get 'comments'
       get 'buyer'
+      get 'tuan'
     end
     
     collection do

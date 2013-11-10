@@ -20,10 +20,10 @@
 							    <tr>
 							      <th>图片</th>
 							      <th>名称</th>
-							      <th>介绍</th>
 							      <th>价格</th>
 							      <th>单位</th>
 							      <th>公开商品</th>
+							      <th>上架</th>
 
 								  <th>
 											操作
@@ -40,10 +40,10 @@
 												<%end%>
 											</td>
 							        <td><%= link_to product.name, [:admin,product],:rel=>"tooltip",:title=>"点击查看详细信息" ,"data-placement"=>"bottom"  %></td>
-							        <td><%= product.content %></td>
 							        <td><%= number_to_currency product.price,:unit=>"¥"%></td>
 							        <td><%= product.unit %></td>
 							        <td><%= t product.public.to_s %></td>
+							        <td><%= t product.is_onsale.to_s %></td>
 
 							        <td>
 												<%= link_to [:admin,product], method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>

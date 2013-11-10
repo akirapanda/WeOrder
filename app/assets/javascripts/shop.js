@@ -11,7 +11,8 @@
 //= require shop/jquery.colorbox-1.3.19.min
 //= require shop/jquery.nivo.slider.pack
 //= require carts
-
+//= require products
+//= require jquery.countdown
 
 $(function(){
         // 页面浮动面板
