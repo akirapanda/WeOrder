@@ -54,7 +54,7 @@ class Admin::ProductsController < Admin::BaseController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: t('products.update_success') }
+        format.html { redirect_to [:admin,@product], notice: t('products.update_success') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
