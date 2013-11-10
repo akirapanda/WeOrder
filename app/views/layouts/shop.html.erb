@@ -41,6 +41,24 @@
 	<body data-controller-name="<%= controller_name%>">
 	  <% unless mobile? %>
 		<!-- Facebook div for like button -->
+		<!--浮动面板-->
+		<div id="floatPanel">
+			<div class="ctrolPanel">
+				<a class="arrow" href="#"><span>顶部</span></a><a class="contact" href="https://jinshuju.net/f/XeaRtE" target="_blank"><span>留言</span></a><a class="qrcode" href="#"><span>微信二维码</span></a><a class="arrow" href="#"><span>底部</span></a></div>
+			<div class="popPanel">
+				<div class="popPanel-inner">
+					<div class="qrcodePanel">
+						<img src="/images/weixin.jpg" /><span>扫描二维码关注上理果园为好友</span></div>
+					<div class="arrowPanel">
+						<div class="arrow01">
+						</div>
+						<div class="arrow02">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<div id="fb-root"></div>
 
 		<!-- Div for shade line -->
