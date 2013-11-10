@@ -67,5 +67,5 @@
 //= require chosen.jquery
 
 
-
 //= require admin/shoppings
+//= require admin/products

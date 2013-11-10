@@ -5,6 +5,14 @@ class PhotosController < ApplicationController
   def index
   end
   
+  
+  def weixin
+    @photo=Photo.find(params[:id])
+    @photo.weixin_cover=! @photo.weixin_cover
+    @success=@photo.save
+    
+  end
+  
   def create
     @photo = Photo.new(photo_params)
     respond_to do |format|

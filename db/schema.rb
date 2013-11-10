@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105115006) do
+ActiveRecord::Schema.define(version: 20131110032321) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20131105115006) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "weixin_cover", default: false
   end
 
   create_table "product_comments", force: true do |t|

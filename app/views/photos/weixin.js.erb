@@ -1,0 +1,12 @@
+<% if @success %>
+photo_line = '<%= j(render("photos/photo",:photo => @photo)) %>';
+
+$('#photo<%=@photo.id%>').fadeOut("slow", function(){
+	$('#photo<%=@photo.id%>').replaceWith(photo_line);
+	$('#photo<%=@photo.id%>').fadeIn("slow");
+});
+
+<% else %>
+alert ('更新失败');
+
+<% end %>

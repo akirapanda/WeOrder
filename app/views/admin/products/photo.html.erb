@@ -17,11 +17,31 @@
         <div class='box-content box-double-padding'>
 
 
+
 <%= simple_form_for(@photo,:html=>{:class=>"form-horizontal"}) do |f| %>
+<fieldset>
 	<%= render "shared/error_messages",:target=>@photo%>
 	<%=f.text_field :product_id,:value=>@product.id,:class=>"hide"%>
-	<%=f.input :image%>
-	<%=f.submit "上传配图",:class=>"btn btn-primary"%>
+
+	<div class="control-group">
+		<%= f.label :image ,:class=>"control-label"%>
+		
+		<div class="controls">
+  		<%=f.input :image,:label=>false%>
+		</div>
+	</div>
+  
+	
+	<div class="control-group">
+		<%= f.label :weixin_cover ,:class=>"control-label"%>
+    	<div class="controls">
+    		<%= f.input :weixin_cover,:label=>false %>
+		</div>
+  </div>
+</feildset>
+<div class='form-actions' style='margin-bottom: 0;'>
+					<%=f.submit "上传配图",:class=>"btn btn-primary"%>
+</div>
 <%end%>
 
 

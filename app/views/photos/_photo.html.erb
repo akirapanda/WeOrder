@@ -1,0 +1,10 @@
+<tr id="photo<%=photo.id%>">
+	<td> <%= image_tag photo.image_url(:small)%></td>
+	<td> <%= photo.weixin_cover%></td>
+	
+	<td><%=photo.created_at%></td>
+	<td><%= link_to '删除', photo, method: :delete, data: { confirm: '确定删除配图吗?' } %>
+			
+			<%= link_to '微信/一般配图', weixin_photo_path(photo),:remote=>true %>
+	</td>
+</tr>

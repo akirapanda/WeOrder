@@ -14,7 +14,11 @@ Weorder::Application.routes.draw do
     end
   end
   resources :shopping_items
-  resources :photos
+  resources :photos do
+    member do
+      get 'weixin'
+    end
+  end
   resources :goods_comments
   resources :orders do
     member do

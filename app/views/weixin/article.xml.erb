@@ -9,11 +9,19 @@
 		<item>
 			<Title><![CDATA[<%=item.product.name%>]]></Title> 
 			<Description><![CDATA[<%=raw item.product.content%>]]></Description>
-			<%if index==0%>
-			<PicUrl><![CDATA[<%=root_url+item.product.cover_url(:normal)%>]]></PicUrl>
-			<%else%>
-			<PicUrl><![CDATA[<%=root_url+item.product.cover_url(:small)%>]]></PicUrl>
-			<%end%>
+				<%if index==0%>
+					<% if item.product.weixin_cover.nil?%>
+							<PicUrl><![CDATA[<%=root_url+item.product.cover_url(:normal)%>]]></PicUrl>
+					<%else%>
+							<PicUrl><![CDATA[<%=root_url+item.product.weixin_cover.image_url(:normal)%>]]></PicUrl>
+					<%end%>
+				<%else%>
+					<% if item.product.weixin_cover.nil?%>
+						<PicUrl><![CDATA[<%=root_url+item.product.cover_url(:small)%>]]></PicUrl>
+					<%else%>
+							<PicUrl><![CDATA[<%=root_url+item.product.weixin_cover.image_url(:small)%>]]></PicUrl>
+					<%end%>
+			 <%end%>
 			<Url><![CDATA[<%=raw item.product.weixin_url %>]]></Url>
 		</item>
 		<%end%>

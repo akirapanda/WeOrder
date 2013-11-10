@@ -11,4 +11,15 @@ class Product < ActiveRecord::Base
   has_many :product_order_items,:dependent => :destroy
   has_many :shopping_items
    
+   
+  def weixin_cover
+    weixin_photo= self.photo.find_by_weixin_cover(true)
+    if weixin_photo
+      return weixin_photo
+    else
+      return nil
+    end
+    
+  end
+  
 end
