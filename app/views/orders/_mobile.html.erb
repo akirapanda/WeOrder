@@ -77,7 +77,7 @@
 				您的联系方式
 				</legend>
 				<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"},:placeholder=>"您的手机号码"   %>
-				<%= f.input :customer_build,:collection=>Shopping::BUILDS,:selected=>Shopping::BUILDS[0]%>
+				<%= f.input :customer_build,:collection=>Shopping::BUILDS,:selected=>"其他"%>
 				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"  %>
 				
 				<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0] %>
