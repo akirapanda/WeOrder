@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     @cart=current_cart
     @q=Product.search(params[:q])
     
-    @products = @q.result(distinct: true).where(:is_onsale=>true).where(:public=>true)
+    @products = @q.result(distinct: true).where(:is_onsale=>true).where(:public=>true).order("is_recommend desc")
     
   end
 
