@@ -39,17 +39,16 @@
 								<div class="span7">
 									<strong>品名:</strong> <span><%=@product.name%></span><br>
 									<strong>简介:</strong> <span><%=@product.content%></span><br>
-									<strong>价格:</strong> <span><%=number_to_currency @product.price,:unit=>"&yen;"%>/ <%= @product.unit%></span><br>
+									<strong>价格:</strong> <span><%=number_to_currency @product.price,:unit=>"&yen;"%>/<%= @product.unit%></span><br>
 									
 								</div>
 
 								<div class="span5">
 									<%if @product.is_recommend%>
-										<span class="label label-info price">&yen; <%=@product.price%>/<%=@product.unit%></span>
 
-										<span class="label label-important price price-over">&yen; <%=@product.price%>/<%=@product.unit%></span>
+										<span class="label label-important price price-over"><%=number_to_currency @product.price,:unit=>"&yen;"%>/<%= @product.unit%></span>
 									<%else%>
-										<span class="label label-info price">&yen; <%=@product.price%>/<%=@product.unit%></span>
+										<span class="label label-info price"><%=number_to_currency @product.price,:unit=>"&yen;"%>/<%= @product.unit%></span>
 									<%end%>
 								</div>
 
