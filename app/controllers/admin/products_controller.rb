@@ -41,7 +41,7 @@ class Admin::ProductsController < Admin::BaseController
     @product.user_id=current_user.id
     respond_to do |format|
       if @product.save
-        format.html { redirect_to admin_products_url, notice: t('products.create_success') }
+        format.html { redirect_to [:admin,@product], notice: t('products.create_success') }
         format.json { render action: 'show', status: :created, location: @product }
       else
         format.html { render action: 'new' }
