@@ -1,6 +1,14 @@
 class Admin::ShoppingsController < Admin::BaseController
+ 
+  def search
+    index
+    render :index
+  end
+ 
   def index
-    @shoppings = Shopping.order('created_at desc').paginate(:page => params[:page], :per_page => 20)
+    @q=Shopping.search(params[:q])
+    
+    @shoppings = @q.result(distinct: true).order('created_at desc').paginate(:page => params[:page], :per_page => 20)
   end
   
   def show

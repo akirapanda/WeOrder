@@ -51,7 +51,13 @@ Weorder::Application.routes.draw do
   get  'old' => "home#index"
   namespace :admin do
     root :to => 'home#index'
-    resources :shoppings
+    
+    resources :shoppings do
+      collection do
+        match 'search' => 'shoppings#search', via: [:get, :post], as: :search
+      end
+    end
+    
     resources :orders
     
     resources :products do
