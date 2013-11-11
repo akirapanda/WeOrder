@@ -45,8 +45,10 @@
 
 							      <th>客户名称</th>
 							      <th>地址</th>
-							      <th>总金额</th>
 							      <th>手机号</th>
+							      <th>配送时间</th>
+							      <th>总金额</th>
+							      <th>订单状态</th>
 							
 							      <th>创建时间</th>
 							      <th>操作</th>
@@ -59,8 +61,11 @@
 											<td><%= link_to shopping.id, admin_shopping_path(shopping) %></td>
 							        <td><%= link_to shopping.customer_name, admin_shopping_path(shopping) %></td>
 							        <td><%= shopping.detail_address%></td>
-							        <td><%= number_to_currency(shopping.amount,:unit=>"￥") %></td>
 											<td><%= shopping.mobile_phone%>
+											<td><%= shopping.receive_time%>
+												<td><%= number_to_currency(shopping.amount,:unit=>"￥") %></td>
+								        <td><%= shopping.status%>
+												
 											<td><%= I18n.localize(shopping.created_at,:format=>:long)%></td>
 									    <td>
 											<%= link_to admin_shopping_path(shopping), method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>

@@ -55,6 +55,12 @@ Weorder::Application.routes.draw do
     resources :shoppings do
       collection do
         match 'search' => 'shoppings#search', via: [:get, :post], as: :search
+        get 'uncompleted'
+      end
+      
+      member do
+        get 'to_process'
+        get 'to_complete'
       end
     end
     

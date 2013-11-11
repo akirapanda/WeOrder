@@ -67,6 +67,8 @@ class ShoppingsController < ApplicationController
   def edit
   end
 
+
+
   # POST /shoppings
   # POST /shoppings.json
   def create

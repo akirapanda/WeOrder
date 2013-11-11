@@ -1,10 +1,33 @@
 class Admin::ShoppingsController < Admin::BaseController
  
+ 
+ 
+  def to_process
+    @shopping = Shopping.find(params[:id]) 
+    @shopping.to_process
+    @shopping.save
+    redirect_to [:admin,@shopping]
+  end
+  
+  def to_complete
+    @shopping = Shopping.find(params[:id]) 
+    
+    @shopping.to_complete
+    @shopping.save
+    redirect_to [:admin,@shopping]
+    
+  end
   def search
     index
     render :index
   end
  
+  def uncompleted
+    index
+    @shoppings = @shoppings.where("status <> ?","配送完毕")
+    render :index
+  end
+  
   def index
     @q=Shopping.search(params[:q])
     
