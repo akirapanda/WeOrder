@@ -1,14 +1,21 @@
 Weorder::Application.routes.draw do
   devise_for :users
     
+    
+    
+  root 'home#test'
+  get  'old' => "home#index"
+  get 'about'=> "home#about"
+    
   resources :weixin_messages
   resources :carts
 
   resources :contacts
   
+  
 
 
-  resources :shoppings do
+  resources :shoppings,:except=>['index '] do 
     collection do
       post 'new_order'
     end
@@ -47,8 +54,7 @@ Weorder::Application.routes.draw do
     end
   end
   
-  root 'home#test'
-  get  'old' => "home#index"
+
   namespace :admin do
     root :to => 'home#index'
     

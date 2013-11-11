@@ -4,12 +4,6 @@ class ShoppingsController < ApplicationController
   layout 'shop'
   authorize_resource
   
-  # GET /shoppings
-  # GET /shoppings.json
-  def index
-    @shoppings = Shopping.order('created_at desc').paginate(:page => params[:page], :per_page => 20)
-  end
-
   # GET /shoppings/1
   # GET /shoppings/1.json
   def show
