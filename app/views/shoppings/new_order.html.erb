@@ -11,7 +11,7 @@
 						<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
 						<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"   %>
 
-						<%= f.input :receive_time,:collection=>Shopping::RECEIVE_TIMES %>
+						<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0] %>
 						<%= f.input :mobile_phone%>
 						<%= f.input :remark ,as: :text,input_html: { maxlength: 50 } %>
 			</div>
