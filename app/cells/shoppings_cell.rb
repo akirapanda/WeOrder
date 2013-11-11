@@ -5,5 +5,6 @@ class ShoppingsCell < Cell::Rails
     render
   end
   
+
   
 end

@@ -1,5 +1,26 @@
 class Admin::ReportsController < Admin::BaseController
   
+  def sale
+    @shoppings=Shopping.select("sum(amount) as total,date(created_at) as day").group("date(created_at)").order("date(created_at) asc") 
+    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+       f.title({ :text=>"日营业额(元)统计"})
+       dates=[]
+       amounts=[]
+       @shoppings.each do |shopping|
+         dates<<shopping.day
+         amounts<<shopping.total.to_f
+       end
+
+       f.options[:xAxis][:categories] = dates
+       f.labels(:items=>[:html=>"从2013年10月21日", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])      
+       f.yAxis [
+         {:title => {:text => "营业额(元)", :margin => 70} }
+       ]   
+       f.series(:type=> 'line',:name=> '营业额',:data=>amounts, :yAxis => 0)
+     end
+  
+  end
+  
   def customers
     @customers=Shopping.select("mobile_phone,sum(amount) as total").group('mobile_phone').order('sum(amount)  desc')
      @chart = LazyHighCharts::HighChart.new('graph') do |f|

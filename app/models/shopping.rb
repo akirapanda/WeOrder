@@ -9,6 +9,11 @@ class Shopping < ActiveRecord::Base
   after_update :save_shopping_items  
   before_create :set_default
   
+  def self.next_batch
+    Shopping.where("status <> ?" ,"配送完毕").order("created_at asc").order("receive_time desc")
+  end
+  
+  
   def to_complete
     self.status="配送完毕"
   end

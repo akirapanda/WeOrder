@@ -77,6 +77,7 @@ Weorder::Application.routes.draw do
        collection do
          get 'products'
          get 'customers'
+         get 'sale'
        end 
     end 
     
