@@ -7,7 +7,6 @@ class Shopping < ActiveRecord::Base
     #0~10:59  
     if (0..10) === Time.now.hour
       return RECEIVE_TIMES
-
     #11:00~15:59
     elsif (11..15) === Time.now.hour 
       return ["16:30 - 18:00","20:15 - 21:00","20:45 - 21:30","次日11:30 - 13:00"]
