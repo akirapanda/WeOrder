@@ -80,17 +80,17 @@ ActiveRecord::Schema.define(version: 20131110032321) do
     t.string   "cover"
     t.string   "name"
     t.string   "content"
-    t.decimal  "price"
+    t.decimal  "price",        precision: 10, scale: 0
     t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "buy_count"
     t.integer  "like_count"
-    t.text     "body",         limit: 255
-    t.text     "body_html",    limit: 255
+    t.text     "body"
+    t.text     "body_html"
     t.string   "weixin_url"
-    t.boolean  "public",                   default: true
+    t.boolean  "public",                                default: true
     t.datetime "deleted_at"
     t.boolean  "is_recommend"
     t.boolean  "is_onsale"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20131110032321) do
   create_table "send_mails", force: true do |t|
     t.string   "type"
     t.string   "receivers"
-    t.text     "content",    limit: 255
+    t.text     "content"
     t.boolean  "done"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20131110032321) do
     t.integer  "product_id"
     t.integer  "shopping_id"
     t.integer  "count"
-    t.decimal  "amount"
+    t.decimal  "amount",       precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cart_id"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20131110032321) do
   create_table "shoppings", force: true do |t|
     t.string   "customer_name"
     t.string   "customer_address"
-    t.decimal  "amount"
+    t.decimal  "amount",           precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -153,8 +153,8 @@ ActiveRecord::Schema.define(version: 20131110032321) do
     t.string   "role"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "weixin_messages", force: true do |t|
     t.string   "from_user"

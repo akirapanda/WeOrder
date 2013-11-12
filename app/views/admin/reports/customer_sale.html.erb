@@ -1,0 +1,51 @@
+<%= content_for :title do %>
+	消费金额
+<% end %>
+
+<div class='span11 '>
+		<div class='pull-left'>
+				<%=link_to "返回总计报表",customers_admin_reports_path,:class=>"btn"%>
+     </div>
+</div>
+
+<%= high_chart("my_id4", @chart)  %>
+
+
+<div class="row-fluid">
+	<div class="span4">
+		<h3>曾使用的联系人名称</h3>
+		<ul>
+			<%@mobiles.each do |mobile|%>
+				<li><%=mobile.customer_name unless mobile.customer_name.blank?%></li>
+			<%end%>
+		</ul>
+	</div>
+	<div class="span8">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>年周（YYYYWW)</th>
+					<th>消费金额</th>			
+				</tr>
+			</thead>
+			<%amount=0%>
+
+			<tbody>
+				<%@shoppings.each do |shopping|%>
+
+				<tr>
+					<td><%=shopping.week%></td>
+					<td><%=number_to_currency shopping.weekly_amount , :unit=>"¥"%> </td>
+					<%amount=amount+ shopping.weekly_amount%>
+				</tr>
+				<%end%>
+				<tr class="success">
+					<td>总计</td>
+					<td><%=number_to_currency amount, :unit=>"¥"%> </td>			
+				</tr>
+			<tbody>
+		</table>
+	</div>
+</div>
+
+

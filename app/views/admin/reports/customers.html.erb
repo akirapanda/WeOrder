@@ -17,7 +17,7 @@
 		<%@customers.each do |customer|%>
 		
 		<tr>
-			<td><%=customer.mobile_phone%></td>
+			<td><%=link_to customer.mobile_phone,customer_sale_admin_reports_path(:mobile_phone=>customer.mobile_phone)%></td>
 			<td><%=number_to_currency customer.total , :unit=>"¥"%> </td>
 			<%amount=amount+ customer.total%>
 		</tr>

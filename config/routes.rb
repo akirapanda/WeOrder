@@ -84,6 +84,7 @@ Weorder::Application.routes.draw do
          get 'products'
          get 'customers'
          get 'sale'
+         get 'customer_sale'
        end 
     end 
     
