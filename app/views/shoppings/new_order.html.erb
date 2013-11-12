@@ -20,6 +20,8 @@
 					<thead>
 					<tr>
 						<th>商品总计</th>
+						<th width="50">单价</th>
+						
 						<th width="50">数量</th>
 						<th width="70">小计</th>
 					</tr>
@@ -28,6 +30,8 @@
 					<%@shopping.shopping_items.each do |item| %>
 					<tr>
 						<td>	<%= item.product_name%></td>
+						<td align="right"><%= number_to_currency(item.price,:unit=>"&yen")%></td>
+						
 						<td align="center"> <input name="goods[<%=item.product.id%>][count]"  class="input-micro" readonly='true' value='<%= item.count%>' hidden/>  <%= item.count%> <%= item.product_unit%></td>
 						<td align="right"><%= number_to_currency(item.amount,:unit=>"&yen")%></td>
 					</tr>
@@ -36,11 +40,11 @@
 
 					<tr>
 						<td>运费</td>
-						<td align="right" colspan="2">&yen 0.00</td>
+						<td align="right" colspan="3">&yen 0.00</td>
 					</tr>
 
 					<tr>
-						<td align="right" colspan="3"><strong><%=number_to_currency(@shopping.amount,:unit=>"&yen")%></strong></td>
+						<td align="right" colspan="4"><strong><%=number_to_currency(@shopping.amount,:unit=>"&yen")%></strong></td>
 					</tr>
 				</tbody>
 			</table>
