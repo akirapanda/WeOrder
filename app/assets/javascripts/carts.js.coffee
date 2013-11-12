@@ -14,10 +14,9 @@ jQuery ->
 			
 		$('.decrease').click ->
 			count=$(this).next().val()
-			$(this).next().val(count-1) if count>1
-			
-			price=$(this).next().next().next().next().val()			
-			amount=accMul(count-1,price)
-			
-			$(this).parent().parent().next().next().html("&yen"+amount)
+			if count > 1
+				$(this).next().val(count-1)
+				price=$(this).next().next().next().next().val()			
+				amount=accMul(count-1,price)
+				$(this).parent().parent().next().next().html("&yen"+amount)
 			
