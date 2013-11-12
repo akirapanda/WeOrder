@@ -25,6 +25,7 @@ class ShoppingsController < ApplicationController
           goods_count=goods[1][:count].to_i
           shopping_item=ShoppingItem.find(goods_id)
           shopping_item.count=goods_count
+          shopping_item.amount=shopping_item.subAmount
           shopping_item.save
      end
      @shopping = Shopping.new
