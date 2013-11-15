@@ -1,9 +1,5 @@
 <%if mobile?%>
  <%=render "mobile_show"%>
 <%else%>
-	<% if @product.id == 56%>
-		<%=render "tuan"%>
-	<% else %>
 		<%=render "pc_show"%>
-	<% end %>
 <%end%>
