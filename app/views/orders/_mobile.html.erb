@@ -18,14 +18,13 @@
 				</div>
 				<%end%>
 				<%if alert%>
-				<div class="alert alert-block alert-error">
-					<a class="close" data-dismiss='alert' href="#">x</a>
-					<p id="notice"><%= alert %></p>
-				</div>
+				<script>
+					alert("<%= alert %>");
+				</script>
 				<%end%>
 			</div>
 			<%= simple_form_for(@shopping ,:html=>{'data-ajax'=>"false"}) do |f| %>
-			
+
 			<div data-role="collapsible-set">
 					<div data-role="collapsible" data-theme="g" data-content-theme="g" data-collapsed="false">
 					   <h3>商品信息</h3>
@@ -79,7 +78,7 @@
 				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"  %>
 				
 				<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0] %>
-				<%= f.input :remark,:input_html=>{:style=>"height:40px;"} ,:placeholder=>"如果有什么额外的要求请在这里告诉我们" %>
+				<%= f.input :remark,:input_html=>{:style=>"height:40px;"} ,:placeholder=>"请告诉我们是否有额外的要求比如送货时间与校区" %>
 				<hr/>
 				<%= f.input :customer_name,:input_html=>{:style=>"height:40px;"} ,:label=>"怎么称呼您（可选）",:placeholder=>"请告诉我们的小伙伴们怎么称呼您" %>
 				<button type="submit" data-role="button" data-theme="b" name="submit">下单</button>

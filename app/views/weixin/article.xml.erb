@@ -22,7 +22,13 @@
 							<PicUrl><![CDATA[<%=root_url+item.product.weixin_cover.image_url(:small)%>]]></PicUrl>
 					<%end%>
 			 <%end%>
-			<Url><![CDATA[<%=raw item.product.weixin_url %>]]></Url>
+			
+			<%if item.product.id == 59 %>
+				<Url><![CDATA[<%=raw products_path(item.product) %>]]></Url>
+			<%else%>
+				<Url><![CDATA[<%=raw item.product.weixin_url %>]]></Url>
+			<%end%>
+			
 		</item>
 		<%end%>
     </Articles>
