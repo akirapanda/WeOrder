@@ -10,4 +10,3 @@ jQuery ->
 		$('.decrease').click ->
 			count=$(this).next().val()
 			$(this).next().val(count-1) if count>0
-	
