@@ -24,7 +24,7 @@
 			 <%end%>
 			
 			<%if item.product.id == 59 %>
-				<Url><![CDATA[<%=raw products_path(item.product) %>]]></Url>
+				<Url><![CDATA[<%=raw root_url+products_path(item.product) %>]]></Url>
 			<%else%>
 				<Url><![CDATA[<%=raw item.product.weixin_url %>]]></Url>
 			<%end%>

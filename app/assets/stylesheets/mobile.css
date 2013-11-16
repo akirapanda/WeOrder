@@ -10,8 +10,8 @@
  *
  *= require_self
  *= require font-awesome.min
- *= require font-awesome.min
- *= require font-awesome.min
+ *= require bootstrap.min
+ *= require bootstrap-responsive.min
  *= require jquery.mobile.flatui
  */
 

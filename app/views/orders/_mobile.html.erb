@@ -18,13 +18,13 @@
 				</div>
 				<%end%>
 				<%if alert%>
-				<script>
-					alert("<%= alert %>");
-				</script>
+				<div class="alert alert-block alert-error">
+					<a class="close" data-dismiss='alert' href="#">x</a>
+					<p id="notice"><%= alert %></p>
+				</div>
 				<%end%>
 			</div>
 			<%= simple_form_for(@shopping ,:html=>{'data-ajax'=>"false"}) do |f| %>
-
 			<div data-role="collapsible-set">
 					<div data-role="collapsible" data-theme="g" data-content-theme="g" data-collapsed="false">
 					   <h3>商品信息</h3>
