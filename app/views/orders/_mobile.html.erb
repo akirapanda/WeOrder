@@ -74,10 +74,10 @@
 				您的联系方式
 				</legend>
 				<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"},:placeholder=>"您的手机号码"   %>
-				<%= f.input :customer_build,:collection=>Shopping::BUILDS,:selected=>"其他"%>
+				<%= f.input :customer_build,:collection=>Shopping::BUILDS,:selected=>"其他",:input_html=>{"data-theme"=>"g"}%>
 				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"  %>
 				
-				<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0] %>
+				<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0],:input_html=>{"data-theme"=>"g"} %>
 				<%= f.input :remark,:input_html=>{:style=>"height:40px;"} ,:placeholder=>"请告诉我们是否有额外的要求比如送货时间与校区" %>
 				<hr/>
 				<%= f.input :customer_name,:input_html=>{:style=>"height:40px;"} ,:label=>"怎么称呼您（可选）",:placeholder=>"请告诉我们的小伙伴们怎么称呼您" %>
