@@ -1,13 +1,17 @@
 <div data-role="page">
 
-	<div data-role="header"  data-theme="d">
+	<div data-role="header"  data-theme="b">
 		<h1><%=@product.name%></h1>
 	</div><!-- /header -->
 
 	<div data-role="content">	
 		<%=image_tag(@product.cover_url(:normal))%>
+		<h3>单价:<font color="red"><%= number_to_currency @product.price,:unit=>"￥"%>/<%= @product.unit%></font></h3>
+		
 		<p><%=raw @product.body_html%></p>	
+		<a href="<%=@product.weixin_url%>" data-role="button" data-icon="flat-new" data-theme="b">立即下单</a>
 	</div><!-- /content -->
+	
 	<div data-role="footer" >
 	 <p>Copyright &copy; 2013 上理果园</p>
 	</div>

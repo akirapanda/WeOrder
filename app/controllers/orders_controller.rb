@@ -22,6 +22,11 @@ class OrdersController < ApplicationController
       shopping_item.product=product
       @shopping.shopping_items<<shopping_item
     end
+    if @order.product_order_items.size==1
+      @default=1
+    else
+      @default=0
+    end
   end
   # GET /orders/new
   def new

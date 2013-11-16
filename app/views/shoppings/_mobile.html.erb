@@ -3,69 +3,70 @@
 			<font color="yellow">	<h2>订购成功,请坐等送货</h2></font>
 			
 		</div>
-		<div data-role="content" data-theme="a">
+		<div data-role="content" data-theme="c">
 			
 			<h3>您的订单编号:<font color="red"><%=@shopping.id%> </font> <br/>
 				<small>下面如需修改订单，请直接微信留言:<br/>
 				"订单号+需要修改的内容"</small>
 				</h3>
 			<hr/>
-			<h3>订单信息</h3>
-		 <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" 	style="width:100%">
-		      <thead>
-		        <tr>
-		          <th>商品</th>
-		          <th>价格</th>
-		          <th>数量</th>
-		          <th>小计</th>
-		        </tr>
-		      </thead>
-		      <tbody>
-				<% @shopping.shopping_items.each do |item|%>
-		        <tr>
-		          <td><%= item.product_name%></td>
-		          <td><%= number_to_currency item.price,:unit=>"￥"%>/<%= item.product_unit%></td>
-		          <td>
-						<%= item.count.to_i%>
-				  </td>
-				   <td>
-						<%= number_to_currency item.amount,:unit=>"￥"%>
-					</td>
-		        </tr>
-		     <%end%>
-		      </tbody>
-		    </table>
-		 <hr/>
-				<div class="contact-info center">
-					<h3>
-					您的联系方式
-					</h3>
-					  <strong>收件人:</strong>
-					  <%= @shopping.customer_name %>
-					</p>
-					</p>
+			<div data-role="collapsible-set">
+					<div data-role="collapsible" data-theme="b" data-content-theme="g" data-collapsed="false">
+					<h3>订单信息</h3>
+				 <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke" 	style="width:100%">
+				      <thead>
+				        <tr>
+				          <th>商品</th>
+				          <th>价格</th>
+				          <th>数量</th>
+				          <th>小计</th>
+				        </tr>
+				      </thead>
+				      <tbody>
+						<% @shopping.shopping_items.each do |item|%>
+				        <tr>
+				          <td><%= item.product_name%></td>
+				          <td><%= number_to_currency item.price,:unit=>"￥"%>/<%= item.product_unit%></td>
+				          <td>
+								<%= item.count.to_i%>
+						  </td>
+						   <td>
+								<%= number_to_currency item.amount,:unit=>"￥"%>
+							</td>
+				        </tr>
+				     <%end%>
+				      </tbody>
+				    </table>
+				 	</div>
+				</div>
+				<ul data-role="listview" data-inset="true" >
+	        <li data-role="list-divider" data-theme="a"><h3>您的联系方式</h3></li>
+	        <li>
+						<strong>收件人:</strong>
+				  	<%= @shopping.customer_name%>
+					</li>
+	        <li>
 					  <strong>联系电话:</strong>
 					  <%= @shopping.mobile_phone %>
-					</p
-					<p>
+					</li>
+					<li>
 					  <strong>地址:</strong>
-					  <%= @shopping.detail_address %> 
-					</p>
-					<p>
+					  <%= @shopping.detail_address %>
+					</li>
+					<li>
 					  <strong>送货时间:</strong>
 					  <%= @shopping.receive_time %>
-					</p>
-					<p>
+					</li>
+					<li>
 					  <strong>备注信息:</strong>
 					  <%=@shopping.remark %>
-					</p>
-					<p>
+					</li>
+					<li>
 					  <strong>订单金额:</strong>
 					  <%=number_to_currency(@shopping.amount,:unit=>"&yen") %>
-					</p>
-
-
-				</div>
+					</li>
+	      </ul>
+	
 				<pre>如有疑问，请微信留言，必定尽快解答</pre>
 		
 

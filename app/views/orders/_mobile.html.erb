@@ -4,13 +4,12 @@
 	
 
 		<div data-role="header" data-position="inline" data-theme="b">
+      
 			<h1><%=@order.name%></h1>
+      
 		</div>
 		
-		
-
-		
-		<div data-role="content" data-theme="a">
+		<div data-role="content" data-theme="c">
 			<div id="content" class="container">
 				<%if notice%>
 				<div class="alert alert-info fade in">
@@ -28,7 +27,7 @@
 			<%= simple_form_for(@shopping ,:html=>{'data-ajax'=>"false"}) do |f| %>
 			
 			<div data-role="collapsible-set">
-					<div data-role="collapsible" data-theme="b" data-content-theme="b" data-collapsed="false">
+					<div data-role="collapsible" data-theme="g" data-content-theme="g" data-collapsed="false">
 					   <h3>商品信息</h3>
 						<div class="products">
 							<%default= @shopping.shopping_items.size==1?1:0%>
@@ -53,10 +52,10 @@
 										</div>
 										
 										<div class="number">
-											<div class="number-counter"  style="float:left;" >
-											 	<a href="javascript:void(0)" class="decrease" data-role="button" data-inline="true" data-mini="true"><i class="icon-minus"></i></a>
-												<input type="number" style="width:40px;height:30px;background-color:white;border:0;" readonly="true" name="goods[<%=item.product.id%>][count]" value="<%=default%>"></input>
-												<a href="javascript:void(0)" class="increase" data-role="button" data-inline="true" data-mini="true"><i class="icon-plus"></i></a><span><%=item.product.unit%></span>
+											<div class="number-counter" >
+											 	<a href="javascript:void(0)" class="decrease" data-role="button" data-theme="g"  data-inline="true" data-mini="true"><i class="fa fa-minus"></i></a>
+												<input type="number" class="counter_input" readonly="true" name="goods[<%=item.product.id%>][count]" value="<%=@default%>"></input>
+												<a href="javascript:void(0)" class="increase" data-role="button" data-inline="true" data-mini="true" data-theme="g" ><i class="fa fa-plus"></i></a><span><%=item.product.unit%></span>
 											</div>
 										</div>
 									</div><!--end of row-->
@@ -72,7 +71,6 @@
 				
 			<div class="contact-info">
 				<input name="order_id" type="text" value="<%=@order.id%>" style="display:none"/>
-				
 				<legend>
 				您的联系方式
 				</legend>
