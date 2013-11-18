@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110032321) do
+ActiveRecord::Schema.define(version: 20131118065924) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20131110032321) do
     t.string   "cover"
     t.string   "name"
     t.string   "content"
-    t.decimal  "price",        precision: 10, scale: 0
+    t.decimal  "price",        precision: 10, scale: 2
     t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -109,19 +109,19 @@ ActiveRecord::Schema.define(version: 20131110032321) do
     t.integer  "product_id"
     t.integer  "shopping_id"
     t.integer  "count"
-    t.decimal  "amount",       precision: 10, scale: 0
+    t.decimal  "amount",       precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "cart_id"
     t.decimal  "price",        precision: 10, scale: 2, default: 0.0
-    t.string   "product_unit"
     t.string   "product_name"
+    t.string   "product_unit"
   end
 
   create_table "shoppings", force: true do |t|
     t.string   "customer_name"
     t.string   "customer_address"
-    t.decimal  "amount",           precision: 10, scale: 0
+    t.decimal  "amount",           precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -151,10 +151,8 @@ ActiveRecord::Schema.define(version: 20131110032321) do
     t.datetime "updated_at"
     t.boolean  "admin"
     t.string   "role"
+    t.string   "authentication_token"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "weixin_messages", force: true do |t|
     t.string   "from_user"

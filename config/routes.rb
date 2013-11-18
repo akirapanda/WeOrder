@@ -144,4 +144,13 @@ Weorder::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  
+  namespace :api do
+    namespace :v1  do
+      resources :tokens,:only => [:create, :destroy]
+      resources :products
+    end
+  end
+  
 end
