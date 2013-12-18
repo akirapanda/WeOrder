@@ -7,9 +7,12 @@
 						<%= simple_form_for(@shopping) do |f| %>
 
 						<%= f.input :customer_name%>
+						<%= f.input :channel,:input_html=>{:value=>"pc"} ,:as => :hidden%>
+						
+						<%= f.input :school_area,:collection=>Shopping::SCHOOL_AREAS,:default=>false%>
 
-						<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
-						<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"   %>
+						<%= f.input :customer_build,:collection=>Shopping::BUILDS,:default=>false%>
+						<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"南北楼、几号楼或几单元"   %>
 
 						<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0] %>
 						<%= f.input :mobile_phone%>

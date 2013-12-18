@@ -3,6 +3,7 @@ class Shopping < ActiveRecord::Base
   BUILDS=["一公寓","二公寓","三公寓","四公寓","五公寓","三宿舍","四宿舍","五宿舍","六宿舍","七宿舍","八宿舍","九宿舍","十二宿舍","南校区","其他"]
   RECEIVE_TIMES=["11:30 - 13:00","16:30 - 18:00","20:15 - 21:00","20:45 - 21:30"]
   STATUS=["新订单","处理中","配送完毕"]
+  SCHOOL_AREAS = ["南校区","北校区"]
   has_many :shopping_items,:dependent => :destroy
   validates :receive_time,:customer_build,:mobile_phone,:presence => true
   validates :mobile_phone,:numericality =>true

@@ -42,6 +42,7 @@
                 receive_time: "送货时间"
                 customer_address: "详细地址"
                 mobile_phone: "联系电话"
+                school_area: "校区"
                 remark: "备注信息"
             keyword:
                 cate: "关键字类型"

@@ -10,8 +10,7 @@
             </a>
         </div>
     </div>
-    <div class='box-content'>
-	
+    <div class='box-content'>	
 			<%= simple_form_for(ShoppingItem.new,url:new_shopping_item_path,:method=>:get,:remote=>true,:html=>{:class=>"default_class validate-form"}) do |f|%>
 				<label for="products-select">添加商品记录</label>
 			

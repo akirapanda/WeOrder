@@ -1,11 +1,10 @@
 class Api::V1::TokensController  < ApplicationController
     skip_before_filter :verify_authenticity_token
     respond_to :json
-    def create
-      
+    def create      
       email = params[:email]
       password = params[:password]
-      logger.debug "#{email} & #{password}"
+      logger.debug params
       if request.format != :json
         render :status=>406, :json=>{:message=>"The request must be json"}
         return

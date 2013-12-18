@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118065924) do
+ActiveRecord::Schema.define(version: 20131218111539) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -94,6 +94,9 @@ ActiveRecord::Schema.define(version: 20131118065924) do
     t.datetime "deleted_at"
     t.boolean  "is_recommend"
     t.boolean  "is_onsale"
+    t.string   "spec_note"
+    t.integer  "order_point"
+    t.boolean  "spec_flag",                             default: false
   end
 
   create_table "send_mails", force: true do |t|
@@ -134,6 +137,8 @@ ActiveRecord::Schema.define(version: 20131118065924) do
     t.integer  "follower_id"
     t.string   "receive_time"
     t.decimal  "actual_amount",    precision: 10, scale: 2, default: 0.0
+    t.string   "school_area"
+    t.string   "channel"
   end
 
   create_table "users", force: true do |t|
@@ -153,6 +158,18 @@ ActiveRecord::Schema.define(version: 20131118065924) do
     t.string   "role"
     t.string   "authentication_token"
   end
+
+  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+
+  create_table "weixin_customers", force: true do |t|
+    t.string   "open_id"
+    t.string   "name"
+    t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "weixin_customers", ["open_id"], name: "index_weixin_customers_on_open_id", unique: true, using: :btree
 
   create_table "weixin_messages", force: true do |t|
     t.string   "from_user"

@@ -7,6 +7,7 @@
 						<%= simple_form_for(@shopping) do |f| %>
 
 						<%= f.input :customer_name%>
+						<%= f.input :school_area,:collection=>Shopping::SCHOOL_AREAS%>
 
 						<%= f.input :customer_build,:collection=>Shopping::BUILDS%>
 						<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"公寓楼号-寝室号"   %>
