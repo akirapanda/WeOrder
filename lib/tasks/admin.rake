@@ -54,7 +54,7 @@ namespace :admin do
     @content<<"<h1>#{Time.now}系统未处理订单汇总</h1>"
     
     @shoppings.each_with_index do |shopping,i|
-      item_content="序号# #{i}|订单号#{shpping.id}|客户名称:#{shopping.customer_name},手机:#{shopping.mobile_phone},地址:#{shopping.detail_address}<br/>"
+      item_content="序号# #{i}|订单号#{shopping.id}|客户名称:#{shopping.customer_name},手机:#{shopping.mobile_phone},地址:#{shopping.detail_address}<br/>"
       item_content<<"收货时间:#{shopping.receive_time},备注:#{shopping.remark}"
       item_content<<"<h3>商品列表</h3>"
       shopping.shopping_items.each do |item|
