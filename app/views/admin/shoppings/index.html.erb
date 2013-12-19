@@ -3,28 +3,43 @@
 <% end %>
 
 <div class='span11 box box-collapsed box-nomargin'>
-        <div class='box-header orange-background'>
-            <div class='title'>条件查询</div>
-            <div class='actions'>
-
-                <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
-                </a>
-            </div>
-        </div>
-        <div class='box-content'>
-						<%= search_form_for [:admin,@q] ,:class=>"form-search" do |f| %>
-							<div class="input-append">
-							<%=f.label :mobile_phone%>:
-						  <%= f.text_field :mobile_phone_cont,:class=>"search-query input-medium" ,:placeholder=>"手机号码"%>
-							<%=f.label :customer_name%>:
-						  <%= f.text_field :customer_name_cont,:class=>"search-query input-medium" ,:placeholder=>"收件人名称"%>
-						  <button type="submit" class="btn">查找</button>
-					  
-						</div>
-						
-						<% end %>
-        </div>
+	<div class='box-header orange-background'>
+  	<div class='title'>条件查询</div>
+    	<div class='actions'>
+         <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+         </a>
+       </div>
     </div>
+
+    <div class='box-content'>
+		<%= search_form_for [:admin,@q] ,:class=>"form-horizontal" do |f| %>
+
+			<div class="control-group">
+				<%=f.label :mobile_phone ,:class=>"control-label"%>:
+			    <div class="controls">
+					  <%= f.text_field :mobile_phone_cont,:class=>"search-query input-medium" ,:placeholder=>"手机号码"%>
+			    </div>
+			</div>
+			<div class="control-group">
+				<%=f.label :customer_name ,:class=>"control-label"%>:
+			    <div class="controls">
+					  <%= f.text_field :customer_name_cont,:class=>"search-query input-medium" ,:placeholder=>"收件人名称"%>
+			    </div>
+			</div>
+			<div class="control-group">
+				<%=f.label :customer_build,:class=>"control-label"%>:
+			    <div class="controls">
+					  <%= f.text_field :customer_build_cont,:class=>"search-query input-medium" ,:placeholder=>"寝室楼"%>
+			    </div>
+			</div>
+		  <div class="control-group">
+		    <div class="controls">
+				  <button type="submit" class="btn">查找</button>
+		    </div>
+		  </div>
+		</div>
+		<% end %>
+  </div>
 </div>
 <div class='span11 box bordered-box blue-border' style='margin-bottom:0;'>
     <div class='box-header blue-background'>

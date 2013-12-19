@@ -74,7 +74,7 @@ class Shopping < ActiveRecord::Base
   end
   
   def  detail_address
-    "#{ self.customer_build}- #{self.customer_address}"
+    "#{self.school_area} #{self.customer_build}- #{self.customer_address}"
   end
   
   def add_shopping_item(item)
