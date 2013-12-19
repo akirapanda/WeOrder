@@ -32,6 +32,34 @@
 					  <%= f.text_field :customer_build_cont,:class=>"search-query input-medium" ,:placeholder=>"寝室楼"%>
 			    </div>
 			</div>
+			
+			<div class="control-group">
+				<%=f.label :customer_build,:class=>"control-label"%>:
+			    <div class="controls">
+					  <%= f.text_field :customer_build_cont,:class=>"search-query input-medium" ,:placeholder=>"寝室楼"%>
+			    </div>
+			</div>
+			<div class="control-group">
+				<%=f.label :customer_build,:class=>"control-label"%>:
+			    <div class="controls">
+					  <%= f.text_field :customer_build_cont,:class=>"search-query input-medium" ,:placeholder=>"寝室楼"%>
+			    </div>
+			</div>
+			
+			
+			<div class="control-group">
+		    <label class="control-label">起始日期</label>
+		    <div class="controls">
+					<%= f.date_select :created_at_gteq, :include_blank => true %>
+		    </div>
+		  </div>
+		  
+			<div class="control-group">
+		    <label class="control-label">结束日期</label>
+		    <div class="controls">
+					<%= f.date_select :created_at_lteq, :include_blank => false %>
+		    </div>
+		  </div>
 		  <div class="control-group">
 		    <div class="controls">
 				  <button type="submit" class="btn">查找</button>
