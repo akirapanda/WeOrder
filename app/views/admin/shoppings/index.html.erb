@@ -58,9 +58,13 @@
 							  <tbody>
 							    <% @shoppings.each do |shopping| %>
 							      <tr>
-											<td><%= link_to shopping.id, admin_shopping_path(shopping) %></td>
+											<td>
+											<%= link_to [:admin,shopping],:remote=>true do%>
+												<i class="icon-zoom-in"></i>
+											<%end%>
+											<%= link_to shopping.id, admin_shopping_path(shopping) %></td>
 							        <td><%= link_to shopping.customer_name, admin_shopping_path(shopping) %></td>
-							        <td><%= shopping.detail_address%></td>
+							        <td><%= t truncate shopping.detail_address%></td>
 											<td><%= shopping.mobile_phone%>
 											<td><%= shopping.receive_time%>
 												<td><%= number_to_currency(shopping.amount,:unit=>"￥") %></td>
@@ -87,4 +91,5 @@
 				<%=will_paginate @shoppings%>
 		</div>		
 </div>
-
+<div id="detail-modal">
+</div>
