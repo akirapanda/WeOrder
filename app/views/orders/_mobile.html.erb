@@ -76,11 +76,17 @@
 				<%= f.input :channel,:input_html=>{:value=>"mobile"} ,:as => :hidden%>
 				
 				<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"},:placeholder=>"IOS设备请按'后一项'填写表格"%>
-				<%= f.input :customer_build,:collection=>Shopping::SCHOOL_AREAS,:default=>false,:input_html=>{"data-theme"=>"g","data-iconpos"=>"left"}%>
-				<%= f.input :customer_build,:collection=>Shopping::BUILDS,:selected=>"其他",:input_html=>{"data-theme"=>"g","data-iconpos"=>"left"}%>
-				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"南北楼、几公寓或者几单元"  %>
+				<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0],:input_html=>{"data-theme"=>"g","data-iconpos"=>"left",:id => "date_select"} %>
 				
-				<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0],:input_html=>{"data-theme"=>"g","data-iconpos"=>"left"} %>
+				<div id="build">
+				<%= f.input :customer_build,:collection=>Shopping::BUILDS,:selected=>"一食堂票务厅",:input_html=>{"data-theme"=>"g","data-iconpos"=>"left"}%>
+				</div>
+				
+				<div id="addr">
+				
+				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"详细寝室地址"  %>
+				</div>
+
 				<%= f.input :remark,:input_html=>{:style=>"height:40px;"} ,:placeholder=>"对于产品的大小，厚薄，酥脆等特殊要求" %>
 				<hr/>
 				<%= f.input :customer_name,:input_html=>{:style=>"height:40px;"} ,:label=>"怎么称呼您（可选）",:placeholder=>"请告诉我们的小伙伴们怎么称呼您" %>
@@ -90,6 +96,35 @@
 			<%end%>
 		</div> <!--end of content-->
 		
-		
 
 	</div>
+
+
+	<script type="text/javascript">
+	
+	$( document ).ready(function() {
+			var selected = $(date_select).children('option:selected').val();
+			if (selected.indexOf("20:30") >= 0){
+				$('#build').hide();
+				$('#addr').show();
+				
+			}else{
+				$('#build').show();
+				$('#addr').hide();
+			}
+		
+		$('#date_select').change(function(){ 
+			var selected = $(this).children('option:selected').val();
+			if (selected.indexOf("20:30") >= 0){
+				$('#build').hide();
+				$('#addr').show();
+				
+			}else{
+				$('#build').show();
+				$('#addr').hide();
+			}
+		});
+	});
+	
+	
+	</script>

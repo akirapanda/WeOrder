@@ -1,7 +1,8 @@
 class Shopping < ActiveRecord::Base
   acts_as_paranoid
-  BUILDS=["一公寓","二公寓","三公寓","四公寓","五公寓","三宿舍","四宿舍","五宿舍","六宿舍","七宿舍","八宿舍","九宿舍","十二宿舍","南校区","其他"]
-  RECEIVE_TIMES=["11:30 - 13:00","16:30 - 18:00","20:15 - 21:00","20:45 - 21:30"]
+  #BUILDS=["一食堂票务亭","一公寓","二公寓","三公寓","四公寓","五公寓","三宿舍","四宿舍","五宿舍","六宿舍","七宿舍","八宿舍","九宿舍","十二宿舍","南校区","其他"]
+  BUILDS=["一食堂票务亭"]
+  RECEIVE_TIMES=["12:15 - 17:00","17:15 - 19:50","20:30 - 21:30"]
   STATUS=["新订单","处理中","配送完毕"]
   SCHOOL_AREAS = ["南校区","北校区"]
   has_many :shopping_items,:dependent => :destroy
@@ -24,25 +25,18 @@ class Shopping < ActiveRecord::Base
   end
   
   def self.available_time
-    #0~10:59  
-    if (0..10) === Time.now.hour
+    #0~11:00  
+    if (0..11) === Time.now.hour
       return RECEIVE_TIMES
-    #11:00~15:59
-    elsif (11..15) === Time.now.hour 
-      return ["16:30 - 18:00","20:15 - 21:00","20:45 - 21:30","次日11:30 - 13:00"]
-    #16:00 ~ 20:00
-    elsif (16..19) === Time.now.hour
-      return ["20:15 - 21:00","20:45 - 21:30","次日11:30 - 13:00","次日16:30 - 18:00"]
-    #20:00 ~ 20:30
-    elsif 20 === Time.now.hour && (0...30)===Time.now.min
-      return ["20:45 - 21:30","次日11:30 - 13:00","次日16:30 - 18:00","次日20:15 - 21:00"]
-    #20:30~0:00
-    elsif  Time.now.hour >= 20 || (Time.now.hour === 19 && Time.now.min >=30)
-      return ["次日11:30 - 13:00","次日16:30 - 18:00","次日20:15 - 21:00","次日20:45 - 21:30"]
+    #11:00~17:15
+    elsif (11..17) === Time.now.hour || (17 === Time.now.hour && (0...15)===Time.now.min)
+      return ["17:15 - 19:50","20:30 - 21:30","次日12:15 - 17:00"]
+    #17:15 ~ 0:00
+    elsif  Time.now.hour >= 17
+      return ["次日12:15 - 17:00","次日17:15 - 19:50","次日20:30 - 21:30"]
     else
       return RECEIVE_TIMES
-    end 
-    
+    end
   end
   
 
@@ -74,7 +68,7 @@ class Shopping < ActiveRecord::Base
   end
   
   def  detail_address
-    "#{self.school_area} #{self.customer_build}- #{self.customer_address}"
+    "#{self.customer_build}- #{self.customer_address}"
   end
   
   def add_shopping_item(item)
