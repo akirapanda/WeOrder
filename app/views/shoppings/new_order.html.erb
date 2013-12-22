@@ -8,13 +8,16 @@
 
 						<%= f.input :customer_name%>
 						<%= f.input :channel,:input_html=>{:value=>"pc"} ,:as => :hidden%>
-						
-						<%= f.input :school_area,:collection=>Shopping::SCHOOL_AREAS,:default=>false%>
+				<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0],:input_html=>{"data-theme"=>"g","data-iconpos"=>"left",:id => "date_select"} %>						
+								<div id="build">
+								<%= f.input :customer_build,:collection=>Shopping::BUILDS,:selected=>"一食堂票务厅",:input_html=>{"data-theme"=>"g","data-iconpos"=>"left"}%>
+								</div>
 
-						<%= f.input :customer_build,:collection=>Shopping::BUILDS,:default=>false%>
-						<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"南北楼、几号楼或几单元"   %>
+								<div id="addr">
 
-						<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0] %>
+								<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"详细寝室地址"  %>
+								</div>
+
 						<%= f.input :mobile_phone%>
 						<%= f.input :remark ,as: :text,input_html: { maxlength: 50 } %>
 			</div>
@@ -67,3 +70,34 @@
 </div>
 
 <%end%>
+
+
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+		var selected = $(date_select).children('option:selected').val();
+		if (selected.indexOf("22:00") >= 0){
+			$('#build').hide();
+			$('#addr').show();
+			
+		}else{
+			$('#build').show();
+			$('#addr').hide();
+		}
+	
+	$('#date_select').change(function(){ 
+		var selected = $(this).children('option:selected').val();
+		if (selected.indexOf("22:00") >= 0){
+			$('#build').hide();
+			$('#addr').show();
+			
+		}else{
+			$('#build').show();
+			$('#addr').hide();
+		}
+	});
+});
+
+
+</script>
