@@ -15,11 +15,10 @@
     <meta content='True' name='HandheldFriendly' />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="apple-touch-icon-precomposed" href="<%= asset_path("ios-icon.png") %>" />
-
   <%else%>
   	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => false %>
   	<%= javascript_include_tag "application", "data-turbolinks-track" => false %>
-  	<%= csrf_meta_tags %>
+		<%= csrf_meta_tags %>
   <% end %>
 </head>
 <body data-controller-name="<%= controller_name %>">

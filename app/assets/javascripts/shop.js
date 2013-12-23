@@ -13,6 +13,7 @@
 //= require carts
 //= require products
 //= require jquery.countdown
+//= require home
 
 $(function(){
         // 页面浮动面板
