@@ -33,7 +33,7 @@ class Shopping < ActiveRecord::Base
       return ["18:00 - 19:50","21:00 - 22:00","次日12:15 - 19:50"]
     #17:15 ~ 0:00
     elsif  Time.now.hour >= 17
-      return ["次日12:15 - 19:50","18:00 - 19:50","次日21:00 - 22:00"]
+      return ["次日12:15 - 19:50","次日18:00 - 19:50","次日21:00 - 22:00"]
     else
       return RECEIVE_TIMES
     end
