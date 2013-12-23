@@ -2,7 +2,7 @@ class Shopping < ActiveRecord::Base
   acts_as_paranoid
   #BUILDS=["一食堂票务亭","一公寓","二公寓","三公寓","四公寓","五公寓","三宿舍","四宿舍","五宿舍","六宿舍","七宿舍","八宿舍","九宿舍","十二宿舍","南校区","其他"]
   BUILDS=["一食堂票务亭"]
-  RECEIVE_TIMES=["12:15 - 19:50","17:15 - 19:50","21:00 - 22:00"]
+  RECEIVE_TIMES=["12:15 - 19:50","18:00 - 19:50","21:00 - 22:00"]
   STATUS=["新订单","处理中","配送完毕"]
   SCHOOL_AREAS = ["南校区","北校区"]
   has_many :shopping_items,:dependent => :destroy
@@ -30,10 +30,10 @@ class Shopping < ActiveRecord::Base
       return RECEIVE_TIMES
     #11:00~17:15
     elsif (11..17) === Time.now.hour || (17 === Time.now.hour && (0...15)===Time.now.min)
-      return ["17:15 - 19:50","21:00 - 22:00","次日12:15 - 19:50"]
+      return ["18:00 - 19:50","21:00 - 22:00","次日12:15 - 19:50"]
     #17:15 ~ 0:00
     elsif  Time.now.hour >= 17
-      return ["次日12:15 - 19:50","次日17:15 - 19:50","次日21:00 - 22:00"]
+      return ["次日12:15 - 19:50","18:00 - 19:50","次日21:00 - 22:00"]
     else
       return RECEIVE_TIMES
     end
