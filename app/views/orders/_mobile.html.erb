@@ -79,12 +79,12 @@
 				<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0],:input_html=>{"data-theme"=>"g","data-iconpos"=>"left",:id => "date_select"} %>
 				
 				<div id="build">
-				<%= f.input :customer_build,:collection=>Shopping::BUILDS,:selected=>"一食堂票务厅",:input_html=>{"data-theme"=>"g","data-iconpos"=>"left"}%>
+				<%= f.input :customer_build , :input_html=>{:readonly=>true,:value=>"一食堂票务亭"}%>
 				</div>
 				
 				<div id="addr">
 				
-				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"详细寝室地址"  %>
+				<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"详细寝室地址(21:00后可配送至寝室)"  %>
 				</div>
 
 				<%= f.input :remark,:input_html=>{:style=>"height:40px;"} ,:placeholder=>"对于产品的大小，厚薄，酥脆等特殊要求" %>
@@ -105,23 +105,17 @@
 	$( document ).ready(function() {
 			var selected = $(date_select).children('option:selected').val();
 			if (selected.indexOf("22:00") >= 0){
-				$('#build').hide();
-				$('#addr').show();
-				
+				$('#shopping_customer_build').val("其他");
 			}else{
-				$('#build').show();
-				$('#addr').hide();
+				$('#shopping_customer_build').val("一食堂票务亭");
 			}
 		
 		$('#date_select').change(function(){ 
 			var selected = $(this).children('option:selected').val();
 			if (selected.indexOf("22:00") >= 0){
-				$('#build').hide();
-				$('#addr').show();
-				
+				$('#shopping_customer_build').val("其他");
 			}else{
-				$('#build').show();
-				$('#addr').hide();
+				$('#shopping_customer_build').val("一食堂票务亭");
 			}
 		});
 	});
