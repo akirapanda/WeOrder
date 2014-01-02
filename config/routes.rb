@@ -3,7 +3,7 @@ Weorder::Application.routes.draw do
     
     
     
-  root 'home#test'
+  root 'home#close'
   get  'old' => "home#index"
   get 'about'=> "home#about"
     
