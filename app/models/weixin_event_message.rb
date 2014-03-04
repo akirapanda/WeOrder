@@ -6,7 +6,5 @@ class WeixinEventMessage < WeixinMessage
     self.event =  params[:xml][:Event]
     self.msg_id = params[:xml][:MsgId]
     self.text_content =  params[:xml][:EventKey]
-    
-    
   end
 end
