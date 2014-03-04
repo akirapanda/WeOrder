@@ -17,7 +17,7 @@
   <tbody>
     <% @weixin_messages.each do |weixin_message| %>
       <tr>
-        <td><%= weixin_message.from_user %></td>
+        <td><%= weixin_message.from_user %>(<%= weixin_message.weixin_user.name%>)</td>
         <td><%= weixin_message.type %></td>
         <td><%= weixin_message.text_content %></td>
         <td><%=l weixin_message.created_at, :format=>:long %></td>

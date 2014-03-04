@@ -5,6 +5,7 @@ class UpdrateWeixinMessage < ActiveRecord::Migration
     drop_table :weixin_customers
     
     create_table :weixin_messages do |t|
+      t.integer :weixin_user_id
       t.string :from_user
       t.string :to_user
       t.string :type
