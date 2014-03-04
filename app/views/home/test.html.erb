@@ -1,17 +1,38 @@
 
+<%if mobile?%>
 
-<div class="row-fluid">
-	<div class="span12">
-		<div class="slider-wrapper theme-bar">
-			<div class="ribbon"></div>
-			<div id="slider1" class="nivoslider">
-				<a href="#"><img src="/images/banner.jpg" alt="" title="上理果园为您提供安心、便利、平价的新鲜水果。"></a>
-				<a href="#"><img src="/images/banner1.jpg" alt="" title=""></a>
+<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline" data-theme="b">
+			<h1>上理果园</h1>
+		</div>
+		<div data-role="content" data-theme="c">
+			<p>状态:营业中</p>
+		</div>
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b"> 
+  		<div data-role="navbar"> 
+  			<ul>
+  				<li><a href="<%=root_path%>" data-icon="grid">首页</a></li>
+  				<li><a href="<%=product_path(:id=>50)%>" data-icon="star" class="ui-btn-active">下单</a></li>
+  				<li><a href="#" data-icon="gear">查询</a></li>
+  			</ul>
+  		</div><!-- /navbar --> 
+  	</div><!-- /footer -->
+</div>
+
+<%else%>
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="slider-wrapper theme-bar">
+				<div class="ribbon"></div>
+				<div id="slider1" class="nivoslider">
+					<a href="#"><img src="/images/banner.jpg" alt="" title="上理果园为您提供安心、便利、平价的新鲜水果。"></a>
+					<a href="#"><img src="/images/banner1.jpg" alt="" title=""></a>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-<%= render "shared/shop_top_recommend"%>
+	<%= render "shared/shop_top_recommend"%>
 
-<%= render_cell :products, :all %>
+	<%= render_cell :products, :all %>	
+<%end%>

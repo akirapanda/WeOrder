@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131218111539) do
+ActiveRecord::Schema.define(version: 20140304105751) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -161,22 +161,28 @@ ActiveRecord::Schema.define(version: 20131218111539) do
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
 
-  create_table "weixin_customers", force: true do |t|
-    t.string   "open_id"
-    t.string   "name"
-    t.string   "note"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "weixin_customers", ["open_id"], name: "index_weixin_customers_on_open_id", unique: true, using: :btree
-
   create_table "weixin_messages", force: true do |t|
     t.string   "from_user"
-    t.string   "msgType"
-    t.string   "msg"
+    t.string   "to_user"
+    t.string   "type"
+    t.datetime "create_time"
+    t.string   "text_content"
+    t.string   "msg_id"
+    t.string   "event"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "weixin_users", force: true do |t|
+    t.string   "open_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "group"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "weixin_users", ["open_id"], name: "index_weixin_users_on_open_id", unique: true, using: :btree
 
 end
