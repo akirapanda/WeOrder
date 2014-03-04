@@ -19,8 +19,8 @@
     <% @weixin_messages.each do |weixin_message| %>
       <tr>
         <td><%= weixin_message.from_user %></td>
-        <td><%= weixin_message.msgType %></td>
-        <td><%= weixin_message.msg %></td>
+        <td><%= weixin_message.type %></td>
+        <td><%= weixin_message.text_content %></td>
         <td><%=l weixin_message.created_at, :format=>:long %></td>
 
         <td><%= link_to 'Destroy', weixin_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
