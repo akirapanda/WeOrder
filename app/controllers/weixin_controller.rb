@@ -29,11 +29,9 @@ class WeixinController < ApplicationController
   	#process message
   	
   	if msg_type == "event"
-  	  keywords=Keyword.where(:cate=>"event",:keywords=>params[:xml][:Event])
+  	  keywords=Keyword.where(:cate=>"event",:keywords=>params[:xml][:EventKey])
   	  
 		  if keywords.size==0
-  	    @order=orders[0]
-  	    render "article",:format=>:xml
   	    return
   	  end
   	  

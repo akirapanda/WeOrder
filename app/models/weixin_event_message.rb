@@ -5,5 +5,8 @@ class WeixinEventMessage < WeixinMessage
     self.create_time = Time.at(params[:xml][:CreateTime].to_i)
     self.event =  params[:xml][:Event]
     self.msg_id = params[:xml][:MsgId]
+    self.text_content =  params[:xml][:EventKey]
+    
+    
   end
 end
