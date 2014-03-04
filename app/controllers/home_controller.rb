@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
-  layout 'shop',:only=>[:test,:about]
-  layout 'close',:only => [:close]
+  layout 'shop'
   def index
     @cart=current_cart
   end

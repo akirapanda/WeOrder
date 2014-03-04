@@ -10,8 +10,6 @@ class WeixinController < ApplicationController
 	end
 	
 	def create
-	  
-	  
 	  message=WeixinMessage.new
 	  message.from_user=params[:xml][:FromUserName]
 	  message.msgType=params[:xml][:MsgType]
@@ -79,7 +77,6 @@ class WeixinController < ApplicationController
 	end
 	
 	def check_weixin_legality
-	        #logger.debug params[:timestamp]
 		array =["testtoken",params[:timestamp],params[:nonce]].sort
 		render :text => "Forbidden",:status => 403 if params[:signature]!=Digest::SHA1.hexdigest(array.join)
 	end
