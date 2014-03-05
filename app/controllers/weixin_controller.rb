@@ -18,6 +18,8 @@ class WeixinController < ApplicationController
 	    @user = WeixinUser.new
 	    @user.open_id =  params[:xml][:FromUserName]
 	    @user.save
+	  else
+	    @user = @user[0]
 	  end
 	  
     #save messages
