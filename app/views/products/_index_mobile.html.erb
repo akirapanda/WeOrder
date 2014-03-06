@@ -1,12 +1,26 @@
-
-<%if mobile?%>
-
 <div data-role="page" data-theme="a">
 		<div data-role="header" data-position="inline" data-theme="b">
 			<h1>上理果园</h1>
 		</div>
 		<div data-role="content" data-theme="c">
-			<p>状态:营业中</p>
+			<div class="content-primary">	
+					<ul data-role="listview">
+						<%@products.each do |product| %>
+							<li>
+								<%= link_to product do%>
+									<%=image_tag product.cover_url(:normal),:class=>"ui-li-thumb"%>
+									<h3><%=product.name%></h3>
+									<p>单价:<font color="red"><%= number_to_currency product.price,:unit=>"￥"%>/<%= product.unit%></font></p>
+								<%end%>
+
+							
+							</li>
+						<%end%>
+
+						</li>
+							
+					</ul>
+					</div><!--/content-primary -->		
 		</div>
 		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b"> 
   		<div data-role="navbar"> 
@@ -19,20 +33,10 @@
   	</div><!-- /footer -->
 </div>
 
-<%else%>
-	<div class="row-fluid">
-		<div class="span12">
-			<div class="slider-wrapper theme-bar">
-				<div class="ribbon"></div>
-				<div id="slider1" class="nivoslider">
-					<a href="#"><img src="/images/banner.jpg" alt="" title="上理果园为您提供安心、便利、平价的新鲜水果。"></a>
-					<a href="#"><img src="/images/banner1.jpg" alt="" title=""></a>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<%= render "shared/shop_top_recommend"%>
 
-	<%= render_cell :products, :all %>	
-<%end%>
+ 
+<script>
+$(document).ready(function() {
+});
+</script>

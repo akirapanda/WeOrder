@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require font-awesome.min
+ *= require jquery.sidr.dark
  *= require bootstrap.min
  *= require bootstrap-responsive.min
  *= require jquery.mobile.flatui
@@ -18,6 +19,14 @@
 /*.shopping_customer_address{
 	display:none;
 }*/
+
+.ui-li-thumb{
+    left: 1px;
+    position: absolute;
+    padding-top: 25px;
+}
+
+
 .number-counter{
 	float:left;
 }

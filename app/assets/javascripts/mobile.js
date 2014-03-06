@@ -12,8 +12,8 @@
 //
 //= require jquery-1.8.2.min.js
 //= require jquery.mobile-1.2.0.min.js
+//= require jquery.sidr.min.js
 //= require home
-//= require products
 //= require orders
 
 // $( document ).ready(function() {
