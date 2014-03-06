@@ -19,6 +19,9 @@
 /*.shopping_customer_address{
 	display:none;
 }*/
+.ui-page {backface- visibility :  hidden ;   
+ -webkit-backface- visibility :  hidden ;  /* Chrome and Safari */   
+ -moz-backface- visibility :  hidden ;  /* Firefox */ } 
 
 .ui-li-thumb{
     left: 1px;
