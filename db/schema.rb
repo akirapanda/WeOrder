@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140304105751) do
+ActiveRecord::Schema.define(version: 20140306051240) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 20140304105751) do
     t.boolean  "weixin_cover", default: false
   end
 
+  create_table "product_cates", force: true do |t|
+    t.string   "super_cate"
+    t.string   "name"
+    t.text     "note"
+    t.integer  "shop_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "product_comments", force: true do |t|
     t.integer  "user_id"
     t.integer  "product_id"
@@ -80,7 +89,7 @@ ActiveRecord::Schema.define(version: 20140304105751) do
     t.string   "cover"
     t.string   "name"
     t.string   "content"
-    t.decimal  "price",        precision: 10, scale: 2
+    t.decimal  "price",           precision: 10, scale: 2
     t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -90,13 +99,14 @@ ActiveRecord::Schema.define(version: 20140304105751) do
     t.text     "body"
     t.text     "body_html"
     t.string   "weixin_url"
-    t.boolean  "public",                                default: true
+    t.boolean  "public",                                   default: true
     t.datetime "deleted_at"
     t.boolean  "is_recommend"
     t.boolean  "is_onsale"
     t.string   "spec_note"
     t.integer  "order_point"
-    t.boolean  "spec_flag",                             default: false
+    t.boolean  "spec_flag",                                default: false
+    t.integer  "product_cate_id"
   end
 
   create_table "send_mails", force: true do |t|
@@ -171,6 +181,7 @@ ActiveRecord::Schema.define(version: 20140304105751) do
     t.string   "event"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "weixin_user_id"
   end
 
   create_table "weixin_users", force: true do |t|

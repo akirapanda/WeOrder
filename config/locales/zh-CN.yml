@@ -32,6 +32,7 @@
                 public: "是否公开商品信息"
                 is_onsale: "是否为上架货物"
                 is_recommend: "是否为推荐商品"
+                product_cate_id: "商品分类"
             order:
                 name: "订单表格名称"
                 publish: "是否公开"

@@ -1,0 +1,24 @@
+<%= content_for :title do %>
+	浏览所有商品分类
+<% end %>
+<div class='span11 box bordered-box blue-border' style='margin-bottom:0;'>
+    <div class='box-header blue-background'>
+        <div class='title'>所有商品分类</div>
+        <div class='actions'>
+					<%= link_to  new_admin_product_cate_path ,:class=>"btn btn-mini btn-link" do%>
+							<i class="icon-save">新建商品分类</i>
+					<%end%>
+            <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+            </a>
+        </div>
+    </div>
+    <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+            <div class='scrollable-area'>
+							 <%=render 'table'%>
+					</div>
+				</div>					
+			</div>
+			<%=will_paginate @product_cates%>
+	</div>		
+</div>

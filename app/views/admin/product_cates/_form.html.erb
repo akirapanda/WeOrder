@@ -1,0 +1,34 @@
+<div class='row-fluid'>
+    <div class='span12 box bordered-box blue-border'>
+        <div class='box-header blue-background'>
+            <div class='title'>
+                <i class='icon-edit'></i>
+                商品信息
+            </div>
+            <div class='actions'>
+                <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content box-double-padding'>
+					<%= simple_form_for([:admin,@product_cate],:html=>{:class=>"form-horizontal"}) do |f| %>
+						
+					<%= render "shared/error_messages",:target=>@product_cate%>
+					<fieldset>
+						<%=f.input :name%>
+						<%=f.input :note%>
+					</fieldset>
+					
+					
+						<div class="control-group">
+					  		<div class="controls">
+					    		<%= f.submit "提交" ,:class=>"btn btn-primary"%>
+								<%= link_to '返回', admin_product_cates_path,:class=>"btn" %>
+					  		</div>
+						</div>
+					<% end %>
+	       </div>
+	   </div>
+	</div>
+
+					

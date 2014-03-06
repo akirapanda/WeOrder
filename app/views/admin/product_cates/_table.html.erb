@@ -1,0 +1,29 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>名称</th>
+		  <th>
+					操作
+		  </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_cates.each do |cate| %>
+      <tr>
+        <td>
+					<%= link_to cate.name,[:admin,cate]%>
+				</td>
+        <td>
+					<%= link_to [:admin,cate], method: :delete, data: { confirm: '你确定需要删除订单吗？' } ,:class=>"btn btn-danger btn-mini" do %>
+						<i class='icon-remove'></i>
+					<%end%>
+
+					<%= link_to  edit_admin_product_cate_path(cate) ,:class=>"btn btn-info btn-mini",:rel=>"tooltip",:title=>"编辑商品" ,"data-placement"=>"bottom"  do%>
+						<i class='icon-edit'></i>
+					<%end%>				 
+				</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

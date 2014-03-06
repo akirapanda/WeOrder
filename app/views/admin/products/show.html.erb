@@ -27,6 +27,11 @@
                   <strong>名称:</strong>
 								 <%= @product.name -%>
 									<br/>
+									
+									<strong>种类:</strong>
+								 		<%= @product.product_cate.try(:name)  -%>
+									<br/>
+									
 								 <abbr title='简介'>简介:</abbr>
                 <%= @product.content -%><br/>
 								<abbr title=''>单价:</abbr> 

@@ -11,6 +11,7 @@ class Admin::ProductsController < Admin::BaseController
   
   def new
     @product = Product.new
+    @product_cates = ProductCate.all
   end
   
   
@@ -24,6 +25,7 @@ class Admin::ProductsController < Admin::BaseController
   
   
   def edit
+    @product_cates = ProductCate.all
     
   end
   

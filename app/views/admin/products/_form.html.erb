@@ -22,7 +22,7 @@
 					    	<div class="controls">
 					    		<%= f.file_field :cover %>
 							</div>
-					  	</div>
+					  </div>
 						<% if @product.cover?%>
 						<div class="control-group">
 							<div class="controls">
@@ -30,12 +30,26 @@
 							</div>
 						</div>
 						<%end%>
+						
+
+						
+						
 					  <div class="control-group">
 					    <%= f.label :name ,:class=>"control-label"%>
 					    <div class="controls">
 					    <%= f.text_field :name %>
 						</div>
 					  </div>
+					
+					
+					  <div class="control-group">
+					    <%= f.label :product_cate_id ,:class=>"control-label"%>
+					    <div class="controls">
+						<%=f.input :product_cate_id,collection: @product_cates,:input_html=>{:class=>"chzn-select"},label_method: :name, value_method: :id,:label=>false%>
+							</div>
+					  </div>
+					
+					
 					  <div class="control-group">
 					    <%= f.label :content,:class=>"control-label"%>
 					    <div class="controls">
