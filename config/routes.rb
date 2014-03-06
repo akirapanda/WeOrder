@@ -20,7 +20,11 @@ Weorder::Application.routes.draw do
       post 'new_order'
     end
   end
-  resources :shopping_items
+  resources :shopping_items do
+    member do
+      get 'clear'
+    end
+  end
   resources :photos do
     member do
       get 'weixin'
@@ -33,7 +37,8 @@ Weorder::Application.routes.draw do
       end
   end
   resources  :weixin
-  resources :product_order_items
+  resources :product_order_items 
+  
   resources :users do
     member do
       get 'shopping'
@@ -57,8 +62,6 @@ Weorder::Application.routes.draw do
 
   namespace :admin do
     root :to => 'home#index'
-    
-    
     resources :product_cates
     resources :shoppings do
       collection do

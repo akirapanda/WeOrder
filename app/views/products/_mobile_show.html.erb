@@ -9,7 +9,21 @@
 		<h3>单价:<font color="red"><%= number_to_currency @product.price,:unit=>"￥"%>/<%= @product.unit%></font></h3>
 		
 		<p><%=raw @product.body_html%></p>	
-		<a href="<%=@product.weixin_url%>" data-role="button" data-icon="flat-new" data-theme="b">立即下单</a>
+		
+			<%= form_for(ShoppingItem.new ,:html=>{:class=>'form-inline','data-ajax'=>"false"} ) do |f| %>
+     	<%=f.hidden_field :product_id,:value=>@product.id%>
+				<label  class="control-label">数量</label>
+    		<input value="<%=@product.id%>" name="product_id" class="hide"/>
+				 <select class="input-mini" name="count">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+				<button type="submit" data-role="button" data-theme="b" name="submit">加入购物车</button>
+				
+    	 <%end%>
 	</div><!-- /content -->
 	
 	<div data-role="footer" >

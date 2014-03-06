@@ -1,0 +1,8 @@
+<% if @success %>
+	$("#shopping_item<%=@shopping_item.id%>").fadeOut("slow",function(){
+		$("#shopping_item<%=@shopping_item.id%>").detach();
+		}
+	);
+<% else %>
+
+<% end %>

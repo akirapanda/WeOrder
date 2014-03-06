@@ -1,0 +1,149 @@
+<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline" data-theme="b">
+			<h1>上理果园</h1>
+		</div>
+		<div data-role="content" data-theme="c">
+			<%= render "shared/error_messages",:target=>@shopping%>
+				<h2>购物车</h2>
+							<%if notice%>
+							<div class="alert alert-info fade in">
+								<a class="close" data-dismiss='alert' href="#">x</a>
+								<p id="notice"><%= notice %></p>
+							</div>
+							<%end%>
+							<%if alert%>
+							<div class="alert alert-block alert-error">
+								<a class="close" data-dismiss='alert' href="#">x</a>
+								<p id="notice"><%= alert %></p>
+							</div>
+							<%end%>
+						<%= simple_form_for(@shopping ,:html=>{'data-ajax'=>"false"}) do |f| %>
+						<div data-role="collapsible-set">
+								<div data-role="collapsible" data-theme="g" data-content-theme="g" data-collapsed="false">
+								   <h3>商品信息</h3>
+									<div class="products">
+										<%default= @cart.shopping_items.size==1?1:0%>
+
+										<%@cart.shopping_items.each do |item| %>
+										<div class="product_item">
+
+											<div class="row">
+												<div class="product_image">
+													<%=image_tag(item.product.cover_url(:mobile))%>
+												</div>
+												<div class="product_description">
+													<p><%= item.product.name%></p>
+													<p class="product_content"><%= item.product.content%></p>
+												</div>
+											</div><!--end of row-->
+
+											<div class="row">
+												<div class="product_footer">
+													<div class=" price" >
+														<p><%= number_to_currency item.product.price,:unit=>"￥"%>/<%= item.product.unit%></p>
+													</div>
+
+													<div class="number">
+														<div class="number-counter" >
+														 	<a href="javascript:void(0)" class="decrease" data-role="button" data-theme="g"  data-inline="true" data-mini="true"><i class="fa fa-minus"></i></a>
+															<input type="number" class="counter_input" readonly="true" name="goods[<%=item.product.id%>][count]" value="<%=item.count%>"></input>
+															<a href="javascript:void(0)" class="increase" data-role="button" data-inline="true" data-mini="true" data-theme="g" ><i class="fa fa-plus"></i></a><span><%=item.product.unit%></span>
+														</div>
+													</div>
+													<a href="javascript:void(0)" class="btn clear pull-right"  data-role="button" data-theme="g"  data-inline="true" data-mini="true" %>
+														<i class="icon-trash"></i>
+													</a>
+												</div><!--end of row-->
+												</div>
+											</div> <!--end of product_item-->
+
+							     	<%end%>
+									</div> <!--end of products-->
+
+								</div> <!-- end of collapsible-->
+
+						</div><!-- end of set-->
+
+						<div class="contact-info">
+							<legend>
+							您的联系方式
+							</legend>
+							<%= f.input :channel,:input_html=>{:value=>"mobile"} ,:as => :hidden%>
+
+							<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"},:placeholder=>"IOS设备请按'后一项'填写表格"%>
+							<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0],:input_html=>{"data-theme"=>"g","data-iconpos"=>"left",:id => "date_select"} %>
+
+							<div id="build">
+							<%= f.input :customer_build , :input_html=>{:readonly=>true,:value=>"一食堂票务亭"}%>
+							</div>
+
+							<div id="addr">
+
+							<%= f.input :customer_address,:input_html=>{:style=>"height:40px;"},:placeholder=>"详细寝室地址(21:00后可配送至寝室)"  %>
+							</div>
+
+							<%= f.input :remark,:input_html=>{:style=>"height:40px;"} ,:placeholder=>"对于产品的大小，厚薄，酥脆等特殊要求" %>
+							<hr/>
+							<%= f.input :customer_name,:input_html=>{:style=>"height:40px;"} ,:label=>"怎么称呼您（可选）",:placeholder=>"请告诉我们的小伙伴们怎么称呼您" %>
+							<button type="submit" data-role="button" data-theme="b" name="submit">下单</button>
+						</div>
+
+						<%end%>
+					</div> <!--end of content-->
+			
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b"> 
+  		<div data-role="navbar"> 
+  			<ul>
+  				<li><a href="<%=root_path%>" data-icon="home">首页</a></li>
+  				<li><a href="<%=products_path%>" data-icon="grid" class="ui-btn-active">购物</a></li>
+  				<li><a href="" data-icon="gear">下单</a></li>
+  			</ul>
+  		</div><!-- /navbar --> 
+  	</div><!-- /footer -->
+</div>
+
+
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+	 $('.increase').click(function() {
+      var amount, count;
+      count = parseInt($(this).prev().val());
+      $(this).prev().val(count + 1);
+    });
+
+		$('.clear').click(function() {
+			alert('1');
+			$(this).parent().parent().parent().fadeOut("slow",function(){
+				$(this).detach();
+				});
+		});
+		
+		$('.decrease').click(function() {
+      var amount, count;
+      count = $(this).next().val();
+      if (count > 1) {
+        $(this).next().val(count - 1);
+      }
+    });
+	
+		var selected = $(date_select).children('option:selected').val();
+		if (selected.indexOf("22:00") >= 0){
+			$('#shopping_customer_build').val("其他");
+		}else{
+			$('#shopping_customer_build').val("一食堂票务亭");
+		}
+
+	$('#date_select').change(function(){ 
+		var selected = $(this).children('option:selected').val();
+		if (selected.indexOf("22:00") >= 0){
+			$('#shopping_customer_build').val("其他");
+		}else{
+			$('#shopping_customer_build').val("一食堂票务亭");
+		}
+	});
+});
+
+
+</script>

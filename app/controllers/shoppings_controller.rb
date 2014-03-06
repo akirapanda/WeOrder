@@ -73,6 +73,15 @@ class ShoppingsController < ApplicationController
     goods=params[:goods]
     order_id=params[:order_id]
     ##how to process a complex form like this
+    if goods.nil?
+      respond_to do |format|
+          session[:return_to] ||= request.referer
+          format.html { redirect_to session.delete(:return_to), alert: '您的订单中没有任何商品哟,请调整购买商品的数量。' }
+        end 
+      return
+  end
+    
+    
     goods.each do |goods|
          goods_id=goods[0]
          goods_count=goods[1][:count].to_i
@@ -84,7 +93,8 @@ class ShoppingsController < ApplicationController
        
     if  @shopping.shopping_items.size ==0
         respond_to do |format|
-            format.html { redirect_to list_order_path(order_id), alert: '您的订单中没有任何商品哟,请调整购买商品的数量。' }
+            session[:return_to] ||= request.referer
+            format.html { redirect_to session.delete(:return_to), alert: '您的订单中没有任何商品哟,请调整购买商品的数量。' }
           end 
         return
     end
@@ -113,7 +123,6 @@ class ShoppingsController < ApplicationController
             redirect_to list_order_path(order_id), alert: '订单内容有误，请检查后重新提交。' 
           else
             @cart=current_cart
-            
             render action: 'new'
           end
         }

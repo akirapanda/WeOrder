@@ -1,5 +1,5 @@
 class ShoppingItemsController < ApplicationController
-  before_action :set_shopping_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_shopping_item, only: [:show, :edit, :update, :destroy,:clear]
   before_filter :authenticate_user!,only:[:show,:edit,:update]
 
   # GET /shopping_items
@@ -46,7 +46,6 @@ class ShoppingItemsController < ApplicationController
         format.html { redirect_to @shopping_item.product, notice: '添加入购物车成功！' }
       else
         format.html { redirect_to @shopping_item.product, alert: '添加失败，系统异常，请联系管理员！' }
-
       end
     end
   end
@@ -72,10 +71,19 @@ class ShoppingItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to shopping_items_url }
       format.json { head :no_content }
-      format.js
+      format.js { head :no_content }
     end
   end
 
+
+  def clear
+    @success=@shopping_item.destroy
+    respond_to do |format|
+      format.js { head :no_content }
+    end
+  end
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shopping_item
