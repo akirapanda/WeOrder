@@ -5,6 +5,19 @@
 	</div><!-- /header -->
 
 	<div data-role="content">	
+		<%if notice%>
+		<div class="alert alert-info fade in">
+			<a class="close" data-dismiss='alert' href="#">x</a>
+			<p id="notice"><%= notice %></p>
+		</div>
+		<%end%>
+		<%if alert%>
+		<div class="alert alert-block alert-error">
+			<a class="close" data-dismiss='alert' href="#">x</a>
+			<p id="notice"><%= alert %></p>
+		</div>
+		<%end%>
+		
 		<%=image_tag(@product.cover_url(:normal))%>
 		<h3>单价:<font color="red"><%= number_to_currency @product.price,:unit=>"￥"%>/<%= @product.unit%></font></h3>
 		
@@ -27,6 +40,12 @@
 	</div><!-- /content -->
 	
 	<div data-role="footer" >
-	 <p>Copyright &copy; 2013 上理果园</p>
+		<div data-role="navbar"> 
+			<ul>
+				<li><a href="<%=root_path%>" data-icon="home">首页</a></li>
+				<li><a href="<%=products_path%>" data-icon="grid" class="ui-btn-active">购物</a></li>
+				<li><%=link_to "下单",@cart,"data-icon"=>"gear"%>
+			</ul>
+		</div><!-- /navbar -->
 	</div>
 </div><!-- /page -->

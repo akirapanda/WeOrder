@@ -96,9 +96,9 @@
   			<ul>
   				<li><a href="<%=root_path%>" data-icon="home">首页</a></li>
   				<li><a href="<%=products_path%>" data-icon="grid" class="ui-btn-active">购物</a></li>
-  				<li><a href="" data-icon="gear">下单</a></li>
+  				<li><%=link_to "下单",@cart,"data-icon"=>"gear"%>
   			</ul>
-  		</div><!-- /navbar --> 
+  		</div><!-- /navbar -->
   	</div><!-- /footer -->
 </div>
 
