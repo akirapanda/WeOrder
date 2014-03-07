@@ -4,22 +4,29 @@
 		</div>
 		<div data-role="content" data-theme="c">
 			<div class="content-primary">	
-					<ul data-role="listview">
-						<%@products.each do |product| %>
-							<li>
-								<%= link_to product do%>
-									<%=image_tag product.cover_url(:normal),:class=>"ui-li-thumb"%>
-									<h3><%=product.name%></h3>
-									<p>单价:<font color="red"><%= number_to_currency product.price,:unit=>"￥"%>/<%= product.unit%></font></p>
-								<%end%>
-
-							
-							</li>
+						
+						
+						<%@product_cates.each do |cate|%>
+						<div data-role="collapsible" data-theme="g" data-content-theme="c"  data-inset="false">
+						
+							<h4><%=cate.name%></h4>
+          		<ul data-role="listview">
+						
+							<%cate.products.each do |product| %>
+								<li>
+									<%= link_to product do%>
+										<%=image_tag product.cover_url(:normal),:class=>"ui-li-thumb"%>
+										<h3><%=product.name%></h3>
+										<p>单价:<font color="red"><%= number_to_currency product.price,:unit=>"￥"%>/<%= product.unit%></font></p>
+									<%end%>
+								</li>
+							<%end%>
+							</ul>
+							</div>
 						<%end%>
 
-						</li>
+
 							
-					</ul>
 					</div><!--/content-primary -->		
 		</div>
 		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b"> 

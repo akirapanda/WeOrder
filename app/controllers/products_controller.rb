@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   def index
     @cart=current_cart
     @q=Product.search(params[:q])
-    
+    @product_cates = ProductCate.all
     @products = @q.result(distinct: true).where(:is_onsale=>true).where(:public=>true).order("is_recommend desc")
     
   end
