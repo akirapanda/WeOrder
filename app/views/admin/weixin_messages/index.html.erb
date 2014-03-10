@@ -1,0 +1,30 @@
+<%= content_for :title do %>
+	微信API消息日志
+<% end %>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>发起用户ID</th>
+      <th>消息类型</th>
+      <th>消息内容</th>
+      <th>发送时间</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weixin_messages.each do |weixin_message| %>
+      <tr>
+        <td><%= weixin_message.from_user %>(<%= weixin_message.weixin_user.name%>)</td>
+        <td><%= weixin_message.type %></td>
+        <td><%= weixin_message.text_content %></td>
+        <td><%=l weixin_message.created_at, :format=>:long %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= will_paginate @weixin_messages %>
+

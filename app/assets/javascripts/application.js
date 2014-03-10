@@ -27,4 +27,5 @@
 //= require shoppings
 //= require highcharts/highcharts                                                           
 //= require highcharts/highcharts-more
-
+//= require jquery.themepunch.plugins.min.js
+//= require jquery.themepunch.revolution.min.js

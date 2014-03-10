@@ -1,0 +1,44 @@
+
+
+
+<%= content_for :title do %>
+	用户信息
+<% end %>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th class="center">编号</th>
+      <th>邮件</th>
+      <th>管理员</th>
+      <th>创建时间</th>
+      <th>最后登陆时间</th>
+      <th>最后登陆IP</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.id ,user%></td>
+        <td><%= user.email %></td>
+				<td><%= t user.admin.to_s%></td>
+        <td><%=l user.created_at,:format=>:long %></td>
+        <td><%=l user.last_sign_in_at,:format=>:long %></td>
+        <td><%= user.last_sign_in_ip %></td>
+		<td>
+			<div class="hidden-phone visible-desktop btn-group">
+				<a data-method="get" href="<%=edit_admin_user_path(user)%>">
+				<button class="btn btn-mini btn-info">
+					<i class="icon-edit bigger-120"></i>
+				</button>
+				</a>
+				
+				<%= link_to raw("<button class=\"btn btn-mini btn-danger\"><i class=\"icon-trash bigger-120\"></i></button>"), [:admin,user], method: :delete, data: { confirm: 'Are you sure?' } %>
+			</div>
+		</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @users %>

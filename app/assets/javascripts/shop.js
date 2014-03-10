@@ -14,6 +14,10 @@
 //= require products
 //= require jquery.countdown
 //= require home
+//= require jquery.themepunch.plugins.min.js
+//= require jquery.themepunch.revolution.min.js
+//= require jquery.retina
+
 
 $(function(){
         // 页面浮动面板

@@ -63,6 +63,9 @@ Weorder::Application.routes.draw do
   namespace :admin do
     root :to => 'home#index'
     resources :product_cates
+    resources :users
+    resources :weixin_messages
+    
     resources :shoppings do
       collection do
         match 'search' => 'shoppings#search', via: [:get, :post], as: :search

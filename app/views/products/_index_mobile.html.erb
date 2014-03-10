@@ -9,7 +9,7 @@
 						<%@product_cates.each do |cate|%>
 						<div data-role="collapsible" data-theme="g" data-content-theme="c"  data-inset="false">
 						
-							<h4><%=cate.name%></h4>
+							<h4><%=cate.name%> (<%=cate.products.size%>)</h4>
           		<ul data-role="listview">
 						
 							<%cate.products.each do |product| %>

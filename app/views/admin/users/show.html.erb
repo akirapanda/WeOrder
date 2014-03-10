@@ -1,0 +1,46 @@
+<%= content_for :title do %>
+	用户信息
+<% end %>
+
+<div class='row-fluid'>
+    <div class='span3 box'>
+        <div class='box-content'>
+            <img alt="230x230&amp;text=photo" src="http://placehold.it/230x230&amp;text=Photo" />
+        </div>
+    </div>
+    <div class='span9 box'>
+        <div class='box-content box-double-padding'>
+            <form class='form' style='margin-bottom: 0;' />
+                <fieldset>
+                    <div class='span4'>
+                        <div class='lead'>
+                            <i class='icon-user text-contrast'></i>
+                            个人信息
+                        </div>
+                       
+                    </div>
+                    <div class='span7 offset1'>
+                        <div class='control-group'>
+                            <label class='control-label'>邮件地址</label>
+                            <div class='controls'>
+															<%=@user.email%>
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label'>是否管理员</label>
+                            <div class='controls'>
+															<%= t @user.admin.to_s%>
+                            </div>
+                        </div>
+                        <div class='control-group'>
+                            <label class='control-label'>注册时间</label>
+                            <div class='controls'>
+															<%=I18n.localize( @user.created_at,:format=>:long)%>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
