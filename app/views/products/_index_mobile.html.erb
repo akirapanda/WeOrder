@@ -27,7 +27,6 @@
 							<%cate.products.each do |product| %>
 								<li>
 									<%= link_to product do%>
-										<%=image_tag product.cover_url(:normal),:class=>"ui-li-thumb"%>
 										<h3><%=product.name%></h3>
 										<p>单价:<font color="red"><%= number_to_currency product.price,:unit=>"￥"%>/<%= product.unit%></font></p>
 									<%end%>
