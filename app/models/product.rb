@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
   validates :price, :numericality =>{:greater_than_or_equal_to=>0.01}
   mount_uploader :cover,CoverUploader
   belongs_to :user
+  belongs_to :shop
+  
   has_many :photo,:dependent => :destroy
   has_many :product_order_items,:dependent => :destroy
   has_many :shopping_items

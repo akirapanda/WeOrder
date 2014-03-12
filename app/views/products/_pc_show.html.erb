@@ -38,6 +38,8 @@
 
 								<div class="span7">
 									<strong>品名:</strong> <span><%=@product.name%></span><br>
+									<strong>卖家:</strong> <span><%=link_to @product.shop.try(:name),@product.shop%></span><br>
+									
 									<strong>简介:</strong> <span><%=@product.content%></span><br>
 									<strong>价格:</strong> <span><%=number_to_currency @product.price,:unit=>"&yen;"%>/<%= @product.unit%></span><br>
 									

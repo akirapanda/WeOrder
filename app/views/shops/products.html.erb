@@ -1,0 +1,49 @@
+<div data-role="page" data-theme="a">
+		<div data-role="header" data-position="inline" data-theme="b">
+			<h1><%=@shop.name%></h1>
+		</div>
+		<div data-role="content" data-theme="c">
+			<%if notice%>
+			<div class="alert alert-info fade in">
+				<a class="close" data-dismiss='alert' href="#">x</a>
+				<p id="notice"><%= notice %></p>
+			</div>
+			<%end%>
+			<%if alert%>
+			<div class="alert alert-block alert-error">
+				<a class="close" data-dismiss='alert' href="#">x</a>
+				<p id="notice"><%= alert %></p>
+			</div>
+			<%end%>
+			<div class="content-primary">	
+						<%@product_cates.each do |cate|%>
+							<%if cate[:products].any?%>
+						<div data-role="collapsible" data-theme="g" data-content-theme="c"  data-inset="false"  data-collapsed-icon="flat-menu" data-expanded-icon="flat-cross">
+		
+							<h4><%=cate[:name]%> (<%=cate[:products].size%>)</h4>
+          		<ul data-role="listview">
+						
+							<%cate[:products].each do |product| %>
+								<li>
+									<%= link_to product do%>
+										<h3><%=product.name%></h3>
+										<p>单价:<font color="red"><%= number_to_currency product.price,:unit=>"￥"%>/<%= product.unit%></font></p>
+									<%end%>
+								</li>
+							<%end%>
+							</ul>
+							</div>
+							<%end%>
+						<%end%>
+
+
+							
+					</div><!--/content-primary -->		
+		</div>
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b"> 
+			<%=render 'shared/mobile_footer_nav',:shop=>@shop%>
+  	</div><!-- /footer -->
+</div>
+
+
+

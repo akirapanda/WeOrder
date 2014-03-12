@@ -11,6 +11,11 @@ Weorder::Application.routes.draw do
   resources :carts
 
   resources :contacts
+  resources :shops do
+    member do
+      get 'products'
+    end
+  end
   
   
 
