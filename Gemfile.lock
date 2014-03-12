@@ -74,6 +74,9 @@ GEM
       sass-rails (>= 3.1.1)
     hash-deep-merge (0.1.1)
     hike (1.2.3)
+    httparty (0.13.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.5)
     jbuilder (1.5.1)
       activesupport (>= 3.0.0)
@@ -102,6 +105,7 @@ GEM
       subexec (~> 0.1.0)
     minitest (4.7.5)
     multi_json (1.8.0)
+    multi_xml (0.5.5)
     mysql2 (0.3.13)
     nokogiri (1.5.10)
     orm_adapter (0.4.0)
@@ -204,6 +208,7 @@ DEPENDENCIES
   devise
   devise-i18n-views
   font-awesome-sass-rails
+  httparty
   jbuilder (~> 1.2)
   jquery-rails
   lazy_high_charts

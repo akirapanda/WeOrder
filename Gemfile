@@ -73,7 +73,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'paranoia', '~> 2.0'
 
 gem 'lazy_high_charts'
-
+gem 'httparty'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

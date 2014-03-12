@@ -3,6 +3,19 @@
 			<h1>上理果园</h1>
 		</div>
 		<div data-role="content" data-theme="c">
+			
+			<%if notice%>
+			<div class="alert alert-info fade in">
+				<a class="close" data-dismiss='alert' href="#">x</a>
+				<p id="notice"><%= notice %></p>
+			</div>
+			<%end%>
+			<%if alert%>
+			<div class="alert alert-block alert-error">
+				<a class="close" data-dismiss='alert' href="#">x</a>
+				<p id="notice"><%= alert %></p>
+			</div>
+			<%end%>
 			<div class="content-primary">	
 						
 						

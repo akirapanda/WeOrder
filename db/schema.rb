@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310073508) do
+ActiveRecord::Schema.define(version: 20140310121341) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -164,8 +164,8 @@ ActiveRecord::Schema.define(version: 20140310073508) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -179,11 +179,29 @@ ActiveRecord::Schema.define(version: 20140310073508) do
     t.boolean  "admin"
     t.string   "role"
     t.string   "authentication_token"
-    t.boolean  "super_admin",            default: false
     t.integer  "shoping_id"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
+
+  create_table "weixin_buttons", force: true do |t|
+    t.integer  "weixin_menu_id"
+    t.string   "button_type"
+    t.string   "name"
+    t.string   "key"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "weixin_menus", force: true do |t|
+    t.integer  "shop_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "weixin_messages", force: true do |t|
     t.string   "from_user"
@@ -196,6 +214,16 @@ ActiveRecord::Schema.define(version: 20140310073508) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "weixin_user_id"
+  end
+
+  create_table "weixin_sub_buttons", force: true do |t|
+    t.integer  "weixin_button_id"
+    t.string   "button_type"
+    t.string   "name"
+    t.string   "key"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "weixin_users", force: true do |t|

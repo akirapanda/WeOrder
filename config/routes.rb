@@ -42,7 +42,7 @@ Weorder::Application.routes.draw do
   resources :users do
     member do
       get 'shopping'
-      get  'history_buy'
+      get 'history_buy'
     end
   end
 
@@ -65,6 +65,7 @@ Weorder::Application.routes.draw do
     resources :product_cates
     resources :users
     resources :weixin_messages
+    resources  :weixin_menus
     
     resources :shoppings do
       collection do

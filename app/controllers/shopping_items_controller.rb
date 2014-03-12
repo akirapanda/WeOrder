@@ -1,6 +1,7 @@
 class ShoppingItemsController < ApplicationController
   before_action :set_shopping_item, only: [:show, :edit, :update, :destroy,:clear]
   before_filter :authenticate_user!,only:[:show,:edit,:update]
+  skip_before_action :verify_authenticity_token
 
   # GET /shopping_items
   # GET /shopping_items.json
@@ -43,7 +44,13 @@ class ShoppingItemsController < ApplicationController
     @shopping_item=@cart.add_product(params[:product_id],count)
     respond_to do |format|
       if @shopping_item.save
-        format.html { redirect_to @shopping_item.product, notice: '添加入购物车成功！' }
+        format.html { 
+          if mobile?
+            redirect_to products_path, notice: '添加入购物车成功！' 
+          else
+            redirect_to @shopping_item.product, notice: '添加入购物车成功！' 
+          end
+          }        
       else
         format.html { redirect_to @shopping_item.product, alert: '添加失败，系统异常，请联系管理员！' }
       end
@@ -84,6 +91,8 @@ class ShoppingItemsController < ApplicationController
   end
   
   
+
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_shopping_item
@@ -94,4 +103,6 @@ class ShoppingItemsController < ApplicationController
     def shopping_item_params
       params.require(:shopping_item).permit(:good_id, :shopping_id, :count, :amount,:product_id ,:count)
     end
+    
+
 end
