@@ -19,7 +19,8 @@
 						
 						
 						<%@product_cates.each do |cate|%>
-						<div data-role="collapsible" data-theme="g" data-content-theme="c"  data-inset="false">
+							<%if cate.products.any?%>
+						<div data-role="collapsible" data-theme="g" data-content-theme="c"  data-inset="false"  data-collapsed-icon="flat-menu" data-expanded-icon="flat-cross">
 						
 							<h4><%=cate.name%> (<%=cate.products.size%>)</h4>
           		<ul data-role="listview">
@@ -34,6 +35,7 @@
 							<%end%>
 							</ul>
 							</div>
+							<%end%>
 						<%end%>
 
 
