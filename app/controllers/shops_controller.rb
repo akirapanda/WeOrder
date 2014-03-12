@@ -10,7 +10,7 @@ class ShopsController < ApplicationController
   
   def products
     @shop = Shop.find(params[:id])
-    product_cates = @shop.product_cates
+    product_cates = @shop.product_cates.includes(:products)
     
     @product_cates=[]
     
