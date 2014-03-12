@@ -1,0 +1,36 @@
+<div class='row-fluid'>
+    <div class='span4'>
+        <div class='lead'>
+            <i class='icon-cog contrast'></i>
+             店铺基本信息
+        </div>
+    </div>
+    <div class='span7 offset1'>
+        <address>
+            <strong>店铺名称:</strong>
+						<%=@shop.name%>
+            <br />
+            <strong>缩略名:</strong>
+						<%=@shop.short_name%>
+            <br />
+            <strong>分类:</strong>
+						<%=@shop.cate_type%>
+            <br />
+            <strong>描述:</strong>
+						<%=@shop.description%>
+            <br />
+            <strong>微信Token:</strong>
+						<%=@shop.weixin_token%>
+            <br />
+            <strong>APP ID:</strong>
+						<%=@shop.app_id%>
+            <br />
+            <strong>APP TOKEN:</strong>
+						<%=@shop.app_token%>
+            <br />
+            <strong>创建时间:</strong>
+						<%=@shop.created_at%>
+            <br />
+        </address>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<%= content_for :title do %>
+	商户信息-<%=@shop.name%>
+<% end %>
+
+<div class='row-fluid'>
+    <div class='span12 box' style='margin-bottom: 0'>
+        <div class='box-header blue-background'>
+            <div class='title'>商户信息</div>
+            <div class='actions'>
+                <a href="#" class="btn box-remove btn-mini btn-link"><i class='icon-remove'></i>
+                </a>
+                <a href="#" class="btn box-collapse btn-mini btn-link"><i></i>
+                </a>
+            </div>
+        </div>
+        <div class='box-content'>
+            <div class='tabbable' style='margin-top: 20px'>
+                <ul class='nav nav-responsive nav-tabs'>
+                    <li class='active'>
+                        <a data-toggle='tab' href='#retab1'>
+                            基本信息
+                        </a>
+                    </li>
+                    <li class=''>
+                        <a data-toggle='tab' href='#retab2'>
+                           管理人员列表
+                        </a>
+                    </li>
+                 
+                </ul>
+                <div class='tab-content'>
+                  <div class="tab-pane active" id="retab1"><%=render 'detail'%>
+                  </div>
+                  <div class="tab-pane " id="retab2"><%=render 'shop_user'%>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

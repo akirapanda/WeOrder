@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310121341) do
+ActiveRecord::Schema.define(version: 20140312065957) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20140310121341) do
     t.integer  "order_point"
     t.boolean  "spec_flag",                                default: false
     t.integer  "product_cate_id"
+    t.integer  "shop_id"
   end
 
   create_table "send_mails", force: true do |t|
@@ -114,6 +115,14 @@ ActiveRecord::Schema.define(version: 20140310121341) do
     t.string   "receivers"
     t.text     "content"
     t.boolean  "done"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shop_user_items", force: true do |t|
+    t.integer  "shop_id"
+    t.integer  "user_id"
+    t.integer  "level"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -149,6 +158,7 @@ ActiveRecord::Schema.define(version: 20140310121341) do
     t.decimal  "actual_amount",    precision: 10, scale: 2, default: 0.0
     t.string   "school_area"
     t.string   "channel"
+    t.integer  "shop_id"
   end
 
   create_table "shops", force: true do |t|
@@ -161,6 +171,8 @@ ActiveRecord::Schema.define(version: 20140310121341) do
     t.integer  "level"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "app_id"
+    t.string   "app_token"
   end
 
   create_table "users", force: true do |t|
@@ -180,6 +192,7 @@ ActiveRecord::Schema.define(version: 20140310121341) do
     t.string   "role"
     t.string   "authentication_token"
     t.integer  "shoping_id"
+    t.integer  "shop_id"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
@@ -214,6 +227,7 @@ ActiveRecord::Schema.define(version: 20140310121341) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "weixin_user_id"
+    t.integer  "shop_id"
   end
 
   create_table "weixin_sub_buttons", force: true do |t|

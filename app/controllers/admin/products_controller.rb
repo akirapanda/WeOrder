@@ -2,7 +2,7 @@ class Admin::ProductsController < Admin::BaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy,:photo,:buyer,:comments]
   
   def index
-    @products = Product.paginate(:page => params[:page], :per_page => 20)
+    @products = Product.where("shop_id=?",current_user.shop_id).paginate(:page => params[:page], :per_page => 20)
     respond_to do |format| 
       format.html {}
       format.csv { send_data(Product.all.to_csv(:only => [:id,:name,:price,:unit]))} 
@@ -41,6 +41,7 @@ class Admin::ProductsController < Admin::BaseController
   def create
     @product = Product.new(product_params)
     @product.user_id=current_user.id
+    @product.shop_id = current_user.shop_id
     respond_to do |format|
       if @product.save
         format.html { redirect_to [:admin,@product], notice: t('products.create_success') }

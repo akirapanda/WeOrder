@@ -1,0 +1,35 @@
+<%= content_for :title do %>
+维护商铺管理员清单
+<% end %>
+<form action="/admin/shops/<%=@shop.id%>/update_user">
+  <ul class='unstyled'>
+
+	
+	
+		<input name="shop_id" value='<%=@shop.id%>' type="hidden"/>
+		
+		<%@user.each do |user|%>
+			<%if @shop.users.any?{|comany_user| comany_user.id == user.id}%>
+			<li class='important item'>
+					<input type="checkbox" name="exist[]" value="<%=user.id%>" checked/>	
+					<%=user.email%>
+			</li>
+
+			<%else%>
+			
+			<li class='item'>
+      
+					<input type="checkbox" name="new[]" value="<%=user.id%>"/>	
+					<%=user.email%>
+
+			</li>
+			<%end%>
+
+
+
+		<%end%>
+	</ul>
+	<%= link_to '返回',[:admin,@shop] ,:class=>"btn"%>
+	<button type="submit" class="btn btn-info pull-right"> <i class="icon-refresh"></i>更新</button>
+	</form>
+</div>

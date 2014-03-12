@@ -1,7 +1,4 @@
 class Admin::ShoppingsController < Admin::BaseController
- 
- 
- 
   def to_process
     @shopping = Shopping.find(params[:id]) 
     @shopping.to_process
@@ -15,7 +12,6 @@ class Admin::ShoppingsController < Admin::BaseController
     @shopping.to_complete
     @shopping.save
     redirect_to [:admin,@shopping]
-    
   end
   def search
     index
@@ -31,7 +27,7 @@ class Admin::ShoppingsController < Admin::BaseController
   def index
     @q=Shopping.search(params[:q])
     
-    @shoppings = @q.result(distinct: true).order('created_at desc').paginate(:page => params[:page], :per_page => 20)
+    @shoppings = @q.result(distinct: true).where("shop_id=?",current_user.shop_id).order('created_at desc').paginate(:page => params[:page], :per_page => 20)
   end
   
   def show
@@ -57,6 +53,7 @@ class Admin::ShoppingsController < Admin::BaseController
   def create
     params.require(:shopping).permit!
     @shopping = Shopping.new(params[:shopping])
+    @shopping.shop_id = current_user.shop_id
     
     @shopping.shopping_items.each do |item|
       product=Product.find(item.product_id)

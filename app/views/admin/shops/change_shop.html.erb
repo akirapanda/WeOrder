@@ -1,0 +1,25 @@
+<%= content_for :title do %>
+变更当前操作的公司
+<% end %>
+<form action="/admin/shops/update_shop">
+	
+	
+	<input name="user_id" value='<%=@user.id%>' type="hidden"/>
+	
+	<%@shops.each do |shop|%>
+		<%if @user.shop && shop.id == @user.shop.id%>
+		<label>
+			<input name="shop_id" value='<%=shop.id%>' type="radio" checked />
+			<span class="lbl"> <%=shop.name%></span>
+		</label>
+		<%else%>
+		<label>
+			<input name="shop_id" value='<%=shop.id%>' type="radio" />
+			<span class="lbl"> <%=shop.name%></span>
+		</label>
+		<%end%>
+	<%end%>
+
+	<input type='submit' class="btn btn-primary" value="提交"></input>
+</form>
+

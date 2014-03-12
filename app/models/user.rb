@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :products
-
+  belongs_to :shop
+  has_many :shops, through: :shop_user_items
+  has_many :shop_user_items
   def admin?
     return self.admin
   end

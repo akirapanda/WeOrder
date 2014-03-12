@@ -97,6 +97,8 @@ class ShoppingsController < ApplicationController
             format.html { redirect_to session.delete(:return_to), alert: '您的订单中没有任何商品哟,请调整购买商品的数量。' }
           end 
         return
+    else
+       @shopping.shop_id = @shopping.shopping_items[0].product.shop_id
     end
          
     @shopping.amount=@shopping.calAmount(@shopping)
@@ -104,7 +106,10 @@ class ShoppingsController < ApplicationController
     if current_user
       @shopping.user_id=current_user.id
     end
-  
+    
+    
+    
+    
     respond_to do |format|
       if @shopping.save
        # Cart.destroy(session[:cart_id]) unless session[:cart_id]==nil

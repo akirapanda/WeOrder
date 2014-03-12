@@ -66,6 +66,17 @@ Weorder::Application.routes.draw do
     resources :users
     resources :weixin_messages
     resources  :weixin_menus
+    resources  :shops do
+      collection do
+        get 'change_shop'
+        get 'update_shop'
+      end
+
+      member do
+        get 'add_user'
+        get 'update_user'
+      end
+    end
     
     resources :shoppings do
       collection do
