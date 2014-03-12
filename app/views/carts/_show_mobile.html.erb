@@ -92,13 +92,7 @@
 					</div> <!--end of content-->
 			
 		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b"> 
-  		<div data-role="navbar"> 
-  			<ul>
-  				<li><a href="<%=root_path%>" data-icon="home">首页</a></li>
-  				<li><a href="<%=products_path%>" data-icon="grid" class="ui-btn-active">购物</a></li>
-  				<li><%=link_to "下单",@cart,"data-icon"=>"gear"%>
-  			</ul>
-  		</div><!-- /navbar -->
+			<%=render 'shared/mobile_footer_nav'%>
   	</div><!-- /footer -->
 </div>
 
