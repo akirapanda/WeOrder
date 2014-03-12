@@ -1,0 +1,80 @@
+
+
+<%= simple_form_for [:admin,@shop] do |f| %>
+	<fieldset>
+	   <div class='span4'>
+	       <div class='lead'>
+	           <i class='icon-github text-contrast'></i>
+	           商铺基本信息
+	       </div>
+	   </div>
+	
+
+		
+
+		
+	
+	     <div class='span7 offset1'>
+		
+		  	<div class='control-group'>
+					<%= f.label :name ,:class=>"control-label"%>
+	         <div class='controls'>
+	    			<%= f.input :name,:label=>false %>
+	          </div>
+	       </div>
+	
+		  	<div class='control-group'>
+					<%= f.label :short_name ,:class=>"control-label"%>
+	         <div class='controls'>
+	    			<%= f.input :short_name,:label=>false %>
+	          </div>
+	       </div>
+
+				<div class='control-group'>
+					<%= f.label :cate_type ,:class=>"control-label"%>
+	         <div class='controls'>
+						<%= f.input :cate_type,:label=>false  %>
+	          </div>
+	       </div>
+	
+	
+	    	<div class='control-group'>
+					<%= f.label :description ,:class=>"control-label"%>
+	         <div class='controls'>
+						<%= f.input :description,:label=>false,:input_html=>{:rows=>10}%>
+	          </div>
+	       </div>
+
+				<div class="control-group">
+			    	<%= f.label :weixin_token ,:class=>"control-label"%>
+					<div class="controls">
+						<%= f.input :weixin_token,:label=>false %>
+					</div>
+			  </div>
+		  	<div class='control-group'>
+					<%= f.label :app_id ,:class=>"control-label"%>
+	         <div class='controls'>
+	    				<%= f.input :app_id,:label=>false  %>
+	          </div>
+	       </div>
+
+		  	<div class='control-group'>
+					<%= f.label :app_token ,:class=>"control-label"%>
+	         <div class='controls'>
+	    				<%= f.input :app_token,:label=>false  %>
+	          </div>
+	       </div>
+	     </div>
+	 </fieldset>
+
+	 <div class='form-actions' style='margin-bottom: 0;'>
+	     <div class='text-right'>
+				<%= link_to '返回', admin_root_path ,:class => "btn btn-large"%>
+
+			  <%= f.submit "提交", :class=> "btn btn-primary  btn-large" %>
+	     </div>
+	 </div>
+
+
+
+<% end %>

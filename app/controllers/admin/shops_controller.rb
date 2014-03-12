@@ -5,11 +5,11 @@ class Admin::ShopsController < Admin::BaseController
   
   
   def new
-    @company = Company.new
+    @shop = Shop.new
   end
   
   def edit
-    @company = Company.find(params[:id])
+    @shop = Shop.find(params[:id])
   end
   
   def show
@@ -19,19 +19,19 @@ class Admin::ShopsController < Admin::BaseController
   
   
   def update
-    @company = Company.find(params[:id])
+    @shop = Shop.find(params[:id])
     
-     if @company.update(company_param)
-       redirect_to setting_companies_path, notice: '更新公司信息成功!' 
+     if @shop.update(shop_param)
+       redirect_to admin_shops_path, notice: '更新商铺信息成功!' 
     else
       render action: 'edit' 
     end
   end
   
   def create
-    @company = Company.new(company_param)
-    if @company.save
-      redirect_to setting_companies_path, notice: '新建公司信息成功' 
+    @shop = Shop.new(shop_param)
+    if @shop.save
+      redirect_to admin_shops_path, notice: '新建商铺信息成功' 
     end
   end
   
