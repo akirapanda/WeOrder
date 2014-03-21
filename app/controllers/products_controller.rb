@@ -14,11 +14,12 @@ class ProductsController < ApplicationController
     @q=Product.search(params[:q])
     @product_cates = ProductCate.all
     @products = @q.result(distinct: true).where(:is_onsale=>true).where(:public=>true).order("is_recommend desc")
-    
+    @shop = Shop.find(1)
   end
 
   def show
     @shopping_item=ShoppingItem.new
+    @shop = Shop.find(1)
   end
 
 

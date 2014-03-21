@@ -7,6 +7,8 @@ class ShoppingsController < ApplicationController
   # GET /shoppings/1
   # GET /shoppings/1.json
   def show
+    @shop = Shop.find(1)
+    
   end
 
 
@@ -56,6 +58,7 @@ class ShoppingsController < ApplicationController
       @shopping .shopping_items<<item
     end
     @shopping.amount= @shopping.calAmount(@shopping)
+    @shop = Shop.find(1)
   end
 
   # GET /shoppings/1/edit
