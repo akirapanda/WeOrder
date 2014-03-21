@@ -26,7 +26,7 @@ class Shopping < ActiveRecord::Base
   
   def self.available_time
     #0~11:00  
-    if (0..11) && (0...30)===Time.now.min === Time.now.hour
+    if (0..11) === Time.now.hour  && (0...30)===Time.now.min 
       return RECEIVE_TIMES
     #11:00~17:15
     elsif (11 === Time.now.hour && (30...59) == Time.now.min) || ( (12...17) === Time.now.hour && (0...30)===Time.now.min)
