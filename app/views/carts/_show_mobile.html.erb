@@ -70,7 +70,7 @@
 							</legend>
 							<%= f.input :channel,:input_html=>{:value=>"mobile"} ,:as => :hidden%>
 
-							<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"},:placeholder=>"IOS设备请按'后一项'填写表格"%>
+							<%= f.input :mobile_phone,:input_html=>{:style=>"height:40px;"},:placeholder=>"填写完毕，请点后一项"%>
 							<%= f.input :receive_time,:collection=>Shopping.available_time,:selected=>Shopping::available_time[0],:input_html=>{"data-theme"=>"g","data-iconpos"=>"left",:id => "date_select"} %>
 
 							<div id="build">
@@ -123,7 +123,7 @@ $( document ).ready(function() {
     });
 	
 		var selected = $(date_select).children('option:selected').val();
-		if (selected.indexOf("22:00") >= 0){
+		if (selected.indexOf("20:30") >= 0){
 			$('#shopping_customer_build').val("其他");
 		}else{
 			$('#shopping_customer_build').val("一食堂票务亭");
@@ -131,7 +131,7 @@ $( document ).ready(function() {
 
 	$('#date_select').change(function(){ 
 		var selected = $(this).children('option:selected').val();
-		if (selected.indexOf("22:00") >= 0){
+		if (selected.indexOf("20:30") >= 0){
 			$('#shopping_customer_build').val("其他");
 		}else{
 			$('#shopping_customer_build').val("一食堂票务亭");
