@@ -4,7 +4,7 @@
 	<ul>
 		<li><a href="<%=root_path%>" data-icon="home" data-transition="none" data-ajax="false" >首页</a></li>
 		<li><a href="<%=products_path%>" data-icon="grid" class="ui-btn-active" data-transition="none" data-ajax="false" >购物</a></li>
-		<li><%=link_to "下单",@cart,"data-icon"=>"gear" ,"data-ajax"=>"false","data-transition"=>"none" %>
+		<li><%=link_to "下单",current_cart,"data-icon"=>"gear" ,"data-ajax"=>"false","data-transition"=>"none" %>
 	</ul>
 </div><!-- /navbar -->
 
@@ -14,7 +14,7 @@
 	<ul>
 		<li><a href="<%=shop_path(shop)%>" data-icon="home" data-transition="none" data-ajax="false" >首页</a></li>
 		<li><a href="<%=products_shop_path(shop)%>" data-icon="grid" data-transition="none" data-ajax="false" >购物</a></li>
-		<li><%=link_to "下单",@cart,"data-icon"=>"gear" ,"data-ajax"=>"false","data-transition"=>"none" %>
+		<li><%=link_to "下单",current_cart"data-icon"=>"gear" ,"data-ajax"=>"false","data-transition"=>"none" %>
 	</ul>
 </div><!-- /navbar -->
 <%end%>

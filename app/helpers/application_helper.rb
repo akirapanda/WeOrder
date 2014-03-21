@@ -12,6 +12,13 @@ module ApplicationHelper
     agent_str =~ Regexp.new(MOBILE_USER_AGENTS)
   end
   
+  def current_cart
+    Cart.find(session[:cart_id])
+  rescue ActiveRecord::RecordNotFound
+    cart=Cart.create
+    session[:cart_id]=cart.id
+    cart
+  end
   
   def carousel_tag(goods)
     if goods.photo.size==0
