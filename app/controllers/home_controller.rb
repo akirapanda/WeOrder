@@ -10,7 +10,6 @@ class HomeController < ApplicationController
     @cart=current_cart    
     @q=Product.search(params[:q])
     @shop = Shop.find(1)
-    
   end
   
   

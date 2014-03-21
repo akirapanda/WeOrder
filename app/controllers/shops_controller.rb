@@ -2,6 +2,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    @cart=current_cart
   end
   
   def index
