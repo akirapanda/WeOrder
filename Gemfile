@@ -2,6 +2,8 @@ source 'http://ruby.taobao.org'
 gem 'to_csv-rails'
 gem 'mysql2'
 gem 'yaml_db'
+gem 'whenever'
+
 gem 'actionpack-xml_parser'
 gem "rails-i18n","0.1.8"
 gem 'font-awesome-sass-rails'
