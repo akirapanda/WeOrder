@@ -18,7 +18,6 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-5 11  * * *
 every '45 11  * * *' do
   rake "admin:uncompleted_shoppings_mail"  
 end
