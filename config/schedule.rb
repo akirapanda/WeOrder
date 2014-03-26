@@ -18,12 +18,12 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-every '45 11  * * *' do
+every '35 11  * * *' do
   rake "admin:uncompleted_shoppings_mail"  
 end
-every '15 17  * * *' do
+every '05 17  * * *' do
   rake "admin:uncompleted_shoppings_mail"  
 end
-every '15 20  * * *' do
+every '05 20  * * *' do
   rake "admin:uncompleted_shoppings_mail"  
 end
