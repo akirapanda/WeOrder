@@ -1,19 +1,7 @@
 
 <%if mobile?%>
 
-<div data-role="page" data-theme="a">
-		<div data-role="header" data-position="inline" data-theme="b">
-			<h1>上理果园</h1>
-		</div>
-		<div data-role="content" data-theme="c">
-			<p>上理果园致力于为您提供安全、廉价的新鲜水果~</p>
-			<p>状态:营业中</p>
-		</div>
-		<div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme="b"> 
-			<%=render 'shared/mobile_footer_nav',:shop=>@shop%>
-
-		</div><!-- /footer -->
-</div>
+	<%=render "mobile"%>
 
 <%else%>
 	<div class="row-fluid">

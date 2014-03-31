@@ -75,6 +75,7 @@ class ShoppingsController < ApplicationController
     params.require(:shopping).permit(:goods,:order_id)
     goods=params[:goods]
     order_id=params[:order_id]
+    @shopping.shop_id = 1
     ##how to process a complex form like this
     if goods.nil?
       respond_to do |format|
