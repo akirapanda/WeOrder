@@ -62,9 +62,6 @@ class WeixinController < ApplicationController
   	if msg_type == "text"
   	  keywords=Keyword.where(:cate=>"text",:keywords=>params[:xml][:Content].to_s.strip)
 		  if keywords.size==0
-  		  keywords=Keyword.where(:cate=>"text",:keywords=>"default")
-  		  @content=keywords[0].reply_content
-  	    render "echo",:format=>:xml
   	    return
   	  end
   	  
