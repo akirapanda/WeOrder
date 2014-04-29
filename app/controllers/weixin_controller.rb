@@ -42,6 +42,7 @@ class WeixinController < ApplicationController
   	  keywords=Keyword.where(:cate=>"event",:keywords=>params[:xml][:EventKey])
   	  
 		  if keywords.size==0
+		    render "echo",:format=>:xml
   	    return
   	  end
   	  
@@ -62,6 +63,7 @@ class WeixinController < ApplicationController
   	if msg_type == "text"
   	  keywords=Keyword.where(:cate=>"text",:keywords=>params[:xml][:Content].to_s.strip)
 		  if keywords.size==0
+		    render "echo",:format=>:xml
   	    return
   	  end
   	  
