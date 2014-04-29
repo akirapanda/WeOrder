@@ -20,7 +20,7 @@ namespace :admin do
     mails.each do |mail|
       Mail.deliver do
         from    'admin@nosweetnopay.com'
-        to      ["525483886@qq.com","18071400@qq.com","xoyljlj@126.com ","670390177@qq.com","630131222@qq.com","1042105273@qq.com","9858075473@qq.com","695704081@qq.com"]
+        to      ["525483886@qq.com","18071400@qq.com","xoyljlj@126.com ","670390177@qq.com","630131222@qq.com","1042105273@qq.com","985075473@qq.com","695704081@qq.com"]
         subject '新的订单信息'
 
         html_part do
@@ -68,7 +68,7 @@ namespace :admin do
      content=@content
      Mail.deliver do
        from    'admin@nosweetnopay.com'
-       to      ["525483886@qq.com","18071400@qq.com","xoyljlj@126.com ","670390177@qq.com","630131222@qq.com","1042105273@qq.com","9858075473@qq.com","695704081@qq.com"]
+       to      ["525483886@qq.com","18071400@qq.com","xoyljlj@126.com ","670390177@qq.com","630131222@qq.com","1042105273@qq.com","985075473@qq.com","695704081@qq.com"]
        subject '未处理订单汇总信息'
        html_part do
          content_type 'text/html; charset=UTF-8'
